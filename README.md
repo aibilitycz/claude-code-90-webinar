@@ -1,0 +1,79 @@
+# Claude Code Masterclass: Jak používat Claude Code i když nejste vývojář
+
+**Cílová skupina:** Marketéři, projektoví manažeři, podnikatelé, kreativci
+**Délka:** 90 minut
+**Úroveň:** 2 — Vytváření AI asistentů (znáte AI, chcete poznat Claude Code)
+**Formát:** Online webinář (Zoom) — live demo s Q&A
+
+## O čem je tento webinář
+
+Všichni mluví o Claude Code. My vám ukážeme, jak ho skutečně používat.
+
+Za 90 minut pochopíte, co umí a proč mění pravidla hry. Společně ho nainstalujeme, zadáte mu první úkol a uvidíte, jak pracuje. Žádná suchá teorie — rovnou akce.
+
+## Co se naučíte
+
+- Co je Claude Code a proč ho chcete používat
+- Jak ho nainstalovat krok za krokem
+- Jak zadat první úkol a sledovat, jak agent pracuje a co vytvoří
+- Jaké workflow použít pro weby, výzkum, automatizace a další projekty
+- Odejdete s pochopením, jak začít vlastní projekt
+
+## Struktura kurzu
+
+### [Průvodce lektora](./00-session-guide.md)
+Kompletní instrukce pro vedení 90minutového webináře s časovým rozpisem.
+
+### Postupné učení po levelech:
+
+#### **Level 0: [Úvod & Instalace](./level-0-introduction/)** (15 min)
+- Co je Claude Code a kde se vzal
+- Claude Code vs Cursor vs ChatGPT — kde se liší
+- Cena a plány — co potřebujete k používání
+- Terminál za 5 minut — nebojte se příkazového řádku
+- Živá instalace krok za krokem
+
+#### **Level 1: [První úkol](./level-1-beginner/)** (20 min)
+- Zadání prvního úkolu — sledujte, jak agent myslí a pracuje
+- Autonomní tvorba souborů — Claude Code vytváří celé projekty
+- Samoopravný cyklus — když narazí na chybu, opraví ji sám
+- Vícekrokové uvažování — jak rozkládá složité úkoly
+
+#### **Level 2: [Showcase workflow](./level-2-intermediate/)** (30 min)
+- Tvorba webové aplikace od nuly
+- Výzkum a analýza — zpracování dat a vytváření reportů
+- Automatizace — zpracování souborů a opakujících se úkolů
+- Obsah a marketing — generování obsahu a prezentací
+
+#### **Level 3: [Pokročilé funkce](./level-3-advanced/)** (15 min)
+- CLAUDE.md — jak "natrénovat" Claude Code na váš styl
+- MCP servery — jak propojit Claude Code s dalšími nástroji
+- Pokročilá konfigurace a tipy pro power usery
+
+### Q&A + Next Steps (10 min)
+
+## Materiály
+
+### Průvodci
+- **[Průvodce lektora](./00-session-guide.md)** — Podrobný scénář celého webináře
+- **[Quick Start CZ](./cheat-sheet/claude-code-quickstart-cs.md)** — Váš první půlhodina s Claude Code
+- **[Quick Start EN](./cheat-sheet/claude-code-quickstart-en.md)** — Your first 30 minutes with Claude Code
+
+### Další zdroje
+- [Claude Code dokumentace](https://docs.anthropic.com/en/docs/claude-code)
+- [Anthropic](https://www.anthropic.com)
+- [Claude Code na GitHubu](https://github.com/anthropics/claude-code)
+
+---
+
+## Požadavky
+
+**Pro účastníky:**
+- Počítač (Mac/Linux/Windows), internet a otevřená hlava
+- Před webinářem obdržíte krátký návod na přípravu
+
+**Pro lektory:**
+- Přečtěte si [Průvodce lektora](./00-session-guide.md)
+- Mějte Claude Code nainstalovaný a funkční
+- Připravte si projekt/složku pro live demo
+- Ověřte aktuální stav funkcí Claude Code (rychle se vyvíjí)
