@@ -2,10 +2,22 @@
 
 ## Obsah
 
+- [Rozdělení prezentujících](#rozdělení-prezentujících)
 - [Časový rozvrh (90 minut)](#časový-rozvrh-90-minut)
 - [Klíčové body k zdůraznění](#klíčové-body-k-zdůraznění)
 - [Tipy pro live demo](#tipy-pro-live-demo)
 - [Technické požadavky](#technické-požadavky)
+
+## Rozdělení prezentujících
+
+| Čas | Sekce | Kdo | Minuty |
+|-----|-------|-----|--------|
+| 0–35 | Level 0 (intro, instalace) + Level 1 (první úkol) | **Prezentující 1** | 35 min |
+| 35–37 | Micro-Q&A #1 — předání slova | **Oba** | 2 min |
+| 37–78 | Level 2 (workflow showcase) + Level 3 (pokročilé) | **Prezentující 2** | 41 min |
+| 78–90 | Q&A + Závěr | **Oba** | 12 min |
+
+> **Poznámka:** Micro-Q&A v 35. minutě slouží jako přirozený moment pro předání. Konkrétní obsazení rolí bude rozhodnuto později.
 
 ## Časový rozvrh (90 minut)
 
