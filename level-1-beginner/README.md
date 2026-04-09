@@ -57,10 +57,43 @@ Tohle je klíčový rozdíl oproti chatbotům:
 - Opraví kód a zkusí znovu
 - Celý cyklus proběhne automaticky — vy jen sledujete
 
+### Fáze 3.5: Povolení — agent se ptá, než udělá něco důležitého
+
+Důležitý detail: než Claude Code provede potenciálně nebezpečnou akci, **zeptá se vás na povolení**:
+
+```
+Claude Code chce spustit příkaz: npm install chart.js
+Povolit? [y/N]
+```
+
+```
+Claude Code chce smazat soubor: old-backup.html
+Povolit? [y/N]
+```
+
+Můžete:
+- **Povolit** (`y`) — agent pokračuje
+- **Odmítnout** (`n`) — agent najde jinou cestu
+
+> **Proč je to důležité:** Claude Code skutečně mění soubory na vašem počítači. Bezpečnostní kontrola zajišťuje, že nikdy neudělá něco, co nechcete. Konečné rozhodnutí je **vždy na vás**.
+
 ### Fáze 4: Výsledek
 - Hotový projekt ve vaší složce
 - Můžete otevřít v prohlížeči a vidět výsledek
 - Vše je připravené k dalším úpravám
+
+## Kontrola výstupu — vždy se podívejte, co vzniklo
+
+Claude Code je mocný, ale není neomylný. Než budete pokračovat, **vždy si projděte výsledek**:
+
+| Co kontrolovat | Jak |
+|---------------|-----|
+| **Vizuální výsledek** | Otevřete stránku/soubor a projděte si ho |
+| **Kroky agenta** | Přečtěte si výstup v terminálu — co vytvořil, co změnil |
+| **Faktická správnost** | Pokud text obsahuje údaje nebo čísla, ověřte je |
+| **Funkčnost** | Klikněte na tlačítka, vyplňte formuláře, otestujte odkazy |
+
+> **Pravidlo:** Čím důležitější je výstup, tím důkladnější kontrola. Osobní stránka na zkoušku? Stačí pohled. Prezentace pro klienta? Detail po detailu.
 
 ## Iterace — upřesňování za chodu
 
@@ -116,5 +149,7 @@ Po Level 1 byste měli chápat:
 - [ ] Jak zadat úkol Claude Code
 - [ ] Co znamenají jednotlivé fáze agentovy práce
 - [ ] Že agent se sám opravuje, když narazí na problém
+- [ ] Že agent se ptá na povolení před nebezpečnými akcemi
+- [ ] Jak zkontrolovat a ověřit výstup agenta
 - [ ] Jak iterovat a upřesňovat výsledek
 - [ ] Rozdíl mezi chatbotem a agentem

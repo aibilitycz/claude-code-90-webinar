@@ -39,18 +39,19 @@ Kompletní instrukce pro vedení 90minutového webináře s časovým rozpisem.
 - Samoopravný cyklus — když narazí na chybu, opraví ji sám
 - Vícekrokové uvažování — jak rozkládá složité úkoly
 
-#### **Level 2: [Showcase workflow](./level-2-intermediate/)** (30 min)
+#### **Level 2: [Showcase workflow](./level-2-intermediate/)** (25 min + 2× micro-Q&A)
 - Tvorba webové aplikace od nuly
-- Výzkum a analýza — zpracování dat a vytváření reportů
+- Práce s dokumenty a emaily — shrnutí, briefingy, komunikace
 - Automatizace — zpracování souborů a opakujících se úkolů
-- Obsah a marketing — generování obsahu a prezentací
+- Rychlý přehled dalších možností (debugging, Git, dokumentace...)
 
-#### **Level 3: [Pokročilé funkce](./level-3-advanced/)** (15 min)
+#### **Level 3: [Pokročilé funkce](./level-3-advanced/)** (14 min)
 - CLAUDE.md — jak "natrénovat" Claude Code na váš styl
-- MCP servery — jak propojit Claude Code s dalšími nástroji
-- Pokročilá konfigurace a tipy pro power usery
+- MCP servery — jak propojit Claude Code s dalšími nástroji (s live demo)
+- Paměť a přepínání modelů
+- Tipy pro power usery
 
-### Q&A + Next Steps (10 min)
+### Q&A + Závěr (12 min)
 
 ## Materiály
 

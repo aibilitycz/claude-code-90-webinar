@@ -36,32 +36,34 @@ Přidej vysvětlení výpočtu.
 - Preview výsledku v prohlížeči
 - Jednu iteraci: "Změň barvy / přidej sekci / uprav text"
 
-## Workflow 2: Výzkum a analýza (7 min)
+## Workflow 2: Práce s dokumenty a emaily (7 min)
 
-### Demo — zpracování dat
+### Demo — shrnutí a příprava podkladů
 
 ```
-Analyzuj tento CSV soubor s prodejními daty.
-Vytvoř přehledný HTML report s:
-- Celkové tržby po měsících (graf)
-- Top 5 produktů podle prodeje
-- Trend za poslední rok
-- Doporučení na základě dat
+Tady je 20stránkový PDF report od konzultantů.
+Přečti ho a vytvoř:
+- Executive summary (max 10 vět)
+- 5 klíčových zjištění v bullet pointech
+- 3 doporučené další kroky
+- Přehlednou HTML stránku s výsledky
 ```
 
-### Alternativní demo — rešerše
+### Alternativní demo — emaily a komunikace
+
 ```
-Vytvoř strukturovaný brief o trendu "AI agenti v podnikání".
-Struktura: Definice, Aktuální stav (2026), Klíčové nástroje,
-Příležitosti pro malé firmy, Rizika, Doporučení.
-Formát: profesionální dokument v Markdown.
+Připrav 3 varianty emailu pro klienta, který se ptá na zdražení služeb.
+Varianta 1: formální, empatická
+Varianta 2: stručná, věcná
+Varianta 3: neformální, přátelská
+Ke každé variantě napiš subject line.
 ```
 
 ### Co ukázat publiku:
-- Claude Code umí pracovat s daty (CSV, JSON, Excel přes MCP)
-- Vytváří vizualizace a grafy
-- Generuje strukturované reporty
-- Kombinuje analýzu s doporučeními
+- Claude Code zpracuje dlouhé dokumenty a vytáhne to podstatné
+- Generuje více variant — vy vybíráte nejlepší
+- Výstup přizpůsobí formátu (email, report, prezentace)
+- Reálný úkol, který publikum řeší každý týden
 
 ## Workflow 3: Automatizace a obsah (7 min)
 
@@ -92,42 +94,18 @@ Ulož jako samostatné soubory.
 - Pracuje s existujícími soubory (ne jen tvoří nové)
 - Automatizuje opakující se práci
 
-## Workflow 4: Co dalšího umí (9 min)
+## Co dalšího Claude Code umí (rychlý přehled)
 
-Rychlý přehled — 2 minuty na každé:
+> Toto není live demo — jen rychlý slovní přehled dalších možností, aby publikum vědělo, kam se dá pokračovat.
 
-### Debugging a oprava chyb
-```
-V tomhle projektu nefunguje kontaktní formulář.
-Najdi problém a oprav ho.
-```
-- Claude Code přečte kód, najde chybu, opraví ji
-- Ukázka diagnostického procesu agenta
-
-### Práce s Git
-```
-Podívej se na historii tohoto projektu.
-Co se změnilo v posledním týdnu?
-Vytvoř shrnutí změn.
-```
-- Claude Code rozumí verzování
-- Může commitovat, vytvářet branches, analyzovat historii
-
-### Dokumentace
-```
-Projdi tento projekt a vytvoř kompletní README.md.
-Zahrň: co projekt dělá, jak ho nainstalovat, jak ho používat.
-```
-- Automatická tvorba dokumentace z existujícího kódu
-- Pochopení struktury projektu
-
-### Refactoring
-```
-Tento kód je nepřehledný.
-Vylepši strukturu, přidej komentáře, rozděl do logických celků.
-```
-- Claude Code chápe best practices
-- Vylepšuje kód bez změny funkcionality
+| Oblast | Co Claude Code zvládne | Příklad promptu |
+|--------|----------------------|-----------------|
+| **Debugging** | Najde a opraví chyby v existujícím kódu | "Kontaktní formulář neodesílá — najdi a oprav chybu" |
+| **Git & verzování** | Commituje, vytváří branches, analyzuje historii | "Co se v projektu změnilo za poslední týden?" |
+| **Dokumentace** | Vytvoří README, návody, API docs z kódu | "Projdi projekt a vytvoř kompletní README" |
+| **Refactoring** | Vylepší strukturu bez změny funkcionality | "Rozděl tento soubor do logických celků" |
+| **Testování** | Napíše testy pro existující kód | "Napiš testy pro kontaktní formulář" |
+| **Konverze** | Převede mezi formáty a technologiemi | "Převeď tento Excel na webovou tabulku" |
 
 ## Klíčové poznatky
 

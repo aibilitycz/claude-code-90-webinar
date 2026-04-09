@@ -11,8 +11,9 @@
 
 ### Level 0: Úvod & Instalace (15 minut)
 
-- **0–3 min:** Představení, cíle webináře
-  - "Za 90 minut uvidíte, co Claude Code umí a proč o něm všichni mluví"
+- **0–3 min:** Otevření příběhem + cíle webináře
+  - **Příběh (60 sekund):** "Minulý týden jsem potřeboval landing page pro nový produkt. Designér měl termín za dva týdny. Otevřel jsem terminál, napsal jednu větu, a za 4 minuty jsem měl hotovou stránku — responsivní, s animacemi, připravenou k nasazení. To, co uvidíte dnes, není sci-fi. Je to nástroj, který můžete použít zítra ráno."
+  - **Before/After:** Ukažte screenshot — "Toto je prompt. Toto je výsledek. 4 minuty."
   - Cíl: pochopení, inspirace, vědět jak začít
 - **3–5 min:** Co je Claude Code
   - AI agent v terminálu — ne chat, ne editor, ale autonomní spolupracovník
@@ -44,90 +45,110 @@
     - Plánuje kroky
     - Vytváří soubory (HTML, CSS, JS)
     - Kontroluje svou práci
-- **20–25 min:** Anatomie agentovy práce
+- **20–27 min:** Anatomie agentovy práce
   - Jak číst výstup Claude Code — co znamenají jednotlivé kroky
   - "Thinking" — uvažování nad úkolem
   - Tvorba souborů — autonomní generování celé struktury projektu
   - Self-correction — když něco nefunguje, opraví to sám
-- **25–30 min:** Výsledek a iterace
+  - **Bezpečnostní pojistka:** ukažte moment, kdy agent žádá o povolení
+    - "Vidíte? Claude Code se zeptal, než spustil příkaz. Vy rozhodujete."
+  - **Kontrola výstupu:** otevřete výsledek a projděte ho s publikem
+    - "Agent je mocný, ale ne neomylný — vždy si projděte, co vytvořil."
+- **27–31 min:** Výsledek a iterace
   - Otevření vytvořené stránky v prohlížeči
   - Ukázka iterace: "Přidej sekci s mými projekty a změň barvy na tmavé"
   - Claude Code upraví existující soubory — pochopí kontext
-- **30–35 min:** Klíčové poznatky z Level 1
+- **31–35 min:** Klíčové poznatky z Level 1
   - Agent ≠ chatbot — neodpovídá, ale dělá
   - Kontext je král — Claude Code vidí celý projekt
   - Iterace je přirozená — můžete upřesňovat za chodu
+  - Agent se ptá na povolení — vy máte vždy poslední slovo
 
-### Level 2: Showcase workflow (30 minut)
+### Micro-Q&A (2 minuty)
 
-- **35–42 min:** Workflow 1 — Webová aplikace od nuly
+- **35–37 min:** Rychlé otázky z publika
+  - "Než půjdeme dál — máte otázky k tomu, co jste viděli?"
+  - Odpovězte 2–3 otázky, složitější zaparkujte na závěrečné Q&A
+
+### Level 2: Showcase workflow (25 minut)
+
+- **37–46 min:** Workflow 1 — Webová aplikace od nuly
   - Demo: Vytvoření jednoduché webové aplikace
   - Možnosti (lektor vybere podle publika):
     - Osobní portfolio / bio stránka
     - Business landing page s hero sekcí, funkcemi, ceníkem
     - Interaktivní nástroj (kalkulačka, kvíz, formulář)
   - Ukázat celý cyklus: zadání → tvorba → preview → iterace
-- **42–49 min:** Workflow 2 — Výzkum a analýza
-  - Demo: Analýza dat nebo vytvoření strukturovaného reportu
+- **46–54 min:** Workflow 2 — Práce s dokumenty a emaily
+  - Demo: Zpracování dokumentu nebo příprava komunikace
   - Příklady:
-    - Zpracování CSV dat a vytvoření vizualizace
-    - Rešerše tématu a vytvoření briefu
-    - Analýza dokumentu a extrakce klíčových informací
-- **49–56 min:** Workflow 3 — Automatizace a obsah
+    - Shrnutí dlouhého PDF do executive summary
+    - Příprava 3 variant emailu pro klienta (formální, stručná, přátelská)
+    - Vytvoření briefu z podkladových materiálů
+  - Zdůraznit: "Tohle je úkol, který děláte každý týden. Teď trvá 3 minuty."
+- **54–61 min:** Workflow 3 — Automatizace a obsah
   - Demo: Automatizace opakující se práce
   - Příklady:
     - Hromadné zpracování souborů (přejmenování, konverze, organizace)
     - Generování marketingového obsahu (emaily, příspěvky, prezentace)
     - Transformace dat z jednoho formátu do druhého
-- **56–65 min:** Co dalšího Claude Code umí
-  - Rychlý přehled dalších možností (1–2 minuty na každé):
-    - Debugging a oprava chyb v existujícím kódu
-    - Práce s Git repozitáři
-    - Vytváření dokumentace
-    - Refactoring a vylepšování kódu
+- **61–62 min:** Co dalšího Claude Code umí (slovní přehled — bez live demo)
+  - Rychlý výčet: debugging, Git, dokumentace, refactoring, testování, konverze
+  - "Tohle všechno si vyzkoušíte doma — v cheat sheetu máte příklady"
 
-### Level 3: Pokročilé funkce (15 minut)
+### Micro-Q&A (2 minuty)
 
-- **65–72 min:** CLAUDE.md — váš osobní manuál pro Claude Code
+- **62–64 min:** Rychlé otázky z publika
+  - "Viděli jste tři různé workflow. Co vás zaujalo nejvíc?"
+  - Odpovězte 2–3 otázky, složitější zaparkujte na závěr
+
+### Level 3: Pokročilé funkce (14 minut)
+
+- **64–70 min:** CLAUDE.md — váš osobní manuál pro Claude Code
   - Co je CLAUDE.md a proč ho chcete
   - Jak vytvořit pravidla pro konzistentní výstup
   - Příklady: komunikační styl, formát výstupů, oblíbené technologie
   - Live demo: vytvoření CLAUDE.md a ukázka rozdílu ve výstupu
-- **72–77 min:** MCP servery — rozšíření možností
+- **70–74 min:** MCP servery — rozšíření možností
   - Co jsou MCP (Model Context Protocol) servery
-  - Příklady užitečných MCP:
-    - Připojení k databázím
-    - Integrace s externími API
-    - Práce s cloudovými službami
-  - Jak nainstalovat a nakonfigurovat MCP
-- **77–80 min:** Tipy pro power usery
-  - Slash commands (/help, /clear, /compact)
-  - Jak efektivně formulovat prompty pro agenta
+  - **Live demo:** Instalace jednoho MCP (web search) za 2 minuty
+    - Před MCP: "Co je nového v AI?" → "Nemám přístup k aktuálním info..."
+    - Po MCP: agent vyhledá na webu a shrne výsledky
+  - Zmínit další MCP: databáze, GitHub, Google Drive, Slack
+- **74–76 min:** Paměť a přepínání modelů
+  - Paměť: Claude Code si pamatuje preference mezi konverzacemi
+  - Modely: Sonnet (rychlý) vs Opus (chytřejší) — přepínáte příkazem `/model`
+- **76–78 min:** Tipy pro power usery
+  - Slash commands (/help, /clear, /compact, /model, /cost)
   - Kdy Claude Code použít a kdy ne
   - Bezpečnost: co nikdy nezadávat (hesla, API klíče v promptech)
 
-### Q&A + Next Steps (10 minut)
+### Q&A + Závěr (12 minut)
 
-- **80–85 min:** Otázky a odpovědi
-  - Otevřená diskuze
+- **78–86 min:** Otázky a odpovědi
+  - Otevřená diskuze — zaparkované otázky z micro-Q&A + nové
   - Časté otázky: cena, bezpečnost dat, limity, porovnání s jinými nástroji
-- **85–90 min:** Další kroky
-  - Jak začít sami: odkaz na Quick Start guide
+  - Pokud zbude čas: živá ukázka na přání publika ("Co chcete vidět?")
+- **86–90 min:** Závěr — co dělat zítra ráno
+  - **Konkrétní první krok:** "Zítra otevřete terminál, nainstalujte Claude Code, a zadejte jeden úkol ze svého reálného pracovního dne."
+  - Odkaz na Quick Start guide — "Tohle je váš průvodce prvních 30 minut"
   - Zdroje: dokumentace, GitHub, komunita
+  - **Závěrečná myšlenka:** "Před rokem jste potřebovali vývojáře na každou technickou věc. Dnes máte v terminálu spolupracovníka, který nikdy nespí, nikdy se neurazí a zvládne víc, než si myslíte. Jediné, co potřebujete, je říct mu, co chcete."
   - Pozvánka na další webináře / masterclass
 
 ## Klíčové body k zdůraznění
 
 ### Pro každý level:
 - **Level 0:** Claude Code je agent — ne chatbot, ne editor. Zadáte úkol, on ho udělá.
-- **Level 1:** Sledujte, jak myslí — plánuje, tvoří, opravuje. To je ta revoluce.
-- **Level 2:** Jeden nástroj, desítky workflow — od webů po analýzy.
-- **Level 3:** S CLAUDE.md a MCP se z Claude Code stává váš osobní vývojář.
+- **Level 1:** Sledujte, jak myslí — plánuje, tvoří, opravuje. A ptá se, než udělá něco riskantního.
+- **Level 2:** Jeden nástroj, desítky workflow — od webů přes emaily po automatizace.
+- **Level 3:** S CLAUDE.md, MCP a pamětí se z Claude Code stává váš osobní vývojář.
 
 ### Obecné principy:
 - Nemusíte umět programovat — Claude Code programuje za vás
 - Terminál vypadá strašidelně, ale je to jen místo, kam píšete příkazy
 - Čím lepší zadání, tím lepší výsledek — buďte konkrétní
+- Vždy kontrolujte výstup — agent je mocný, ale ne neomylný
 - Claude Code se rychle vyvíjí — co dnes neumí, zítra možná ano
 
 ## Tipy pro live demo
@@ -145,9 +166,11 @@
 - Zvětšete font v terminálu (min. 18px) — vzdálení účastníci musí číst
 
 ### Časový management:
-- Level 2 je nejflexibilnější — můžete přeskočit/zkrátit workflow podle času
+- Micro-Q&A (35. a 62. minuta) pomáhají řídit tempo — pokud nestíháte, zkraťte je
+- Level 2 je nejflexibilnější — můžete přeskočit workflow nebo zkrátit iterace
 - Pokud instalace zabere víc času, zkraťte Level 2
-- Q&A může běžet přes čas — nechte prostor pro otázky
+- "Co dalšího umí" je záměrně jen slovní přehled — nedělat live demo
+- Q&A na konci může běžet přes čas — nechte prostor pro otázky
 
 ## Technické požadavky
 

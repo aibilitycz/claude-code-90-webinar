@@ -109,14 +109,59 @@ Rozšíření, která Claude Code připojují k externím nástrojům a službá
 - Google Drive, Notion — přístup k dokumentům
 - Slack — čtení a odesílání zpráv
 
-### Jak nainstalovat MCP
+### Live demo: Instalace MCP za 2 minuty
+
+Ukážeme si připojení webového vyhledávání — jedno z nejužitečnějších MCP:
+
 ```bash
-# V nastavení Claude Code přidáte MCP server
-# Konfigurace se ukládá do settings souboru
+# 1. Otevřete nastavení MCP
 claude /mcp
+
+# 2. Přidejte MCP server (lektor ukáže krok za krokem v rozhraní)
 ```
 
-> **Poznámka:** MCP ekosystém se rychle vyvíjí. Aktuální seznam najdete v dokumentaci.
+**Po instalaci — ukázka rozdílu:**
+
+Bez MCP:
+```
+Co je nového v AI tento týden?
+→ "Nemám přístup k aktuálním informacím..."
+```
+
+S MCP (web search):
+```
+Co je nového v AI tento týden?
+→ Agent vyhledá na webu, zpracuje výsledky, shrne klíčové novinky
+```
+
+> **Poznámka:** MCP ekosystém se rychle vyvíjí. Aktuální seznam a návody najdete na [docs.anthropic.com](https://docs.anthropic.com/en/docs/claude-code). Na webináři ukážeme jeden konkrétní příklad — doma si můžete přidat další.
+
+## Paměť — Claude Code si vás pamatuje (2 min)
+
+Claude Code má **paměťový systém**, který přetrvává mezi konverzacemi:
+
+- Když mu řeknete "zapamatuj si, že preferuji tmavé téma" — zapamatuje si to
+- Příště, když ho spustíte, už to ví — nemusíte opakovat
+- Paměť je oddělená od CLAUDE.md — je to pro osobní preference, ne projektová pravidla
+
+### Kdy použít paměť vs. CLAUDE.md:
+
+| | CLAUDE.md | Paměť |
+|---|-----------|-------|
+| **Rozsah** | Jeden projekt | Všechny projekty |
+| **Sdílení** | Můžete sdílet s týmem | Jen pro vás |
+| **Příklad** | "V tomto projektu piš česky" | "Jsem marketér, preferuji stručný styl" |
+
+## Přepínání modelů — rychlost vs. kvalita (1 min)
+
+Claude Code může běžet na různých modelech:
+
+| Model | Kdy použít | Charakteristika |
+|-------|-----------|----------------|
+| **Sonnet** | Rychlé úkoly, jednoduché změny | Rychlejší, levnější |
+| **Opus** | Složité úkoly, velké projekty | Pomalejší, ale chytřejší |
+
+Přepínáte příkazem `/model` přímo v Claude Code. Pro většinu úkolů stačí Sonnet — na Opus přepněte, když potřebujete hlubší uvažování.
 
 ## Tipy pro power usery (3 min)
 
@@ -151,6 +196,8 @@ claude /mcp
 Po Level 3 byste měli chápat:
 - [ ] Co je CLAUDE.md a jak ho vytvořit pro svůj projekt
 - [ ] Co jsou MCP servery a jak rozšiřují možnosti
+- [ ] Jak funguje paměť Claude Code mezi konverzacemi
+- [ ] Rozdíl mezi modely Sonnet a Opus a kdy který použít
 - [ ] Základní slash commands pro efektivní práci
 - [ ] Kdy Claude Code použít a kdy ne
 - [ ] Bezpečnostní pravidla pro práci s AI agentem

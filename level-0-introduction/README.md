@@ -33,22 +33,30 @@ Představte si rozdíl mezi asistentem a spolupracovníkem:
 
 ## Cena a plány
 
-### Anthropic Max Plan
-- Měsíční předplatné s přístupem ke Claude Code
-- Zahrnuje Claude Opus a Sonnet modely
-- Dostatek kapacity pro běžné používání
+### Anthropic Max Plan — konkrétní ceny
 
-### API Credits (alternativa)
-- Platíte za spotřebu (tokeny)
-- Flexibilnější pro nepravidelné používání
+| Plán | Cena | Co získáte |
+|------|------|-----------|
+| **Claude Pro** | $20/měsíc | Přístup ke Claude Code, model Sonnet, základní limity |
+| **Claude Max 5×** | $100/měsíc | 5× vyšší limity, přístup k modelu Opus |
+| **Claude Max 20×** | $200/měsíc | 20× kapacita pro intenzivní každodenní práci |
+
+> Ceny se mohou měnit — ověřte aktuální stav na [anthropic.com](https://www.anthropic.com).
+
+### API Credits (alternativa pro pokročilé)
+- Platíte za spotřebu (tokeny) — žádné měsíční předplatné
 - Vyžaduje nastavení API klíče
+- Větší kontrola nad náklady
 
-### Typické měsíční náklady
-- **Příležitostné používání** (pár úkolů týdně): nízké jednotky dolarů / Max plan
-- **Pravidelné používání** (denně): Max plan je výhodnější
-- **Intenzivní používání** (velké projekty): Max plan nebo vyšší API budget
+### Kolik to stojí v praxi?
 
-> **Tip:** Začněte s Max plánem — nejjednodušší start bez starostí o kredity.
+| Scénář | Příklad úkolu | Přibližná cena |
+|--------|--------------|----------------|
+| **Jeden úkol** | Vytvoření webové stránky | $0.50–$5 |
+| **Příležitostné** (pár úkolů/týden) | Občasné weby, texty, analýzy | ~$15–40/měsíc |
+| **Pravidelné** (každý den) | Denní práce, více projektů | ~$60–200/měsíc |
+
+> **Tip:** Začněte s Max plánem — předvídatelná cena, žádné překvapení. Na API přejděte, až budete vědět, kolik skutečně spotřebujete.
 
 ## Terminál za 2 minuty
 
