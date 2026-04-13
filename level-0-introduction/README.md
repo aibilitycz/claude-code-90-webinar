@@ -5,31 +5,51 @@
 
 ## Co je Claude Code?
 
-Claude Code je **AI agent**, který běží ve vašem terminálu. Není to chatbot, není to editor — je to autonomní spolupracovník, který:
+Claude Code je **AI agent**, který běží ve vašem terminálu (a na dalších místech — více za chvíli). Není to chatbot, není to editor — je to autonomní spolupracovník, který:
 
 - **Čte** vaše soubory a chápe kontext projektu
 - **Píše** kód, texty, konfigurace — cokoliv potřebujete
 - **Spouští** příkazy a ověřuje, že vše funguje
 - **Opravuje** chyby — sám detekuje problém a najde řešení
 
-### Proč je to jiné?
+### Kde Claude Code žije
 
-Představte si rozdíl mezi asistentem a spolupracovníkem:
-- **ChatGPT** = zeptáte se, dostanete odpověď (konverzace)
-- **Cursor** = píšete kód a AI vám pomáhá (asistence v editoru)
-- **Claude Code** = řeknete, co chcete, a agent to udělá celé (autonomní práce)
+Důležitá věc, kterou většina lidí neví: Claude Code není jen CLI nástroj. V dubnu 2026 běží na **šesti povrchách**, všech propojených se stejným enginem, CLAUDE.md, pamětí a MCP servery:
+
+- **Terminál (CLI)** — hlavní rozhraní, to ukazujeme dnes
+- **Desktop aplikace** — vizuální diff review, paralelní sessions
+- **Web:** [claude.ai/code](https://claude.ai/code) — žádná instalace, běží v prohlížeči
+- **iOS aplikace** — dlouho běžící úkoly, vzdálené řízení
+- **VS Code rozšíření** — inline diffs, @-mentions
+- **JetBrains plugin (beta)** — IntelliJ, PyCharm, WebStorm
+
+**Proč na webináři ukazujeme terminál?** Protože v něm nejlépe vidíte, jak agent pracuje. Ale pokud po webináři zjistíte, že terminál není pro vás — máte pět dalších možností, kde Claude Code běží úplně stejně.
+
+### Proč je to jiné
+
+- **ChatGPT** = konverzace — zeptáte se, dostanete odpověď. Primární rozhraní je chat.
+- **Cursor** = AI agent v editoru — plnohodnotné IDE (VS Code fork) s AI, která autonomně kóduje, refactoruje a opravuje. Pro ty, kdo chtějí vše v jednom vývojářském prostředí.
+- **Claude Code** = AI agent, který nežije v editoru — běží v terminálu, desktopu, webu, nebo jako rozšíření. Kam jdete vy, tam jde on.
+
+> **Poznámka:** OpenAI má vlastní obdobný nástroj — **Codex CLI**. Funguje na stejném principu jako Claude Code. Dnes ukazujeme Claude Code, ale Codex je jeho přímý bratranec od OpenAI. Pokud vás tento způsob práce osloví, oba nástroje stojí za pozornost.
 
 ## Claude Code vs Cursor vs ChatGPT
 
+> **V dubnu 2026 Cursor i Claude Code dělají většinu věcí podobně** — oba běží autonomně, spouští příkazy, opravují chyby v cyklu. Starší srovnání, že "Cursor jen pomáhá a Claude Code provádí", už neplatí. Rozdíl je **v prostředí**, ne v schopnostech.
+
 | | ChatGPT | Cursor | Claude Code |
 |---|---------|--------|-------------|
-| **Typ** | Chatbot | AI editor | AI agent |
-| **Kde běží** | Webový prohlížeč | Desktopová aplikace | Terminál |
-| **Jak funguje** | Odpovídá na otázky | Pomáhá při psaní kódu | Autonomně plní úkoly |
-| **Vidí váš projekt** | Ne (jen co vložíte) | Ano (otevřené soubory) | Ano (celý projekt) |
-| **Spouští příkazy** | Ne | Omezeně | Ano — plně |
-| **Opravuje chyby** | Navrhne opravu | Navrhne opravu | Opraví sám |
-| **Pro koho** | Všichni | Vývojáři a tvůrci | Kdokoliv s terminálem |
+| **Typ** | Chatbot | AI agent v editoru | AI agent v terminálu |
+| **Primární rozhraní** | Chat | Editor kódu (VS Code fork) | Terminál |
+| **Kde běží** | Web, mobil | Desktop IDE, web app, Slack | CLI, desktop, web, iOS, VS Code, JetBrains |
+| **Vidí váš projekt** | Ne (jen co vložíte) | Ano | Ano |
+| **Spouští příkazy** | Ne | Ano (v Agent módu) | Ano — nativně |
+| **Opravuje chyby** | Navrhne | Ano, v cyklu | Ano, v cyklu |
+| **Inline code completion** | Ne | Ano (Tab, 5–10 řádků dopředu) | Ne |
+| **Výchozí kontextové okno** | Střední | ~10–15K tokenů (Max Mode plný) | Až 1M tokenů (s Opus) |
+| **Pro koho** | Všichni | Hlavně vývojáři v IDE | Kdokoliv — kancelář, terminál, editor |
+
+> **Shrnutí:** Cursor je **AI-augmented IDE** — pokud už VS Code používáte a chcete AI zapojit do editoru. Claude Code je **autonomní agent, který žije mimo editor** — pokud chcete, aby AI byla s vámi v terminálu, v desktop aplikaci, na webu nebo v iOS appce. Mnoho profesionálů používá oba současně — každý k něčemu jinému.
 
 ## Cena a plány
 

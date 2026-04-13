@@ -105,8 +105,10 @@ From now on, Claude Code automatically follows your rules in this project.
 | `/clear` | Clear context |
 | `/compact` | Compress history |
 | `/cost` | Show token usage |
-| `Ctrl+C` | Cancel current operation |
-| `Esc` | Exit Claude Code |
+| `/model` | Switch model (Haiku / Sonnet / Opus) |
+| `/exit` | Exit Claude Code |
+| `Esc` | Interrupt current agent action (does not exit) |
+| `Ctrl+C` | Cancel or exit from empty prompt |
 
 ## Tips for Better Results
 

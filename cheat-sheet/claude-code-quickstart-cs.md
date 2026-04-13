@@ -105,8 +105,10 @@ Od teď Claude Code v tomto projektu automaticky dodržuje vaše pravidla.
 | `/clear` | Vyčistí kontext |
 | `/compact` | Zkomprimuje historii |
 | `/cost` | Ukáže spotřebu |
-| `Ctrl+C` | Přeruší aktuální operaci |
-| `Esc` | Ukončí Claude Code |
+| `/model` | Přepne model (Haiku / Sonnet / Opus) |
+| `/exit` | Ukončí Claude Code |
+| `Esc` | Přeruší aktuální akci agenta (neukončí) |
+| `Ctrl+C` | Přeruší nebo ukončí z prázdného promptu |
 
 ## Tipy pro lepší výsledky
 

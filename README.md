@@ -1,4 +1,4 @@
-# Claude Code Masterclass: Jak používat Claude Code i když nejste vývojář
+# Intro do Claude Code: Jak používat Claude Code i když nejste vývojář
 
 **Cílová skupina:** Marketéři, projektoví manažeři, podnikatelé, kreativci
 **Délka:** 90 minut
@@ -64,6 +64,34 @@ Kompletní instrukce pro vedení 90minutového webináře s časovým rozpisem.
 - [Claude Code dokumentace](https://docs.anthropic.com/en/docs/claude-code)
 - [Anthropic](https://www.anthropic.com)
 - [Claude Code na GitHubu](https://github.com/anthropics/claude-code)
+
+---
+
+## Pro účastníky: Aktivujte si společníka webináře
+
+Tento repozitář obsahuje **companion skill** — pomocníka v Claude Code, který vás provede celým webinářem. Skill zná strukturu webináře, má připravené prompty k vyzkoušení, odpovídá na časté otázky a pomůže vám, když se někde zaseknete.
+
+### Jak ho aktivovat (3 kroky)
+
+```bash
+# 1. Naklonujte si tento repozitář (nebo si ho stáhněte jako ZIP)
+git clone https://github.com/aibility/claude-code-90-webinar.git
+cd claude-code-90-webinar
+
+# 2. Spusťte Claude Code ve složce
+claude
+
+# 3. V Claude Code se zeptejte (cokoliv z tohoto zafunguje jako test):
+#    "Co mám zkusit v Try Moment #1?"
+#    "Kolik Claude Code stojí?"
+#    "Mám problém s instalací Node.js"
+```
+
+Skill se aktivuje automaticky, když bude dávat smysl — nemusíte nic konfigurovat. Celá znalost webináře je v `skills/claude-code-guide/`.
+
+### Co když skill nefunguje?
+
+Soubory skillu jsou jen obyčejné markdown. Pokud se skill z nějakého důvodu neaktivuje, otevřete si `skills/claude-code-guide/SKILL.md` a reference v `skills/claude-code-guide/references/` přímo v editoru — jsou čitelné jako běžná dokumentace.
 
 ---
 

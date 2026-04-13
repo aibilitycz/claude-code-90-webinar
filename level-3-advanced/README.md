@@ -90,9 +90,7 @@ Rozšíření, která Claude Code připojují k externím nástrojům a službá
 
 ### Příklady užitečných MCP:
 
-#### Filesystem MCP (vestavěný)
-- Claude Code už ve výchozím stavu čte a zapisuje soubory
-- Toto je základ, který funguje bez konfigurace
+> **Poznámka:** Čtení a zápis souborů v Claude Code je **nativní** — není to MCP. Nemusíte nic instalovat. MCP servery přidávají přístup k věcem **mimo** váš projekt.
 
 #### Webové MCP
 - Přístup k webovým stránkám a API
@@ -114,11 +112,17 @@ Rozšíření, která Claude Code připojují k externím nástrojům a službá
 Ukážeme si připojení webového vyhledávání — jedno z nejužitečnějších MCP:
 
 ```bash
-# 1. Otevřete nastavení MCP
-claude /mcp
+# 1. Nejdřív spusťte Claude Code
+claude
 
-# 2. Přidejte MCP server (lektor ukáže krok za krokem v rozhraní)
+# 2. Uvnitř Claude Code napište slash command:
+/mcp
+
+# 3. Vyberte "Add new server" a následujte instrukce
+#    (lektor ukáže krok za krokem v rozhraní)
 ```
+
+> `/mcp` je **slash command** uvnitř běžícího Claude Code, ne shell příkaz. Musíte nejdřív spustit `claude` a teprve pak ho napsat.
 
 **Po instalaci — ukázka rozdílu:**
 
@@ -136,32 +140,43 @@ Co je nového v AI tento týden?
 
 > **Poznámka:** MCP ekosystém se rychle vyvíjí. Aktuální seznam a návody najdete na [docs.anthropic.com](https://docs.anthropic.com/en/docs/claude-code). Na webináři ukážeme jeden konkrétní příklad — doma si můžete přidat další.
 
-## Paměť — Claude Code si vás pamatuje (2 min)
+## CLAUDE.md na dvou úrovních — projektový a osobní (2 min)
 
-Claude Code má **paměťový systém**, který přetrvává mezi konverzacemi:
+CLAUDE.md může žít na **dvou úrovních**, a každá slouží k něčemu jinému:
 
-- Když mu řeknete "zapamatuj si, že preferuji tmavé téma" — zapamatuje si to
-- Příště, když ho spustíte, už to ví — nemusíte opakovat
-- Paměť je oddělená od CLAUDE.md — je to pro osobní preference, ne projektová pravidla
+### Projektový CLAUDE.md
+- Umístění: `CLAUDE.md` v kořeni projektu
+- Rozsah: platí pro tento konkrétní projekt
+- Sdílení: můžete commitnout do gitu a sdílet s týmem
+- Příklad obsahu: "V tomto projektu piš česky. Používej React a Tailwind. Výstupy v Markdown."
 
-### Kdy použít paměť vs. CLAUDE.md:
+### Osobní (user-level) CLAUDE.md
+- Umístění: `~/.claude/CLAUDE.md` (ve vašem domovském adresáři)
+- Rozsah: platí pro **všechny** projekty, které otevřete
+- Sdílení: pouze vaše, nikdo jiný ho nevidí
+- Příklad obsahu: "Jsem marketér, vysvětluj technické věci laicky. Odpovídej česky. Buď stručný."
 
-| | CLAUDE.md | Paměť |
-|---|-----------|-------|
-| **Rozsah** | Jeden projekt | Všechny projekty |
-| **Sdílení** | Můžete sdílet s týmem | Jen pro vás |
-| **Příklad** | "V tomto projektu piš česky" | "Jsem marketér, preferuji stručný styl" |
+### Který zvolit?
+
+| Potřeba | Použijte |
+|---------|----------|
+| Pravidla pro konkrétní projekt (tech stack, design system) | Projektový CLAUDE.md |
+| Osobní preference, které chcete všude (styl komunikace, jazyk) | Osobní CLAUDE.md v `~/.claude/` |
+| Obojí najednou | Oba — Claude Code je kombinuje |
+
+> **Tip:** Začněte s osobním CLAUDE.md (jeden soubor, platí všude) a přidejte projektový jen pro projekty s konkrétními pravidly.
 
 ## Přepínání modelů — rychlost vs. kvalita (1 min)
 
-Claude Code může běžet na různých modelech:
+Claude Code může běžet na třech hlavních modelech od Anthropic:
 
 | Model | Kdy použít | Charakteristika |
 |-------|-----------|----------------|
-| **Sonnet** | Rychlé úkoly, jednoduché změny | Rychlejší, levnější |
-| **Opus** | Složité úkoly, velké projekty | Pomalejší, ale chytřejší |
+| **Haiku** | Velmi rychlé a jednoduché úkoly — čtení, prohledávání, malé úpravy | Nejrychlejší, nejlevnější |
+| **Sonnet** | 90 % běžné práce — default volba pro většinu uživatelů | Rovnováha rychlosti a schopností |
+| **Opus** | Složité úkoly, velké refactoringy, rozsáhlé projekty | Pomalejší, ale nejchytřejší, největší kontextové okno |
 
-Přepínáte příkazem `/model` přímo v Claude Code. Pro většinu úkolů stačí Sonnet — na Opus přepněte, když potřebujete hlubší uvažování.
+Přepínáte příkazem `/model` přímo v Claude Code. **Default je Sonnet** — pro většinu úkolů naprosto stačí. Na Opus přepněte, když Sonnet "nestíhá" myslet. Na Haiku přepněte, když chcete jen rychle něco prohledat nebo přečíst.
 
 ## Tipy pro power usery (3 min)
 
@@ -195,9 +210,9 @@ Přepínáte příkazem `/model` přímo v Claude Code. Pro většinu úkolů st
 
 Po Level 3 byste měli chápat:
 - [ ] Co je CLAUDE.md a jak ho vytvořit pro svůj projekt
+- [ ] Rozdíl mezi projektovým a osobním CLAUDE.md a kdy který použít
 - [ ] Co jsou MCP servery a jak rozšiřují možnosti
-- [ ] Jak funguje paměť Claude Code mezi konverzacemi
-- [ ] Rozdíl mezi modely Sonnet a Opus a kdy který použít
+- [ ] Rozdíl mezi modely Haiku, Sonnet a Opus a kdy který použít
 - [ ] Základní slash commands pro efektivní práci
 - [ ] Kdy Claude Code použít a kdy ne
 - [ ] Bezpečnostní pravidla pro práci s AI agentem
