@@ -34,7 +34,7 @@ Konkrétní momenty, kdy si předáváme slovo, jsou v sekci [Co-teaching](#co-t
 | 30–38 | **Zkuste si to sami #1** | Oba + Petra v chatu | 8 |
 | 38–58 | Level 2: Ukázky workflow (dvě živě + jedna slovně) | Slava (demo) + Ondřej (rámování) | 20 |
 | 58–66 | **Zkuste si to sami #2** | Oba + Petra v chatu | 8 |
-| 66–78 | Level 3: CLAUDE.md + MCP + odhalení skillu | Slava (demo) + Ondřej (kontext) | 12 |
+| 66–78 | Level 3: CLAUDE.md + marketplace + odhalení skillu + MCP | Slava (demo) + Ondřej (kontext) | 12 |
 | 78–86 | Otevřené Q&A | Oba + Petra (moderuje otázky) | 8 |
 | 86–90 | Závěr + Circle komunita + co dělat dál | Ondřej | 4 |
 
@@ -85,7 +85,9 @@ Rychlé uklidnění pro netechnické publikum:
 
 **Vede:** Slava (demo), Ondřej sleduje chat a odpovídá na rychlé otázky
 
-1. Instalace Claude Code:
+> **Důležité:** Dnes ukazujeme instalaci přes terminál a CLI — protože je to nejjasnější způsob, jak vidět, co se děje. Ale Claude Code funguje stejně dobře v **desktopové aplikaci** (stáhnout z [claude.com](https://claude.com)) a v **prohlížeči** na [claude.ai/code](https://claude.ai/code). Účastníci, kteří si stáhli desktop nebo používají web, můžou poslouchat a paralelně si otevřít svou aplikaci. Aktivace společníka pro ně bude chvilku jiná — viz `README.md` v repozitáři pro alternativní cesty.
+
+1. Instalace Claude Code (CLI cesta):
    ```bash
    npm install -g @anthropic-ai/claude-code
    ```
@@ -98,7 +100,7 @@ Rychlé uklidnění pro netechnické publikum:
    ```
    Skill leží v `.claude/skills/claude-code-guide/` uvnitř repozitáře. Když v téhle složce spustíte `claude`, Claude Code si ho sám načte — **žádná instalace, žádná konfigurace navíc**.
 
-4. Rychlý test: *"Co mám zkusit, když mi řekneš 'zkuste si to sami #1'?"* — Claude Code by měl odpovědět s konkrétní nabídkou ze skillu.
+4. Rychlý test: zeptat se Claude Code česky *"Co mám zkusit poprvé?"* — měl by odpovědět s konkrétní nabídkou ze společníka.
 
 > **Moment k zdůraznění (Slava):** "Vidíte tu složku `.claude/skills/`? Tam se Claude Code dívá, když ho spustíte v nějakém projektu. Kdokoli si tam může přidat vlastní skill. Dnešní společník je přesně takový — obyčejný markdown, který mu Claude Code čte, když to dává smysl."
 >
@@ -163,10 +165,15 @@ Plný scénář je v sekci [Scénář: Zkuste si to sami #2](#scénář-zkuste-s
 
 **Vede:** Slava (demo), Ondřej (kontext a závěrečný oblouk)
 
-- **66–72 min:** CLAUDE.md — demo "bez a s" (stejný úkol, nejdřív bez pravidel, pak s nimi)
-- **72–75 min:** MCP servery — živá instalace web search MCP (dvě minuty)
-- **75–77 min:** Odhalení — **ten společník, kterého máte od začátku, je skill.** Skilly jsou jeden ze způsobů, jak si Claude Code rozšířit. (Viz [Scénář: odhalení skillu](#scénář-odhalení-skillu-75–77-minut).)
-- **77–78 min:** Rychlá zmínka o paměti, modelech a slash commands
+Tenhle level má jednu velkou myšlenku: **Claude Code není aplikace s pevnými funkcemi, je to platforma, kterou si rozšiřujete sami.** Všechno, co ukazujeme, slouží k dokreslení tohohle obrazu.
+
+- **66–70 min:** **CLAUDE.md** — demo "bez a s" (stejný úkol, nejdřív bez pravidel, pak s nimi). Rychlá zmínka o rozdílu projektového a osobního CLAUDE.md (`~/.claude/CLAUDE.md`).
+- **70–73 min:** **Skilly a pluginy — marketplace** — otevřít `/plugin` uvnitř Claude Code, ukázat Discover záložku, podívat se na jeden z oficiálních pluginů (např. github nebo figma). Zmínit, co všechno existuje: deployment přes Vercel, design z Figmy, image gen přes Gemini skill, audio přes ElevenLabs skill.
+- **73–75 min:** **Odhalení** — *"Ten společník, kterého jste celý webinář používali? Je to skill. Obyčejný markdown, který si můžete otevřít."* Slava otevře `.claude/skills/claude-code-guide/SKILL.md` v editoru a ukáže, jak jednoduché to je. (Viz [Scénář: marketplace + odhalení skillu](#scénář-marketplace--odhalení-skillu-70–75-minut).)
+- **75–77 min:** **MCP servery** — co to je (napojení na externí služby: databáze, API), krátká zmínka že MCP servery jsou součástí mnoha pluginů a instalují se stejnou cestou. **Volitelné live demo:** instalace web search MCP přes `/plugin`, ale pokud nestíháte, klidně přeskočte.
+- **77–78 min:** **Rychlá zmínka** o modelech (Haiku/Sonnet/Opus, `/model`), paměti (uživatelský CLAUDE.md) a základních slash commands (`/help`, `/clear`, `/cost`, `/exit`).
+
+> **Změna oproti původnímu plánu:** MCP demo už není primární moment. Primární moment je otevření marketplace přes `/plugin` a ukázka, že společník webináře je skill. MCP je teď podřazené (*"mimochodem, MCP servery jsou druhý způsob, jak rozšířit — jsou obvykle součástí pluginů, které jste právě viděli"*). To dává víc prostoru odhalení, které je emocionálně silnější moment.
 
 ### Q&A + závěr (78–90 minut)
 
@@ -232,7 +239,7 @@ Plný text pro šest míst, kde se hodí mít přípravu. Není to striktní scr
 ```
 
 > **[Ondřej, 30:30]**
-> "Petra vám do chatu pošle přesné prompty. Vy si otevřete terminál, spustíte `claude` a zkopírujete si prompt té varianty, která vás nejvíc oslovila. Když se zaseknete, zeptejte se přímo Claude Code — společník odpoví. My jsme tu s vámi."
+> "Petra vám do chatu pošle přesné prompty. Otevřete si Claude Code, kdekoli ho máte — v terminálu, v desktopové aplikaci, ve webu — zkopírujete si prompt té varianty, která vás nejvíc oslovila, a pošlete ho. Když se zaseknete, zeptejte se přímo Claude Code — společník odpoví. My jsme tu s vámi."
 
 > **[Ondřej, 31:00]**
 > "Jdeme na to."
@@ -309,28 +316,60 @@ Plný text pro šest míst, kde se hodí mít přípravu. Není to striktní scr
 
 ---
 
-### Scénář: odhalení skillu (75–77 minut)
+### Scénář: marketplace + odhalení skillu (70–75 minut)
 
-**Mluví:** Ondřej (kontext), Slava zatím drží CLAUDE.md demo
+**Mluví:** Slava (demo + marketplace), Ondřej (vloží odhalení)
 
-**Přechod:** Jakmile Slava dokončí CLAUDE.md demo a chystá se přepnout na MCP, Ondřej se vloží:
+Tahle sekvence má dvě části: nejdřív Slava ukáže marketplace, pak Ondřej do toho hodí odhalení. Spojené to dá silnější dojem, než když by oboje stálo samo.
 
-> **[Ondřej, ~75:00]**
-> "Než půjdeme na MCP — chci se vrátit k jedné věci, kterou jste dnes používali celou dobu, ale neřekli jsme, co to vlastně je."
+#### Část 1 — Marketplace (Slava, 70:00–73:00)
+
+**Slava otevře `/plugin` uvnitř Claude Code** a publikum vidí, co se objeví:
+
+> **[Slava, 70:00]**
+> "Tak. Claude.md jsme viděli, to je první způsob, jak si Claude Code přizpůsobit. Teď ten druhý — marketplace. Anthropic má vlastní marketplace s pluginy, který si můžete otevřít přímo z Claude Code. Sledujte."
 >
-> **[Pauza]**
+> **[Napíše `/plugin`, otevře se panel]**
 >
-> "Pamatujete si toho společníka, kterého jste si aktivovali na začátku? Toho, kterého jste se ptali, co zkusit, když jste měli čas si něco postavit — a on vám dával konkrétní prompty? To není žádná magie, ani vestavěná funkce Claude Code. Je to **skill**. Obyčejný markdown soubor v repozitáři, který jste si naklonovali. Otevřete si `.claude/skills/claude-code-guide/SKILL.md` — je to čitelné jako každý jiný dokument."
+> "Vidíte čtyři záložky — Discover, Installed, Marketplaces, Errors. Mě zajímá Discover."
+>
+> **[Klikne na Discover, scrolluje seznamem]**
+>
+> "Tady je hotový plugin pro GitHub. Pro Linear. Pro Notion. Pro Vercel — to je deployment. Pro Figmu — Claude Code dokáže číst designy přímo z Figmy. Pro Slack. Pro Sentry. Tohle všechno jsou věci, které někdo napsal, otestoval a pověsil sem — vy si to nainstalujete jedním klikem a hned to funguje."
+>
+> **[Pauza, otevře jeden plugin pro detail — třeba github]**
+>
+> "Když si rozkliknu github plugin, vidím, co všechno přidává — slash commandy pro práci s issues, automatické vytváření PR, čtení komentářů. To by mě stálo dva dny napsat ručně. Nainstaluju to za pět vteřin."
+
+#### Část 2 — Odhalení (Ondřej, 73:00–75:00)
+
+**Přechod:** Jakmile Slava dokončí prohlídku marketplace, Ondřej se přidá:
+
+> **[Ondřej, 73:00]**
+> "Slavo, počkej. Ještě jednu věc, než půjdeme dál. Chci se vrátit k něčemu, co jste celý webinář používali, ale neřekli jsme, co to vlastně je."
+>
+> **[Pauza, podívat se do kamery]**
+>
+> "Pamatujete si toho společníka, kterého jste si aktivovali na začátku? Toho, kterého jste se ptali, co si zkusit, a on vám dával konkrétní prompty? To není magie. Není to ani vestavěná funkce Claude Code."
 >
 > **[Pauza, důraz]**
 >
-> "A tohle je jedna z věcí, co dělá Claude Code výjimečným. Nejsou to jen funkce, které Anthropic zabalil do jedné aplikace. Je to **platforma**, kterou si sami rozšiřujete — skilly, MCP servery, vlastní příkazy. Dnes jste jeden skill použili. Za týden si můžete napsat vlastní pro svoji práci. A za měsíc si možná stáhnete skilly od ostatních z komunity."
+> "Je to **skill**. Přesně ten typ souboru, jaký byste teď viděli, kdybyste si nainstalovali nějaký plugin z toho marketplace, který vám Slava před chvílí ukázal. Jenže náš skill leží v repozitáři, který jste si naklonovali — v `.claude/skills/claude-code-guide/SKILL.md`."
 >
-> **[Přechod na MCP]**
+> **[Slava otevře ten soubor v editoru, publikum vidí obyčejný markdown]**
 >
-> "MCP servery jsou ten druhý způsob, jak rozšířit. Slavo, ukaž jim to."
+> **[Slava]**
+> "Tady to je. Hlavička s názvem, popis, a tělo — markdown. Žádný kód, žádná instalace, žádná konfigurace. Když Claude Code spustíte v repozitáři, který tenhle soubor obsahuje, sám si ho přečte a začne podle něj fungovat."
+>
+> **[Ondřej, 74:30]**
+> "A v tom je ta velká myšlenka dnešního Levelu 3. Claude Code není aplikace s pevnými funkcemi. Je to **platforma**. Anthropic dodává jádro a všechno ostatní si rozšiřujete sami — vlastními skilly, hotovými pluginy z marketplace, MCP servery, slash commandy. Dnes jste jeden skill použili. Za týden si můžete napsat vlastní pro svoji práci. A za měsíc si možná stáhnete deset hotových z marketplace, které se vám hodí."
+>
+> **[Přechod na MCP — krátké, podřazené]**
+> "Slavo, ještě poslední věc — MCP servery. To je technický základ pod tím vším. Krátce."
 
-**Délka:** ~90 vteřin. Nechat prostor pro "aha" moment — "ten skill jsem celou dobu používal, aniž bych to věděl".
+**Délka:** ~5 minut celkem (3 min marketplace + 2 min odhalení). Nechat prostor pro "aha" moment v odhalení — to je nejsilnější moment celého Levelu 3.
+
+**Co nedělat:** Nepředstírat, že odhalení překvapuje vás (lektory). Publikum to pozná. Spíš to podejte jako *"a teď vám prozradíme, co jsme dnes celou dobu dělali"*.
 
 ---
 
@@ -342,13 +381,16 @@ Plný text pro šest míst, kde se hodí mít přípravu. Není to striktní scr
 > "Poslední čtyři minuty — co si odnést a co dělat zítra ráno."
 >
 > **[Ondřej, 86:15]**
-> "Za prvé — konkrétní první krok. Zítra ráno otevřete terminál, spusťte `claude` ve složce s nějakým reálným pracovním úkolem. Nečekejte na velký projekt. Vezměte to nejmenší, co vás napadne — e-mail, report, stránku o vašem týmu — a nechte Claude Code, ať to udělá. Nejhorší, co se může stát, je špatný výsledek. A i ten vás něco naučí."
+> "Za prvé — konkrétní první krok. Zítra ráno otevřete Claude Code (v terminálu, v desktopové aplikaci, na webu — kde vám vyhovuje) a vezměte nějaký reálný úkol z vaší práce. Nečekejte na velký projekt. Vezměte to nejmenší, co vás napadne — e-mail, report, stránku o vašem týmu — a nechte Claude Code, ať to udělá. Nejhorší, co se může stát, je špatný výsledek. A i ten vás něco naučí."
 >
-> **[Ondřej, 86:45]**
-> "Za druhé — cheat sheet. Odkaz jsme posílali do chatu, Petra ho tam ještě jednou pošle. Je to průvodce vašimi prvními třiceti minutami s Claude Code. Od instalace, přes první projekt, až po tři další workflow. Napsali jsme ho tak, aby stál sám za sebe — nepotřebujete otevřený tenhle webinář."
+> **[Ondřej, 86:30]**
+> "Za druhé — než se na to vrhnete sami, otevřete si `/plugin` přímo v Claude Code a podívejte se, co je v marketplace. Možná je to, co potřebujete, už dávno hotové — někdo jiný napsal plugin pro GitHub, pro Notion, pro Vercel, pro Figmu. Jeden klik a máte to."
+>
+> **[Ondřej, 86:50]**
+> "Za třetí — cheat sheet. Odkaz jsme posílali do chatu, Petra ho tam ještě jednou pošle. Je to průvodce vašimi prvními třiceti minutami s Claude Code. Od instalace, přes první projekt, až po tři další workflow. Napsali jsme ho tak, aby stál sám za sebe — nepotřebujete otevřený tenhle webinář."
 >
 > **[Ondřej, 87:15]**
-> "Za třetí, a nejdůležitější — Circle komunita."
+> "A za čtvrté, to nejdůležitější — Circle komunita."
 >
 > **[Pauza, důraz]**
 >
@@ -384,7 +426,7 @@ Abychom nesklouzli k chaotické improvizaci, domluvíme se na konkrétních mome
 | **~3:00** | Konec otevření → začátek Levelu 0 | Ondřej: *"Slavo, ukaž jim, jak to doopravdy vypadá."* |
 | **~30:00** | Konec Levelu 1 → otevření prvního "Zkuste si to sami" | Slava: *"Tak. Ondřeji, ty to otevřeš?"* Ondřej: *"Jasně. Teď je řada na vás…"* |
 | **~66:00** | Konec druhého "Zkuste si to sami" → začátek Levelu 3 | Ondřej: *"A teď poslední část. Slavo, CLAUDE.md."* |
-| **~75:00** | Odhalení skillu uprostřed Levelu 3 | Ondřej se vloží do Slavovy demo sekvence: *"Než půjdeme na MCP — chci se vrátit k jedné věci."* (Viz [Scénář: odhalení skillu](#scénář-odhalení-skillu-75–77-minut).) |
+| **~73:00** | Odhalení skillu po marketplace demu | Slava dokončí prohlídku `/plugin` marketplace, Ondřej se vloží: *"Slavo, počkej. Ještě jednu věc."* (Viz [Scénář: marketplace + odhalení skillu](#scénář-marketplace--odhalení-skillu-70–75-minut).) |
 
 ### Co dělá ten druhý, když nevede
 
@@ -410,7 +452,7 @@ Když **vede Ondřej** (otevření, závěr, context momenty), Slava:
 
 Kdyby se při zítřejší zkoušce (14. dubna) ukázalo, že si nesedneme a co-teaching nefunguje, vraťme se k čistšímu rozdělení:
 
-- **Ondřej:** otevření (0–3), uvedení prvního "Zkuste si to sami" (30–32), uvedení druhého (58–60), odhalení skillu (75–77), závěr (86–90)
+- **Ondřej:** otevření (0–3), uvedení prvního "Zkuste si to sami" (30–32), uvedení druhého (58–60), odhalení skillu (73–75), závěr (86–90)
 - **Slava:** Level 0 instalace (11–15), Level 1 demo (15–30), Level 2 demo (38–58), Level 3 CLAUDE.md + MCP (66–75, 77–78)
 
 Každý má své jasné bloky, oba jsou pořád vidět a mohou do toho druhého vstoupit krátkými poznámkami.
@@ -506,7 +548,7 @@ Pokud běží "Zkuste si to sami" a chat je tichý (méně než tři reakce v pr
 ### Časový management:
 - Když Level 0 zabere víc času, nejsnáz se krátí Level 2 (vynechte slovní zmínku třetího workflow)
 - Oba "Zkuste si to sami" jsou posvátné — nikdy je nezkracujte pod pět minut
-- Level 3 můžete zkrátit o MCP demo, pokud nestíháte (odhalení skillu nechte — to je klíčový moment)
+- Level 3 můžete zkrátit o MCP demo, pokud nestíháte (marketplace + odhalení skillu nechte — to jsou klíčové momenty)
 - Q&A na konci může přetéct — nechte prostor pro otázky
 
 ---
