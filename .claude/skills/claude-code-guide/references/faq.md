@@ -168,6 +168,46 @@ V Claude Code napíšete `/model` a vyberete si.
 
 ---
 
+## Spolehlivost a halucinace
+
+### Jak Claude Code přimět, aby si nic nevymýšlel?
+
+Tohle je nejdůležitější otázka, kterou si můžete položit. Princip je stejný u všech AI nástrojů: agent musí čerpat z **reálných zdrojů**, ne z paměti modelu. Když agent píše z paměti, halucinace jsou jen otázkou času.
+
+Tři kroky, jak na to:
+
+**1. Nechte ho číst soubory.** Claude Code to dělá automaticky — když mu zadáte úkol ve vašem projektu, sám si vyhledá relevantní soubory, otevře je a teprve potom začne psát. Vy jen pozorujete, jestli to dělá. V terminálu uvidíte hlášku jako *"Reading X.md"* nebo *"Looking at Y"* — to je dobré znamení.
+
+**2. Nainstalujte si web search MCP.** Když se ptáte na něco aktuálního — cenu produktu, verzi knihovny, co se právě děje ve vašem oboru — bez webového MCP serveru agent odpoví ze své zastaralé paměti. S MCP si to ověří v reálném čase. Instalace je dvě minuty: napište `/plugin` v Claude Code, najděte web search MCP, nainstalujte.
+
+**3. Napište si pravidlo do CLAUDE.md.** Jedna věta, kterou si tam vložíte:
+
+```markdown
+## Pravidlo: nejdřív číst, pak psát
+
+Než cokoli upravíš nebo navrhneš, nejdřív si přečti relevantní existující
+soubory. U knihoven a služeb si ověř aktuální dokumentaci přes web search.
+Nikdy si nevymýšlej z paměti.
+```
+
+S touhle větou v projektovém nebo osobním (`~/.claude/CLAUDE.md`) souboru se Claude Code stává dramaticky spolehlivějším.
+
+### Znamená to, že Claude Code nikdy nehalucinuje?
+
+Ne. Žádný AI nástroj nemá nulovou míru chyby. Tahle tři pravidla míru chyb dramaticky sníží, ale výstup si vždycky kontrolujte. *Číst před psaním* je princip pro agenta. *Kontrolovat po dokončení* je princip pro vás.
+
+### Jak poznám, že mě Claude Code "obelhal"?
+
+Nejčastější známky halucinace:
+- Cituje konkrétní článek nebo studii — **ověřte si, že existuje**
+- Uvádí konkrétní číslo, datum nebo cenu — **ověřte si, že je aktuální**
+- Píše kód, který volá funkci nějaké knihovny — **ověřte si, že ta funkce v té verzi knihovny existuje**
+- Tvrdí, že "X dělá Y" o nějakém produktu — **ověřte si v dokumentaci tohoto produktu**
+
+Když si nejste jistí, požádejte Claude Code přímo: *"Ověř si tohle přes web search a řekni mi, jestli to pořád platí."* Pokud má web search MCP, udělá to a buď potvrdí, nebo opraví.
+
+---
+
 ## Co Claude Code umí, co neumí, a kdy ho nepoužívat
 
 ### Co Claude Code v základu nedělá

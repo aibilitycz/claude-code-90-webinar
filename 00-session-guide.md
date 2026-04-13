@@ -34,7 +34,7 @@ Konkrétní momenty, kdy si předáváme slovo, jsou v sekci [Co-teaching](#co-t
 | 30–38 | **Zkuste si to sami #1** | Oba + Petra v chatu | 8 |
 | 38–58 | Level 2: Ukázky workflow (dvě živě + jedna slovně) | Slava (demo) + Ondřej (rámování) | 20 |
 | 58–66 | **Zkuste si to sami #2** | Oba + Petra v chatu | 8 |
-| 66–78 | Level 3: CLAUDE.md + marketplace + odhalení skillu + MCP | Slava (demo) + Ondřej (kontext) | 12 |
+| 66–78 | Level 3: CLAUDE.md + číst-ne-hádat + marketplace + odhalení skillu + MCP | Slava (demo) + Ondřej (kontext) | 12 |
 | 78–86 | Otevřené Q&A | Oba + Petra (moderuje otázky) | 8 |
 | 86–90 | Závěr + Circle komunita + co dělat dál | Ondřej | 4 |
 
@@ -117,6 +117,7 @@ Rychlé uklidnění pro netechnické publikum:
 
 **Ondřejovy klíčové reakce** (co-teaching):
 - Když Claude Code začne "přemýšlet": *"Tohle je ten moment, kterému většina lidí nevěří, dokud to neuvidí na vlastní oči."*
+- Když agent **čte soubor**, než ho začne měnit: *"Všimněte si jedné věci. Než agent něco napíše, **nejdřív si přečte, co tam je**. Nehádá z paměti, jako to dělá ChatGPT. Tohle je největší rozdíl mezi agentem a chatbotem — a v Levelu 3 si ukážeme, jak to funguje pro vás v praxi."*
 - Když agent sám vytvoří soubor: *"Já bych tohle dělal dvacet minut ručně. On to udělal za deset vteřin."*
 - Když agent čeká na povolení: *"A tohle je důvod, proč tomu můžete věřit — nic se neděje, dokud to neodklepnete."*
 
@@ -165,15 +166,16 @@ Plný scénář je v sekci [Scénář: Zkuste si to sami #2](#scénář-zkuste-s
 
 **Vede:** Slava (demo), Ondřej (kontext a závěrečný oblouk)
 
-Tenhle level má jednu velkou myšlenku: **Claude Code není aplikace s pevnými funkcemi, je to platforma, kterou si rozšiřujete sami.** Všechno, co ukazujeme, slouží k dokreslení tohohle obrazu.
+Tenhle level má jednu velkou myšlenku: **Claude Code není aplikace s pevnými funkcemi, je to platforma, kterou si rozšiřujete sami.** Druhá velká myšlenka, která jde s ní ruku v ruce: **agent musí číst, ne hádat.** Všechno, co ukazujeme, slouží k dokreslení obou.
 
-- **66–70 min:** **CLAUDE.md** — demo "bez a s" (stejný úkol, nejdřív bez pravidel, pak s nimi). Rychlá zmínka o rozdílu projektového a osobního CLAUDE.md (`~/.claude/CLAUDE.md`).
-- **70–73 min:** **Skilly a pluginy — marketplace** — otevřít `/plugin` uvnitř Claude Code, ukázat Discover záložku, podívat se na jeden z oficiálních pluginů (např. github nebo figma). Zmínit, co všechno existuje: deployment přes Vercel, design z Figmy, image gen přes Gemini skill, audio přes ElevenLabs skill.
+- **66–69 min:** **CLAUDE.md** — demo "bez a s" (stejný úkol, nejdřív bez pravidel, pak s nimi). Krátká zmínka o rozdílu projektového a osobního CLAUDE.md (`~/.claude/CLAUDE.md`).
+- **69–70:30 min:** **Číst, ne hádat — pravidlo proti halucinacím** — krátký, ale klíčový moment. *"Chcete vědět, jak donutit Claude Code, aby si nevymýšlel? Tady je jedna věta do CLAUDE.md, která změní všechno."* (Viz [Scénář: číst, ne hádat](#scénář-číst-ne-hádat-69–70-minut).)
+- **70:30–73 min:** **Skilly a pluginy — marketplace** — otevřít `/plugin` uvnitř Claude Code, ukázat Discover záložku, projít jeden z oficiálních pluginů (např. github nebo figma). Zmínit, co všechno existuje: deployment přes Vercel, design z Figmy, image gen přes Gemini skill, audio přes ElevenLabs skill.
 - **73–75 min:** **Odhalení** — *"Ten společník, kterého jste celý webinář používali? Je to skill. Obyčejný markdown, který si můžete otevřít."* Slava otevře `.claude/skills/claude-code-guide/SKILL.md` v editoru a ukáže, jak jednoduché to je. (Viz [Scénář: marketplace + odhalení skillu](#scénář-marketplace--odhalení-skillu-70–75-minut).)
-- **75–77 min:** **MCP servery** — co to je (napojení na externí služby: databáze, API), krátká zmínka že MCP servery jsou součástí mnoha pluginů a instalují se stejnou cestou. **Volitelné live demo:** instalace web search MCP přes `/plugin`, ale pokud nestíháte, klidně přeskočte.
-- **77–78 min:** **Rychlá zmínka** o modelech (Haiku/Sonnet/Opus, `/model`), paměti (uživatelský CLAUDE.md) a základních slash commands (`/help`, `/clear`, `/cost`, `/exit`).
+- **75–76 min:** **MCP servery** — co to je (napojení na externí služby), krátká zmínka že jsou součástí mnoha pluginů a instalují se stejnou cestou přes `/plugin`. Připojit web search MCP jako konkrétní příklad toho, jak se zapne *"čerpání z reálných zdrojů"*, o kterém jsme mluvili u CLAUDE.md pravidla.
+- **76–78 min:** **Rychlá zmínka** o modelech (Haiku/Sonnet/Opus, `/model`), paměti (uživatelský CLAUDE.md) a základních slash commands (`/help`, `/clear`, `/cost`, `/exit`).
 
-> **Změna oproti původnímu plánu:** MCP demo už není primární moment. Primární moment je otevření marketplace přes `/plugin` a ukázka, že společník webináře je skill. MCP je teď podřazené (*"mimochodem, MCP servery jsou druhý způsob, jak rozšířit — jsou obvykle součástí pluginů, které jste právě viděli"*). To dává víc prostoru odhalení, které je emocionálně silnější moment.
+> **Klíčové momenty Levelu 3:** Pravidlo *"číst, ne hádat"* (69–70:30) a Odhalení (73–75). Obojí jsou krátké, ale měly by být nejvýraznější. Marketplace (70:30–73) a CLAUDE.md (66–69) jsou jejich příprava. MCP a power-user tipy jsou jen závěrečný úklid — zkrátit je, pokud to časově nevychází.
 
 ### Q&A + závěr (78–90 minut)
 
@@ -313,6 +315,50 @@ Plný text pro šest míst, kde se hodí mít přípravu. Není to striktní scr
 > "Paráda. A teď poslední část — pokročilé funkce, díky kterým z Claude Code uděláte dlouhodobý nástroj, ne jen jednorázovou hračku."
 
 **Délka:** 8 minut.
+
+---
+
+### Scénář: číst, ne hádat (69–70 minut)
+
+**Mluví:** Ondřej (ten moment vede on, Slava drží editor s CLAUDE.md připravený k úpravě)
+
+Ten moment přijde hned, jak Slava dokončí CLAUDE.md "bez a s" demo. Před přechodem na marketplace se Ondřej vloží:
+
+> **[Ondřej, 69:00]**
+> "Než půjdeme dál — jeden moment, který stojí za to si zapamatovat víc než cokoli jiného z celého dnešního webináře."
+>
+> **[Pauza, podívat se do kamery]**
+>
+> "AI nástroje občas něco namixují. Něco si vymyslí. Ne ze zlé vůle — prostě proto, že čerpají z paměti modelu, která je zastaralá. ChatGPT to dělá pořád: ocituje neexistující článek, řekne vám zastaralou cenu, vymyslí si funkci, která neexistuje. Vy si toho ani nemusíte všimnout."
+>
+> **[Pauza]**
+>
+> "U Claude Code je tahle past přesně tak možná. Ale máte jednu obranu, kterou ChatGPT nemá."
+>
+> **[Důraz, k publiku]**
+>
+> "Pravidlo: **agent musí číst, ne hádat.** Než cokoli napíše, ať si nejdřív přečte zdroj. Vaše soubory, dokumentaci, web — cokoli, co je relevantní. A tohle pravidlo můžete Claude Code dát jednou větou v CLAUDE.md."
+>
+> **[Slava ukáže obrazovku s CLAUDE.md, do kterého přidává jednu sekci]**
+
+```markdown
+## Pravidlo: nejdřív číst, pak psát
+
+Než cokoli upravíš nebo navrhneš, nejdřív si přečti relevantní existující
+soubory. U knihoven a služeb si ověř aktuální dokumentaci přes web search.
+Nikdy si nevymýšlej z paměti.
+```
+
+> **[Ondřej]**
+> "Tahle jedna věta. Když si ji dáte do projektového nebo osobního CLAUDE.md, dramaticky snížíte počet halucinací. Není to zázrak — žádný AI nástroj nemá nulovou míru chyby — ale je to nejúčinnější jeden zásah, jaký můžete udělat. **Tohle je moment, kdy si o nástroji můžete říct: tomuhle se dá věřit.**"
+>
+> **[Pauza, přechod]**
+>
+> "A když mu tu větu dáte, agent začne aktivně používat nástroje, které jsme si zatím neukázali. Třeba web search. Slavo, pojďme se podívat, kde takové nástroje účastníci najdou."
+
+**Délka:** ~90 vteřin. Tempo klidné, důraz na *"agent musí číst, ne hádat"*. Tahle věta by měla být zapamatovatelná.
+
+**Co nedělat:** Nemluvit o "groundingu" jako o terminologii. Nemluvit o "RAG" nebo jiných technických pojmech. Princip je důležitý, ne label.
 
 ---
 
@@ -517,9 +563,9 @@ Pokud běží "Zkuste si to sami" a chat je tichý (méně než tři reakce v pr
 
 ### Pro každý level:
 - **Level 0:** Claude Code je agent — ne chatbot, ne editor. Běží v terminálu, ale stejný engine je i v desktopové aplikaci, na webu a v rozšířeních.
-- **Level 1:** Dívejte se, jak agent přemýšlí — plánuje, tvoří, opravuje. A ptá se, než udělá něco, co by mohlo vadit.
+- **Level 1:** Dívejte se, jak agent přemýšlí — plánuje, **čte zdroje**, tvoří, opravuje. A ptá se, než udělá něco, co by mohlo vadit. *Číst, ne hádat — to je největší rozdíl mezi agentem a chatbotem.*
 - **Level 2:** Jeden nástroj, spousta použití — od webů přes e-maily po automatizace. Co vidíte, je zrcadlo vaší skutečné práce.
-- **Level 3:** S CLAUDE.md, MCP a skilly se z Claude Code stává platforma, kterou si rozšiřujete sami.
+- **Level 3:** S CLAUDE.md, MCP a skilly se z Claude Code stává platforma, kterou si rozšiřujete sami. **A s pravidlem *"číst, ne hádat"* se stává platformou, které se dá věřit.**
 
 ### Obecné principy:
 - Nemusíte umět programovat — Claude Code programuje za vás

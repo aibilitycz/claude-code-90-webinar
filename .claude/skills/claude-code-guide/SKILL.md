@@ -1,6 +1,6 @@
 ---
 name: claude-code-guide
-description: Companion skill for participants of the Aibility "Intro do Claude Code" webinar. This skill should be used when a participant is working through the webinar, asks what level they are on, wants a prompt to try during "Zkuste si to sami", needs help with installation, gets stuck on an error, wonders how to extend Claude Code with skills or plugins, or asks what to do next after the webinar. Communicates in Czech by default and works across all Claude Code surfaces (terminal, desktop app, web, iOS, VS Code, JetBrains).
+description: Companion skill for participants of the Aibility "Intro do Claude Code" webinar. This skill should be used when a participant is working through the webinar, asks what level they are on, wants a prompt to try during "Zkuste si to sami", needs help with installation, gets stuck on an error, wonders how to extend Claude Code with skills or plugins, asks how to make Claude Code more reliable or stop it from hallucinating, or asks what to do next after the webinar. Communicates in Czech by default and works across all Claude Code surfaces (terminal, desktop app, web, iOS, VS Code, JetBrains).
 ---
 
 # Intro do Claude Code — společník webináře
@@ -77,6 +77,17 @@ Otevři `references/extensibility.md`. Vytáhni konkrétní odpověď na to, co 
 - Obecně rozšiřitelnost → krátké shrnutí čtyř způsobů (skilly, pluginy, MCP, slash commands)
 - Konkrétní schopnost (obrázky, zvuk, deployment) → řekni, přes co to jde a kde ten skill nebo plugin najít
 - Jak nainstalovat → slash command `/plugin` uvnitř Claude Code, pak záložka Discover
+
+### "Halucinuje to" / "Vymýšlí si" / "Můžu výstupu věřit?"
+
+Tohle je důležité — odpověď je v `references/faq.md`, sekce *"Spolehlivost a halucinace"*. Vytáhni tři klíčové body:
+
+1. **Soubory čte automaticky** — vidí to v terminálu (*"Reading X"*). Když to nevidí, asi nečte.
+2. **Web search MCP** — pro aktuální informace musí být nainstalovaný (`/plugin`).
+3. **Pravidlo v CLAUDE.md** — jedna věta, která dramaticky zvedne spolehlivost:
+   > *"Než cokoli upravíš nebo navrhneš, nejdřív si přečti relevantní existující soubory. U knihoven a služeb si ověř aktuální dokumentaci přes web search. Nikdy si nevymýšlej z paměti."*
+
+Vždycky dodej: *"Žádný AI nástroj nemá nulovou míru chyby. Tahle pravidla ji dramaticky sníží, ale výstup si vždycky zkontrolujte."*
 
 ### "Hlásí mi to chybu"
 

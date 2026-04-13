@@ -40,6 +40,11 @@ V kořenové složce projektu vytvořte soubor `CLAUDE.md`:
 - Komentáře v kódu česky
 - Soubory pojmenované česky (bez diakritiky)
 - README.md u každého projektu
+
+## Než něco napíšeš nebo upravíš
+- Nejdřív si přečti relevantní existující soubory
+- U knihoven a služeb si ověř aktuální dokumentaci přes web search
+- Nikdy si nevymýšlej z paměti
 ```
 
 ### Příklady CLAUDE.md pro různé role
@@ -58,6 +63,12 @@ V kořenové složce projektu vytvořte soubor `CLAUDE.md`:
 - Každý text musí mít hook v první větě
 - LinkedIn příspěvky max 1300 znaků
 - Email subject lines max 50 znaků
+
+## Než něco napíšeš
+- Když píšeš o nějakém produktu, službě nebo trendu, nejdřív si
+  ověř aktuální fakta přes web search. Nepiš ze své paměti.
+- Když navazuješ na předchozí kampaň nebo dokument, nejdřív si
+  ho přečti, ať tvůj nový text sedí stylem a obsahem.
 ```
 
 #### Pro projektového manažera:
@@ -74,6 +85,14 @@ V kořenové složce projektu vytvořte soubor `CLAUDE.md`:
 - Reporty v Markdown
 - Grafy a vizualizace kde to dává smysl
 - Executive summary na začátku každého dokumentu
+
+## Než něco navrhneš nebo upravíš
+- Nejdřív si přečti zadání projektu, předchozí reporty a poznámky
+  ze schůzek, ať tvoje doporučení vychází z reálného kontextu
+- Když se odkazuješ na konkrétní data nebo zdroje, ověř si je —
+  nikdy neuvádíš čísla nebo citace z paměti
+- Když si nejsi jistý, řekni to. Lepší přiznat neznalost než
+  hádat.
 ```
 
 ### Live demo
@@ -81,6 +100,53 @@ V kořenové složce projektu vytvořte soubor `CLAUDE.md`:
 2. Zadáme úkol **bez** CLAUDE.md → vidíme výchozí výstup
 3. Přidáme CLAUDE.md → stejný úkol → vidíme rozdíl
 4. Publikum vidí, jak pravidla mění chování agenta
+
+## Než agent něco napíše, ať si to nejdřív přečte (90 sekund)
+
+Tohle je jeden z nejdůležitějších momentů celého webináře. Je to rozdíl mezi nástrojem, kterému se dá věřit, a nástrojem, který vám občas něco namixuje.
+
+### Odkud AI bere informace
+
+Každý AI model — Claude, ChatGPT, Gemini, jakýkoli — má dvě možnosti, odkud čerpat:
+
+1. **Z paměti** — z toho, co se naučil během tréninku. Tahle paměť je zastaralá (často o měsíce nebo i roky) a často nepřesná. ChatGPT to dělá pořád: vymyslí si funkci, která neexistuje, ocituje neexistující článek, ukáže zastaralou cenu.
+2. **Z reálných zdrojů** — z vašich souborů, z dokumentace, z webu. Tohle umí Claude Code.
+
+Rozdíl mezi těmito dvěma způsoby je rozdíl mezi *"AI se snaží uhodnout"* a *"AI ví, protože si to právě přečetl"*.
+
+### Pravidlo, které byste si měli zapamatovat
+
+> Než agent něco napíše nebo změní, ať si nejdřív přečte zdroj.
+
+Tři způsoby, jak to v praxi udělat:
+
+#### 1. Soubory ve vašem projektu
+
+Claude Code je čte automaticky. Když mu zadáte úkol, sám si vyhledá relevantní soubory, otevře je a teprve potom začne psát. Vy jen pozorujete, jestli to dělá — když v terminálu vidíte hlášku *"Reading X.md"* nebo *"Looking at Y"*, je to dobré znamení.
+
+#### 2. Web search MCP — když potřebujete dnešek
+
+Když se ptáte na něco aktuálního — cenu produktu, verzi knihovny, co se právě děje ve vašem oboru — bez webového MCP serveru agent odpoví ze zastaralé paměti. **S nainstalovaným web search MCP** si to ověří v reálném čase. Instalace je dvě minuty (přes `/plugin`).
+
+#### 3. Pravidlo v CLAUDE.md
+
+Jedna věta, kterou si tam napíšete:
+
+```markdown
+## Pravidlo: nejdřív číst, pak psát
+
+Než cokoli upravíš nebo navrhneš, nejdřív si přečti relevantní existující
+soubory. Když pracuješ s nějakou knihovnou nebo službou, ověř si její
+aktuální dokumentaci přes web search. Nikdy si nevymýšlej z paměti.
+```
+
+Díky téhle jedné větě v projektovém nebo osobním CLAUDE.md přestane Claude Code chybovat z neznalosti.
+
+### Proč to pro vás dnes znamená
+
+Pokud používáte Claude Code na reálnou práci — psaní e-mailů, reportů, kódu, který volá nějakou službu — tahle jedna věta v CLAUDE.md je rozdíl mezi nástrojem, který občas něco namixuje, a nástrojem, kterému se dá věřit.
+
+**Důležité:** Žádný AI nástroj nemá nulovou míru chyby. Tohle pravidlo míru chyb dramaticky sníží, ale výstup si stále kontrolujte. *Číst před psaním* je princip pro agenta. *Kontrolovat po dokončení* je princip pro vás.
 
 ## MCP servery — Rozšíření možností (5 min)
 
