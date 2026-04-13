@@ -84,7 +84,7 @@ Náš skill najdete v repozitáři v `.claude/skills/claude-code-guide/`. Může
 
 ```bash
 # 1. Naklonujte si repozitář
-git clone https://github.com/aibility/claude-code-90-webinar.git
+git clone https://github.com/aibilitycz/claude-code-90-webinar.git
 cd claude-code-90-webinar
 
 # 2. Spusťte Claude Code přímo v téhle složce

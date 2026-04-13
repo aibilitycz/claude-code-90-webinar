@@ -70,7 +70,7 @@ The presenters co-teach — both visible and audible throughout all 90 minutes, 
 
 ```bash
 # Participants clone and activate the companion skill
-git clone https://github.com/aibility/claude-code-90-webinar.git
+git clone https://github.com/aibilitycz/claude-code-90-webinar.git
 cd claude-code-90-webinar
 claude                              # Skill auto-activates via SKILL.md
 

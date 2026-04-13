@@ -94,7 +94,7 @@ Rychlé uklidnění pro netechnické publikum:
 2. Přihlášení — při prvním spuštění `claude` se otevře prohlížeč
 3. **Aktivace společníka:**
    ```bash
-   git clone https://github.com/aibility/claude-code-90-webinar.git
+   git clone https://github.com/aibilitycz/claude-code-90-webinar.git
    cd claude-code-90-webinar
    claude
    ```
@@ -591,7 +591,7 @@ Pokud běží "Zkuste si to sami" a chat je tichý (méně než tři reakce v pr
 > **Volitelné (pokud máte chuť si ušetřit čas):**
 >
 > 4. Můžete si rovnou nainstalovat Claude Code: `npm install -g @anthropic-ai/claude-code`. Uděláme to společně, ale kdo už to bude mít, může hned na živo pracovat.
-> 5. Můžete si naklonovat repozitář webináře, ať máte všechny materiály po ruce: `git clone https://github.com/aibility/claude-code-90-webinar.git`
+> 5. Můžete si naklonovat repozitář webináře, ať máte všechny materiály po ruce: `git clone https://github.com/aibilitycz/claude-code-90-webinar.git`
 >
 > **Co vás čeká:**
 >
