@@ -5,51 +5,51 @@
 
 ## Co je Claude Code?
 
-Claude Code je **AI agent**, který běží ve vašem terminálu (a na dalších místech — více za chvíli). Není to chatbot, není to editor — je to autonomní spolupracovník, který:
+Claude Code je **AI agent**, který běží ve vašem terminálu (a na dalších místech — k tomu hned). Není to chatbot, není to editor. Je to autonomní spolupracovník:
 
-- **Čte** vaše soubory a chápe kontext projektu
-- **Píše** kód, texty, konfigurace — cokoliv potřebujete
-- **Spouští** příkazy a ověřuje, že vše funguje
-- **Opravuje** chyby — sám detekuje problém a najde řešení
+- **Čte** vaše soubory a rozumí, v jakém projektu jste
+- **Píše** kód, texty, konfigurace — cokoli potřebujete
+- **Spouští** příkazy a ověřuje si, že to funguje
+- **Opravuje** chyby — sám si všimne, co je špatně, a napraví to
 
-### Kde Claude Code žije
+### Kde všude Claude Code žije
 
-Důležitá věc, kterou většina lidí neví: Claude Code není jen CLI nástroj. V dubnu 2026 běží na **šesti povrchách**, všech propojených se stejným enginem, CLAUDE.md, pamětí a MCP servery:
+Jedna věc, o které se moc neví: Claude Code není jen příkazová řádka. V dubnu 2026 běží na **šesti různých místech**, a všechno je propojené — stejná paměť, stejný CLAUDE.md, stejné MCP servery:
 
 - **Terminál (CLI)** — hlavní rozhraní, to ukazujeme dnes
-- **Desktop aplikace** — vizuální diff review, paralelní sessions
-- **Web:** [claude.ai/code](https://claude.ai/code) — žádná instalace, běží v prohlížeči
-- **iOS aplikace** — dlouho běžící úkoly, vzdálené řízení
-- **VS Code rozšíření** — inline diffs, @-mentions
-- **JetBrains plugin (beta)** — IntelliJ, PyCharm, WebStorm
+- **Desktopová aplikace** — vizuální diff, více sessions paralelně
+- **Web** [claude.ai/code](https://claude.ai/code) — žádná instalace, prostě v prohlížeči
+- **Claude iOS aplikace** — dlouhé úkoly, vzdálené řízení
+- **Rozšíření pro VS Code** — inline diffy, @-mentions
+- **Plugin pro JetBrains (beta)** — IntelliJ, PyCharm, WebStorm
 
-**Proč na webináři ukazujeme terminál?** Protože v něm nejlépe vidíte, jak agent pracuje. Ale pokud po webináři zjistíte, že terminál není pro vás — máte pět dalších možností, kde Claude Code běží úplně stejně.
+**Proč na webináři ukazujeme terminál?** Protože v něm nejlíp vidíte, jak agent pracuje. Když vám ale terminál po webináři nesedne, máte pět dalších možností, kde Claude Code běží úplně stejně.
 
-### Proč je to jiné
+### Proč je Claude Code něco jiného
 
-- **ChatGPT** = konverzace — zeptáte se, dostanete odpověď. Primární rozhraní je chat.
-- **Cursor** = AI agent v editoru — plnohodnotné IDE (VS Code fork) s AI, která autonomně kóduje, refactoruje a opravuje. Pro ty, kdo chtějí vše v jednom vývojářském prostředí.
-- **Claude Code** = AI agent, který nežije v editoru — běží v terminálu, desktopu, webu, nebo jako rozšíření. Kam jdete vy, tam jde on.
+- **ChatGPT** = konverzace. Zeptáte se, dostanete odpověď. Hlavní rozhraní je chat.
+- **Cursor** = AI agent v editoru. Plnohodnotné IDE (fork VS Code), kde AI autonomně kóduje, refaktoruje a opravuje. Pro ty, kdo chtějí všechno pohromadě ve vývojářském prostředí.
+- **Claude Code** = AI agent, který v editoru nežije. Běží v terminálu, na desktopu, ve webu, v iOS, nebo jako rozšíření pro VS Code či JetBrains. Jde tam, kam vy.
 
-> **Poznámka:** OpenAI má vlastní obdobný nástroj — **Codex CLI**. Funguje na stejném principu jako Claude Code. Dnes ukazujeme Claude Code, ale Codex je jeho přímý bratranec od OpenAI. Pokud vás tento způsob práce osloví, oba nástroje stojí za pozornost.
+> **Poznámka:** OpenAI má svůj vlastní podobný nástroj — **Codex CLI**. Funguje na stejném principu jako Claude Code. Dnes se díváme na Claude Code, ale Codex je jeho blízký bratranec. Pokud vám tenhle způsob práce sedne, stojí za to znát oba.
 
 ## Claude Code vs Cursor vs ChatGPT
 
-> **V dubnu 2026 Cursor i Claude Code dělají většinu věcí podobně** — oba běží autonomně, spouští příkazy, opravují chyby v cyklu. Starší srovnání, že "Cursor jen pomáhá a Claude Code provádí", už neplatí. Rozdíl je **v prostředí**, ne v schopnostech.
+> **V dubnu 2026 umí Cursor i Claude Code hodně podobné věci** — oba pracují autonomně, spouští příkazy, opravují chyby. Staré srovnání typu *"Cursor jen pomáhá, Claude Code provádí"* už neplatí. Rozdíl je v tom, **kde žijí**, ne v tom, co umí.
 
 | | ChatGPT | Cursor | Claude Code |
 |---|---------|--------|-------------|
 | **Typ** | Chatbot | AI agent v editoru | AI agent v terminálu |
-| **Primární rozhraní** | Chat | Editor kódu (VS Code fork) | Terminál |
-| **Kde běží** | Web, mobil | Desktop IDE, web app, Slack | CLI, desktop, web, iOS, VS Code, JetBrains |
-| **Vidí váš projekt** | Ne (jen co vložíte) | Ano | Ano |
+| **Hlavní rozhraní** | Chat | Editor kódu (fork VS Code) | Terminál |
+| **Kde běží** | Web, mobil | Desktopové IDE, web, Slack | CLI, desktop, web, iOS, VS Code, JetBrains |
+| **Vidí váš projekt** | Ne (jen to, co tam vložíte) | Ano | Ano |
 | **Spouští příkazy** | Ne | Ano (v Agent módu) | Ano — nativně |
-| **Opravuje chyby** | Navrhne | Ano, v cyklu | Ano, v cyklu |
-| **Inline code completion** | Ne | Ano (Tab, 5–10 řádků dopředu) | Ne |
-| **Výchozí kontextové okno** | Střední | ~10–15K tokenů (Max Mode plný) | Až 1M tokenů (s Opus) |
-| **Pro koho** | Všichni | Hlavně vývojáři v IDE | Kdokoliv — kancelář, terminál, editor |
+| **Opravuje chyby** | Navrhne opravu | Ano, v cyklu | Ano, v cyklu |
+| **Inline doplňování kódu** | Ne | Ano (Tab, pět až deset řádků dopředu) | Ne |
+| **Výchozí kontextové okno** | Střední | ~10–15 tisíc tokenů (plný v Max módu) | Až milion tokenů (s Opus) |
+| **Pro koho** | Všichni | Hlavně vývojáři v IDE | Kdokoli — kancelář, terminál, editor |
 
-> **Shrnutí:** Cursor je **AI-augmented IDE** — pokud už VS Code používáte a chcete AI zapojit do editoru. Claude Code je **autonomní agent, který žije mimo editor** — pokud chcete, aby AI byla s vámi v terminálu, v desktop aplikaci, na webu nebo v iOS appce. Mnoho profesionálů používá oba současně — každý k něčemu jinému.
+> **Shrnutí:** Cursor je **AI-augmented IDE** — hodí se vám, když už v VS Code pracujete a chcete tam zapojit AI. Claude Code je **autonomní agent mimo editor** — hodí se vám, když chcete AI v terminálu, v desktopu, ve webu nebo v iOS aplikaci. Spousta profesionálů používá oba současně, každý na něco jiného.
 
 ## Cena a plány
 

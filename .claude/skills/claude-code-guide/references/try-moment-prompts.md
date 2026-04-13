@@ -1,196 +1,195 @@
-# Try Moment Prompts
+# Prompty pro "Zkuste si to sami"
 
-Hotové prompty pro oba Try Moments. Každý byl navržen tak, aby viditelný výsledek vznikl **do 3 minut** — zbytek z 8-minutového okna je na iteraci a prozkoumání.
-
----
-
-## Try Moment #1 (minuty 30–38) — První vlastní úkol
-
-Účastník má Claude Code čerstvě nainstalovaný, viděl demo v Levelu 1, ale ještě sám nezadal žádný úkol. Cíl: něco dokončeného, co může ukázat v chatu.
-
-### Varianta A — Osobní vizitková stránka
-
-**Pro koho:** Kdo chce rychlý, jasně hmatatelný výsledek. Default doporučení.
-
-**Příprava:**
-```bash
-mkdir moje-vizitka
-cd moje-vizitka
-claude
-```
-
-**Prompt (uživatel ho zkopíruje):**
-```
-Vytvoř mi jednoduchou osobní vizitkovou stránku.
-Jméno: [vaše jméno]
-Profese: [co děláte]
-Email: [váš email]
-
-Design: čistý, moderní, tmavé téma.
-Výsledek uložit jako index.html v aktuální složce.
-```
-
-**Očekávaný výsledek:** `index.html` s osobní stránkou, kterou lze otevřít v prohlížeči. Čas do prvního výsledku ~1–2 minuty.
-
-**Možná iterace (pokud zbývá čas):** *"Přidej kontaktní formulář na konec stránky."*
+Hotové prompty pro oba momenty, kdy si účastníci zkouší něco sami. Každý je navržený tak, aby **do tří minut něco reálně stálo** — zbytek osmiminutového okna je na hraní a úpravy.
 
 ---
 
-### Varianta B — Jednoduchý to-do list
+## Zkuste si to sami #1 (minuty 30–38) — První vlastní úkol
 
-**Pro koho:** Kdo chce vidět, že "aplikace" můžou vznikat rychle. Trochu techničtější vibe než vizitka.
+Účastník právě nainstaloval Claude Code, viděl demo v Level 1, ale sám ještě nic nezadal. Cíl: něco hotového, co se dá ukázat v chatu.
 
-**Příprava:**
-```bash
-mkdir todo-list
-cd todo-list
-claude
-```
+### Varianta A — Osobní stránka
 
-**Prompt:**
-```
-Vytvoř jednoduchou to-do list aplikaci v jednom HTML souboru.
-Funkce:
-- Přidání nové položky
-- Odškrtnutí dokončené položky
-- Smazání položky
-- Položky se ukládají v prohlížeči (localStorage)
+**Pro koho:** Pro ty, kdo chtějí rychlý a jasně viditelný výsledek. Bezpečná volba, kterou doporučujte, když si někdo neví rady.
 
-Design: minimalistický, světlé téma, modrá jako akcentní barva.
-```
-
-**Očekávaný výsledek:** `index.html` s funkčním to-do listem. Čas do prvního výsledku ~2 minuty.
-
-**Možná iterace:** *"Přidej počítadlo nedokončených položek nahoře."*
-
----
-
-### Varianta C — Stránka o oblíbeném tématu
-
-**Pro koho:** Kdo chce něco osobnějšího / kreativního. Dobré pro lidi, kteří nechtějí "technicky vypadající" výsledek.
-
-**Příprava:**
+**Příprava (vše v jednom terminálu):**
 ```bash
 mkdir moje-stranka
 cd moje-stranka
 claude
 ```
 
-**Prompt:**
+**Prompt ke zkopírování:**
 ```
-Vytvoř stránku o mém oblíbeném tématu: [napište jedno — třeba "italská kuchyně", "skandinávská literatura",
-"běh na dlouhé tratě", cokoliv].
+Udělej mi jednoduchou osobní stránku.
+Jméno: [vaše jméno]
+Čím se zabývám: [krátce, jednou větou]
+Email: [váš email]
 
-Struktura:
-- Hero sekce s velkým nadpisem a jednou větou úvodu
-- 3 bloky s klíčovými body, které bych chtěl/a říct
-- Závěrečná sekce s osobní poznámkou
-
-Styl: teplé barvy, velkorysý prostor, důraz na typografii.
+Vzhled: čistý, moderní, tmavé pozadí.
+Výsledek ulož jako index.html.
 ```
 
-**Očekávaný výsledek:** `index.html` se stylově laděnou stránkou. Čas do prvního výsledku ~2 minuty.
+**Co by mělo vzniknout:** `index.html`, který si otevřete v prohlížeči. Do prvního výsledku to trvá minutu až dvě.
 
-**Možná iterace:** *"Přidej obrázek na pozadí hero sekce (stačí placeholder)."*
+**Když zbývá čas:** *"Přidej na konec kontaktní formulář."*
 
 ---
 
-## Try Moment #2 (minuty 58–66) — Pracovní workflow
+### Varianta B — Malá aplikace: to-do list
 
-Účastník viděl Level 2 workflow showcase. Cíl: něco, co by mohl reálně použít v pracovním kontextu.
-
-### Varianta A — Shrnutí dokumentu
-
-**Pro koho:** Kdo často zpracovává dlouhé texty, reporty, emaily, PDF.
-
-**Příprava:** Uživatel si otevře jakýkoliv textový soubor nebo PDF, který má po ruce (může být i email nebo článek uložený jako .txt). Zkopíruje ho do složky webináře.
-
-**Prompt:**
-```
-V této složce je soubor [jméno-souboru]. Přečti ho a vytvoř:
-- Executive summary (max 5 vět)
-- 3 hlavní zjištění jako bullet points
-- 2 doporučené další kroky
-
-Výstup ulož jako shrnuti.md.
-```
-
-**Očekávaný výsledek:** Strukturovaný souhrn. Čas ~1–2 minuty.
-
-**Možná iterace:** *"Přeformuluj to jako email pro manažera."*
-
----
-
-### Varianta B — Tři varianty LinkedIn příspěvku
-
-**Pro koho:** Marketéři, kdokoliv kdo píše na sociální sítě.
+**Pro koho:** Kdo chce uvidět, že i skutečná aplikace může vzniknout za chvilku. O něco techničtější než Varianta A, pořád ale jednoduché.
 
 **Příprava:**
 ```bash
-mkdir linkedin-prispevky
-cd linkedin-prispevky
+mkdir todo
+cd todo
 claude
 ```
 
 **Prompt:**
 ```
-Napiš 3 varianty LinkedIn příspěvku na téma:
-[Vyber téma — např. "jak AI mění mou práci", "co jsem se naučil za poslední měsíc",
-"nástroj, který bych doporučil každému v mé branži"]
+Udělej jednoduchý to-do list — všechno v jednom HTML souboru.
+Co to má umět:
+- přidat novou položku
+- odškrtnout hotovou
+- smazat položku
+- pamatovat si seznam i po zavření stránky (localStorage)
 
-Každý příspěvek:
-- Hook (první věta musí zaujmout)
-- Hlavní myšlenka (3–4 věty)
-- Call to action (otázka nebo výzva)
-
-Styl 1: osobní, neformální
-Styl 2: profesionální, s daty/fakty
-Styl 3: provokativní, s kontroverzním názorem
-
-Ulož každý do samostatného souboru.
+Vzhled: minimalistický, světlé pozadí, modrá jako doplňková barva.
 ```
 
-**Očekávaný výsledek:** Tři `.md` soubory s různými variantami. Čas ~2 minuty.
+**Co by mělo vzniknout:** Funkční to-do list v jednom `index.html`. První výsledek do dvou minut.
 
-**Možná iterace:** *"Která varianta by nejlépe fungovala pro mou cílovou skupinu [X]? Vysvětli proč."*
+**Když zbývá čas:** *"Nahoru přidej počítadlo, kolik věcí ještě zbývá udělat."*
 
 ---
 
-### Varianta C — Iterace na Try Moment #1
+### Varianta C — Stránka o něčem, co vás baví
 
-**Pro koho:** Kdo má v Try Moment #1 něco postaveného a chce to zlepšit. Doporučeno pro kontinuitu.
+**Pro koho:** Kdo chce něco osobnějšího, méně "technického". Skvělé pro lidi, kteří nechtějí, aby výsledek vypadal jako ukázka kódu.
+
+**Příprava:**
+```bash
+mkdir co-me-bavi
+cd co-me-bavi
+claude
+```
 
 **Prompt:**
 ```
-Vrať se k projektu z první try-moment. Přidej:
-1. Responzivní design — musí vypadat dobře i na mobilu
-2. Jednu novou sekci nebo funkci podle toho, co by projektu slušelo
-3. Vylepši typografii — větší nadpisy, lepší proporce
+Udělej stránku o něčem, co mě baví: [napište jednou větou — třeba
+"italská kuchyně", "severská literatura", "běh na dlouhé tratě"].
 
-Vysvětli, co jsi změnil a proč.
+Struktura:
+- úvodní sekce s velkým nadpisem a jednou větou, proč mě to baví
+- tři bloky, ve kterých řeknu to nejdůležitější
+- závěr s osobní poznámkou
+
+Styl: teplé barvy, hodně prostoru, důraz na typografii.
 ```
 
-**Očekávaný výsledek:** Upravený projekt + vysvětlení změn. Čas ~2–3 minuty.
+**Co by mělo vzniknout:** Hezky vypadající `index.html`. První výsledek do dvou minut.
 
-**Možná iterace:** *"A teď přidej tmavý režim jako přepínač v rohu stránky."*
+**Když zbývá čas:** *"Do úvodní sekce přidej obrázek na pozadí — stačí placeholder."*
 
 ---
 
-## Pravidla pro výběr varianty
+## Zkuste si to sami #2 (minuty 58–66) — Pracovní úkol
 
-Když se uživatel ptá "co mám zkusit":
+Účastník viděl Level 2 s pracovními workflow. Cíl: něco, co by mohli reálně použít v práci.
 
-1. **Nenabízejte všechny tři najednou** — uživatel je v časovém stresu, dejte mu rozhodnutí snadnější
-2. **Zeptejte se:** *"Máte raději osobní projekt (vizitka), aplikaci (to-do list) nebo něco kreativního (stránka o tématu)?"*
-3. **Pokud se nerozhodnou:** doporučte Variantu A (Vizitka pro #1, Shrnutí dokumentu pro #2). Jsou to nejjistější sázky.
-4. **Pokud uživatel říká, že nechce nic předpřipraveného:** respektujte to, nabídněte pouze strukturu ("Co byste chtěli postavit? Napište mi jednou větou a pomůžu vám to zformulovat jako prompt")
+### Varianta A — Zpracovat dokument
 
-## Co když uživatel neví, jak použít prompt
+**Pro koho:** Kdo každý týden čte dlouhé texty, reporty, emaily nebo PDF.
 
-1. Řekněte mu, ať zkopíruje prompt do svého Claude Code promptu (v terminálu)
-2. Vysvětlete, že Claude Code si během práce bude ptát na povolení — to je normální, stačí odpovídat `y`
-3. Pokud se zasekne na nějaké chybě, ať se zeptá vás (tohoto skillu) s textem chyby
+**Příprava:** Účastník si přetáhne nějaký textový soubor nebo PDF do složky webináře. Klidně email, článek, cokoli textového, co má po ruce.
+
+**Prompt:**
+```
+Ve složce mám soubor [jméno-souboru]. Přečti ho a udělej:
+- shrnutí na pět vět
+- tři hlavní myšlenky v odrážkách
+- dva návrhy, co s tím dál
+
+Výstup ulož jako shrnuti.md.
+```
+
+**Co by mělo vzniknout:** Strukturovaný souhrn. Trvá minutu až dvě.
+
+**Když zbývá čas:** *"A teď mi to samé napiš jako krátký email šéfovi."*
+
+---
+
+### Varianta B — Tři verze LinkedIn příspěvku
+
+**Pro koho:** Marketéři a kdokoli, kdo píše na sociální sítě.
+
+**Příprava:**
+```bash
+mkdir linkedin
+cd linkedin
+claude
+```
+
+**Prompt:**
+```
+Napiš tři verze LinkedIn příspěvku na téma:
+[napište téma — třeba "jak mi AI mění práci", "co mě za poslední měsíc
+překvapilo", "nástroj, který bych doporučil všem ve své branži"].
+
+Každá verze má:
+- první větu, která zaujme
+- hlavní myšlenku (tři až čtyři věty)
+- otázku nebo výzvu na konci
+
+Verze 1: osobní, uvolněná
+Verze 2: s daty a fakty, profesionálnější
+Verze 3: provokativní, s jasným názorem
+
+Každou verzi ulož do samostatného souboru.
+```
+
+**Co by mělo vzniknout:** Tři soubory, tři různé tóny. Do dvou minut.
+
+**Když zbývá čas:** *"Která verze by u mé cílovky nejspíš fungovala nejlíp? A proč?"*
+
+---
+
+### Varianta C — Vylepšit to, co jste postavili v #1
+
+**Pro koho:** Kdo má z prvního kola něco funkčního a chce to dotáhnout. Doporučujte, když chce někdo pokračovat na stejném projektu.
+
+**Prompt:**
+```
+Vrať se k projektu z první části. Udělej tři věci:
+1. Ať to vypadá dobře i na mobilu (responzivní)
+2. Přidej jednu novou sekci nebo funkci, která tam chybí
+3. Zvětši nadpisy a udělej lepší proporce
+
+Pak mi řekni, co jsi změnil a proč.
+```
+
+**Co by mělo vzniknout:** Upravený projekt s vysvětlením změn. Dvě až tři minuty.
+
+**Když zbývá čas:** *"A teď do rohu přidej přepínač na tmavý režim."*
+
+---
+
+## Jak účastníkovi pomoct vybrat si
+
+Když se někdo zeptá *"co si mám zkusit?"*, neházejte na něj všechny tři varianty najednou. Udělejte to jednodušeji:
+
+1. **Zeptejte se ho:** *"Chcete spíš něco osobního (stránka o sobě), jednoduchou aplikaci (to-do list), nebo něco kreativního (stránka o tom, co vás baví)?"*
+2. **Když si neumí vybrat:** Doporučte Variantu A. U #1 je to osobní stránka, u #2 zpracování dokumentu. Jsou to nejjistější sázky.
+3. **Když nechce nic předpřipraveného:** Respektujte to. Nabídněte jen, že mu pomůžete: *"Řekněte mi jednou větou, co chcete postavit, a já vám to pomůžu přeložit do promptu."*
+
+## Co když účastník neví, jak prompt použít
+
+1. Řekněte mu, ať prompt zkopíruje do okna, kde mu bliká kurzor (do Claude Code v terminálu)
+2. Claude Code se ho během práce bude ptát na povolení — to je v pořádku, stačí odpovědět `y` a Enter
+3. Když se zasekne na chybě, ať text chyby zkopíruje a zeptá se (tohoto skillu) znovu
 
 ## Co když Claude Code hlásí chybu
 
-Podívejte se do `faq.md` v této složce — pravděpodobné chyby jsou tam popsané. Pokud tam není, řekněte uživateli, aby zkopíroval text chyby — a pak ho pošle sem.
+Podívejte se do `faq.md` ve stejné složce — nejčastější chyby jsou tam. Pokud tam není, řekněte účastníkovi, ať text chyby zkopíruje, a společně se podívejte, co s tím.

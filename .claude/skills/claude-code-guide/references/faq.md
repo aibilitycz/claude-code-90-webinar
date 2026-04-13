@@ -1,189 +1,207 @@
-# FAQ — Časté otázky
+# Časté otázky
 
-Odpovědi na nejčastější otázky účastníků webináře. Když se vás uživatel zeptá, vyberte relevantní sekci a odpovězte stručně. Nepřepisujte celou FAQ do chatu.
+Odpovědi na to, na co se účastníci webináře ptají nejčastěji. Když se vás někdo zeptá, najděte relevantní sekci a odpovězte stručně. **Nekopírujte** celý soubor do chatu — vytáhněte jen to, co se ptal.
 
 ## Cena a plány
 
 ### Kolik Claude Code stojí?
 
-Claude Code je zahrnutý v Claude předplatném od Anthropic. K dispozici jsou tři hlavní plány:
+Claude Code je součástí předplatného Claude od Anthropic. Jsou tři hlavní plány:
 
-| Plán | Cena | Co získáte |
-|------|------|-----------|
-| **Claude Pro** | $20/měsíc | Claude Code přístup, základní limity, všechny modely |
-| **Claude Max 5×** | $100/měsíc | 5× vyšší limity — pro pravidelné používání |
-| **Claude Max 20×** | $200/měsíc | 20× kapacita — pro intenzivní každodenní práci |
+| Plán | Cena | Co za to máte |
+|------|------|---------------|
+| **Claude Pro** | $20/měsíc | Přístup k Claude Code, základní limity, všechny modely |
+| **Claude Max 5×** | $100/měsíc | Pětinásobné limity — pro pravidelné používání |
+| **Claude Max 20×** | $200/měsíc | Dvacetinásobná kapacita — pro každodenní intenzivní práci |
 
-Alternativně můžete platit přes API credits (platíte za spotřebu tokenů, žádné měsíční předplatné) — vhodné pro pokročilé uživatele, kteří chtějí plnou kontrolu nad náklady.
+Alternativa: platit přes API credits (účtuje se za spotřebu tokenů, žádné měsíční předplatné). Hodí se pokročilým, kteří chtějí mít náklady pod plnou kontrolou.
 
-**Doporučení:** Začněte s Claude Pro ($20). Je to minimum pro Claude Code a zjistíte, jak moc ho používáte, než se rozhodnete o přechodu na vyšší plán.
+**Doporučení:** Začněte s Claude Pro za $20. Je to minimum pro Claude Code a po pár týdnech zjistíte, jak moc ho opravdu používáte. Pak se můžete posunout výš.
 
-### Je nějaká zkušební verze?
+### Je nějaká zkušební verze zdarma?
 
-Ano — Claude Pro má 7denní free trial při první registraci. Stačí vytvořit účet na [claude.com](https://claude.com) a vybrat Pro plán.
+Ano — Claude Pro má při první registraci sedmidenní trial. Stačí si založit účet na [claude.com](https://claude.com) a zvolit Pro plán.
 
 ### Platí se za každý prompt zvlášť?
 
-Ne — předplatné pokrývá "rozumné používání" v rámci limitů plánu. Limity jsou definované jako "počet tokenů za 5hodinové okno" a resetují se automaticky. Pouze API credits jsou pay-per-use.
+Ne. Předplatné pokrývá "rozumné používání" v rámci limitů plánu. Limity jsou definované jako počet tokenů za pětihodinové okno a resetují se samy. Za překročení vám nikdy nepřijde účet — buď pracujete, nebo čekáte, až se okno obnoví.
+
+Jen u API credits se účtuje doopravdy podle spotřeby.
 
 ### Co když vyčerpám limit?
 
-Claude Code vám to řekne a musíte počkat do resetu (max 5 hodin), nebo přejít na vyšší plán. Nikdy vám nepřijde účet za "překročení" — buď pracujete, nebo čekáte.
+Claude Code vám to řekne a musíte počkat do resetu (maximálně pět hodin), nebo se přepnout na vyšší plán. Nikdy vám za to nepřijde účet — Anthropic prostě zastaví, dokud se limit neobnoví.
 
 ---
 
 ## Bezpečnost a data
 
-### Co se děje s mým kódem / daty, když používám Claude Code?
+### Co se stane s mým kódem a daty, když používám Claude Code?
 
-Anthropic v rámci placených plánů **nepoužívá vaše data k tréninku modelů** (toto je klíčový rozdíl od některých free verzí jiných nástrojů). Vaše data jsou používána pouze ke zpracování vašich požadavků a pak zahozena.
+Anthropic u placených plánů **vaše data nepoužívá k tréninku modelů**. Tohle je důležitý rozdíl proti některým free verzím jiných AI nástrojů. Vaše data jdou k Anthropicu jen proto, aby Claude Code mohl splnit váš požadavek, a pak se zahodí.
 
-### Můžu Claude Code pustit na citlivý projekt?
+### Můžu na Claude Code pustit citlivý projekt?
 
-Záleží na tom, co "citlivý" znamená:
-- **Kód s běžným business logikem:** ano, bez problému
-- **Osobní údaje zákazníků, zdravotní data, finanční údaje:** jen pokud máte odpovídající plán (Enterprise nabízí HIPAA compliance, audit logy a další zajištění)
-- **API klíče, hesla, tajné konfigurace:** nikdy je nevkládejte přímo do promptů — Claude Code může omylem ukázat jejich hodnoty v logu
+Záleží na tom, jak moc je citlivý:
 
-**Zlaté pravidlo:** Pokud byste to poslali kolegovi mailem, můžete to dát Claude Code. Pokud ne, nedávejte.
+- **Běžný pracovní kód a texty:** Ano, žádný problém
+- **Osobní údaje klientů, zdravotní data, finanční údaje:** Jen když máte plán, který to pokrývá. Enterprise nabízí HIPAA compliance, audit logy a další záruky
+- **Hesla, API klíče, tajná nastavení:** **Nikdy** je nevkládejte přímo do promptů — Claude Code by je mohl omylem zmínit v logu
 
-### Co když Claude Code něco smaže / rozbije?
+**Jednoduché pravidlo:** Když byste to klidně poslali kolegovi mailem, můžete to dát i Claude Code. Když ne, nedávejte.
 
-Claude Code se **ptá na povolení před každou riskantní akcí** — smazání souborů, instalace balíčků, spuštění příkazů. Vy rozhodujete, nic se neděje za vaším vědomím.
+### Co když Claude Code něco smaže nebo rozbije?
 
-Zlaté pravidlo pro začátečníky: pracujte ve složkách, které mají git nebo backup. Pokud se něco pokazí, `git checkout .` to vrátí zpět.
+Claude Code se **před každou riskantní akcí ptá na povolení** — mazání souborů, instalace balíčků, spouštění příkazů. Vy rozhodujete. Nic se neděje za vašimi zády.
+
+Nejlepší zlozvyk pro začátečníky: pracujte ve složkách, které jsou v gitu nebo mají zálohu. Když se něco rozbije, `git checkout .` vrátí všechno zpátky.
 
 ### Vidí Anthropic mé soubory?
 
-Claude Code posílá obsah souborů do Anthropic API pouze v rozsahu, který potřebuje k vašemu úkolu. Nikdy neposílá celý disk, nikdy neposílá soubory, o které ho nepožádáte. Logy obsahují jen to, co bylo součástí konverzace.
+Claude Code posílá obsah souborů na Anthropic API jen v takovém rozsahu, jaký potřebuje k vašemu zadání. Neposílá celý disk a neposílá soubory, o které ho nepožádáte. V logu zůstává jen to, co bylo součástí konverzace.
 
 ---
 
 ## Instalace
 
-### `node --version` hlásí "command not found"
+### `node --version` mi hlásí "command not found"
 
-Node.js není nainstalovaný. Stáhněte ho z [nodejs.org](https://nodejs.org) (verze LTS, 18+). Po instalaci zavřete a znovu otevřete terminál, pak to zkuste znovu.
+Node.js ještě nemáte nainstalovaný. Stáhněte ho z [nodejs.org](https://nodejs.org) — zvolte LTS verzi (18 nebo novější). Po instalaci **zavřete terminál a otevřete ho znovu**, jinak stará session neuvidí nový příkaz. Pak zkuste `node --version` znovu.
 
 ### `npm install -g @anthropic-ai/claude-code` hlásí permission error
 
-Na Macu/Linuxu nepoužívejte `sudo` — způsobuje jiné problémy. Místo toho použijte [nvm](https://github.com/nvm-sh/nvm) pro správu Node.js verzí, nebo nativní installer:
+Na Macu a Linuxu **nepoužívejte `sudo`** — způsobuje jiné problémy, které se špatně ladí. Místo toho buď použijte [nvm](https://github.com/nvm-sh/nvm) (správce verzí Node.js), nebo nativní instalátor:
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-### `claude` hlásí "command not found" po instalaci
+Ten nevyžaduje npm vůbec.
 
-Pravděpodobně npm nainstaloval Claude Code, ale jeho binárka není na PATH. Zkuste:
-1. Zavřete a znovu otevřete terminál
-2. Ověřte kde je `claude`: `which claude` (macOS/Linux) nebo `where claude` (Windows)
-3. Pokud to nepomůže, použijte nativní installer z [claude.com](https://claude.com)
+### `claude` hlásí "command not found" hned po instalaci
 
-### Jak se přihlásím po spuštění `claude`
+Pravděpodobně proběhla instalace v pořádku, ale binárka Claude Code není na PATH. Zkuste:
 
-Při prvním spuštění Claude Code otevře prohlížeč se stránkou Anthropic, kde se přihlásíte. Po přihlášení prohlížeč zobrazí "úspěch" a terminál pokračuje.
+1. Zavřete a znovu otevřete terminál (nejčastější řešení)
+2. Ověřte, kde Claude Code vlastně je: `which claude` (macOS/Linux) nebo `where claude` (Windows)
+3. Když to nepomůže, zkuste nativní instalátor z [claude.com](https://claude.com) místo npm
 
-### Windows mi hlásí chybu s WSL
+### Jak se přihlásím po prvním spuštění?
 
-Na Windows je doporučené použít WSL2 (Windows Subsystem for Linux). Stačí otevřít PowerShell jako admin a spustit `wsl --install`, pak restartovat počítač. Pak spusťte Claude Code uvnitř WSL.
+Při prvním spuštění Claude Code otevře prohlížeč se stránkou Anthropic. Tam se přihlásíte (nebo zaregistrujete), potvrdíte autorizaci, a prohlížeč se přepne na "hotovo". Terminál mezitím sám ví, že jste prošli, a pokračuje.
 
-Alternativně: použijte nativní Windows installer:
+### Na Windows mi hlásí chybu s WSL
+
+Na Windows je doporučené rozjet Claude Code pod **WSL2** (Windows Subsystem for Linux). Otevřete si PowerShell jako správce a spusťte:
+
+```powershell
+wsl --install
+```
+
+Pak počítač restartujte a Claude Code spouštějte uvnitř WSL.
+
+Alternativa pro ty, kdo WSL nechtějí: nativní Windows instalátor.
+
 ```powershell
 irm https://claude.ai/install.ps1 | iex
 ```
+
 Vyžaduje Git for Windows.
 
 ---
 
 ## Používání
 
-### Claude Code mi jen "přemýšlí" a nic nedělá
+### Claude Code jen "přemýšlí" a nic nedělá
 
-Claude Code může přemýšlet nad složitějším úkolem 30–60 sekund. Pokud je to přes 2 minuty bez výstupu:
-1. Zkontrolujte internetové připojení
-2. Zkontrolujte status Anthropic: [status.anthropic.com](https://status.anthropic.com)
-3. Pokud vše funguje, stiskněte `Esc` pro přerušení a zkuste prompt znovu
+Claude Code si může nad složitějším úkolem přemýšlet třicet vteřin až minutu. Nad komplikovanějšími projekty i delší. Když to ale trvá víc než dvě minuty bez jakéhokoli výstupu:
+
+1. Zkontrolujte internet
+2. Mrkněte na status Anthropic: [status.anthropic.com](https://status.anthropic.com)
+3. Pokud všechno vypadá v pořádku, stiskněte `Esc` (přeruší to aktuální akci) a zkuste prompt znovu
 
 ### Agent udělal něco jiného, než jsem chtěl/a
 
-Je to normální — přesnost dosáhnete iterací, ne perfektním prvním promptem. Řekněte Claude Code co chcete jinak:
+To je úplně normální. Přesnost se nedosahuje perfektním prvním promptem, ale iterací. Řekněte Claude Code, co byste chtěli místo toho:
+
 ```
-To není úplně ono — místo toho zkus [co chcete].
+Ne tohle — místo toho zkus [co chcete].
 ```
 
-### Jak Claude Code opustím
+Claude Code si pamatuje kontext, takže si nemusíte znovu vysvětlovat od začátku.
 
-Napište `/exit` nebo stiskněte `Ctrl+D`. Klávesa `Esc` pouze **přeruší** aktuální akci agenta, neukončí celý Claude Code.
+### Jak Claude Code opustím?
+
+Napište `/exit` nebo stiskněte `Ctrl+D`. Klávesa `Esc` jen **přeruší** aktuální akci agenta — neukončí celé Claude Code.
 
 ### Co dělá `/clear`?
 
-Vyčistí historii konverzace. Užitečné, když přecházíte na nový úkol a nechcete, aby starý kontext ovlivnil výsledek.
+Vymaže historii aktuální konverzace. Hodí se, když začínáte nový úkol a nechcete, aby starý kontext ovlivňoval výsledek.
 
 ### Co dělá `/compact`?
 
-Zkomprimuje historii dlouhé konverzace, aby se vešla do kontextového okna. Užitečné při delších sessions, kdy si Claude Code "zaplnil paměť".
+Zkomprimuje historii dlouhé konverzace, aby se vešla do kontextového okna. Hodí se, když jste v delší session a máte pocit, že Claude Code začíná "zapomínat" staré věci.
 
 ### Můžu vrátit změny, které agent udělal?
 
-Pokud pracujete v git repozitáři: ano, `git checkout .` vrátí všechny neuložené změny. `git reset --hard HEAD` vrátí i commity (opatrně).
+V git repozitáři ano: `git checkout .` vrátí všechny neuložené změny. `git reset --hard HEAD` vrátí i commity — ale tohle používejte opatrně, o poslední commity byste přišli.
 
-Pokud ne v git: agent má backup v /tmp, ale není na to stoprocentní spoleh. **Vždy pracujte v git repozitáři nebo se zálohou.**
+Když nejste v gitu, agent obvykle má zálohu v `/tmp`, ale není to stoprocentní jistota. **Nejlepší pravidlo:** pracujte vždy v git repozitáři nebo alespoň se zálohou.
 
 ---
 
-## Modely a výběr
+## Modely — který zvolit?
 
-### Sonnet vs Opus — který použít?
+### Sonnet, Opus, Haiku — který použít?
 
-| Model | Kdy použít |
-|-------|-----------|
-| **Sonnet** | 90 % úkolů — rychlejší, levnější, pro běžnou práci |
-| **Opus** | Složité úkoly, velké refactoring, když Sonnet "nestíhá" myslet |
-| **Haiku** | Velmi rychlé a jednoduché úkoly (čtení, prohledávání, jednoduché úpravy) |
+| Model | Kdy se hodí |
+|-------|-------------|
+| **Haiku** | Velmi jednoduché věci — rychlé přečtení souboru, drobné úpravy, vyhledávání |
+| **Sonnet** | 90 % běžné práce — rychlý, dost chytrý, levnější |
+| **Opus** | Komplikované úkoly, velké refactoring, když Sonnet přestává stíhat |
 
-**Default:** Sonnet. Přepnete příkazem `/model` v Claude Code. Pro většinu účastníků webináře bude Sonnet naprosto stačit.
+**Výchozí model je Sonnet.** Pro většinu účastníků webináře bude úplně stačit. Když vám nestačí, přepnete se.
 
 ### Jak se přepne model?
 
-V Claude Code napište `/model` a vyberte z nabídnutých možností.
+V Claude Code napíšete `/model` a vyberete si.
 
 ---
 
-## Omezení a kdy Claude Code nepoužívat
+## Kdy Claude Code nepoužívat
 
 ### Co Claude Code neumí dobře?
 
-- **Kreativní psaní vysoké úrovně** — je dobré na strukturovaný obsah (emaily, reporty, LinkedIn posty), ale na poezii nebo umělecké texty jsou lepší jiné nástroje
-- **Obrazová práce** — Claude Code generuje kód a text, ne obrázky
-- **Real-time data bez MCP** — bez web search MCP nevidí aktuální informace z internetu
-- **Velmi specializované znalosti** — medicína, právo, finance: vždy konzultujte odborníka, neberte výstup jako hotovou radu
+- **Kreativní psaní vysoké úrovně** — umí pěkně strukturovaný obsah (emaily, reporty, LinkedIn příspěvky), ale poezii nebo umělecké texty radši nechte jiným
+- **Obrazová tvorba** — Claude Code píše kód a text, ne obrázky. Na obrázky použijte jiný nástroj
+- **Aktuální data bez web search MCP** — bez webového MCP nevidí, co je na internetu teď
+- **Vysoce odborná znalost** — medicína, právo, finance: konzultujte s odborníkem, výstup berte jako hrubý první nápad, ne jako hotovou radu
 
-### Kdy Claude Code NEPOUŽÍVAT
+### Kdy Claude Code radši vůbec nepoužít
 
-- **Citlivé osobní údaje zákazníků** bez Enterprise plánu
+- **Citlivé osobní údaje klientů**, pokud k tomu nemáte Enterprise plán
 - **Produkční databáze** bez testovacího prostředí
-- **Právní dokumenty** bez kontroly odborníka
-- **Úkoly, kde potřebujete 100% přesnost** — agent může udělat chyby, vždy kontrolujte výstup
+- **Právní texty** bez kontroly odborníka
+- **Úkoly, kde potřebujete stoprocentní přesnost** — agent může chybovat, výstup si vždycky zkontrolujte
 
 ---
 
-## Po webináři
+## Co dělat po webináři
 
-### Co teď mám dělat?
+### Dobře — a teď co?
 
-1. Otevřete `cheat-sheet/claude-code-quickstart-cs.md` — ten vás provede "prvními 30 minutami"
-2. Zkuste jeden reálný úkol ze své práce
-3. Přidejte se do Circle komunity (odkaz dostanete v závěru webináře)
-4. Vytvořte si CLAUDE.md pro svůj pracovní projekt
+1. Otevřete si `cheat-sheet/claude-code-quickstart-cs.md` — je to průvodce prvních třiceti minut
+2. Vyberte si jeden reálný úkol ze své práce a zkuste ho
+3. Přidejte se do naší Circle komunity (odkaz dostanete v závěru webináře)
+4. Napište si CLAUDE.md pro svůj pracovní projekt
 
-### Kam jít pro další učení?
+### Kam se podívat pro další učení?
 
-- **Cheat sheet** v tomto repozitáři
+- **Cheat sheet** v tomhle repozitáři
 - **Oficiální dokumentace:** [code.claude.com/docs](https://code.claude.com/docs)
-- **Circle komunita** — sdílejte své projekty a ptejte se
-- **Další webináře a masterclassy** na [aibility.cz](https://aibility.cz)
+- **Circle komunita** — sdílejte projekty a ptejte se
+- **Další webináře a kurzy** na [aibility.cz](https://aibility.cz)
 
-### Můžu si najmout mentora nebo konzultanta?
+### Můžu si najmout konzultanta nebo mentora?
 
-Ano — Aibility nabízí individuální a firemní konzultace. Informace najdete na [aibility.cz](https://aibility.cz) nebo se ptejte Petry.
+Ano — Aibility dělá individuální i firemní konzultace. Víc najdete na [aibility.cz](https://aibility.cz), nebo napište Petře.

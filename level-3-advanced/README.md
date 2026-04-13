@@ -88,9 +88,9 @@ Rozšíření, která Claude Code připojují k externím nástrojům a službá
 - **Bez MCP:** Claude Code vidí jen soubory ve vaší složce
 - **S MCP:** Claude Code se může připojit k databázím, API, cloudovým službám
 
-### Příklady užitečných MCP:
+### Příklady užitečných MCP
 
-> **Poznámka:** Čtení a zápis souborů v Claude Code je **nativní** — není to MCP. Nemusíte nic instalovat. MCP servery přidávají přístup k věcem **mimo** váš projekt.
+> **Poznámka:** Čtení a zápis souborů umí Claude Code nativně — **to není MCP**. Nemusíte nic instalovat. MCP servery přidávají přístup k věcem, které jsou **mimo** váš projekt.
 
 #### Webové MCP
 - Přístup k webovým stránkám a API
@@ -107,9 +107,9 @@ Rozšíření, která Claude Code připojují k externím nástrojům a službá
 - Google Drive, Notion — přístup k dokumentům
 - Slack — čtení a odesílání zpráv
 
-### Live demo: Instalace MCP za 2 minuty
+### Živé demo: MCP za dvě minuty
 
-Ukážeme si připojení webového vyhledávání — jedno z nejužitečnějších MCP:
+Ukážeme si, jak připojit webové vyhledávání — jedno z nejužitečnějších MCP:
 
 ```bash
 # 1. Nejdřív spusťte Claude Code
@@ -118,11 +118,11 @@ claude
 # 2. Uvnitř Claude Code napište slash command:
 /mcp
 
-# 3. Vyberte "Add new server" a následujte instrukce
-#    (lektor ukáže krok za krokem v rozhraní)
+# 3. Vyberte "Add new server" a dál podle instrukcí
+#    (lektor projde krok po kroku)
 ```
 
-> `/mcp` je **slash command** uvnitř běžícího Claude Code, ne shell příkaz. Musíte nejdřív spustit `claude` a teprve pak ho napsat.
+> `/mcp` je **slash command**, který se píše uvnitř běžícího Claude Code — není to příkaz, který se spouští v shellu. Takže nejdřív spusťte `claude`, a teprve potom `/mcp`.
 
 **Po instalaci — ukázka rozdílu:**
 
@@ -140,43 +140,43 @@ Co je nového v AI tento týden?
 
 > **Poznámka:** MCP ekosystém se rychle vyvíjí. Aktuální seznam a návody najdete na [docs.anthropic.com](https://docs.anthropic.com/en/docs/claude-code). Na webináři ukážeme jeden konkrétní příklad — doma si můžete přidat další.
 
-## CLAUDE.md na dvou úrovních — projektový a osobní (2 min)
+## CLAUDE.md ve dvou úrovních — projektový a osobní (2 min)
 
-CLAUDE.md může žít na **dvou úrovních**, a každá slouží k něčemu jinému:
+CLAUDE.md může žít na **dvou úrovních** a každá z nich slouží k něčemu jinému.
 
 ### Projektový CLAUDE.md
-- Umístění: `CLAUDE.md` v kořeni projektu
-- Rozsah: platí pro tento konkrétní projekt
-- Sdílení: můžete commitnout do gitu a sdílet s týmem
-- Příklad obsahu: "V tomto projektu piš česky. Používej React a Tailwind. Výstupy v Markdown."
+- **Kde leží:** `CLAUDE.md` v kořeni projektu
+- **Pro co platí:** jen pro tenhle konkrétní projekt
+- **Sdílení:** dá se commitnout do gitu a sdílet s týmem
+- **Příklad obsahu:** *"V tomhle projektu piš česky. Používej React a Tailwind. Výstupy v Markdownu."*
 
-### Osobní (user-level) CLAUDE.md
-- Umístění: `~/.claude/CLAUDE.md` (ve vašem domovském adresáři)
-- Rozsah: platí pro **všechny** projekty, které otevřete
-- Sdílení: pouze vaše, nikdo jiný ho nevidí
-- Příklad obsahu: "Jsem marketér, vysvětluj technické věci laicky. Odpovídej česky. Buď stručný."
+### Osobní (uživatelský) CLAUDE.md
+- **Kde leží:** `~/.claude/CLAUDE.md` ve vašem domovském adresáři
+- **Pro co platí:** pro **všechny** projekty, které otevřete
+- **Sdílení:** je jen vaše, nikdo jiný ho nevidí
+- **Příklad obsahu:** *"Jsem marketér, technické věci vysvětluj po lopatě. Odpovídej česky. Buď stručný."*
 
-### Který zvolit?
+### Který si zvolit?
 
-| Potřeba | Použijte |
-|---------|----------|
-| Pravidla pro konkrétní projekt (tech stack, design system) | Projektový CLAUDE.md |
-| Osobní preference, které chcete všude (styl komunikace, jazyk) | Osobní CLAUDE.md v `~/.claude/` |
-| Obojí najednou | Oba — Claude Code je kombinuje |
+| Co potřebujete | Co použít |
+|----------------|-----------|
+| Pravidla pro konkrétní projekt (technologie, design systém) | Projektový CLAUDE.md |
+| Osobní preference, které chcete všude (jazyk, tón) | Uživatelský CLAUDE.md v `~/.claude/` |
+| Obojí najednou | Klidně oba najednou — Claude Code si je zkombinuje |
 
-> **Tip:** Začněte s osobním CLAUDE.md (jeden soubor, platí všude) a přidejte projektový jen pro projekty s konkrétními pravidly.
+> **Tip:** Začněte s uživatelským CLAUDE.md (jeden soubor, platí všude) a projektový si přidejte až u projektů, které potřebují vlastní pravidla.
 
-## Přepínání modelů — rychlost vs. kvalita (1 min)
+## Přepínání modelů — rychlost versus kvalita (1 min)
 
-Claude Code může běžet na třech hlavních modelech od Anthropic:
+Claude Code umí jezdit na třech hlavních modelech od Anthropic:
 
-| Model | Kdy použít | Charakteristika |
-|-------|-----------|----------------|
-| **Haiku** | Velmi rychlé a jednoduché úkoly — čtení, prohledávání, malé úpravy | Nejrychlejší, nejlevnější |
-| **Sonnet** | 90 % běžné práce — default volba pro většinu uživatelů | Rovnováha rychlosti a schopností |
-| **Opus** | Složité úkoly, velké refactoringy, rozsáhlé projekty | Pomalejší, ale nejchytřejší, největší kontextové okno |
+| Model | Kdy se hodí | Vlastnosti |
+|-------|-------------|-----------|
+| **Haiku** | Velmi rychlé a jednoduché úkoly — přečíst soubor, něco najít, drobná úprava | Nejrychlejší, nejlevnější |
+| **Sonnet** | 90 % běžné práce — výchozí volba pro většinu uživatelů | Rychlost i schopnosti v jednom |
+| **Opus** | Složité úkoly, velké refaktoringy, rozsáhlé projekty | Pomalejší, ale nejchytřejší a s největším kontextem |
 
-Přepínáte příkazem `/model` přímo v Claude Code. **Default je Sonnet** — pro většinu úkolů naprosto stačí. Na Opus přepněte, když Sonnet "nestíhá" myslet. Na Haiku přepněte, když chcete jen rychle něco prohledat nebo přečíst.
+Přepínáte příkazem `/model` přímo uvnitř Claude Code. **Výchozí je Sonnet** — pro většinu práce naprosto stačí. Na Opus přepněte, když cítíte, že Sonnet nestíhá. Na Haiku přepněte, když chcete jen rychle něco přečíst nebo najít.
 
 ## Tipy pro power usery (3 min)
 

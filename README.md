@@ -67,40 +67,40 @@ Kompletní instrukce pro vedení 90minutového webináře s časovým rozpisem.
 
 ---
 
-## Pro účastníky: Aktivujte si společníka webináře
+## Pro účastníky: aktivujte si společníka webináře
 
-Tento repozitář obsahuje **companion skill** — pomocníka v Claude Code, který vás provede celým webinářem. Skill zná strukturu webináře, má připravené prompty k vyzkoušení, odpovídá na časté otázky a pomůže vám, když se někde zaseknete.
+V tomhle repozitáři je **companion skill** — pomocník v Claude Code, který vás provede celým webinářem. Skill zná, jak je webinář rozvržený, má přichystané prompty k vyzkoušení, odpovídá na časté otázky a pomůže vám, když se někde zaseknete.
 
-### Jak Claude Code skilly fungují (rychlý kontext)
+### Jak Claude Code skilly fungují (rychle)
 
-Claude Code automaticky načítá skilly ze dvou míst:
+Claude Code si skilly sám načítá ze dvou míst:
 
-1. **`.claude/skills/`** — uvnitř projektu (skill je aktivní, jen když spustíte `claude` v tomto konkrétním adresáři)
-2. **`~/.claude/skills/`** — ve vašem domovském adresáři (skill je aktivní ve všech Claude Code sessions, ať jste kdekoliv)
+1. **`.claude/skills/`** — uvnitř projektu. Skill je aktivní jen tehdy, když spustíte `claude` právě v té složce.
+2. **`~/.claude/skills/`** — ve vašem domovském adresáři. Skill je aktivní ve všech Claude Code sessions, ať jste kdekoli.
 
-Náš companion skill je v repozitáři v `.claude/skills/claude-code-guide/`. Můžete si vybrat ze dvou způsobů instalace:
+Náš skill najdete v repozitáři v `.claude/skills/claude-code-guide/`. Můžete ho používat dvěma způsoby:
 
-### Jednoduchá cesta (pro webinář) — klonovat a spustit
+### Jednoduchá cesta (pro webinář) — naklonujte a spusťte
 
 ```bash
-# 1. Naklonujte si tento repozitář
+# 1. Naklonujte si repozitář
 git clone https://github.com/aibility/claude-code-90-webinar.git
 cd claude-code-90-webinar
 
-# 2. Spusťte Claude Code přímo v této složce
+# 2. Spusťte Claude Code přímo v téhle složce
 claude
 
-# 3. Skill je aktivní — zkuste se zeptat:
-#    "Co mám zkusit v Try Moment #1?"
+# 3. Skill už je aktivní — zkuste se zeptat:
+#    "Co mám zkusit, zkouším to poprvé?"
 #    "Kolik Claude Code stojí?"
 #    "Mám problém s instalací Node.js"
 ```
 
-Skill bude fungovat **dokud pracujete v této složce**. Pro webinář a první hraní si stačí.
+Skill bude fungovat **dokud pracujete v téhle složce**. Pro webinář a první experimenty to stačí.
 
-### Trvalá cesta (pro dlouhodobé použití) — zkopírovat k vám domů
+### Trvalá cesta (na dlouho) — zkopírujte si ho domů
 
-Pokud chcete mít skill k dispozici v jakékoliv složce (ne jen v repozitáři webináře), zkopírujte ho do svého domovského adresáře:
+Když chcete mít skill k dispozici i mimo repozitář, zkopírujte si ho do domovského adresáře:
 
 ```bash
 # macOS / Linux
@@ -112,21 +112,21 @@ New-Item -Path "$HOME\.claude\skills" -ItemType Directory -Force
 Copy-Item -Path ".claude\skills\claude-code-guide" -Destination "$HOME\.claude\skills\" -Recurse
 ```
 
-Od teď bude skill aktivní v každém `claude` session, který spustíte — stačí se zeptat a odpoví.
+Od téhle chvíle bude skill aktivní v každém `claude` session, který si spustíte — stačí se zeptat.
 
-### Jak ověřit, že skill funguje
+### Jak si ověřit, že skill běží
 
-V Claude Code napište cokoliv z tohoto:
+V Claude Code zkuste napsat cokoli z těchto otázek:
 
-- *"Co mám zkusit v Try Moment #1?"* — měli byste dostat tři možnosti a konkrétní prompt
-- *"Kolik Claude Code stojí?"* — měli byste dostat stručné shrnutí plánů
-- *"Mám problém s instalací Node.js"* — měli byste dostat troubleshooting kroky
+- *"Co mám zkusit, zkouším to poprvé?"* — měli byste dostat tři možnosti a konkrétní prompt
+- *"Kolik Claude Code stojí?"* — měli byste dostat krátký přehled plánů
+- *"Mám problém s instalací Node.js"* — měli byste dostat návod, jak to vyřešit
 
-Pokud Claude Code místo toho odpoví obecně ("Nevím nic o webináři"), skill se nenačetl. Zkontrolujte, že jste ve správné složce (repozitář) nebo že jste skill zkopírovali do `~/.claude/skills/`.
+Když vám místo toho Claude Code odpoví obecně (*"O webináři nic nevím"*), skill se nenačetl. Zkontrolujte, jestli jste ve správné složce (repozitář webináře), nebo jestli jste si skill zkopírovali do `~/.claude/skills/`.
 
-### Co když skill nefunguje?
+### Co když skill nefunguje
 
-Soubory skillu jsou jen obyčejné markdown dokumenty. Pokud se skill z nějakého důvodu neaktivuje, otevřete si `.claude/skills/claude-code-guide/SKILL.md` a reference v `.claude/skills/claude-code-guide/references/` přímo v editoru (VS Code, Obsidian, nebo cokoliv umí markdown) — jsou čitelné jako běžná dokumentace.
+Soubory skillu jsou obyčejné markdowny. Pokud se z nějakého důvodu nenačte, otevřete si `.claude/skills/claude-code-guide/SKILL.md` a `.claude/skills/claude-code-guide/references/` přímo v editoru (VS Code, Obsidian, cokoli, co umí markdown). Jsou čitelné jako běžná dokumentace.
 
 ---
 
