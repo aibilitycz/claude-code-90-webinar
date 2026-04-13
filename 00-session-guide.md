@@ -111,15 +111,11 @@ Rychlé uklidnění pro netechnické publikum:
 **Vede:** Slava u klávesnice, Ondřej v reakcích
 
 - **15–17 min:** Zadání prvního úkolu — osobní stránka
-- **17–24 min:** Rozbor toho, jak agent pracuje — Slava vypráví krok po kroku, Ondřej reaguje za publikum (*"Počkej, to teď sám vytvořil celý soubor?"* / *"A co kdyby to rozbil, co by se stalo?"*)
+- **17–24 min:** Rozbor toho, jak agent pracuje — Slava vypráví krok po kroku, Ondřej reaguje přirozeně
 - **24–28 min:** Samooprava a ptaní se na povolení — ukázat moment, kdy si Claude Code řekne o schválení
 - **28–30 min:** Výsledek v prohlížeči, jedna rychlá iterace
 
-**Ondřejovy klíčové reakce** (co-teaching):
-- Když Claude Code začne "přemýšlet": *"Tohle je ten moment, kterému většina lidí nevěří, dokud to neuvidí na vlastní oči."*
-- Když agent **čte soubor**, než ho začne měnit: *"Všimněte si jedné věci. Než agent něco napíše, **nejdřív si přečte, co tam je**. Nehádá z paměti, jako to dělá ChatGPT. Tohle je největší rozdíl mezi agentem a chatbotem — a v Levelu 3 si ukážeme, jak to funguje pro vás v praxi."*
-- Když agent sám vytvoří soubor: *"Já bych tohle dělal dvacet minut ručně. On to udělal za deset vteřin."*
-- Když agent čeká na povolení: *"A tohle je důvod, proč tomu můžete věřit — nic se neděje, dokud to neodklepnete."*
+**Jedno je potřeba během dema zmínit** (kotva pro Level 3): až agent **čte soubor** předtím, než ho začne měnit, někdo z lektorů to nahlas pojmenuje — *agent čte, nehádá*. Nepotřebuje to být scénář, stačí jedna věta. V Level 3 se k tomu vracíme.
 
 ### Zkuste si to sami #1 (30–38 minut)
 
