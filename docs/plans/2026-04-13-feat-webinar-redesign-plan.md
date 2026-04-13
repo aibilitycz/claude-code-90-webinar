@@ -104,7 +104,7 @@ These tasks are fast and unblock the pre-webinar email, which is the external de
 
 #### Block 2: Companion Skill (~3 hours, can run parallel with Block 3)
 
-- [x] **B1. Design skill directory structure** — Create `skills/claude-code-guide/` with `SKILL.md` + `references/` subdirectory for progressive loading. Follow aibility SKILL.md format (YAML frontmatter: name, description, context: fork, agent: sonnet)
+- [x] **B1. Design skill directory structure** — Create `.claude/skills/claude-code-guide/` with `SKILL.md` + `references/` subdirectory for progressive loading. Follow aibility SKILL.md format (YAML frontmatter: name, description, context: fork, agent: sonnet)
 - [x] **B2. Write `SKILL.md` trigger description** — Third-person, specific enough to auto-load when participants ask webinar-related questions. Example target: "This skill should be used when a participant is working through the Intro do Claude Code webinar and asks about levels, prompts to try, installation, or next steps."
 - [x] **B3. Write core skill body** — Sections: Webinar overview, Current level detection (how to tell which level the participant is on), Try Moment prompts, Resource links, Common FAQs, Next steps after webinar
 - [x] **B4. Create `references/try-moment-prompts.md`** — The 6 prompts (3 for Try Moment #1, 3 for Try Moment #2) with expected outputs, time estimates, and variations
@@ -259,7 +259,7 @@ The session guide rewrite is a facilitation-flow redesign judged partly by human
 ### Risk 3 — Companion skill fails to activate for some participants
 **Likelihood:** Medium. Skill activation depends on local Claude Code config, OS, permissions.
 **Impact:** Medium. Stuck participants lose the in-session tutor but can still watch demos.
-**Mitigation:** Skill content is readable as plain markdown. Instruction: "if the skill isn't working, open `skills/claude-code-guide/SKILL.md` in your editor — you can read it directly." This turns a skill failure into "hey, skills are just markdown files" teaching moment.
+**Mitigation:** Skill content is readable as plain markdown. Instruction: "if the skill isn't working, open `.claude/skills/claude-code-guide/SKILL.md` in your editor — you can read it directly." This turns a skill failure into "hey, skills are just markdown files" teaching moment.
 
 ### Risk 4 — Co-teaching chemistry feels flat or awkward
 **Likelihood:** Medium. Rehearsal is only one session (Day 2), with optional second on Day 3.

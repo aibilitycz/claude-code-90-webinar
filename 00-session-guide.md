@@ -96,9 +96,13 @@ Rychlé uklidnění pro netechnické publikum:
    cd claude-code-90-webinar
    claude
    ```
+   Skill je v `.claude/skills/claude-code-guide/` uvnitř repozitáře. Když spustíte `claude` v tomto adresáři, Claude Code si skill automaticky načte — **žádná instalace, žádná konfigurace**.
+
 4. Rychlý test: *"Co mám zkusit v Try Moment #1?"* — Claude Code odpoví pomocí skillu
 
-> **Moment k zdůraznění:** "A toto je váš společník pro celý zbytek webináře. Až se někde zaseknete — zeptejte se přímo Claude Code, skill vám odpoví."
+> **Moment k zdůraznění (Slava):** "Vidíte tu složku `.claude/skills/`? To je místo, kam Claude Code kouká, když spustíte `claude` v jakémkoliv projektu. Kdokoliv si sem může přidat vlastní skill. Náš dnešní společník je přesně takový skill — obyčejný markdownový soubor, který vám Claude Code čte pokaždé, když ho to zajímá."
+>
+> **Ondřej navazuje:** "A toto je váš společník pro celý zbytek webináře. Až se někde zaseknete — zeptejte se přímo Claude Code, skill vám odpoví. Pokud po webináři zjistíte, že ho chcete mít k dispozici mimo tuhle složku, v README je návod, jak ho zkopírovat domů — `~/.claude/skills/`. Pak ho budete mít kamkoliv jdete."
 
 ### Level 1: První úkol (15–30 minut)
 
@@ -314,7 +318,7 @@ Plné texty pro šest scénářů, které je dobré mít připravené. Nejsou to
 >
 > **[Pauza]**
 >
-> "Pamatujete si ten společník, kterého jste si aktivovali na začátku? Ten, kterého jste se ptali, co zkusit v Try Moments, a on vám dal konkrétní prompty? To není žádná magie, ani zabudovaná funkce Claude Code. Je to **skill**. Obyčejný markdownový soubor v repozitáři, který jste si naklonovali. Otevřete si `skills/claude-code-guide/SKILL.md` — je to čitelné jako jakýkoliv jiný dokument."
+> "Pamatujete si ten společník, kterého jste si aktivovali na začátku? Ten, kterého jste se ptali, co zkusit v Try Moments, a on vám dal konkrétní prompty? To není žádná magie, ani zabudovaná funkce Claude Code. Je to **skill**. Obyčejný markdownový soubor v repozitáři, který jste si naklonovali. Otevřete si `.claude/skills/claude-code-guide/SKILL.md` — je to čitelné jako jakýkoliv jiný dokument."
 >
 > **[Pauza, důraz]**
 >
@@ -481,7 +485,7 @@ Pokud Try Moment běží a chat je tichý (méně než 3 reakce za prvních 5 mi
 - Ověřte, že Claude Code funguje a je aktuální
 - Mějte záložní Anthropic účet (pro případ rate limitů)
 - Vyzkoušejte si všechna dema předem — agentem vždy nesmí být překvapen
-- Mějte `skills/claude-code-guide/` naklonované a otestované před webinářem
+- Mějte `.claude/skills/claude-code-guide/` naklonované a otestované před webinářem
 
 ### Během demo:
 - Narážejte nahlas — "teď Claude Code čte soubory, protože potřebuje pochopit strukturu..."

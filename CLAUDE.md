@@ -14,8 +14,9 @@ claude-code-90-webinar/
 ├── level-2-intermediate/           # Workflow showcase (25 min)
 ├── level-3-advanced/               # CLAUDE.md, MCP, advanced (15 min)
 ├── cheat-sheet/                    # Post-webinar quickstart guides (CS + EN)
-├── skills/
-│   └── claude-code-guide/          # Companion skill for participants
+├── .claude/
+│   └── skills/
+│       └── claude-code-guide/      # Companion skill for participants (auto-loads in this repo)
 └── docs/
     ├── brainstorms/                # Design decisions, rationale
     └── plans/                      # Implementation plans
@@ -43,7 +44,7 @@ claude-code-90-webinar/
 | `00-session-guide.md` | Minute-by-minute lecturer runbook with co-teaching notes | Presenters only |
 | `level-*/README.md` | Per-level content and exercises | Participants |
 | `cheat-sheet/*.md` | "First 30 minutes" post-webinar guides | Participants |
-| `skills/claude-code-guide/SKILL.md` | Companion skill trigger + body | Claude Code session |
+| `.claude/skills/claude-code-guide/SKILL.md` | Companion skill trigger + body — auto-loads when `claude` runs in this repo | Claude Code session |
 | `docs/brainstorms/` | Design rationale for major decisions | Team (internal) |
 | `docs/plans/` | Implementation tracking | Team (internal) |
 
