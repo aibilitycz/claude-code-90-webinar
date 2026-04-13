@@ -1,7 +1,9 @@
 # Level 3: Pokročilé funkce
 
 **Délka:** 15 minut
-**Cíl:** Účastníci pochopí, jak Claude Code přizpůsobit svému stylu (CLAUDE.md), rozšířit jeho schopnosti (MCP) a používat ho efektivně jako power user.
+**Cíl:** Účastníci pochopí, jak si Claude Code přizpůsobit svému stylu (CLAUDE.md), jak ho rozšířit o hotové dovednosti z marketplace (skilly a pluginy), jak ho napojit na externí služby (MCP) a jak ho efektivně používat jako power user.
+
+> **Velká myšlenka Levelu 3:** Claude Code není jen aplikace s pevnými funkcemi. Je to **platforma**, kterou si rozšiřujete sami — vlastními pravidly (CLAUDE.md), hotovými pluginy z oficiálního marketplace, skilly, které sdílíte s kolegy, MCP servery pro napojení na vaše služby. Dnes pro ilustraci: společník webináře, kterého používáte, je přesně jeden takový skill. Můžete se na něj podívat jako na vzor pro svoje vlastní.
 
 ## CLAUDE.md — Váš osobní manuál pro Claude Code (7 min)
 
@@ -140,6 +142,87 @@ Co je nového v AI tento týden?
 
 > **Poznámka:** MCP ekosystém se rychle vyvíjí. Aktuální seznam a návody najdete na [docs.anthropic.com](https://docs.anthropic.com/en/docs/claude-code). Na webináři ukážeme jeden konkrétní příklad — doma si můžete přidat další.
 
+## Skilly a pluginy — marketplace Claude Code (3 min)
+
+MCP servery jsou jeden ze způsobů, jak Claude Code rozšířit. Ale není to jediný. Pojďme to rozebrat od nejjednoduššího.
+
+### Skilly — znalost, kterou si Claude Code čte
+
+**Skill** je obyčejný markdown soubor, který popisuje něco, co Claude Code má vědět nebo umět. Může to být:
+
+- *"Jak správně psát release notes v našem firemním stylu"*
+- *"Kompletní průvodce webinářem Intro do Claude Code"* (to je ten, kterého teď používáte)
+- *"Jak volat naše interní API"*
+- *"Kterou tvář má značka naší firmy používat v textech"*
+
+Claude Code si skilly čte sám, když dávají smysl. Nemusíte jim nic říkat.
+
+**Kde skilly žijí:** Ve dvou hlavních místech, která jsme už zmiňovali u CLAUDE.md:
+- **Projektový skill** v `.claude/skills/jmeno/` (v gitu, sdílený s týmem)
+- **Osobní skill** v `~/.claude/skills/jmeno/` (jen pro vás, platí všude)
+
+**Jak si přidat vlastní:** Vytvořit složku, do ní `SKILL.md` s jednoduchou hlavičkou (název, popis) a tělem (to, co má Claude Code umět). Pár minut práce. Nic neinstaluje, nic nekompiluje.
+
+### Pluginy — hotové balíčky z marketplace
+
+**Plugin** je balíček, který obsahuje skilly, slash commandy, MCP servery a další věci pod jednou střechou. Distribuuje se přes marketplace — místo, kde Anthropic (a komunita) nabízí hotové pluginy k instalaci jedním klikem.
+
+**Oficiální marketplace najdete:**
+- V prohlížeči: [claude.com/plugins](https://claude.com/plugins)
+- Přímo uvnitř Claude Code: napište slash command `/plugin`
+
+**Slash command `/plugin` otevře interaktivní panel** se čtyřmi záložkami:
+- **Discover** — prohlížení dostupných pluginů
+- **Installed** — co už máte nainstalované
+- **Marketplaces** — přidávání vlastních (komunitních) marketplaců
+- **Errors** — ladění, když něco nejde
+
+**Pár příkladů pluginů z oficiálního marketplace:**
+
+| Plugin | Co dělá |
+|--------|---------|
+| `github` | Plná integrace s GitHubem — čte issues, vytváří PR, komentuje |
+| `linear` | Projektový management v Linearu |
+| `notion` | Přístup k Notion workspaces |
+| `vercel` | Deployment a management aplikací |
+| `figma` | Čtení designů přímo z Figmy |
+| `slack` | Psaní a čtení zpráv ve Slacku |
+| `sentry` | Monitoring chyb v produkci |
+| `atlassian` | Jira + Confluence |
+
+**Instalace je jeden příkaz:**
+```
+/plugin install github@claude-plugins-official
+```
+
+Plugin je ihned aktivní, všechny jeho skilly, slash commandy a MCP napojení se přidají do vašeho Claude Code.
+
+### Live demo: společník webináře je skill
+
+Tohle je moment, který stojí za zdůraznění. Společník, kterého jste dnes používali — ten, co vám dával prompty a odpovídal na otázky — **není žádná magie, ani vestavěná funkce**. Je to obyčejný skill, který si každý z vás může otevřít a přečíst. Najdete ho v naklonovaném repozitáři webináře v `.claude/skills/claude-code-guide/SKILL.md`.
+
+**Lektor ukáže:**
+1. Otevře ten soubor v editoru
+2. Ukáže, že je to obyčejný markdown
+3. Ukáže hlavičku (název, popis)
+4. Ukáže strukturu těla
+5. Vysvětlí: *"Až půjdete domů, můžete si napsat vlastní skill třeba pro vaše firemní copywriting, pro přípravu prezentací, pro cokoliv. Stačí markdown."*
+
+### Co se tím dá dělat
+
+Důležitý moment pro netechnické publikum: *"Umí Claude Code generovat obrázky?"* — odpověď je *"nativně ne, ale přes skill nebo plugin ano"*. Konkrétní příklady:
+
+- **Generování obrázků** → skill, který volá Gemini Nano Banana Pro nebo FLUX. Napíšete *"udělej mi logo"*, Claude Code obrázek vytvoří a uloží do projektu.
+- **Generování zvuku a podcastů** → skill napojený na ElevenLabs.
+- **Transkripce videí** → skill volající Whisper.
+- **Browser automation** → skill ovládající prohlížeč za vás.
+- **Deployment** → Vercel plugin nasadí vaši aplikaci přímo.
+- **Databázové dotazy** → PostgreSQL MCP server se ptá vaší databáze v read-only módu.
+
+**Pravidlo:** Když vám někdo řekne *"to Claude Code neumí"*, zeptejte se *"hledali jsme v marketplace?"*. Většinou to už někdo vyřešil.
+
+---
+
 ## CLAUDE.md ve dvou úrovních — projektový a osobní (2 min)
 
 CLAUDE.md může žít na **dvou úrovních** a každá z nich slouží k něčemu jinému.
@@ -211,7 +294,10 @@ Přepínáte příkazem `/model` přímo uvnitř Claude Code. **Výchozí je Son
 Po Level 3 byste měli chápat:
 - [ ] Co je CLAUDE.md a jak ho vytvořit pro svůj projekt
 - [ ] Rozdíl mezi projektovým a osobním CLAUDE.md a kdy který použít
-- [ ] Co jsou MCP servery a jak rozšiřují možnosti
+- [ ] Co jsou MCP servery a jak Claude Code napojují na externí služby
+- [ ] Co jsou skilly a pluginy, kde najdete marketplace a jak se instalují
+- [ ] Jak si sami napsat jednoduchý skill
+- [ ] Že společník webináře je skill, na který se můžete podívat
 - [ ] Rozdíl mezi modely Haiku, Sonnet a Opus a kdy který použít
 - [ ] Základní slash commands pro efektivní práci
 - [ ] Kdy Claude Code použít a kdy ne

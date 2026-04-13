@@ -168,21 +168,112 @@ V Claude Code napíšete `/model` a vyberete si.
 
 ---
 
-## Kdy Claude Code nepoužívat
+## Co Claude Code umí, co neumí, a kdy ho nepoužívat
 
-### Co Claude Code neumí dobře?
+### Co Claude Code v základu nedělá
 
-- **Kreativní psaní vysoké úrovně** — umí pěkně strukturovaný obsah (emaily, reporty, LinkedIn příspěvky), ale poezii nebo umělecké texty radši nechte jiným
-- **Obrazová tvorba** — Claude Code píše kód a text, ne obrázky. Na obrázky použijte jiný nástroj
-- **Aktuální data bez web search MCP** — bez webového MCP nevidí, co je na internetu teď
-- **Vysoce odborná znalost** — medicína, právo, finance: konzultujte s odborníkem, výstup berte jako hrubý první nápad, ne jako hotovou radu
+Tohle jsou věci, které Claude Code **nativně** (bez rozšíření) nedělá:
+
+- **Vysoce kreativní psaní** — strukturovaný obsah (emaily, reporty, příspěvky) zvládne skvěle, na poezii nebo umělecké texty jsou lepší specializované nástroje
+- **Generování obrázků, zvuku, videa** — sám od sebe neumí
+- **Čtení živých dat z internetu** — bez připojeného MCP serveru nevidí, co je na webu teď
+- **Hluboká odborná znalost** v úzkých oborech — medicína, právo, finance: výstup berte jako první návrh, ne jako hotovou radu, a vždycky ho dejte zkontrolovat odborníkovi
+
+### Ale — spousta toho jde přes pluginy a skilly
+
+Tohle je důležitý moment. Většina věcí, které Claude Code "neumí", se dají přidat přes **plugin z marketplace** nebo přes **skill**. V dubnu 2026 je to takhle:
+
+- **Generování obrázků** → přes skill, který volá Gemini Nano Banana Pro nebo FLUX. Napíšete *"udělej mi logo"* a obrázek vznikne přímo ve vašem projektu.
+- **Generování zvuku** → přes skill napojený na ElevenLabs. Text-to-speech, podcasty, voice cloning.
+- **Čtení živých dat z internetu** → přes web search MCP server (instalace dvě minuty)
+- **Přístup k databázím** → přes PostgreSQL / MySQL / SQLite MCP server
+- **GitHub, Linear, Notion, Slack, Figma, Vercel, Firebase, Sentry** → oficiální pluginy v marketplace, jeden klik instalace
+- **PR review, deployment, monitoring** → všechno jsou pluginy, které si nainstalujete
+
+Víc o pluginech, skillech a marketplace najdete v `extensibility.md` ve stejné složce. Pravidlo: pokud vám něco chybí, **podívejte se nejdřív do marketplace** (`/plugin` uvnitř Claude Code), a až potom řekněte, že to nejde.
 
 ### Kdy Claude Code radši vůbec nepoužít
 
-- **Citlivé osobní údaje klientů**, pokud k tomu nemáte Enterprise plán
-- **Produkční databáze** bez testovacího prostředí
-- **Právní texty** bez kontroly odborníka
-- **Úkoly, kde potřebujete stoprocentní přesnost** — agent může chybovat, výstup si vždycky zkontrolujte
+Tohle jsou skutečná omezení, která pluginem nevyřešíte:
+
+- **Citlivé osobní údaje klientů** — pokud k tomu nemáte Enterprise plán s HIPAA compliance
+- **Produkční databáze** bez testovacího prostředí — i s MCP serverem si dejte pozor, ať máte pojistky proti nechtěným zápisům
+- **Právní texty bez kontroly odborníka** — první draft dobrý, finální verze nikdy
+- **Úkoly, kde potřebujete stoprocentní přesnost** — agent může chybovat. Výstup si vždycky zkontrolujte.
+
+---
+
+## Pluginy, skilly, marketplace — jak si Claude Code rozšířit
+
+### Co je to plugin a skill?
+
+- **Skill** je obyčejný markdown soubor, který Claude Code čte, když dává smysl. Popisuje kontext nebo postup pro nějakou úlohu. Ten, se kterým zrovna mluvíte, je přesně takový skill — průvodce webinářem.
+- **Plugin** je balíček, který obsahuje skilly, slash commandy, subagenty, MCP servery nebo hooky pod jednou střechou. Instalujete ho jedním krokem a hned funguje.
+
+### Kde najdu pluginy?
+
+Anthropic má oficiální **marketplace s pluginy**. Dostanete se tam dvěma cestami:
+
+1. **Uvnitř Claude Code:** napište slash command `/plugin`. Otevře se interaktivní panel, kde si můžete procházet dostupné pluginy, instalovat je, aktualizovat a tak dále.
+2. **V prohlížeči:** [claude.com/plugins](https://claude.com/plugins)
+
+V oficiálním marketplace najdete pluginy pro GitHub, Linear, Notion, Figma, Vercel, Firebase, Slack, Jira/Confluence, Sentry a mnohé další.
+
+### Jak plugin nainstaluju?
+
+Uvnitř Claude Code napište:
+
+```
+/plugin
+```
+
+Otevře se panel. Najděte si plugin v záložce **Discover** a potvrďte instalaci. Nebo přímo:
+
+```
+/plugin install github@claude-plugins-official
+```
+
+Plugin je ihned aktivní. Když ho chcete vypnout, `/plugin disable <jmeno>`.
+
+### Dá se použít i něco mimo oficiální marketplace?
+
+Ano. Kdokoli může vytvořit vlastní marketplace (je to jen git repo s `marketplace.json` souborem). Komunitní marketplace přidáte takto:
+
+```
+/plugin marketplace add owner/repo
+```
+
+Pak se jeho pluginy objeví v záložce Discover.
+
+### Skilly — kam si je přidám?
+
+Skilly najdete Claude Code ve čtyřech umístěních (v tomto pořadí priorit):
+
+| Úroveň | Kde | Pro co platí |
+|--------|-----|--------------|
+| Enterprise | Firemní nastavení | Celá organizace |
+| Uživatelská | `~/.claude/skills/` | Váš uživatel, všude |
+| Projektová | `.claude/skills/` v projektu | Tenhle konkrétní projekt |
+| Plugin | Uvnitř nainstalovaného pluginu | Všude, kde je plugin aktivní |
+
+Vlastní skill si přidáte tak, že vytvoříte složku `~/.claude/skills/jmeno-skillu/` a dovnitř vložíte `SKILL.md`. Bez instalace, bez kompilace.
+
+### Co všechno jde přes skilly a pluginy?
+
+Krátký přehled:
+
+- **Práce se souborovým systémem** → nativně, bez pluginu
+- **Git, commity, PR** → nativně + GitHub plugin pro plnou integraci
+- **Deployment** → Vercel, Firebase plugin
+- **Databáze** → PostgreSQL / MySQL / SQLite MCP servery
+- **Design** → Figma plugin
+- **Projektový management** → Linear, Notion, Jira/Confluence pluginy
+- **Generování obrázků** → skill volající Gemini nebo FLUX
+- **Generování zvuku a podcastů** → skill volající ElevenLabs
+- **Browser automation** → agent-browser skill (ovládání webu za vás)
+- **Slack, Discord, email** → komunikační pluginy
+
+**Víc o tomhle tématu** je v `extensibility.md` ve stejné složce — včetně praktických příkladů.
 
 ---
 

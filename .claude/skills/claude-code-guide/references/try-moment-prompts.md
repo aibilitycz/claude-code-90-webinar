@@ -1,38 +1,52 @@
 # Prompty pro "Zkuste si to sami"
 
-Hotové prompty pro oba momenty, kdy si účastníci zkouší něco sami. Každý je navržený tak, aby **do tří minut něco reálně stálo** — zbytek osmiminutového okna je na hraní a úpravy.
+Hotové prompty pro oba momenty, kdy si účastníci zkouší něco sami. Každý je navržený tak, aby **do tří minut něco reálně stálo** — zbytek z osmiminutového okna je na iteraci a hraní.
+
+---
+
+## Jak účastníkovi poradit, kde prompt zadat
+
+Claude Code běží na víc místech. Účastník nemusí nutně sedět v terminálu. Když se vás ptá, **neříkejte "otevřete terminál"** — raději se zeptejte, kde Claude Code má, a přizpůsobte se:
+
+- **V desktopové aplikaci Claude** → stačí kliknout na "New project" nebo otevřít novou chat místnost a prompt vložit
+- **V prohlížeči na [claude.ai/code](https://claude.ai/code)** → otevřít nový projekt, prompt vložit
+- **V terminálu (CLI)** → napsat `claude` a prompt vložit do chatu, který se objeví
+- **V rozšíření pro VS Code / Cursor / JetBrains** → otevřít Claude Code panel a prompt vložit
+- **V iOS aplikaci Claude** → otevřít chat, prompt napsat
+
+**Důležité:** Prompty níže jsou napsané tak, aby si **Claude Code sám vytvořil složku**, když ji potřebuje. Účastník nemusí předem dělat `mkdir` ani nic v Finderu. Když Claude Code řekne *"Smím vytvořit novou složku?"*, stačí odpovědět `y` a jede se dál.
+
+Pokud je účastník na CLI a chce si složku přichystat sám (čistší přehled), může ji samozřejmě vytvořit před spuštěním `claude`. Ale není to nutné.
 
 ---
 
 ## Zkuste si to sami #1 (minuty 30–38) — První vlastní úkol
 
-Účastník právě nainstaloval Claude Code, viděl demo v Level 1, ale sám ještě nic nezadal. Cíl: něco hotového, co se dá ukázat v chatu.
+Účastník má právě spuštěný Claude Code, viděl demo v Level 1, ale sám ještě nic nezadal. Cíl: něco hotového, co se dá ukázat v chatu.
 
 ### Varianta A — Osobní stránka
 
 **Pro koho:** Pro ty, kdo chtějí rychlý a jasně viditelný výsledek. Bezpečná volba, kterou doporučujte, když si někdo neví rady.
 
-**Příprava (vše v jednom terminálu):**
-```bash
-mkdir moje-stranka
-cd moje-stranka
-claude
-```
+**Co z toho bude:** Jednoduchá, pěkně vypadající HTML stránka se jménem, profesí a kontaktem. Otevře se ve webovém prohlížeči.
 
 **Prompt ke zkopírování:**
 ```
-Udělej mi jednoduchou osobní stránku.
-Jméno: [vaše jméno]
-Čím se zabývám: [krátce, jednou větou]
-Email: [váš email]
+Vytvoř mi novou složku "moje-stranka" a v ní jednoduchou osobní stránku
+jako index.html.
 
-Vzhled: čistý, moderní, tmavé pozadí.
-Výsledek ulož jako index.html.
+Obsah stránky:
+- Jméno: [vaše jméno]
+- Čím se zabývám: [jednou větou]
+- Email: [váš email]
+
+Vzhled: čistý, moderní, tmavé pozadí. Až budeš hotový, řekni mi,
+jak si ji otevřu v prohlížeči.
 ```
 
-**Co by mělo vzniknout:** `index.html`, který si otevřete v prohlížeči. Do prvního výsledku to trvá minutu až dvě.
+**Čas do výsledku:** Jedna až dvě minuty. Claude Code se během práce zeptá na povolení některých akcí (vytvoření složky, uložení souboru) — stačí odpovídat `y`.
 
-**Když zbývá čas:** *"Přidej na konec kontaktní formulář."*
+**Když zbývá čas:** *"Přidej na konec stránky jednoduchý kontaktní formulář."*
 
 ---
 
@@ -40,26 +54,24 @@ Výsledek ulož jako index.html.
 
 **Pro koho:** Kdo chce uvidět, že i skutečná aplikace může vzniknout za chvilku. O něco techničtější než Varianta A, pořád ale jednoduché.
 
-**Příprava:**
-```bash
-mkdir todo
-cd todo
-claude
-```
+**Co z toho bude:** Funkční to-do list v jednom HTML souboru. Přidávání, odškrtávání, mazání položek — a pamatuje si je i po zavření stránky.
 
 **Prompt:**
 ```
-Udělej jednoduchý to-do list — všechno v jednom HTML souboru.
-Co to má umět:
+Vytvoř mi novou složku "todo" a v ní jednoduchý to-do list jako
+jediný HTML soubor (index.html).
+
+Funkce:
 - přidat novou položku
 - odškrtnout hotovou
 - smazat položku
-- pamatovat si seznam i po zavření stránky (localStorage)
+- položky se ukládají v prohlížeči (localStorage), ať se neztratí
 
 Vzhled: minimalistický, světlé pozadí, modrá jako doplňková barva.
+Až budeš hotový, dej mi vědět, kde index.html najdu.
 ```
 
-**Co by mělo vzniknout:** Funkční to-do list v jednom `index.html`. První výsledek do dvou minut.
+**Čas do výsledku:** Dvě minuty.
 
 **Když zbývá čas:** *"Nahoru přidej počítadlo, kolik věcí ještě zbývá udělat."*
 
@@ -69,27 +81,24 @@ Vzhled: minimalistický, světlé pozadí, modrá jako doplňková barva.
 
 **Pro koho:** Kdo chce něco osobnějšího, méně "technického". Skvělé pro lidi, kteří nechtějí, aby výsledek vypadal jako ukázka kódu.
 
-**Příprava:**
-```bash
-mkdir co-me-bavi
-cd co-me-bavi
-claude
-```
+**Co z toho bude:** Typograficky vyladěná stránka o vašem oblíbeném tématu — mohla by to být vizitka vaší vášně.
 
 **Prompt:**
 ```
-Udělej stránku o něčem, co mě baví: [napište jednou větou — třeba
-"italská kuchyně", "severská literatura", "běh na dlouhé tratě"].
+Vytvoř mi novou složku "co-me-bavi" a v ní stránku o něčem, co mě baví:
+[napište jednou větou — třeba "italská kuchyně", "severská literatura",
+"běh na dlouhé tratě"].
 
-Struktura:
+Struktura stránky:
 - úvodní sekce s velkým nadpisem a jednou větou, proč mě to baví
 - tři bloky, ve kterých řeknu to nejdůležitější
 - závěr s osobní poznámkou
 
-Styl: teplé barvy, hodně prostoru, důraz na typografii.
+Styl: teplé barvy, hodně prostoru, důraz na typografii. Ulož jako
+index.html a dej mi vědět, jak si ji otevřu.
 ```
 
-**Co by mělo vzniknout:** Hezky vypadající `index.html`. První výsledek do dvou minut.
+**Čas do výsledku:** Dvě minuty.
 
 **Když zbývá čas:** *"Do úvodní sekce přidej obrázek na pozadí — stačí placeholder."*
 
@@ -103,21 +112,25 @@ Styl: teplé barvy, hodně prostoru, důraz na typografii.
 
 **Pro koho:** Kdo každý týden čte dlouhé texty, reporty, emaily nebo PDF.
 
-**Příprava:** Účastník si přetáhne nějaký textový soubor nebo PDF do složky webináře. Klidně email, článek, cokoli textového, co má po ruce.
+**Co z toho bude:** Strukturovaný souhrn vašeho dokumentu — hotový a k použití.
+
+**Jak na to:** Mějte nachystaný nějaký textový soubor, email nebo PDF. Klidně z vaší reálné práce. Zkopírujte ho (nebo obsah) na místo, kde Claude Code pracuje (pokud jste v desktopu, prostě řekněte Claude Code, kde soubor máte — on si pro něj dojde; v CLI ho přetáhněte do pracovní složky).
 
 **Prompt:**
 ```
-Ve složce mám soubor [jméno-souboru]. Přečti ho a udělej:
+Mám soubor, který chci zpracovat — [jméno souboru, nebo vlož sem jeho
+obsah přímo, pokud není velký]. Přečti ho a udělej:
+
 - shrnutí na pět vět
-- tři hlavní myšlenky v odrážkách
+- tři hlavní myšlenky jako bullet points
 - dva návrhy, co s tím dál
 
-Výstup ulož jako shrnuti.md.
+Výstup ulož jako shrnuti.md vedle původního souboru.
 ```
 
-**Co by mělo vzniknout:** Strukturovaný souhrn. Trvá minutu až dvě.
+**Čas do výsledku:** Minuta až dvě.
 
-**Když zbývá čas:** *"A teď mi to samé napiš jako krátký email šéfovi."*
+**Když zbývá čas:** *"Teď mi to samé napiš jako krátký email šéfovi."*
 
 ---
 
@@ -125,16 +138,11 @@ Výstup ulož jako shrnuti.md.
 
 **Pro koho:** Marketéři a kdokoli, kdo píše na sociální sítě.
 
-**Příprava:**
-```bash
-mkdir linkedin
-cd linkedin
-claude
-```
+**Co z toho bude:** Tři soubory se třemi verzemi příspěvku — každá jinou rukou. Vyberete si nejlepší a pošlete.
 
 **Prompt:**
 ```
-Napiš tři verze LinkedIn příspěvku na téma:
+Vytvoř složku "linkedin" a v ní tři verze LinkedIn příspěvku na téma:
 [napište téma — třeba "jak mi AI mění práci", "co mě za poslední měsíc
 překvapilo", "nástroj, který bych doporučil všem ve své branži"].
 
@@ -147,10 +155,10 @@ Verze 1: osobní, uvolněná
 Verze 2: s daty a fakty, profesionálnější
 Verze 3: provokativní, s jasným názorem
 
-Každou verzi ulož do samostatného souboru.
+Každou verzi ulož jako samostatný .md soubor ve složce linkedin.
 ```
 
-**Co by mělo vzniknout:** Tři soubory, tři různé tóny. Do dvou minut.
+**Čas do výsledku:** Dvě minuty.
 
 **Když zbývá čas:** *"Která verze by u mé cílovky nejspíš fungovala nejlíp? A proč?"*
 
@@ -158,19 +166,23 @@ Každou verzi ulož do samostatného souboru.
 
 ### Varianta C — Vylepšit to, co jste postavili v #1
 
-**Pro koho:** Kdo má z prvního kola něco funkčního a chce to dotáhnout. Doporučujte, když chce někdo pokračovat na stejném projektu.
+**Pro koho:** Kdo má z prvního kola něco funkčního a chce to dotáhnout. Doporučujte, když chce někdo pokračovat ve stejném projektu.
+
+**Co z toho bude:** Vylepšená verze vašeho projektu z prvního kola — responzivní, s lepší typografií a jednou novou funkcí.
 
 **Prompt:**
 ```
-Vrať se k projektu z první části. Udělej tři věci:
-1. Ať to vypadá dobře i na mobilu (responzivní)
-2. Přidej jednu novou sekci nebo funkci, která tam chybí
+Vrať se k projektu z první části (složka [moje-stranka / todo /
+co-me-bavi — podle toho, co jsi dělal]). Udělej tři věci:
+
+1. Ať to vypadá dobře i na mobilu (responzivní design)
+2. Přidej jednu novou sekci nebo funkci, která by tam logicky patřila
 3. Zvětši nadpisy a udělej lepší proporce
 
-Pak mi řekni, co jsi změnil a proč.
+Až budeš hotový, řekni mi, co jsi změnil a proč.
 ```
 
-**Co by mělo vzniknout:** Upravený projekt s vysvětlením změn. Dvě až tři minuty.
+**Čas do výsledku:** Dvě až tři minuty.
 
 **Když zbývá čas:** *"A teď do rohu přidej přepínač na tmavý režim."*
 
@@ -178,18 +190,24 @@ Pak mi řekni, co jsi změnil a proč.
 
 ## Jak účastníkovi pomoct vybrat si
 
-Když se někdo zeptá *"co si mám zkusit?"*, neházejte na něj všechny tři varianty najednou. Udělejte to jednodušeji:
+Když se někdo zeptá *"co si mám zkusit?"*, neházejte na něj všechny tři varianty najednou:
 
 1. **Zeptejte se ho:** *"Chcete spíš něco osobního (stránka o sobě), jednoduchou aplikaci (to-do list), nebo něco kreativního (stránka o tom, co vás baví)?"*
 2. **Když si neumí vybrat:** Doporučte Variantu A. U #1 je to osobní stránka, u #2 zpracování dokumentu. Jsou to nejjistější sázky.
 3. **Když nechce nic předpřipraveného:** Respektujte to. Nabídněte jen, že mu pomůžete: *"Řekněte mi jednou větou, co chcete postavit, a já vám to pomůžu přeložit do promptu."*
 
-## Co když účastník neví, jak prompt použít
+## Co když účastník neví, kam prompt zadat
 
-1. Řekněte mu, ať prompt zkopíruje do okna, kde mu bliká kurzor (do Claude Code v terminálu)
-2. Claude Code se ho během práce bude ptát na povolení — to je v pořádku, stačí odpovědět `y` a Enter
-3. Když se zasekne na chybě, ať text chyby zkopíruje a zeptá se (tohoto skillu) znovu
+Zjistěte, kde Claude Code má (viz sekci nahoře "Jak účastníkovi poradit, kde prompt zadat"), a přizpůsobte se:
+
+- **Desktop app:** *"Klikněte v Claude Code na 'New project' (nebo vytvořte novou chat místnost), vložte prompt do okýnka a pošlete."*
+- **Web (claude.ai/code):** *"Otevřete nový projekt, prompt vložte do chatu a odešlete."*
+- **CLI:** *"Spusťte `claude` v libovolné složce, pak prompt vložte a stiskněte Enter."*
+- **VS Code / Cursor / JetBrains rozšíření:** *"Otevřete Claude Code panel, prompt vložte."*
+- **iOS:** *"V Claude iOS aplikaci otevřete chat a prompt napište."*
+
+Claude Code se během práce bude ptát na povolení — vytvoření složky, uložení souboru, spuštění příkazu. Stačí odpovídat `y` (ano) nebo `n` (ne).
 
 ## Co když Claude Code hlásí chybu
 
-Podívejte se do `faq.md` ve stejné složce — nejčastější chyby jsou tam. Pokud tam není, řekněte účastníkovi, ať text chyby zkopíruje, a společně se podívejte, co s tím.
+Podívejte se do `faq.md` ve stejné složce — nejčastější chyby jsou tam. Když tam daná chyba není, požádejte účastníka, ať zkopíruje text chyby, a společně ji zkuste rozluštit.
