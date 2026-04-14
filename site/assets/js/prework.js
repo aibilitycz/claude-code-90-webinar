@@ -6,31 +6,33 @@
 
 (function () {
     // -----------------------------------------------------------------------
-    // Tab switching
+    // Tab switching — uses direct-child iteration (no :scope, works in every
+    // modern browser and across nested tab groups)
     // -----------------------------------------------------------------------
-    function activateTab(tabGroup, targetKey) {
-        const buttons = tabGroup.querySelectorAll(':scope > .tabs__list > .tabs__button');
-        const panels = tabGroup.querySelectorAll(':scope > .tabs__panel');
-
-        buttons.forEach((btn) => {
-            const isTarget = btn.dataset.tab === targetKey;
-            btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
-        });
-
-        panels.forEach((panel) => {
-            const isTarget = panel.dataset.panel === targetKey;
-            panel.setAttribute('aria-hidden', isTarget ? 'false' : 'true');
+    function activateTab(group, targetKey) {
+        const tablist = Array.from(group.children).find((el) => el.classList.contains('tabs__list'));
+        if (tablist) {
+            Array.from(tablist.children).forEach((btn) => {
+                if (btn.classList && btn.classList.contains('tabs__button')) {
+                    btn.setAttribute('aria-selected', btn.dataset.tab === targetKey ? 'true' : 'false');
+                }
+            });
+        }
+        Array.from(group.children).forEach((panel) => {
+            if (panel.classList && panel.classList.contains('tabs__panel')) {
+                panel.setAttribute('aria-hidden', panel.dataset.panel === targetKey ? 'false' : 'true');
+            }
         });
     }
 
     function initTabs() {
-        document.querySelectorAll('[data-tabs]').forEach((group) => {
-            const buttons = group.querySelectorAll(':scope > .tabs__list > .tabs__button');
-            buttons.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    activateTab(group, btn.dataset.tab);
-                });
-            });
+        // Event delegation — one listener, handles nested tabs naturally.
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.tabs__button');
+            if (!btn) return;
+            const group = btn.closest('[data-tabs]');
+            if (!group) return;
+            activateTab(group, btn.dataset.tab);
         });
     }
 
@@ -50,7 +52,10 @@
         const os = detectOS();
         if (!os) return;
         document.querySelectorAll('[data-tabs]').forEach((group) => {
-            const match = group.querySelector(`:scope > .tabs__list > .tabs__button[data-os="${os}"]`);
+            // Only look at direct children of this group's tablist
+            const tablist = Array.from(group.children).find((el) => el.classList.contains('tabs__list'));
+            if (!tablist) return;
+            const match = Array.from(tablist.children).find((btn) => btn.dataset && btn.dataset.os === os);
             if (match) {
                 activateTab(group, match.dataset.tab);
             }

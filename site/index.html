@@ -209,6 +209,35 @@
             padding: 0 var(--space-6);
         }
 
+        .step-section__header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-5);
+            margin-bottom: var(--space-5);
+        }
+
+        .step-section__badge {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--color-accent-primary) 0%, #7c3aed 100%);
+            color: white;
+            border-radius: var(--radius-full);
+            font-family: var(--font-family-headings);
+            font-size: var(--text-3xl);
+            font-weight: var(--font-normal);
+            box-shadow: 0 8px 24px rgba(80, 0, 171, 0.2);
+        }
+
+        .step-section__headings {
+            flex: 1;
+            min-width: 0;
+            padding-top: var(--space-1);
+        }
+
         .step-section__eyebrow {
             display: inline-block;
             color: var(--color-accent-primary);
@@ -216,7 +245,7 @@
             font-weight: var(--font-semibold);
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            margin-bottom: var(--space-3);
+            margin-bottom: var(--space-2);
         }
 
         .step-section__title {
@@ -226,6 +255,106 @@
             color: var(--color-text-primary);
             margin: 0 0 var(--space-4);
             font-weight: var(--font-normal);
+        }
+
+        @media (max-width: 640px) {
+            .step-section__badge {
+                width: 56px;
+                height: 56px;
+                font-size: var(--text-2xl);
+            }
+            .step-section__header {
+                gap: var(--space-4);
+            }
+        }
+
+        /* Sub-headings within step sections */
+        .sub-heading {
+            font-family: var(--font-family-headings);
+            font-size: var(--text-xl);
+            color: var(--color-text-primary);
+            margin: var(--space-8) 0 var(--space-3);
+            font-weight: var(--font-normal);
+        }
+
+        /* "Ask Claude Code to do it" prompt card */
+        .ask-claude {
+            margin: var(--space-6) 0;
+            padding: var(--space-5) var(--space-6);
+            background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%);
+            border: 1px solid rgba(80, 0, 171, 0.16);
+            border-radius: var(--radius-xl);
+        }
+
+        .ask-claude__header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+        }
+
+        .ask-claude__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--color-accent-primary);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: var(--text-lg);
+            flex-shrink: 0;
+        }
+
+        .ask-claude__title {
+            font-weight: var(--font-semibold);
+            color: var(--color-text-primary);
+            font-size: var(--text-base);
+        }
+
+        .ask-claude__desc {
+            color: var(--color-text-secondary);
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+            margin: 0 0 var(--space-3);
+        }
+
+        .ask-claude__prompt {
+            margin: 0;
+            padding: var(--space-4) var(--space-5);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px dashed rgba(80, 0, 171, 0.24);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-family-headings);
+            font-size: var(--text-base);
+            line-height: var(--leading-snug);
+            color: var(--color-text-primary);
+            font-style: italic;
+            position: relative;
+        }
+
+        .ask-claude__prompt::before {
+            content: "\201E"; /* Czech opening quote */
+            position: absolute;
+            left: var(--space-2);
+            top: -8px;
+            font-size: var(--text-4xl);
+            color: var(--color-accent-primary);
+            line-height: 1;
+            opacity: 0.4;
+            font-family: var(--font-family-headings);
+        }
+
+        .ask-claude__prompt::after {
+            content: "\201C"; /* Czech closing quote */
+            position: absolute;
+            right: var(--space-3);
+            bottom: -22px;
+            font-size: var(--text-4xl);
+            color: var(--color-accent-primary);
+            line-height: 1;
+            opacity: 0.4;
+            font-family: var(--font-family-headings);
         }
 
         .step-section__lead {
@@ -721,8 +850,13 @@
 
         <section class="step-section" id="krok-1">
             <div class="step-section__container">
-                <span class="step-section__eyebrow">Krok 1 ze 5</span>
-                <h2 class="step-section__title">Založte si účet u&nbsp;Claude</h2>
+                <div class="step-section__header">
+                    <div class="step-section__badge">1</div>
+                    <div class="step-section__headings">
+                        <span class="step-section__eyebrow">Krok 1 ze 5</span>
+                        <h2 class="step-section__title">Založte si účet u&nbsp;Claude</h2>
+                    </div>
+                </div>
                 <p class="step-section__lead">
                     Claude&nbsp;Code potřebuje účet u&nbsp;Anthropic — to je společnost, která Claude vyrobila. Stačí e-mail a&nbsp;heslo. Vyberte si plán, který vám sedí.
                 </p>
@@ -769,8 +903,13 @@
 
         <section class="step-section" id="krok-2">
             <div class="step-section__container">
-                <span class="step-section__eyebrow">Krok 2 ze 5</span>
-                <h2 class="step-section__title">Nainstalujte Claude&nbsp;Code</h2>
+                <div class="step-section__header">
+                    <div class="step-section__badge">2</div>
+                    <div class="step-section__headings">
+                        <span class="step-section__eyebrow">Krok 2 ze 5</span>
+                        <h2 class="step-section__title">Nainstalujte Claude&nbsp;Code</h2>
+                    </div>
+                </div>
                 <p class="step-section__lead">
                     Claude&nbsp;Code běží na&nbsp;víc místech — v&nbsp;desktopové aplikaci, v&nbsp;prohlížeči, v&nbsp;terminálu, na&nbsp;mobilu nebo v&nbsp;editoru. Pro webinář potřebujete cestu, která umí otevřít naklonovanou složku z&nbsp;vašeho počítače. Doporučujeme <strong>desktopovou aplikaci</strong> — je to nejjednodušší start. Pokud chcete vidět přesně to, co my během živého vysílání, zvolte <strong>terminál</strong>.
                 </p>
@@ -841,11 +980,29 @@
 
         <section class="step-section" id="krok-3">
             <div class="step-section__container">
-                <span class="step-section__eyebrow">Krok 3 ze 5</span>
-                <h2 class="step-section__title">Nainstalujte Git</h2>
+                <div class="step-section__header">
+                    <div class="step-section__badge">3</div>
+                    <div class="step-section__headings">
+                        <span class="step-section__eyebrow">Krok 3 ze 5</span>
+                        <h2 class="step-section__title">Nainstalujte Git</h2>
+                    </div>
+                </div>
                 <p class="step-section__lead">
                     Git je nástroj, kterým se stahují projekty z&nbsp;GitHubu. Dnes ho potřebujete jen na&nbsp;jednu věc&nbsp;— stáhnout náš repozitář se společníkem webináře. Návod níže si přepněte podle toho, jaký máte operační systém.
                 </p>
+
+                <div class="ask-claude">
+                    <div class="ask-claude__header">
+                        <div class="ask-claude__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="ask-claude__title">Nebo to nechte udělat Claude&nbsp;Code</span>
+                    </div>
+                    <p class="ask-claude__desc">
+                        Pokud už máte Claude&nbsp;Code otevřený (z&nbsp;Kroku&nbsp;2), nemusíte Git instalovat ručně. Otevřete ho a&nbsp;pošlete mu tenhle prompt:
+                    </p>
+                    <p class="ask-claude__prompt">Potřebuju nainstalovat Git. Pomoz mi s&nbsp;tím krok za&nbsp;krokem a&nbsp;na&nbsp;konci ověř, že <code>git --version</code> funguje.</p>
+                </div>
+
+                <p class="sub-heading" style="margin-top: var(--space-8);">Nebo ručně, podle operačního systému</p>
 
                 <div class="tabs" data-tabs>
                     <div class="tabs__list" role="tablist">
@@ -902,12 +1059,29 @@ sudo pacman -S git</code></pre>
 
         <section class="step-section" id="krok-4">
             <div class="step-section__container">
-                <span class="step-section__eyebrow">Krok 4 ze 5</span>
-                <h2 class="step-section__title">Stáhněte materiály k&nbsp;webináři</h2>
+                <div class="step-section__header">
+                    <div class="step-section__badge">4</div>
+                    <div class="step-section__headings">
+                        <span class="step-section__eyebrow">Krok 4 ze 5</span>
+                        <h2 class="step-section__title">Stáhněte materiály k&nbsp;webináři</h2>
+                    </div>
+                </div>
                 <p class="step-section__lead">
                     Teď si naklonujete náš repozitář — dostanete tím <strong>společníka webináře</strong> (skill, který vám během živého vysílání pomáhá), tři úrovně materiálů a&nbsp;cheat&nbsp;sheet pro první půlhodinu po&nbsp;webináři.
                 </p>
 
+                <div class="ask-claude">
+                    <div class="ask-claude__header">
+                        <div class="ask-claude__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="ask-claude__title">Nebo to nechte udělat Claude&nbsp;Code</span>
+                    </div>
+                    <p class="ask-claude__desc">
+                        Máte Claude&nbsp;Code otevřený? Pošlete mu tenhle prompt a&nbsp;on se postará o&nbsp;všechno:
+                    </p>
+                    <p class="ask-claude__prompt">Naklonuj mi repozitář <code>https://github.com/aibilitycz/claude-code-90-webinar.git</code> do&nbsp;složky, kde mám projekty, a&nbsp;pak mi ověř, že v&nbsp;něm existuje <code>.claude/skills/claude-code-guide</code>.</p>
+                </div>
+
+                <p class="sub-heading" style="margin-top: var(--space-8);">Nebo ručně</p>
                 <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-2);">Otevřete terminál (macOS/Linux) nebo PowerShell (Windows) a&nbsp;spusťte:</p>
                 <div class="code-block">
 <pre><code>git clone https://github.com/aibilitycz/claude-code-90-webinar.git
@@ -916,7 +1090,7 @@ cd claude-code-90-webinar</code></pre>
 
                 <div class="expected"><strong>Očekávaný výstup:</strong> Git vypíše něco jako <code>Cloning into 'claude-code-90-webinar'…</code> a&nbsp;za&nbsp;pár vteřin jste ve&nbsp;vlastní kopii repozitáře.</div>
 
-                <h3 style="font-family: var(--font-family-headings); font-size: var(--text-xl); color: var(--color-text-primary); margin: var(--space-8) 0 var(--space-3); font-weight: var(--font-normal);">Co&nbsp;jste právě dostali</h3>
+                <h3 class="sub-heading">Co&nbsp;jste právě dostali</h3>
 
                 <div class="feature-row">
                     <i class="iconoir-sparks"></i>
@@ -935,25 +1109,43 @@ cd claude-code-90-webinar</code></pre>
 
         <section class="step-section" id="krok-5">
             <div class="step-section__container">
-                <span class="step-section__eyebrow">Krok 5 ze 5</span>
-                <h2 class="step-section__title">Preflight&nbsp;check</h2>
+                <div class="step-section__header">
+                    <div class="step-section__badge">5</div>
+                    <div class="step-section__headings">
+                        <span class="step-section__eyebrow">Krok 5 ze 5</span>
+                        <h2 class="step-section__title">Preflight&nbsp;check</h2>
+                    </div>
+                </div>
                 <p class="step-section__lead">
                     Posledních pár vteřin. Ověřte si, že všechno funguje&nbsp;— ať nás zítra ráno nic nepřekvapí.
                 </p>
 
-                <h3 style="font-family: var(--font-family-headings); font-size: var(--text-xl); color: var(--color-text-primary); margin: var(--space-8) 0 var(--space-3); font-weight: var(--font-normal);">1. Git funguje</h3>
+                <div class="ask-claude">
+                    <div class="ask-claude__header">
+                        <div class="ask-claude__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="ask-claude__title">Nebo to nechte udělat Claude&nbsp;Code</span>
+                    </div>
+                    <p class="ask-claude__desc">
+                        Pošlete Claude&nbsp;Code tenhle jeden prompt a&nbsp;on projde všechny kontroly sám:
+                    </p>
+                    <p class="ask-claude__prompt">Ověř, že mám všechno připravené na&nbsp;webinář Intro do&nbsp;Claude&nbsp;Code. Zkontroluj: (1) <code>git --version</code> funguje, (2) jsem ve&nbsp;složce <code>claude-code-90-webinar</code>, (3) existuje <code>.claude/skills/claude-code-guide/SKILL.md</code>, (4) zeptej se sám sebe „Co mám zkusit poprvé?" a&nbsp;ukaž mi odpověď. Na&nbsp;konci shrň, jestli jsem připraven.</p>
+                </div>
+
+                <p class="sub-heading" style="margin-top: var(--space-8);">Nebo ručně, krok po&nbsp;kroku</p>
+
+                <h3 class="sub-heading">1. Git funguje</h3>
                 <div class="code-block">
 <pre><code>git --version</code></pre>
                 </div>
                 <div class="expected"><strong>✅ Chceme vidět:</strong> <code>git version 2.x.x</code> (jakákoli verze&nbsp;2 je&nbsp;OK).</div>
 
-                <h3 style="font-family: var(--font-family-headings); font-size: var(--text-xl); color: var(--color-text-primary); margin: var(--space-8) 0 var(--space-3); font-weight: var(--font-normal);">2. Jste ve&nbsp;správné složce</h3>
+                <h3 class="sub-heading">2. Jste ve&nbsp;správné složce</h3>
                 <div class="code-block">
 <pre><code>ls .claude/skills</code></pre>
                 </div>
                 <div class="expected"><strong>✅ Chceme vidět:</strong> <code>claude-code-guide</code> — společník sedí, kde má. Pokud vám&nbsp;<code>ls</code> nefunguje (Windows PowerShell), zkuste <code>dir .claude\skills</code>.</div>
 
-                <h3 style="font-family: var(--font-family-headings); font-size: var(--text-xl); color: var(--color-text-primary); margin: var(--space-8) 0 var(--space-3); font-weight: var(--font-normal);">3. Claude&nbsp;Code se ohlásí</h3>
+                <h3 class="sub-heading">3. Claude&nbsp;Code se ohlásí</h3>
 
                 <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-3);"><strong>Pokud jste zvolili terminál:</strong></p>
                 <div class="code-block">
