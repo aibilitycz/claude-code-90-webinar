@@ -1,57 +1,21 @@
 // Prework page — light interactivity
-// - Step progress saved to localStorage (survives refresh)
-// - Copy-to-clipboard on <pre><code> blocks (added in later workstream)
-// - OS detection for Step 3 (Git) and Step 2 (CLI subsection) (added in later workstream)
+// Currently minimal. Copy-to-clipboard and OS detection will be added
+// in the next workstream when the CLI install tabs land.
 
 (function () {
-    const STORAGE_KEY = 'aibility-prework-progress';
-
-    function loadProgress() {
-        try {
-            const raw = localStorage.getItem(STORAGE_KEY);
-            return raw ? JSON.parse(raw) : {};
-        } catch (e) {
-            return {};
-        }
-    }
-
-    function saveProgress(progress) {
-        try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-        } catch (e) {
-            // localStorage unavailable (private mode, etc.) — silently ignore
-        }
-    }
-
-    function applyProgress() {
-        const progress = loadProgress();
-        document.querySelectorAll('.steps-strip__item').forEach((item) => {
-            const step = item.dataset.step;
-            if (progress[step]) {
-                item.classList.add('is-done');
-            }
-        });
-    }
-
-    function markDone(step) {
-        const progress = loadProgress();
-        progress[step] = true;
-        saveProgress(progress);
-        applyProgress();
-
-        const next = document.querySelector(`#krok-${parseInt(step, 10) + 1}`);
-        if (next) {
-            next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-        applyProgress();
+        // Smooth-scroll for in-page anchors (respects prefers-reduced-motion)
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) return;
 
-        document.querySelectorAll('[data-mark-done]').forEach((btn) => {
-            btn.addEventListener('click', (e) => {
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href').slice(1);
+                if (!targetId) return;
+                const target = document.getElementById(targetId);
+                if (!target) return;
                 e.preventDefault();
-                markDone(btn.dataset.markDone);
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     });

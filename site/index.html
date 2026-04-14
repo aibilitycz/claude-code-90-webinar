@@ -175,16 +175,6 @@
             z-index: 1;
         }
 
-        .steps-strip__item.is-done .steps-strip__num {
-            background: var(--color-accent-primary);
-            border-color: var(--color-accent-primary);
-            color: white;
-        }
-
-        .steps-strip__item.is-done .steps-strip__num::before {
-            content: "\f00c"; /* checkmark via iconoir is not text — simple check char */
-        }
-
         @media (max-width: 768px) {
             .steps-strip__list {
                 grid-template-columns: repeat(5, 1fr);
@@ -318,28 +308,65 @@
             color: var(--color-text-tertiary);
         }
 
+        .plan-card__price-note {
+            font-size: var(--text-xs);
+            color: var(--color-text-tertiary);
+            margin: 0;
+        }
+
         .plan-card__desc {
             font-size: var(--text-sm);
             line-height: var(--leading-relaxed);
             color: var(--color-text-secondary);
-            margin: 0;
+            margin: var(--space-2) 0 0;
             flex: 1;
         }
 
-        .step-done {
-            margin-top: var(--space-8);
-            padding-top: var(--space-6);
-            border-top: 1px dashed var(--color-border);
+        /* Callout box (info / warning) */
+        .callout {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--space-4);
-            flex-wrap: wrap;
+            gap: var(--space-3);
+            align-items: flex-start;
+            padding: var(--space-4) var(--space-5);
+            background: rgba(80, 0, 171, 0.04);
+            border-left: 3px solid var(--color-accent-primary);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-8);
         }
 
-        .step-done__label {
+        .callout i {
+            color: var(--color-accent-primary);
+            font-size: var(--text-xl);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .callout p {
+            margin: 0;
             color: var(--color-text-secondary);
             font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+        }
+
+        .callout strong {
+            color: var(--color-text-primary);
+        }
+
+        /* Price disclaimer */
+        .price-disclaimer {
+            display: flex;
+            gap: var(--space-2);
+            align-items: flex-start;
+            font-size: var(--text-xs);
+            color: var(--color-text-tertiary);
+            line-height: var(--leading-relaxed);
+            margin: var(--space-4) 0 var(--space-8);
+            max-width: 640px;
+        }
+
+        .price-disclaimer i {
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         /* Skip link */
@@ -441,38 +468,43 @@
                     Claude&nbsp;Code potřebuje účet u&nbsp;Anthropic — to je společnost, která Claude vyrobila. Stačí e-mail a&nbsp;heslo. Vyberte si plán, který vám sedí.
                 </p>
 
-                <div class="plan-grid">
-                    <article class="plan-card">
-                        <h3 class="plan-card__name">Free</h3>
-                        <p class="plan-card__price">0&nbsp;$</p>
-                        <p class="plan-card__desc">Zdarma, ale s&nbsp;přísnými limity. Pro webinář se nehodí — během dema byste narazili na strop.</p>
-                    </article>
+                <div class="callout">
+                    <i class="iconoir-info-circle"></i>
+                    <p><strong>Důležité:</strong> Claude&nbsp;Code <strong>není</strong> součástí bezplatného plánu. Nejlevnější placený plán, který ho obsahuje, je&nbsp;<strong>Pro</strong>.</p>
+                </div>
 
+                <div class="plan-grid">
                     <article class="plan-card plan-card--featured">
                         <h3 class="plan-card__name">Pro</h3>
-                        <p class="plan-card__price">20&nbsp;$ <small>/ měsíc</small></p>
-                        <p class="plan-card__desc">Tohle stačí pro webinář i&nbsp;první týdny vaší práce s&nbsp;Claude&nbsp;Codem. Můžete kdykoli zrušit.</p>
+                        <p class="plan-card__price">~460&nbsp;Kč <small>/ měsíc</small></p>
+                        <p class="plan-card__price-note">($20&nbsp;USD měsíčně, nebo $17&nbsp;USD s&nbsp;ročním závazkem)</p>
+                        <p class="plan-card__desc">Tohle stačí na&nbsp;webinář i&nbsp;první týdny vaší práce s&nbsp;Claude&nbsp;Codem. Můžete kdykoli zrušit.</p>
                     </article>
 
                     <article class="plan-card">
-                        <h3 class="plan-card__name">Max</h3>
-                        <p class="plan-card__price">100&nbsp;$+ <small>/ měsíc</small></p>
-                        <p class="plan-card__desc">Pro každodenní intenzivní práci. Začněte s&nbsp;Pro, přejít výš můžete kdykoli později.</p>
+                        <h3 class="plan-card__name">Max&nbsp;5×</h3>
+                        <p class="plan-card__price">~2&nbsp;300&nbsp;Kč <small>/ měsíc</small></p>
+                        <p class="plan-card__price-note">($100&nbsp;USD měsíčně)</p>
+                        <p class="plan-card__desc">Pětinásobné limity oproti&nbsp;Pro. Pro pravidelné používání po&nbsp;webináři, když se vám Claude&nbsp;Code „zalíbí".</p>
+                    </article>
+
+                    <article class="plan-card">
+                        <h3 class="plan-card__name">Max&nbsp;20×</h3>
+                        <p class="plan-card__price">~4&nbsp;600&nbsp;Kč <small>/ měsíc</small></p>
+                        <p class="plan-card__price-note">($200&nbsp;USD měsíčně)</p>
+                        <p class="plan-card__desc">Pro každodenní intenzivní práci. Začněte s&nbsp;Pro — přejít výš můžete kdykoli později.</p>
                     </article>
                 </div>
 
-                <a href="https://claude.com/upgrade" target="_blank" rel="noopener" class="btn btn--primary">
+                <p class="price-disclaimer">
+                    <i class="iconoir-warning-triangle-outline"></i>
+                    Ceny v&nbsp;Kč jsou orientační (kurz ~23&nbsp;Kč/USD). Anthropic na&nbsp;claude.com zobrazuje ceny v&nbsp;amerických dolarech a&nbsp;vaše banka přepočte kurzem v&nbsp;den platby.
+                </p>
+
+                <a href="https://claude.com/upgrade" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
                     Otevřít claude.com a založit účet
                     <i class="iconoir-open-new-window btn__icon"></i>
                 </a>
-
-                <div class="step-done">
-                    <span class="step-done__label">Máte účet a&nbsp;vybraný plán?</span>
-                    <button type="button" class="btn btn--secondary" data-mark-done="1">
-                        Hotovo, pokračovat
-                        <i class="iconoir-check btn__icon"></i>
-                    </button>
-                </div>
             </div>
         </section>
 
