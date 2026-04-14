@@ -39,11 +39,10 @@ Kompletní instrukce pro vedení 90minutového webináře s časovým rozpisem.
 - Samoopravný cyklus — když narazí na chybu, opraví ji sám
 - Vícekrokové uvažování — jak rozkládá složité úkoly
 
-#### **Level 2: [Showcase workflow](./level-2-intermediate/)** (25 min + 2× micro-Q&A)
-- Tvorba webové aplikace od nuly
-- Práce s dokumenty a emaily — shrnutí, briefingy, komunikace
-- Automatizace — zpracování souborů a opakujících se úkolů
-- Rychlý přehled dalších možností (debugging, Git, dokumentace...)
+#### **Level 2: [Dva reálné workflow + skilly a pluginy](./level-2-intermediate/)** (20 min)
+- Demo A — denní obsahová pipeline, kterou Ondřej používá pro svůj blog (scheduled retrieval z RSS, webu a zachycených myšlenek)
+- Demo B — Slavův reálný workflow s Claude Code (konkrétní obsah podle jeho volby)
+- Skilly a pluginy — jak si Claude Code rozšiřujete sami, přehled tří ekosystémů (Anthropic oficiální marketplace, compound-engineering, heart-of-gold-toolkit)
 
 #### **Level 3: [Pokročilé funkce](./level-3-advanced/)** (14 min)
 - CLAUDE.md — jak "natrénovat" Claude Code na váš styl

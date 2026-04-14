@@ -11,6 +11,8 @@ confidence: medium
 
 Implements the decisions from the 2026-04-13 brainstorm across four workstreams — foundation, companion skill, session guide, and rehearsal — phased across three days before the April 16 webinar delivery.
 
+> **Amendment (2026-04-14):** Level 2 structure was further revised by `docs/plans/2026-04-14-feat-level-2-rework-plan.md`. The original "three canned workflows" (web app, docs/email, automation) has been replaced with two real lived workflows (Ondřej's content pipeline + Slava's choice) plus a skills & plugins bridge. Level 3 skill reveal was reframed from "surprise" to "pohled dovnitř společníka" since the word *skill* now appears earlier. See the Level 2 rework plan for details.
+
 ## Problem Statement
 
 The 90-minute "Intro do Claude Code" webinar (April 16, 2026) currently has three gaps that need to be closed before delivery:
