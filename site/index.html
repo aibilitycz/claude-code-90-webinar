@@ -676,68 +676,143 @@
             margin: 0;
         }
 
-        /* Accordion (troubleshooting) */
-        .accordion {
-            margin: var(--space-6) 0;
+        /* Help cards (troubleshooting section — two friendly paths) */
+        .help-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-5);
+            margin: var(--space-8) 0;
+        }
+
+        @media (max-width: 768px) {
+            .help-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .help-card {
+            background: var(--color-bg-card);
             border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
         }
 
-        .accordion__item + .accordion__item {
-            border-top: 1px solid var(--color-border);
+        .help-card__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-accent-primary) 0%, #7c3aed 100%);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-2);
         }
 
-        .accordion__summary {
+        .help-card__icon--secondary {
+            background: linear-gradient(135deg, var(--color-accent-secondary, #0891B2) 0%, #06b6d4 100%);
+        }
+
+        .help-card__title {
+            font-family: var(--font-family-headings);
+            font-size: var(--text-xl);
+            color: var(--color-text-primary);
+            margin: 0;
+            font-weight: var(--font-normal);
+        }
+
+        .help-card__desc {
+            color: var(--color-text-secondary);
+            font-size: var(--text-base);
+            line-height: var(--leading-relaxed);
+            margin: 0;
+        }
+
+        .help-card__example-label {
+            font-size: var(--text-xs);
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: var(--font-semibold);
+            margin: var(--space-3) 0 var(--space-2);
+        }
+
+        .help-footer {
+            text-align: center;
+            font-size: var(--text-sm);
+            color: var(--color-text-tertiary);
+            margin: var(--space-8) auto 0;
+            max-width: 600px;
+        }
+
+        .help-footer a {
+            color: var(--color-accent-primary);
+            font-weight: var(--font-semibold);
+        }
+
+        /* Instruction list (timeline of numbered steps) */
+        .instruction-list {
+            list-style: none;
+            margin: var(--space-6) 0;
+            padding: 0;
+            counter-reset: instruction;
+        }
+
+        .instruction-list li {
+            counter-increment: instruction;
+            position: relative;
+            padding: var(--space-3) 0 var(--space-5) 60px;
+            color: var(--color-text-primary);
+            font-size: var(--text-base);
+            line-height: var(--leading-relaxed);
+            min-height: 44px;
+        }
+
+        .instruction-list li::before {
+            content: counter(instruction);
+            position: absolute;
+            left: 0;
+            top: var(--space-2);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: var(--space-3);
-            padding: var(--space-5) var(--space-6);
+            justify-content: center;
+            width: 40px;
+            height: 40px;
             background: var(--color-bg-card);
-            cursor: pointer;
-            font-weight: var(--font-semibold);
-            color: var(--color-text-primary);
-            list-style: none;
-            transition: background var(--transition-fast);
-        }
-
-        .accordion__summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .accordion__summary:hover {
-            background: var(--color-bg-card-hover);
-        }
-
-        .accordion__summary i {
+            border: 1.5px solid var(--color-accent-primary);
             color: var(--color-accent-primary);
-            transition: transform var(--transition-base);
+            border-radius: var(--radius-full);
+            font-family: var(--font-family-headings);
+            font-weight: var(--font-semibold);
+            font-size: var(--text-lg);
         }
 
-        .accordion__item[open] .accordion__summary i {
-            transform: rotate(180deg);
+        .instruction-list li:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: 19.25px;
+            top: calc(var(--space-2) + 44px);
+            bottom: 0;
+            width: 1.5px;
+            background: rgba(80, 0, 171, 0.16);
         }
 
-        .accordion__content {
-            padding: 0 var(--space-6) var(--space-6);
-            color: var(--color-text-secondary);
-            font-size: var(--text-sm);
-            line-height: var(--leading-relaxed);
-            background: var(--color-bg-card);
+        /* Path tabs — specific variant of .tabs used for "AI path vs manual path" */
+        .path-tabs {
+            margin: var(--space-6) 0;
         }
 
-        .accordion__content p {
-            margin: var(--space-3) 0;
+        .path-tabs .tabs__list {
+            background: var(--color-bg-primary);
         }
 
-        .accordion__content code {
-            font-family: "SF Mono", Menlo, Consolas, monospace;
-            font-size: 0.9em;
-            background: var(--color-bg-code);
-            padding: 2px 6px;
-            border-radius: var(--radius-sm);
-            color: var(--color-text-primary);
+        .path-tabs .tabs__button {
+            padding: var(--space-3) var(--space-6);
+            font-size: var(--text-base);
         }
 
         /* Price disclaimer */
@@ -894,8 +969,8 @@
                     Ceny v&nbsp;Kč jsou orientační (kurz ~23&nbsp;Kč/USD). Anthropic na&nbsp;claude.com zobrazuje ceny v&nbsp;amerických dolarech a&nbsp;vaše banka přepočte kurzem v&nbsp;den platby.
                 </p>
 
-                <a href="https://claude.com/upgrade" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
-                    Otevřít claude.com a založit účet
+                <a href="https://claude.com/pricing" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+                    Otevřít claude.com a&nbsp;vybrat plán
                     <i class="iconoir-open-new-window btn__icon"></i>
                 </a>
             </div>
@@ -930,14 +1005,14 @@
                     </div>
 
                     <div class="tabs__panel" role="tabpanel" data-panel="desktop" aria-hidden="false">
-                        <ol>
-                            <li>Otevřete <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a></li>
-                            <li>Stáhněte instalátor pro&nbsp;<strong>macOS</strong> nebo&nbsp;<strong>Windows</strong></li>
-                            <li>Nainstalujte jako jakoukoli jinou aplikaci</li>
-                            <li>Otevřete aplikaci a&nbsp;přihlaste se stejnými údaji jako u&nbsp;claude.com</li>
+                        <ol class="instruction-list">
+                            <li>Otevřete <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a> v&nbsp;prohlížeči.</li>
+                            <li>Stáhněte instalátor pro&nbsp;<strong>macOS</strong> nebo&nbsp;<strong>Windows</strong>.</li>
+                            <li>Nainstalujte aplikaci stejně jako jakoukoli jinou&nbsp;— dvojklik na&nbsp;stažený soubor a&nbsp;odklikejte průvodce.</li>
+                            <li>Spusťte aplikaci a&nbsp;přihlaste se stejnými údaji jako u&nbsp;claude.com.</li>
                         </ol>
-                        <p class="step-section__lead" style="font-size: var(--text-base); margin-top: var(--space-4);">
-                            Aplikace funguje podobně jako ChatGPT — píšete do&nbsp;chatu, ale Claude&nbsp;Code navíc umí otevřít vaše lokální složky a&nbsp;pracovat s&nbsp;nimi.
+                        <p style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed); margin-top: var(--space-5);">
+                            Aplikace vypadá jako chat (podobně jako ChatGPT), ale navíc umí otevřít složky z&nbsp;vašeho počítače a&nbsp;pracovat s&nbsp;nimi. Tuhle vlastnost budeme během webináře hodně používat.
                         </p>
                     </div>
 
@@ -988,60 +1063,72 @@
                     </div>
                 </div>
                 <p class="step-section__lead">
-                    Git je nástroj, kterým se stahují projekty z&nbsp;GitHubu. Dnes ho potřebujete jen na&nbsp;jednu věc&nbsp;— stáhnout náš repozitář se společníkem webináře. Návod níže si přepněte podle toho, jaký máte operační systém.
+                    Git je nástroj, kterým se&nbsp;stahují projekty z&nbsp;GitHubu. Dnes ho potřebujete jen na&nbsp;jednu věc&nbsp;— stáhnout náš repozitář se&nbsp;společníkem webináře.
                 </p>
 
-                <div class="ask-claude">
-                    <div class="ask-claude__header">
-                        <div class="ask-claude__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="ask-claude__title">Nebo to nechte udělat Claude&nbsp;Code</span>
-                    </div>
-                    <p class="ask-claude__desc">
-                        Pokud už máte Claude&nbsp;Code otevřený (z&nbsp;Kroku&nbsp;2), nemusíte Git instalovat ručně. Otevřete ho a&nbsp;pošlete mu tenhle prompt:
-                    </p>
-                    <p class="ask-claude__prompt">Potřebuju nainstalovat Git. Pomoz mi s&nbsp;tím krok za&nbsp;krokem a&nbsp;na&nbsp;konci ověř, že <code>git --version</code> funguje.</p>
-                </div>
-
-                <p class="sub-heading" style="margin-top: var(--space-8);">Nebo ručně, podle operačního systému</p>
-
-                <div class="tabs" data-tabs>
+                <div class="path-tabs tabs" data-tabs>
                     <div class="tabs__list" role="tablist">
-                        <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="mac" data-os="mac">
-                            <i class="iconoir-apple-shortcut"></i> macOS
+                        <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="ai">
+                            <i class="iconoir-sparks"></i> Ať to udělá Claude&nbsp;Code
                         </button>
-                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="win" data-os="win">
-                            <i class="iconoir-windows"></i> Windows
-                        </button>
-                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="linux" data-os="linux">
-                            <i class="iconoir-linux"></i> Linux
+                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="manual">
+                            <i class="iconoir-settings"></i> Udělám to sám/sama
                         </button>
                     </div>
 
-                    <div class="tabs__panel" role="tabpanel" data-panel="mac" aria-hidden="false">
-                        <p>Na&nbsp;macOS už možná Git máte. Otevřete <strong>Terminal</strong> (Cmd&nbsp;+&nbsp;Space → „Terminal") a&nbsp;zkuste:</p>
-                        <div class="code-block">
+                    <div class="tabs__panel" role="tabpanel" data-panel="ai" aria-hidden="false">
+                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-4);">
+                            V&nbsp;Kroku&nbsp;2 jste si nainstalovali Claude&nbsp;Code&nbsp;— teď&nbsp;ho pojďme využít. Otevřete ho a&nbsp;pošlete mu tuhle zprávu:
+                        </p>
+                        <p class="ask-claude__prompt">Potřebuju nainstalovat Git na&nbsp;svůj počítač. Zjisti, jaký mám operační systém, proveď mě instalací krok za&nbsp;krokem a&nbsp;na&nbsp;konci ověř, že to&nbsp;funguje.</p>
+                        <p style="color: var(--color-text-tertiary); font-size: var(--text-sm); margin-top: var(--space-5);">
+                            Agent zjistí, co&nbsp;máte za&nbsp;systém, provede vás instalací a&nbsp;na&nbsp;konci ověří, že&nbsp;je všechno v&nbsp;pořádku. Když se cestou na&nbsp;něčem zadrhne, zeptá se vás.
+                        </p>
+                    </div>
+
+                    <div class="tabs__panel" role="tabpanel" data-panel="manual" aria-hidden="true">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-5);">
+                            Vyberte si podle toho, jaký máte operační systém:
+                        </p>
+
+                        <div class="tabs" data-tabs>
+                            <div class="tabs__list" role="tablist">
+                                <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="mac" data-os="mac">
+                                    <i class="iconoir-apple-shortcut"></i> macOS
+                                </button>
+                                <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="win" data-os="win">
+                                    <i class="iconoir-windows"></i> Windows
+                                </button>
+                                <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="linux" data-os="linux">
+                                    <i class="iconoir-linux"></i> Linux
+                                </button>
+                            </div>
+
+                            <div class="tabs__panel" role="tabpanel" data-panel="mac" aria-hidden="false">
+                                <p>Na&nbsp;macOS už možná Git máte. Otevřete <strong>Terminal</strong> (Cmd&nbsp;+&nbsp;Space → napsat „Terminal") a&nbsp;zkuste:</p>
+                                <div class="code-block">
 <pre><code>git --version</code></pre>
-                        </div>
-                        <div class="expected"><strong>Očekávaný výstup:</strong> něco jako <code>git version 2.x.x</code>. Pokud to&nbsp;funguje, máte hotovo.</div>
-                        <p>Pokud vám macOS nabídne instalaci <em>Xcode&nbsp;Command&nbsp;Line&nbsp;Tools</em>, potvrďte&nbsp;— stáhne se všechno, co&nbsp;potřebujete (pár minut).</p>
-                    </div>
+                                </div>
+                                <div class="expected"><strong>Co očekávat:</strong> něco jako <code>git version 2.x.x</code>. Pokud to&nbsp;vidíte, máte hotovo.</div>
+                                <p>Pokud vám macOS místo toho nabídne instalaci <em>Xcode&nbsp;Command&nbsp;Line&nbsp;Tools</em>, klikněte na&nbsp;„Install"&nbsp;— stáhne se všechno, co&nbsp;potřebujete (pár minut).</p>
+                            </div>
 
-                    <div class="tabs__panel" role="tabpanel" data-panel="win" aria-hidden="true">
-                        <ol>
-                            <li>Otevřete <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a></li>
-                            <li>Stáhněte a&nbsp;nainstalujte <strong>64-bit Git for Windows</strong></li>
-                            <li>Během instalace nechte <strong>výchozí nastavení</strong> (stačí klikat „Next")</li>
-                            <li>Po&nbsp;instalaci otevřete <strong>PowerShell</strong> a&nbsp;ověřte:</li>
-                        </ol>
-                        <div class="code-block">
+                            <div class="tabs__panel" role="tabpanel" data-panel="win" aria-hidden="true">
+                                <ol class="instruction-list">
+                                    <li>Otevřete <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a>.</li>
+                                    <li>Stáhněte a&nbsp;nainstalujte <strong>64-bit Git for Windows</strong>.</li>
+                                    <li>Během instalace klikejte <strong>„Next"</strong> a&nbsp;nechte všechno, jak je&nbsp;— výchozí nastavení stačí.</li>
+                                    <li>Po&nbsp;dokončení instalace otevřete <strong>PowerShell</strong> a&nbsp;ověřte instalaci:</li>
+                                </ol>
+                                <div class="code-block">
 <pre><code>git --version</code></pre>
-                        </div>
-                        <div class="expected"><strong>Očekávaný výstup:</strong> něco jako <code>git version 2.x.x.windows.x</code>.</div>
-                    </div>
+                                </div>
+                                <div class="expected"><strong>Co očekávat:</strong> něco jako <code>git version 2.x.x.windows.x</code>.</div>
+                            </div>
 
-                    <div class="tabs__panel" role="tabpanel" data-panel="linux" aria-hidden="true">
-                        <p>Podle distribuce:</p>
-                        <div class="code-block">
+                            <div class="tabs__panel" role="tabpanel" data-panel="linux" aria-hidden="true">
+                                <p>Podle distribuce Linuxu:</p>
+                                <div class="code-block">
 <pre><code># Debian, Ubuntu
 sudo apt install git
 
@@ -1050,8 +1137,10 @@ sudo dnf install git
 
 # Arch
 sudo pacman -S git</code></pre>
+                                </div>
+                                <div class="expected"><strong>Ověření:</strong> <code>git --version</code> by&nbsp;mělo vrátit <code>git version 2.x.x</code>.</div>
+                            </div>
                         </div>
-                        <div class="expected"><strong>Ověření:</strong> <code>git --version</code> by&nbsp;mělo vrátit <code>git version 2.x.x</code>.</div>
                     </div>
                 </div>
             </div>
@@ -1067,28 +1156,35 @@ sudo pacman -S git</code></pre>
                     </div>
                 </div>
                 <p class="step-section__lead">
-                    Teď si naklonujete náš repozitář — dostanete tím <strong>společníka webináře</strong> (skill, který vám během živého vysílání pomáhá), tři úrovně materiálů a&nbsp;cheat&nbsp;sheet pro první půlhodinu po&nbsp;webináři.
+                    Teď si stáhneme náš repozitář&nbsp;— dostanete tím <strong>společníka webináře</strong> (pomocníka, který vám během živého vysílání pomáhá), materiály ke&nbsp;každé části webináře a&nbsp;cheat&nbsp;sheet pro&nbsp;první půlhodinu po&nbsp;něm.
                 </p>
 
-                <div class="ask-claude">
-                    <div class="ask-claude__header">
-                        <div class="ask-claude__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="ask-claude__title">Nebo to nechte udělat Claude&nbsp;Code</span>
+                <div class="path-tabs tabs" data-tabs>
+                    <div class="tabs__list" role="tablist">
+                        <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="ai">
+                            <i class="iconoir-sparks"></i> Ať to udělá Claude&nbsp;Code
+                        </button>
+                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="manual">
+                            <i class="iconoir-settings"></i> Udělám to sám/sama
+                        </button>
                     </div>
-                    <p class="ask-claude__desc">
-                        Máte Claude&nbsp;Code otevřený? Pošlete mu tenhle prompt a&nbsp;on se postará o&nbsp;všechno:
-                    </p>
-                    <p class="ask-claude__prompt">Naklonuj mi repozitář <code>https://github.com/aibilitycz/claude-code-90-webinar.git</code> do&nbsp;složky, kde mám projekty, a&nbsp;pak mi ověř, že v&nbsp;něm existuje <code>.claude/skills/claude-code-guide</code>.</p>
-                </div>
 
-                <p class="sub-heading" style="margin-top: var(--space-8);">Nebo ručně</p>
-                <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-2);">Otevřete terminál (macOS/Linux) nebo PowerShell (Windows) a&nbsp;spusťte:</p>
-                <div class="code-block">
+                    <div class="tabs__panel" role="tabpanel" data-panel="ai" aria-hidden="false">
+                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-4);">
+                            Otevřete Claude&nbsp;Code a&nbsp;pošlete mu tuhle zprávu. On&nbsp;najde, kam materiály uložit, a&nbsp;postará se o&nbsp;zbytek.
+                        </p>
+                        <p class="ask-claude__prompt">Stáhni mi materiály k&nbsp;webináři Intro do&nbsp;Claude&nbsp;Code. Naklonuj repozitář <code>https://github.com/aibilitycz/claude-code-90-webinar.git</code> do&nbsp;rozumného místa (třeba složky Projects v&nbsp;mém domovském adresáři) a&nbsp;pak mi ukaž, co&nbsp;jsem dostal&nbsp;— hlavně jestli obsahuje složku <code>.claude/skills/claude-code-guide</code>.</p>
+                    </div>
+
+                    <div class="tabs__panel" role="tabpanel" data-panel="manual" aria-hidden="true">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-3);">Otevřete terminál (macOS/Linux) nebo&nbsp;PowerShell (Windows) a&nbsp;spusťte:</p>
+                        <div class="code-block">
 <pre><code>git clone https://github.com/aibilitycz/claude-code-90-webinar.git
 cd claude-code-90-webinar</code></pre>
+                        </div>
+                        <div class="expected"><strong>Co očekávat:</strong> Git vypíše něco jako <code>Cloning into 'claude-code-90-webinar'…</code> a&nbsp;za&nbsp;pár vteřin jste ve&nbsp;vlastní kopii repozitáře.</div>
+                    </div>
                 </div>
-
-                <div class="expected"><strong>Očekávaný výstup:</strong> Git vypíše něco jako <code>Cloning into 'claude-code-90-webinar'…</code> a&nbsp;za&nbsp;pár vteřin jste ve&nbsp;vlastní kopii repozitáře.</div>
 
                 <h3 class="sub-heading">Co&nbsp;jste právě dostali</h3>
 
@@ -1117,46 +1213,53 @@ cd claude-code-90-webinar</code></pre>
                     </div>
                 </div>
                 <p class="step-section__lead">
-                    Posledních pár vteřin. Ověřte si, že všechno funguje&nbsp;— ať nás zítra ráno nic nepřekvapí.
+                    Posledních pár minut. Ověřte si, že všechno funguje&nbsp;— ať nás 16.&nbsp;dubna ráno nic nepřekvapí.
                 </p>
 
-                <div class="ask-claude">
-                    <div class="ask-claude__header">
-                        <div class="ask-claude__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="ask-claude__title">Nebo to nechte udělat Claude&nbsp;Code</span>
+                <div class="path-tabs tabs" data-tabs>
+                    <div class="tabs__list" role="tablist">
+                        <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="ai">
+                            <i class="iconoir-sparks"></i> Ať to zkontroluje Claude&nbsp;Code
+                        </button>
+                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="manual">
+                            <i class="iconoir-settings"></i> Zkontroluju si&nbsp;to sám/sama
+                        </button>
                     </div>
-                    <p class="ask-claude__desc">
-                        Pošlete Claude&nbsp;Code tenhle jeden prompt a&nbsp;on projde všechny kontroly sám:
-                    </p>
-                    <p class="ask-claude__prompt">Ověř, že mám všechno připravené na&nbsp;webinář Intro do&nbsp;Claude&nbsp;Code. Zkontroluj: (1) <code>git --version</code> funguje, (2) jsem ve&nbsp;složce <code>claude-code-90-webinar</code>, (3) existuje <code>.claude/skills/claude-code-guide/SKILL.md</code>, (4) zeptej se sám sebe „Co mám zkusit poprvé?" a&nbsp;ukaž mi odpověď. Na&nbsp;konci shrň, jestli jsem připraven.</p>
-                </div>
 
-                <p class="sub-heading" style="margin-top: var(--space-8);">Nebo ručně, krok po&nbsp;kroku</p>
+                    <div class="tabs__panel" role="tabpanel" data-panel="ai" aria-hidden="false">
+                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-4);">
+                            Otevřete Claude&nbsp;Code v&nbsp;naklonované složce a&nbsp;pošlete mu tuhle jednu zprávu. Projde všechny kontroly za&nbsp;vás a&nbsp;na&nbsp;konci vám řekne, jestli je všechno v&nbsp;pořádku.
+                        </p>
+                        <p class="ask-claude__prompt">Jsem účastník webináře Intro do&nbsp;Claude&nbsp;Code. Zkontroluj mi prosím, že mám všechno připravené. Ověř: 1)&nbsp;funguje Git, 2)&nbsp;jsem ve&nbsp;správné složce s&nbsp;materiály webináře, 3)&nbsp;máš přístup ke&nbsp;společníkovi webináře (skill v&nbsp;<code>.claude/skills/claude-code-guide/</code>). Pak zkus na&nbsp;sobě samém zavolat společníka tak, že řekneš „Co mám zkusit poprvé?". Na&nbsp;konci mi krátce shrň, jestli jsem připraven/a.</p>
+                    </div>
 
-                <h3 class="sub-heading">1. Git funguje</h3>
-                <div class="code-block">
+                    <div class="tabs__panel" role="tabpanel" data-panel="manual" aria-hidden="true">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-5);">
+                            Tři rychlé kontroly v&nbsp;terminálu / PowerShellu. Ujistěte se, že jste ve&nbsp;složce <code>claude-code-90-webinar</code>, kterou jste si naklonovali v&nbsp;Kroku&nbsp;4.
+                        </p>
+
+                        <h3 class="sub-heading">1. Git funguje</h3>
+                        <div class="code-block">
 <pre><code>git --version</code></pre>
-                </div>
-                <div class="expected"><strong>✅ Chceme vidět:</strong> <code>git version 2.x.x</code> (jakákoli verze&nbsp;2 je&nbsp;OK).</div>
+                        </div>
+                        <div class="expected"><strong>Chceme vidět:</strong> <code>git version 2.x.x</code> (jakákoli verze&nbsp;2 stačí).</div>
 
-                <h3 class="sub-heading">2. Jste ve&nbsp;správné složce</h3>
-                <div class="code-block">
+                        <h3 class="sub-heading">2. Jste ve správné složce</h3>
+                        <div class="code-block">
 <pre><code>ls .claude/skills</code></pre>
+                        </div>
+                        <div class="expected"><strong>Chceme vidět:</strong> <code>claude-code-guide</code>. Pokud vám <code>ls</code> nefunguje (Windows PowerShell), použijte <code>dir .claude\skills</code>.</div>
+
+                        <h3 class="sub-heading">3. Claude&nbsp;Code se&nbsp;ohlásí</h3>
+                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-3);">
+                            Spusťte Claude&nbsp;Code v&nbsp;téhle složce (ať už&nbsp;v&nbsp;terminálu příkazem <code>claude</code>, nebo v&nbsp;desktopové aplikaci volbou <strong>„Open folder"</strong>) a&nbsp;do&nbsp;chatu napište:
+                        </p>
+                        <p class="ask-claude__prompt">Co mám zkusit poprvé?</p>
+                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-top: var(--space-4);">
+                            Společník by&nbsp;se&nbsp;měl ozvat s&nbsp;nabídkou tří možností. Pokud ano, jste připraveni. Pokud vám místo toho Claude odpoví obecně (<em>„o&nbsp;webináři nic nevím"</em>), nejste ve&nbsp;správné složce nebo se&nbsp;skill nenačetl&nbsp;— zkuste to&nbsp;znovu po&nbsp;<code>cd claude-code-90-webinar</code>.
+                        </p>
+                    </div>
                 </div>
-                <div class="expected"><strong>✅ Chceme vidět:</strong> <code>claude-code-guide</code> — společník sedí, kde má. Pokud vám&nbsp;<code>ls</code> nefunguje (Windows PowerShell), zkuste <code>dir .claude\skills</code>.</div>
-
-                <h3 class="sub-heading">3. Claude&nbsp;Code se ohlásí</h3>
-
-                <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-3);"><strong>Pokud jste zvolili terminál:</strong></p>
-                <div class="code-block">
-<pre><code>claude --version</code></pre>
-                </div>
-                <div class="expected"><strong>✅ Chceme vidět:</strong> nějaké číslo verze (např. <code>1.x.x</code>). Pokud ano, spusťte <code>claude</code> v&nbsp;téhle složce a&nbsp;zeptejte se: <em>„Co mám zkusit poprvé?"</em> Společník by&nbsp;vám měl nabídnout tři možnosti.</div>
-
-                <p style="color: var(--color-text-secondary); margin: var(--space-5) 0 var(--space-3);"><strong>Pokud používáte desktopovou aplikaci:</strong></p>
-                <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0;">
-                    Otevřete aplikaci, v&nbsp;levém menu zvolte <strong>„Open folder"</strong> a&nbsp;vyberte složku <code>claude-code-90-webinar</code>, kterou jste si právě naklonovali. V&nbsp;chatu se zeptejte <em>„Co mám zkusit poprvé?"</em>. Společník by&nbsp;se měl ozvat s&nbsp;nabídkou tří možností.
-                </p>
 
                 <div class="preflight-final">
                     <div class="preflight-final__icon">
@@ -1171,60 +1274,38 @@ cd claude-code-90-webinar</code></pre>
 
         <section class="step-section" id="troubleshooting">
             <div class="step-section__container">
-                <span class="step-section__eyebrow">Když něco nefunguje</span>
-                <h2 class="step-section__title">Nejčastější zádrhele</h2>
+                <span class="step-section__eyebrow">Něco se zaseklo?</span>
+                <h2 class="step-section__title">Dva způsoby, jak se odseknout</h2>
                 <p class="step-section__lead">
-                    Čtyři nejčastější věci, na&nbsp;kterých se účastníci minulých webinářů zasekli. Pokud&nbsp;vás nic z&nbsp;toho nezachrání, napište do&nbsp;Circle komunity&nbsp;— odkaz máte v&nbsp;registračním e-mailu.
+                    Když se vám něco nepovede, nepanikařte. Žádné chyby, které během přípravy potkáte, nejsou fatální&nbsp;— a&nbsp;vy máte dva rychlé způsoby, jak se dostat dál.
                 </p>
 
-                <div class="accordion">
-                    <details class="accordion__item">
-                        <summary class="accordion__summary">
-                            <span><code>git --version</code> hlásí „command not found"</span>
-                            <i class="iconoir-nav-arrow-down"></i>
-                        </summary>
-                        <div class="accordion__content">
-                            <p>Git není nainstalovaný. Vraťte se ke&nbsp;<a href="#krok-3">Kroku 3</a> a&nbsp;postupujte podle návodu pro&nbsp;váš operační systém. Po&nbsp;instalaci <strong>zavřete terminál a&nbsp;otevřete ho znovu</strong>&nbsp;— stará session nový příkaz neuvidí.</p>
-                        </div>
-                    </details>
+                <div class="help-options">
+                    <article class="help-card">
+                        <div class="help-card__icon"><i class="iconoir-sparks"></i></div>
+                        <h3 class="help-card__title">Zeptejte se Claude&nbsp;Code</h3>
+                        <p class="help-card__desc">
+                            Už jste v&nbsp;Kroku&nbsp;2 nainstalovali agenta, který umí číst chybové hlášky lépe než většina lidí. Otevřete Claude&nbsp;Code a&nbsp;pošlete mu přesně to, co jste zkusili a&nbsp;co vám to vypsalo. Agent vám poradí, co dál&nbsp;— a&nbsp;většinou to sám napraví.
+                        </p>
+                        <p class="help-card__example-label">Vzorová zpráva:</p>
+                        <p class="ask-claude__prompt">Zkouším si připravit webinář Intro do&nbsp;Claude&nbsp;Code. Zasekl/a jsem se na&nbsp;tomhle: [vložte, co jste zkusili]. Vypsalo mi to: [vložte chybovou hlášku]. Co s&nbsp;tím?</p>
+                    </article>
 
-                    <details class="accordion__item">
-                        <summary class="accordion__summary">
-                            <span><code>claude</code> po&nbsp;instalaci přes terminál hlásí „command not found"</span>
-                            <i class="iconoir-nav-arrow-down"></i>
-                        </summary>
-                        <div class="accordion__content">
-                            <p>Instalace pravděpodobně proběhla, ale binárka není na&nbsp;PATH. Zkuste:</p>
-                            <p>1. Zavřete terminál a&nbsp;otevřete ho znovu (nejčastější řešení).<br>
-                            2. Ověřte umístění: <code>which claude</code> (macOS/Linux) nebo <code>where claude</code> (Windows).<br>
-                            3. Pokud dál nic, stáhněte si místo CLI&nbsp;<strong>desktopovou aplikaci</strong> z&nbsp;<a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>&nbsp;— je&nbsp;to plnohodnotná alternativa.</p>
-                        </div>
-                    </details>
-
-                    <details class="accordion__item">
-                        <summary class="accordion__summary">
-                            <span><code>npm install -g @anthropic-ai/claude-code</code> hlásí permission error</span>
-                            <i class="iconoir-nav-arrow-down"></i>
-                        </summary>
-                        <div class="accordion__content">
-                            <p>Na&nbsp;macOS a&nbsp;Linuxu <strong>nepoužívejte <code>sudo</code></strong>&nbsp;— způsobuje jiné problémy, které se špatně ladí. Místo toho použijte <strong>nativní instalátor</strong>, který nepotřebuje npm ani Node.js:</p>
-                            <p><code>curl -fsSL https://claude.ai/install.sh | bash</code></p>
-                            <p>Vraťte se ke&nbsp;<a href="#krok-2">Kroku 2</a> a&nbsp;zvolte tabs „Terminál → macOS / Linux".</p>
-                        </div>
-                    </details>
-
-                    <details class="accordion__item">
-                        <summary class="accordion__summary">
-                            <span><code>git clone</code> hlásí „repository not found" nebo „permission denied"</span>
-                            <i class="iconoir-nav-arrow-down"></i>
-                        </summary>
-                        <div class="accordion__content">
-                            <p>Nejspíš jste zkopírovali URL s&nbsp;překlepem nebo se pokoušíte o&nbsp;SSH klon bez klíče. Použijte přesně tuhle HTTPS verzi:</p>
-                            <p><code>git clone https://github.com/aibilitycz/claude-code-90-webinar.git</code></p>
-                            <p>Žádné <code>git@github.com:…</code>, žádné <code>ssh://</code>. HTTPS nepotřebuje žádnou autentizaci, protože repozitář je&nbsp;veřejný.</p>
-                        </div>
-                    </details>
+                    <article class="help-card">
+                        <div class="help-card__icon help-card__icon--secondary"><i class="iconoir-community"></i></div>
+                        <h3 class="help-card__title">Napište do&nbsp;Circle komunity</h3>
+                        <p class="help-card__desc">
+                            Součástí vašeho webináře je&nbsp;přístup do&nbsp;<strong>Circle komunity</strong>&nbsp;— odkaz máte v&nbsp;registračním e-mailu. Napište tam, co&nbsp;nefunguje. My nebo někdo ze&nbsp;skupiny se vám ozveme, obvykle do&nbsp;pár&nbsp;hodin.
+                        </p>
+                        <p class="help-card__desc" style="margin-top: var(--space-3);">
+                            Není hloupá otázka. Každý technický problém, na&nbsp;který narazíte, už někdo před&nbsp;vámi zažil&nbsp;— nebo vás za&nbsp;něj budou ostatní později vděční, protože ho&nbsp;popíšete jako první.
+                        </p>
+                    </article>
                 </div>
+
+                <p class="help-footer">
+                    A&nbsp;kdyby nic z&nbsp;toho nešlo, napište nám přímo na&nbsp;<a href="mailto:ahoj@aibility.cz">ahoj@aibility.cz</a>. Odpovíme ještě před webinářem.
+                </p>
             </div>
         </section>
 
