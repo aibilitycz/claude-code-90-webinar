@@ -36,7 +36,7 @@ Konkrétní momenty, kdy si předáváme slovo, jsou v sekci [Co-teaching](#co-t
 | 58–66 | **Zkuste si to sami #2** | Oba + Petra v chatu | 8 |
 | 66–78 | Level 3: CLAUDE.md + číst-ne-hádat + marketplace + odhalení skillu + MCP | Slava (demo) + Ondřej (kontext) | 12 |
 | 78–86 | Otevřené Q&A | Oba + Petra (moderuje otázky) | 8 |
-| 86–90 | Závěr + Circle komunita + co dělat dál | Ondřej | 4 |
+| 86–90 | Závěr + Circle komunita + co dělat dál | Petra | 4 |
 
 ### Level 0: Úvod a instalace (0–15 minut)
 
@@ -175,10 +175,10 @@ Tenhle level má jednu velkou myšlenku: **Claude Code není aplikace s pevnými
 
 ### Q&A + závěr (78–90 minut)
 
-**Vede:** Oba lektoři, Petra moderuje otázky z chatu
+**Vede:** Q&A oba lektoři + Petra moderuje; závěr Petra
 
 - **78–86 min:** Otevřené Q&A — odložené otázky + nové, Petra vybírá z chatu
-- **86–90 min:** Závěr s Circle komunitou — viz [Scénář závěru](#scénář-závěru-86–90-minut)
+- **86–90 min:** Závěr s Circle komunitou — vede **Petra**, viz [Scénář závěru](#scénář-závěru-86–90-minut)
 
 ---
 
@@ -417,34 +417,34 @@ Tahle sekvence má dvě části: nejdřív Slava ukáže marketplace, pak Ondře
 
 ### Scénář závěru (86–90 minut)
 
-**Mluví:** Ondřej (většinu), Slava vstoupí v jednom momentu
+**Mluví:** Petra (většinu), Slava vstoupí v jednom momentu
 
-> **[Ondřej, 86:00]**
+> **[Petra, 86:00]**
 > "Poslední čtyři minuty — co si odnést a co dělat zítra ráno."
 >
-> **[Ondřej, 86:15]**
+> **[Petra, 86:15]**
 > "Za prvé — konkrétní první krok. Zítra ráno otevřete Claude Code (v terminálu, v desktopové aplikaci, na webu — kde vám vyhovuje) a vezměte nějaký reálný úkol z vaší práce. Nečekejte na velký projekt. Vezměte to nejmenší, co vás napadne — e-mail, report, stránku o vašem týmu — a nechte Claude Code, ať to udělá. Nejhorší, co se může stát, je špatný výsledek. A i ten vás něco naučí."
 >
-> **[Ondřej, 86:30]**
+> **[Petra, 86:30]**
 > "Za druhé — než se na to vrhnete sami, otevřete si `/plugin` přímo v Claude Code a podívejte se, co je v marketplace. Možná je to, co potřebujete, už dávno hotové — někdo jiný napsal plugin pro GitHub, pro Notion, pro Vercel, pro Figmu. Jeden klik a máte to."
 >
-> **[Ondřej, 86:50]**
-> "Za třetí — cheat sheet. Odkaz jsme posílali do chatu, Petra ho tam ještě jednou pošle. Je to průvodce vašimi prvními třiceti minutami s Claude Code. Od instalace, přes první projekt, až po tři další workflow. Napsali jsme ho tak, aby stál sám za sebe — nepotřebujete otevřený tenhle webinář."
+> **[Petra, 86:50]**
+> "Za třetí — cheat sheet. Odkaz jsem posílala do chatu, ještě jednou ho tam teď pošlu. Je to průvodce vašimi prvními třiceti minutami s Claude Code. Od instalace, přes první projekt, až po tři další workflow. Napsali jsme ho tak, aby stál sám za sebe — nepotřebujete otevřený tenhle webinář."
 >
-> **[Ondřej, 87:15]**
+> **[Petra, 87:15]**
 > "A za čtvrté, to nejdůležitější — Circle komunita."
 >
 > **[Pauza, důraz]**
 >
-> "Součástí vašeho vstupu na tenhle webinář je členství v naší Circle komunitě. Odkaz posíláme do chatu, a taky vám přijde e-mailem. V komunitě se můžete ptát, když něco nefunguje, sdílet, co jste postavili, a vidět, co dělají ostatní. Je to místo, kde se učení nezastaví tím, že zavřete Zoom. My jsme tam s vámi. Slava tam tráví čas každý týden."
+> "Součástí vašeho vstupu na tenhle webinář je členství v naší Circle komunitě. Odkaz posílám do chatu, a taky vám přijde e-mailem. V komunitě se můžete ptát, když něco nefunguje, sdílet, co jste postavili, a vidět, co dělají ostatní. Je to místo, kde se učení nezastaví tím, že zavřete Zoom. My jsme tam s vámi. Slava tam tráví čas každý týden."
 >
 > **[Slava, 87:45]**
 > "Když tam sdílíte svůj první projekt, rád se na něj podívám a dám vám zpětnou vazbu. Nemusí to být dokonalé — naopak. První pokusy jsou nejlepší ukázka toho, jak agent pracuje s reálnou prací."
 >
-> **[Ondřej, 88:15]**
+> **[Petra, 88:15]**
 > "Nahrávka webináře vám přijde e-mailem do dvaceti čtyř hodin — takže když jste si něco nestihli zapsat, budete se k tomu moct vrátit."
 >
-> **[Ondřej, 88:45, zavírací myšlenka]**
+> **[Petra, 88:45, zavírací myšlenka]**
 > "Jednu věc si zapamatujte. Donedávna jste potřebovali vývojáře na každou technickou věc — stránku, automatizaci, jakýkoli nápad, který se neobešel bez kódu. Dnes máte v terminálu spolupracovníka, který nespí, nikdy se neurazí a zvládne víc, než si myslíte. Jediné, co potřebujete, je říct mu, co chcete."
 >
 > **[Pauza]**
@@ -479,7 +479,7 @@ Když **vede Slava** (demo), Ondřej:
 - Reaguje emocionálně — smích, překvapení, údiv. Publikum kopíruje vaše reakce.
 - Klade "otázky za publikum" Slavovi: *"Slavo, a kdyby se to spletlo — co by se stalo?"*
 
-Když **vede Ondřej** (otevření, závěr, context momenty), Slava:
+Když **vede Ondřej** (otevření, context momenty) nebo **Petra** (závěr), Slava:
 - Je vidět na obrazovce, doplňuje technický detail, když je potřeba
 - Sdílený screen může zůstat v klidové pozici (třeba prázdný `claude` prompt), aby publikum mělo kontext, kam se vrátíme
 
@@ -494,7 +494,8 @@ Když **vede Ondřej** (otevření, závěr, context momenty), Slava:
 
 Kdyby se při zítřejší zkoušce (14. dubna) ukázalo, že si nesedneme a co-teaching nefunguje, vraťme se k čistšímu rozdělení:
 
-- **Ondřej:** otevření (0–3), uvedení prvního "Zkuste si to sami" (30–32), uvedení druhého (58–60), odhalení skillu (73–75), závěr (86–90)
+- **Ondřej:** otevření (0–3), uvedení prvního "Zkuste si to sami" (30–32), uvedení druhého (58–60), odhalení skillu (73–75)
+- **Petra:** závěr (86–90)
 - **Slava:** Level 0 instalace (11–15), Level 1 demo (15–30), Level 2 demo (38–58), Level 3 CLAUDE.md + MCP (66–75, 77–78)
 
 Každý má své jasné bloky, oba jsou pořád vidět a mohou do toho druhého vstoupit krátkými poznámkami.
