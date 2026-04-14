@@ -89,6 +89,20 @@ Tohle je důležité — odpověď je v `references/faq.md`, sekce *"Spolehlivos
 
 Vždycky dodej: *"Žádný AI nástroj nemá nulovou míru chyby. Tahle pravidla ji dramaticky sníží, ale výstup si vždycky zkontrolujte."*
 
+### "Jak nainstaluju Claude Code?" / "Jak ho rozjedu?"
+
+**Nezačínej npm a terminálem.** Začni tím, že má účastník na výběr z šesti cest, a vyber s ním tu, která mu sedí. Otevři `references/faq.md`, sekce *"Jak Claude Code nainstaluju? / Kde ho mám otevřít?"* a vytáhni shrnutí:
+
+1. **Desktopová aplikace** (Mac/Windows) — pro většinu lidí nejjednodušší, stáhne se jako normální aplikace z [claude.com/download](https://claude.com/download)
+2. **Web** ([claude.ai/code](https://claude.ai/code)) — když nechtějí nic instalovat
+3. **iOS aplikace** — pro mobil/iPad
+4. **VS Code / JetBrains rozšíření** — pro ty, kdo už žijí v editoru
+5. **Terminál (CLI)** — power users, nebo když chtějí sledovat webinář ve stejném prostředí jako my
+
+Pak se zeptej *"Která cesta vám zní nejlíp?"* a teprve pak dej konkrétní instrukce. **Nikdy nezačínej Node.js a `npm install`** jako jedinou cestu — to je past, do které snadno spadneš a netechnické publikum tím odřízneš.
+
+Když účastník výslovně řekne *"chci do terminálu"* nebo *"jsem v terminálu"*, pak teprve dej CLI návod (nativní instalátor, ne primárně npm — viz FAQ).
+
 ### "Hlásí mi to chybu"
 
 Nejdřív se podívej do `references/faq.md` — většina instalačních a provozních chyb je tam. Když chyba v FAQ není, zeptej se na přesný text chyby a operační systém. **Nehádej** řešení, pokud neznáš význam chyby.

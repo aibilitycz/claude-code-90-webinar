@@ -64,6 +64,44 @@ Claude Code posílá obsah souborů na Anthropic API jen v takovém rozsahu, jak
 
 ## Instalace
 
+### Jak Claude Code nainstaluju? / Kde ho mám otevřít?
+
+**Nejdřív si vyberte, kde chcete Claude Code mít.** Nemusíte přes terminál — to je jen jedna z šesti cest. Vyberte podle toho, co vám sedí:
+
+| Kde | Pro koho | Jak na to |
+|-----|----------|-----------|
+| **🖥️ Desktopová aplikace** (Mac/Windows) | **Většina lidí** — nejjednodušší start, vypadá jako normální aplikace | Stáhněte z [claude.com/download](https://claude.com/download), nainstalujte, přihlaste se. Hotovo. |
+| **🌐 Web** ([claude.ai/code](https://claude.ai/code)) | Když nechcete nic instalovat, nebo jste na cizím počítači | Otevřete v prohlížeči, přihlaste se. Žádná instalace. |
+| **📱 iOS aplikace** | Na cestách, na telefonu nebo iPadu | Stáhněte z App Store ("Claude"), přihlaste se. |
+| **🧩 VS Code / JetBrains** | Vývojáři, kteří už v editoru žijí | Nainstalujte rozšíření z marketplace daného editoru. |
+| **⌨️ Terminál (CLI)** | Power users, devops, nejlépe vidíte, co agent dělá | Viz níže — `npm install -g @anthropic-ai/claude-code` nebo nativní instalátor. |
+
+**Důležité:** Ať si vyberete cokoli, je to **stejný Claude Code**. Stejný účet, stejná paměť, stejné CLAUDE.md, stejné MCP servery, stejné skilly a pluginy. Můžete začít ráno na desktopu a večer pokračovat na webu — všechno tam najdete.
+
+**Pro webinář:** My ho ukazujeme v terminálu, protože tam nejlíp vidíte, jak agent pracuje krok po kroku. Ale **vy nemusíte být v terminálu**, abyste mohli sledovat — desktop nebo web fungují stejně dobře. Aktivace společníka (našeho skillu) je v desktopu/webu chvilku jiná, návod je v `README.md` repozitáře.
+
+### Instalace přes terminál (CLI)
+
+Když chcete být v terminálu — buď proto, že vám to sedí, nebo protože my ho během webináře ukazujeme tam — máte dvě cesty:
+
+**1) Nativní instalátor** (doporučeno, nepotřebuje Node.js)
+
+```bash
+# macOS / Linux
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Windows (PowerShell)
+irm https://claude.ai/install.ps1 | iex
+```
+
+**2) Přes npm** (když už Node.js máte)
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Pak spusťte `claude` v jakékoliv složce. Při prvním spuštění se otevře prohlížeč k přihlášení.
+
 ### `node --version` mi hlásí "command not found"
 
 Node.js ještě nemáte nainstalovaný. Stáhněte ho z [nodejs.org](https://nodejs.org) — zvolte LTS verzi (18 nebo novější). Po instalaci **zavřete terminál a otevřete ho znovu**, jinak stará session neuvidí nový příkaz. Pak zkuste `node --version` znovu.
