@@ -60,11 +60,10 @@ Internal reference to the series name: "Claude Code masterclass" refers to the s
 
 | Role | Who | Responsibility |
 |------|-----|---------------|
-| Demo driver | Slava (Head of Agent Relations) | Hands on keyboard, runs prompts, narrates technical flow |
-| Context lead | Ondřej (CTO) | Adds business framing, reacts, asks audience-voice questions, handles meta opening |
-| Facilitator | Petra | Manages chat, runs polls, surfaces Try Moment wins, triages stuck participants |
+| Demo drivers | Slava (Head of Agent Relations) + Ondřej (CTO) | Both at the keyboard, both run prompts. Slava leads the technical line, Ondřej leads business framing — but both can demo and they hand off mid-block. |
+| Host / facilitator | Petra | Opens and closes the webinar, manages chat, runs polls, surfaces Try Moment wins, triages stuck participants |
 
-The presenters co-teach — both visible and audible throughout all 90 minutes, not tag-teaming. See `00-session-guide.md` for handoff anchors.
+All three co-teach — visible and audible throughout all 90 minutes, not tag-teaming. Petra opens (0–3) and closes (86–90); Slava and Ondřej share the demo blocks in between. See `00-session-guide.md` for handoff anchors.
 
 ## Key Commands
 
