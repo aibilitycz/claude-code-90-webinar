@@ -6,9 +6,9 @@
 
 Mezi Cursor a Claude Code jsou v roce 2026 **tři reálné rozdíly**:
 
-1. **Kde AI žije** — Cursor = vlastní IDE (fork VS Code). Claude Code = editor-agnostický (terminál, desktop, web, iOS, plugin do VS Code/JetBrains).
-2. **Volba modelu** — Cursor: Claude/GPT/Gemini/další. Claude Code: pouze Claude.
-3. **Cenový model** — Cursor: vlastní předplatné. Claude Code: součást Claude Pro/Max účtu.
+1. **Kde AI žije** — Cursor = vlastní IDE (fork VS Code), těžiště v editoru. Claude Code = editor-agnostický (terminál, desktop, web, iOS, plugin do VS Code/JetBrains).
+2. **Volba modelu** — Cursor: Claude / GPT / Gemini / další. Claude Code: pouze Claude.
+3. **Cenový model** — Cursor: vlastní předplatné u Cursor Inc. Claude Code: součást předplatného Claude Pro/Max u Anthropicu (nebo API).
 
 Všechno ostatní (CLI, cloud agenti, skills, hooks, MCP, velikost kontextu, autonomní provádění) je v roce 2026 v podstatě stejné.
 
@@ -24,18 +24,25 @@ Všechno ostatní (CLI, cloud agenti, skills, hooks, MCP, velikost kontextu, aut
 | **Inline doplňování** | Ne | Ano (Tab) | Ne |
 | **Rozšiřitelnost** | Custom GPTs | Rules + skills + MCP + hooks + VS Code extensions | CLAUDE.md + skills + pluginy + MCP + hooks |
 | **Cenový model** | Vlastní předplatné | Vlastní předplatné s usage poolem | Součástí Claude Pro/Max nebo přes API |
-| **Těžiště workflow** | Chat | IDE, interaktivní | CLI-first, skriptovatelné, CI/automatizace |
+| **Těžiště workflow** | Chat | Interaktivní práce v IDE | CLI a skriptování napříč platformami |
 
-## Kdy co volit
+## Co kde hledat
 
-- **Už platím Claude Pro/Max, pracuji v terminálu / na webu / v iOS** → **Claude Code** (v ceně, pasuje k workflow)
-- **Už žiju v VS Code, chci AI přímo v editoru s volbou modelu** → **Cursor** (nejmenší krok od toho, co používáte)
-- **Nejsem vývojář, chci jen něco rychle vytvořit** → **Claude Code** (web, bez instalace) nebo **ChatGPT** (pokud nepotřebujete, aby AI viděla soubory)
-- **Chci oboje** → legitimní volba, nejsou to přímí konkurenti
+| Potřeba / situace | Kde to najdete |
+|-------------------|----------------|
+| AI přímo v IDE prostředí | Cursor (nativně), Claude Code (plugin VS Code / JetBrains) |
+| AI v terminálu | Claude Code (CLI), Cursor (CLI) |
+| AI na pozadí v cloudu | Claude Code (web), Cursor (cloud agents) |
+| AI v iOS aplikaci | Claude Code (iOS), Cursor (web/PWA) |
+| Výběr mezi Claude, GPT, Gemini | Cursor |
+| Pouze Claude + MCP, skills, hooks, pluginy | Claude Code |
+| Součást Claude Pro/Max účtu | Claude Code |
+| Samostatné předplatné s volbou modelu | Cursor |
+| Chat bez přístupu k souborům a příkazům | ChatGPT |
 
 ## Další kontext
 
-- **ChatGPT je jiná kategorie** — nevidí soubory, nespouští příkazy. Chat, ne agent.
+- **ChatGPT je jiná kategorie nástroje** — nevidí soubory, nespouští příkazy.
 - **Codex CLI od OpenAI** funguje na stejném principu jako Claude Code — příbuzný nástroj.
 
 ---
