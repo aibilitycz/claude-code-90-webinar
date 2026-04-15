@@ -133,72 +133,72 @@ Plný scénář je v sekci [Scénář: Zkuste si to sami #1](#scénář-zkuste-s
 - 37:00 — Petra vytáhne pár prvních úspěchů: *"Marie právě postavila…"*
 - 37:30 — Přechod do Levelu 2
 
-### Level 2: Skilly, pluginy a marketplace (38–57 minut)
+### Level 2: Skilly, pluginy a marketplaces (38–57 minut)
 
 **Vede:** Ondřej (sólo, 19&nbsp;minut).
 
-Velká myšlenka Levelu&nbsp;2: **Claude&nbsp;Code je platforma, kterou si rozšiřujete sami.** V&nbsp;Aibility tomu říkáme **OHIO princip** (*only handle it once*) — a&nbsp;Claude&nbsp;Code ho posouvá dál: *handle it once, pak z&nbsp;toho udělej skill, a&nbsp;pak ho nehandluješ vůbec.* Demo&nbsp;A ukazuje zralý konec té smyčky, Demo&nbsp;B ukazuje její začátek. Sekundární věta, kterou Ondřej zmíní v&nbsp;mostu: **Simon Willison** napsal, že *„Claude Skills jsou možná větší věc než MCP"*&nbsp;— legitimuje koncept před skeptickým publikem.
+Velká myšlenka Levelu&nbsp;2: **Claude&nbsp;Code je platforma, kterou si rozšiřujete sami.** V&nbsp;Aibility tomu říkáme **OHIO princip** (*only handle it once*) — stará rada z&nbsp;papírové éry, kterou Claude&nbsp;Code posouvá dál: vyřeš to napoprvé, pak z&nbsp;toho udělej skill, a&nbsp;příště to nedělej vůbec. Demo&nbsp;A ukazuje zralý konec té smyčky, Demo&nbsp;B její začátek. V&nbsp;mostu Ondřej cituje **Simona Willisona**: *„Claude Skills jsou možná větší věc než MCP"* — věta od&nbsp;respektovaného hlasu, která koncept před skeptickým publikem legitimuje.
 
-> **Změna oproti původnímu plánu:** Nahrazujeme tři canned workflow (webová aplikace, dokumenty/e-maily, automatizace) dvěma skutečnými skillovými příběhy&nbsp;— Bobo content flow a&nbsp;LinkedIn carousel skill. Původní use-casy zůstávají v&nbsp;cheat sheetu.
+> **Změna oproti původnímu plánu:** Místo tří připravených demo workflow (webová aplikace, dokumenty/e-maily, automatizace) ukazujeme dva skutečné skillové příběhy&nbsp;— Bobo content flow a&nbsp;LinkedIn carousel skill. Původní příklady zůstávají v&nbsp;cheat sheetu jako katalog případů užití.
 
-#### 38–41 min · Most z&nbsp;Levelu 1 do&nbsp;Levelu 2
+#### 38–41 min · Přechod ze&nbsp;Zkuste si to sami&nbsp;#1
 
-Tři kotvy, které musí zaznít:
+Tři věty, které musí padnout. Žádný scénář&nbsp;— kotvy.
 
-1. *„Právě jste něco postavili. Kdybyste to chtěli udělat znovu příští týden, opsali byste prompt. Za měsíc potřetí. Tohle je moment, kdy se z&nbsp;promptu stává skill."*
-2. *„V&nbsp;Aibility tomu říkáme **OHIO princip**&nbsp;— only handle it once. Starý princip z&nbsp;papírového světa: dotkneš se něčeho, vyřeš to. S&nbsp;Claude Code ho posouváme dál: handle it once, **pak z&nbsp;toho udělej skill**, a&nbsp;příště to nehandluješ vůbec."*
-3. *„**Simon Willison**, jeden z&nbsp;nejstřízlivějších hlasů v&nbsp;AI, napsal, že Claude Skills jsou možná větší věc než MCP. Ukážu vám proč&nbsp;— přes dva příklady. Jeden zralý, běží mi každý den. Druhý vznikl z&nbsp;jedné úlohy před pár týdny."*
+1. *„Právě jste si něco postavili. Kdybyste tu samou věc chtěli udělat příští týden, opsali byste prompt. Za&nbsp;měsíc potřetí. A&nbsp;přesně v&nbsp;tomhle momentě se z&nbsp;promptu má stát skill."*
+2. *„V&nbsp;Aibility tomu říkáme **OHIO princip**&nbsp;— only handle it once. Stará rada z&nbsp;papírové éry: dotkneš se papíru, vyřídíš ho a&nbsp;zpátky se k&nbsp;němu nevracíš. S&nbsp;Claude&nbsp;Code to posouváme dál: vyřeš to napoprvé, **pak z&nbsp;toho udělej skill**, a&nbsp;příště to nedělej. Skill to udělá za&nbsp;tebe."*
+3. *„**Simon Willison**, autor Djanga a&nbsp;jeden z&nbsp;nejstřízlivějších hlasů v&nbsp;AI, k&nbsp;tomu nedávno napsal jednu větu: že Claude Skills jsou možná větší věc než MCP. Příštích deset minut ukážu proč&nbsp;— na&nbsp;dvou příkladech. Jeden zralý, běží mi každý den. Druhý vznikl z&nbsp;jediné úlohy před pár týdny."*
 
 #### 41–48 min · Demo&nbsp;A — Bobo content flow *(zralý konec smyčky)*
 
-Reálný osobní workflow, na&nbsp;kterém Ondřej běží blog a&nbsp;LinkedIn. Claude&nbsp;Code na&nbsp;cronu kolem 2:30 ráno stáhne signály z&nbsp;RSS, webu a&nbsp;ranních/večerních zachycených myšlenek, vygeneruje denní brief s&nbsp;úhly pohledu, varianty LinkedIn postů a&nbsp;outline blogu, commitne do&nbsp;Gitu a&nbsp;jde spát.
+Reálný osobní postup, na&nbsp;kterém Ondřej dělá svůj blog a&nbsp;LinkedIn. Každou noc kolem půl třetí ráno spustí cron Claude&nbsp;Code, ten projde RSS, web a&nbsp;poznámky zachycené přes den, sestaví denní brief s&nbsp;úhly pohledu, návrhy LinkedIn postů a&nbsp;osnovu blogového článku, uloží to do&nbsp;Gitu a&nbsp;jde dál spát.
 
-**Pointa, kterou nesmí zapomenout říct:** Tohle není jeden velký prompt. Jsou to **skilly**&nbsp;— pipeline, capture, write-post. Každý je markdown soubor, který Ondřej napsal, když si všiml, že tu samou věc dělá pořád dokola.
+**Pointa, kterou nesmí zapomenout říct:** Tohle není jeden velký prompt. Jsou to **skilly**&nbsp;— pipeline, capture, write-post. Každý je krátký markdown soubor. Ondřej je nepsal najednou; psal je postupně, vždycky ve&nbsp;chvíli, kdy zjistil, že tu samou věc dělá pořád dokola.
 
 **Hlavní body k&nbsp;zasažení:**
-- Otevřít dnešní vygenerovaný brief jako konkrétní artefakt (ne&nbsp;spouštět pipeline naživo&nbsp;— trvá ~90&nbsp;vteřin).
-- Projít obsah: kolik signálů, kolik úhlů, LinkedIn drafty.
-- Emocionální moment: pipeline našla téma, které si Ondřej zachytil dřív v&nbsp;týdnu. *„Systém čte moje poznámky a&nbsp;vrací mi je s&nbsp;kontextem."*
-- **Otevřít adresář se skilly** a&nbsp;ukázat, jak krátké jsou&nbsp;— `pipeline/SKILL.md`, `capture/SKILL.md`, `write-post/SKILL.md`. Pár desítek řádků markdownu.
-- Plug: všechno je v&nbsp;open-source toolkitu **Heart of Gold Toolkit** (`github.com/ondrej-svec/heart-of-gold-toolkit`), instalace přes `/plugin marketplace add ondrej-svec/heart-of-gold-toolkit`.
+- Dnešní brief otevřít jako konkrétní artefakt. Pipeline naživo nespouštět&nbsp;— trvá zhruba minutu a&nbsp;půl, na&nbsp;kameře je to mrtvo.
+- Projít obsah briefu: kolik signálů to přečetlo, kolik úhlů nabídlo, kolik návrhů LinkedIn postů. Čísla dělají věc reálnou.
+- Silný moment: pipeline vytáhla téma, které si Ondřej zapsal už dřív v&nbsp;týdnu. *„Systém čte moje poznámky a&nbsp;vrací mi je s&nbsp;kontextem."*
+- **Otevřít složku se skilly** a&nbsp;ukázat, jak krátké jsou&nbsp;— `pipeline/SKILL.md`, `capture/SKILL.md`, `write-post/SKILL.md`. Pár desítek řádků markdownu. Žádná magie.
+- Krátká poznámka na&nbsp;konec: všechno je v&nbsp;open-source sadě **Heart of Gold Toolkit** na&nbsp;GitHubu, instalace přes `/plugin marketplace add ondrej-svec/heart-of-gold-toolkit`. Odkaz pošleme po&nbsp;webináři.
 
-**Pre-webinar příprava (Ondřej):**
+**Příprava před webinářem (Ondřej):**
 - Dnešní brief (`content/daily/YYYY-MM-DD.md`) otevřený v&nbsp;editoru
-- `content/captures/` **neotevřené** na&nbsp;sdílené obrazovce (osobní reflexe)
-- Fallback, když dnešní brief chybí: projít `SKILL.md` jednoho ze&nbsp;skillů
+- `content/captures/` zavřené&nbsp;— jsou to osobní poznámky, na&nbsp;sdílené obrazovce nemají co dělat
+- Záloha, kdyby dnešní brief chyběl: otevřít `SKILL.md` jednoho ze&nbsp;skillů a&nbsp;projít ho
 
-#### 48–53 min · Demo&nbsp;B — LinkedIn carousel skill *(origin story)*
+#### 48–53 min · Demo&nbsp;B — Jak vznikl LinkedIn carousel skill
 
-Druhý příklad je úplně jiný žánr: **skill, který vznikl z&nbsp;jediné úlohy.** Ondřej potřeboval jednou udělat LinkedIn carousel ze&nbsp;screenshotů, vyřešil to v&nbsp;Claude&nbsp;Code jako obyčejný prompt, pak si uvědomil, že to bude chtít dělat pořád&nbsp;— a&nbsp;převedl to na&nbsp;skill. Teď ho vyvolá jednou větou.
+Druhý příklad je úplně jiného druhu: **skill, který vznikl z&nbsp;jediné úlohy.** Ondřej jednou potřeboval udělat LinkedIn carousel ze&nbsp;série screenshotů. Vyřešil to s&nbsp;Claude&nbsp;Code jako obyčejný prompt. Když to vyšlo, došlo mu, že tuhle úlohu bude dělat pořád&nbsp;— a&nbsp;převedl ji na&nbsp;skill. Dneska ho spouští jednou větou.
 
-**Druhá klíčová věta levelu&nbsp;— musí zaznít:** *„Potřeboval jsem to jednou. Když to fungovalo, řekl jsem Claude&nbsp;Code: ‚udělej z&nbsp;toho skill.' A&nbsp;udělal ho sám."*
+**Druhá klíčová věta levelu, musí zaznít nahlas:** *„Potřeboval jsem to jednou. Když to vyšlo, řekl jsem Claude&nbsp;Code: tohle se mi líbí, udělej z&nbsp;toho skill. A&nbsp;on ho napsal sám."*
 
 **Hlavní body k&nbsp;zasažení:**
-- Otevřít `SKILL.md` carousel skillu v&nbsp;`heart-of-gold-toolkit`&nbsp;— ukázat frontmatter a&nbsp;tělo. Je to markdown. Nic víc.
-- Vyvolat skill jednou větou: *„Tady máš tři screenshoty, udělej z&nbsp;nich LinkedIn carousel PDF."* Claude&nbsp;Code skill sám rozpozná.
+- Otevřít `SKILL.md` carousel skillu v&nbsp;`heart-of-gold-toolkit`&nbsp;— ukázat hlavičku (`name`, `description`, spouštěcí fráze) a&nbsp;tělo. Markdown. Nic víc.
+- Vyvolat skill jednou větou: *„Tady máš tři screenshoty, udělej z&nbsp;nich LinkedIn carousel jako PDF."* Claude&nbsp;Code skill rozpozná sám.
 - Ukázat výstup&nbsp;— hotové PDF, připravené k&nbsp;publikování.
-- **Pointa k&nbsp;zvýraznění:** skill nemusíte psát ručně. Claude&nbsp;Code umí napsat skill z&nbsp;toho, co jste právě udělali. Stačí říct.
+- **Pointa k&nbsp;zvýraznění:** skill nemusíte psát rukama. Claude&nbsp;Code ho napíše z&nbsp;toho, co jste právě udělali. Stačí říct.
 
-**Pre-webinar příprava (Ondřej):**
-- `SKILL.md` carousel skillu otevřený v&nbsp;editoru jako fallback
-- Tři připravené screenshoty ve&nbsp;složce, aby živé vyvolání trvalo&nbsp;< 30&nbsp;vteřin
-- Fallback, když generace selže: otevřít poslední carousel PDF a&nbsp;ukázat ho jako artefakt
+**Příprava před webinářem (Ondřej):**
+- `SKILL.md` carousel skillu otevřený v&nbsp;editoru jako záloha
+- Tři připravené screenshoty ve&nbsp;složce, ať živé spuštění trvá pod&nbsp;30&nbsp;vteřin
+- Záloha, kdyby generace selhala: otevřít poslední vygenerovaný carousel a&nbsp;ukázat ho jako artefakt
 
-#### 53–57 min · Marketplace tour *(most do Try&nbsp;Momentu&nbsp;#2)*
+#### 53–57 min · Prohlídka marketplaces *(most do Zkuste si to sami&nbsp;#2)*
 
-Krátká prohlídka čtyř ekosystémů, kde se skilly a&nbsp;pluginy berou. Most do&nbsp;Try Momentu&nbsp;#2.
+Krátká prohlídka čtyř míst, odkud se skilly a&nbsp;pluginy berou. Most do&nbsp;Zkuste si to sami&nbsp;#2.
 
-- `/plugin` → Discover v&nbsp;čerstvé session. Pár vteřin scroll.
+- `/plugin` → Discover v&nbsp;čisté session. Pár vteřin scroll, ať publikum vidí, že je to reálná aplikace s&nbsp;reálnými položkami.
 - **Čtyři ekosystémy** (jmenovat nahlas, každý jednou větou):
-  1. **Anthropicův oficiální marketplace**&nbsp;— zabudovaný v&nbsp;`/plugin`. Ověřené.
-  2. **compound-engineering** od&nbsp;Every&nbsp;Inc.&nbsp;— smyčka *plan → work → review → **compound***. Kieran Klaassen z&nbsp;Every: poslední krok znamená *„zachyť lekci jako skill, ať příští session začíná chytřejší"*&nbsp;— **přesně OHIO-to-skill move**. **10&nbsp;000+ stars**, používají Google a&nbsp;Amazon. `github.com/EveryInc/compound-engineering`.
+  1. **Anthropicův oficiální marketplace**&nbsp;— zabudovaný přímo v&nbsp;`/plugin`. Pluginy ověřené Anthropicem.
+  2. **compound-engineering** od&nbsp;Every&nbsp;Inc.&nbsp;— smyčka *plan → work → review → **compound***. Kieran Klaassen z&nbsp;Every ji pojmenoval: poslední krok znamená *„zachyť poznatek jako skill, ať příští session začíná chytřejší."* Je to **přesně to, čemu my říkáme OHIO princip**, jen s&nbsp;jiným jménem. Plugin má přes **10&nbsp;000 hvězd na&nbsp;GitHubu** a&nbsp;používají ho lidi v&nbsp;Googlu i&nbsp;v&nbsp;Amazonu. `github.com/EveryInc/compound-engineering`.
   3. **Heart of Gold Toolkit** od&nbsp;Ondřeje&nbsp;— to, co jste právě viděli. Open source.
-  4. **awesome-agent-skills** od&nbsp;VoltAgent&nbsp;— **1000+ kurátovaných skillů** od&nbsp;reálných týmů: Anthropic, Google, Vercel, Stripe, Cloudflare, Figma, Sentry. `github.com/VoltAgent/awesome-agent-skills`.
-- **Objection-killer** (jedna věta): *„SKILL.md je otevřený standard&nbsp;— funguje i&nbsp;v&nbsp;Codex CLI, Cursoru, Gemini CLI. Neinvestujete do&nbsp;Anthropicu, investujete do&nbsp;přenositelného formátu."*
-- **Quotable close** (jedna věta, kterou si publikum odnese): *„Každá úloha, kterou vyřešíte, vás příště udělá rychlejší&nbsp;— protože se z&nbsp;ní stala skill. Tohle není produktivita. Tohle je compound interest na&nbsp;vaší vlastní práci."*
-- *„Víc o&nbsp;CLAUDE.md, MCP a&nbsp;pluginech v&nbsp;Levelu&nbsp;3 za&nbsp;chvíli."* Předání na&nbsp;Try Moment&nbsp;#2.
+  4. **awesome-agent-skills** od&nbsp;VoltAgent&nbsp;— **přes tisíc kurátovaných skillů** od&nbsp;reálných týmů: Anthropic, Google, Vercel, Stripe, Cloudflare, Figma, Sentry. Není to automaticky nagenerovaný balast, ale věci, které firmy doopravdy používají. `github.com/VoltAgent/awesome-agent-skills`.
+- **Vyvrácení nejčastější námitky** (jedna věta): *„SKILL.md je otevřený standard&nbsp;— funguje i&nbsp;v&nbsp;Codex CLI, v&nbsp;Cursoru, v&nbsp;Gemini CLI. Neinvestujete do&nbsp;Anthropicu, investujete do&nbsp;přenositelného formátu&nbsp;— a&nbsp;v&nbsp;tom je rozdíl."*
+- **Věta na&nbsp;závěr** (jedna, kterou si publikum odnese): *„Každý úkol, který jednou vyřešíte, vás příště udělá rychlejší&nbsp;— protože se z&nbsp;něj stal skill. Tomuhle se neříká produktivita. Tomuhle se říká složené úročení vaší vlastní práce."*
+- *„O&nbsp;CLAUDE.md, MCP a&nbsp;pluginech bude víc v&nbsp;Levelu&nbsp;3 za&nbsp;chvíli."* Předání na&nbsp;Zkuste si to sami&nbsp;#2.
 
-**Časový rozpočet:** 19&nbsp;minut sólo (3 most + 7 Demo&nbsp;A + 5 Demo&nbsp;B + 4 marketplace). Pokud Demo&nbsp;A nebo&nbsp;B přetečou, zkrátit marketplace tour&nbsp;— stačí jmenovat ekosystémy a&nbsp;ukázat jeden screen `/plugin` Discover.
+**Časový rozpočet:** 19&nbsp;minut sólo (3 most + 7 Demo&nbsp;A + 5 Demo&nbsp;B + 4 prohlídka marketplaces). Pokud Demo&nbsp;A nebo&nbsp;B přetečou, zkrátit prohlídku marketplaces&nbsp;— stačí jmenovat čtyři ekosystémy a&nbsp;ukázat jeden screen `/plugin` Discover. Tvrdě timeboxovat.
 
 ### Zkuste si to sami #2 (57–65 minut)
 
