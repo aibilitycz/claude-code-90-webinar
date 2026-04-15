@@ -1,0 +1,14 @@
+.DS_Store
+.idea/
+.vscode/
+
+# Claude Code — local-only settings (permissions, session state)
+.claude/settings.local.json
+
+# Generated demo output (users re-generate these via prompts)
+**/vystupy/*.html
+!**/vystupy/.gitkeep
+
+# Node
+node_modules/
+npm-debug.log*
