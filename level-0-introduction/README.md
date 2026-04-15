@@ -134,6 +134,20 @@ claude
 - Informace o aktuálním adresáři (složce)
 - Stav připojení k Anthropic API
 
+## Švýcarský nůž: co všechno v Claude Code je
+
+Než ho začneme používat, pojďme si rychle pojmenovat nástroje, které máte k dispozici. Dnes se ke každému vrátíme — teď jsou to jen jména:
+
+1. **Chat / režimy** — základní způsob komunikace. Plan mode (`Shift+Tab`) pro rozmyšlení, think-režimy pro hlubší úvahy.
+2. **Slash commands** — `/help`, `/clear`, `/model`, `/mcp`, `/plugin`. Zkratky pro běžné akce.
+3. **CLAUDE.md** — soubor s pravidly pro agenta. Napíšete jednou, platí pořád. *(Level 3)*
+4. **Skills** — znalosti, které si agent načítá automaticky. Obyčejný markdown soubor. *(Level 2 + 3)*
+5. **Pluginy / marketplace** — hotová rozšíření k instalaci jedním klikem. *(Level 2 + 3)*
+6. **MCP** — napojení na externí služby: kalendář, letové API, GitHub, Notion... *(Level 3)*
+7. **Hooks** — automatické akce na události (commit, uložení, atd.). Pro pokročilé.
+
+> Tohle jsou zatím jen jména. Během webináře každý z nich uvidíte v akci.
+
 ## Checkpoint
 
 Po Level 0 byste měli vědět:
