@@ -41,16 +41,16 @@ Jedna věc, o které se moc neví: Claude Code není jen příkazová řádka. V
 |---|---------|--------|-------------|
 | **Typ** | Chatbot | AI-augmented IDE + agent | Editor-agnostický agent |
 | **Hlavní rozhraní** | Chat | Editor (fork VS Code) | Terminál |
-| **Kde běží** | Web, mobil, desktop | Cursor IDE, Cursor CLI, background agents, mobil, Slack | CLI, desktop, web, iOS, VS Code, JetBrains |
+| **Kde běží** | Web, mobil, desktop | Cursor IDE, Cursor CLI, cloud agents (web), Slack | CLI, desktop, web, iOS, VS Code, JetBrains |
 | **Vidí váš projekt** | Ne (jen to, co vložíte) | Ano | Ano |
 | **Spouští příkazy** | Ne | Ano | Ano |
-| **Modely** | Pouze GPT | Claude, GPT, Gemini (výběr) | Pouze Claude (+ MCP) |
+| **Modely** | Pouze OpenAI (GPT) | Claude, GPT, Gemini (výběr) | Pouze Claude |
 | **Inline doplňování kódu** | Ne | Ano (Tab) | Ne |
-| **Rozšiřitelnost** | Custom GPTs | Rules + MCP | CLAUDE.md + skills + pluginy + MCP + hooks |
+| **Rozšiřitelnost** | Custom GPTs | Rules + skills + MCP + hooks + VS Code extensions | CLAUDE.md + skills + pluginy + MCP + hooks |
 | **Cenový model** | Vlastní předplatné | Vlastní předplatné s usage poolem | Součástí Claude Pro/Max nebo přes API |
 | **Těžiště workflow** | Chat | IDE, interaktivní | CLI-first, skriptovatelné, CI/automatizace |
 
-> **Shrnutí:** Cursor a Claude Code se v roce 2026 silně překrývají — oba mají CLI, oba běží v editoru (Cursor nativně, CC jako plugin), oba mají background/cloud režim. Cursor je **fork VS Code** a těžiště má v IDE. Claude Code je **editor-agnostický** a těžiště má v terminálu a automatizaci. Cursor vám dá výběr modelů, Claude Code vám dá bohatší rozšiřování (skills, pluginy, hooks) a jediné rozhraní napříč všemi platformami. Spousta profesionálů používá oba současně — nejsou to konkurenti v úzkém slova smyslu.
+> **Shrnutí:** Cursor a Claude Code se v roce 2026 silně překrývají — oba mají CLI, oba běží v editoru (Cursor nativně, CC jako plugin do VS Code/JetBrains), oba mají cloud/background režim, oba mají skills, hooks a MCP. Skutečné rozdíly jsou tři: **(1)** Cursor je **fork VS Code** a těžiště má v IDE, Claude Code je **editor-agnostický** a těžiště má v terminálu a automatizaci. **(2)** Cursor vám dá výběr mezi Claude, GPT, Gemini a dalšími — Claude Code je Claude-only. **(3)** Cursor má vlastní předplatné; Claude Code je součástí vašeho Claude Pro/Max účtu. Spousta profesionálů používá oba současně — nejsou to konkurenti v úzkém slova smyslu.
 
 ## Cena a plány
 
