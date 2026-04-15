@@ -77,10 +77,11 @@ variace té stránky z obrázku, ne jen vzdálená inspirace.
 ### Prompt 2: Web search / grounding (~3 min)
 
 ```
-Vezmi stránku z `vystupy/01-zaklad/` a zkopíruj ji do `vystupy/02-trendy/`.
+Vezmi stránku z `vystupy/01-design/` a zkopíruj ji do `vystupy/02-trendy/`.
 Tam se podívej, co jsou aktuální trendy v designu osobních stránek v roce 2026
-(použij web search) a přidej jednu sekci, která takovému trendu odpovídá.
-Napiš komentář, odkud jsi trend vzal. Původní složku nech beze změny.
+(použij web search) a přidej jednu sekci, která takovému trendu odpovídá
+a ladí se zbytkem stránky. Napiš komentář, odkud jsi trend vzal.
+Původní složku nech beze změny.
 ```
 
 **Co pozorujete:**

@@ -30,10 +30,10 @@ Kompletní instrukce pro vedení 90minutového webináře s časovým rozpisem.
 - Co je Claude Code a kde se vzal
 - Claude Code vs Cursor vs ChatGPT — kde se liší
 - Cena a plány — co potřebujete k používání
-- Terminál za 5 minut — nebojte se příkazového řádku
+- Terminál za 2 minuty — nebojte se příkazového řádku
 - Živá instalace krok za krokem
 
-#### **Level 1: [První úkol](./level-1-beginner/)** (20 min)
+#### **Level 1: [První úkol](./level-1-beginner/)** (15 min)
 - Zadání prvního úkolu — sledujte, jak agent myslí a pracuje
 - Autonomní tvorba souborů — Claude Code vytváří celé projekty
 - Samoopravný cyklus — když narazí na chybu, opraví ji sám
@@ -44,7 +44,7 @@ Kompletní instrukce pro vedení 90minutového webináře s časovým rozpisem.
 - Demo B — Slavův reálný workflow s Claude Code (konkrétní obsah podle jeho volby)
 - Skilly a pluginy — jak si Claude Code rozšiřujete sami, přehled tří ekosystémů (Anthropic oficiální marketplace, compound-engineering, heart-of-gold-toolkit)
 
-#### **Level 3: [Pokročilé funkce](./level-3-advanced/)** (14 min)
+#### **Level 3: [Pokročilé funkce](./level-3-advanced/)** (15 min)
 - CLAUDE.md — jak "natrénovat" Claude Code na váš styl
 - MCP servery — jak propojit Claude Code s dalšími nástroji (s live demo)
 - Paměť a přepínání modelů

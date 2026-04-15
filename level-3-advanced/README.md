@@ -336,7 +336,7 @@ Po Level 3 byste měli chápat:
 
 Každý AI model má dvě možnosti, odkud čerpat:
 
-1. **Z paměti** — zastaralá, často nepřesná. ChatGPT vymyslí funkci, která neexistuje, ocituje neexistující článek.
+1. **Z paměti** — zastaralá, často nepřesná. Každý velký jazykový model občas vymyslí funkci, která neexistuje, nebo ocituje neexistující článek. Říká se tomu halucinace a týká se to všech (Claude, ChatGPT, Gemini i ostatních).
 2. **Z reálných zdrojů** — z vašich souborů, z dokumentace, z webu. Tohle umí Claude Code.
 
 Tři způsoby, jak to v praxi zajistit:
