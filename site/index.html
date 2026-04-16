@@ -390,6 +390,65 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        /* Chatbot vs Agent comparison */
+        .compare-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            margin: var(--space-8) auto 0;
+            max-width: 720px;
+            box-shadow: var(--shadow-md);
+        }
+        .compare-head {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .compare-head > div {
+            padding: var(--space-5) var(--space-6);
+            font-family: var(--font-family-headings);
+            font-size: var(--text-xl);
+            color: var(--color-text-primary);
+        }
+        .compare-head > div:first-child {
+            border-right: 1px solid var(--color-border);
+            color: var(--color-text-tertiary);
+        }
+        .compare-head > div:last-child {
+            background: rgba(80, 0, 171, 0.04);
+            color: var(--color-accent-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        .compare-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid var(--color-border);
+            font-size: var(--text-base);
+        }
+        .compare-row > div {
+            padding: var(--space-4) var(--space-6);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+        .compare-row > div:first-child {
+            border-right: 1px solid var(--color-border);
+        }
+        .compare-row > div:last-child {
+            background: rgba(80, 0, 171, 0.02);
+            color: var(--color-text-primary);
+            font-weight: var(--font-semibold);
+        }
+        @media (max-width: 560px) {
+            .compare-head, .compare-row { grid-template-columns: 1fr; }
+            .compare-head > div:first-child,
+            .compare-row > div:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+        }
     </style>
 </head>
 <body>
@@ -562,6 +621,40 @@
                         <div class="audience-item__icon"><i class="iconoir-design-pencil"></i></div>
                         <span class="audience-item__label">Kreativa</span>
                         <span class="audience-item__desc">Portfolia, generování obsahu, interaktivní prezentace</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chatbot vs Agent -->
+        <section class="section">
+            <div class="container">
+                <span class="section__eyebrow">Rozdíl</span>
+                <h2 class="section__title">Chatbot vs. Agent&nbsp;— v&nbsp;čem je to jiné</h2>
+                <p class="section__description">
+                    Claude&nbsp;Code není ChatGPT. Chatbot odpovídá na&nbsp;otázky. Agent <em>plní úkoly</em>&nbsp;— čte soubory, spouští příkazy, opravuje chyby, ptá se na&nbsp;souhlas. Tady je rozdíl v&nbsp;jedné tabulce.
+                </p>
+
+                <div class="compare-card">
+                    <div class="compare-head">
+                        <div>Chatbot</div>
+                        <div><i class="iconoir-sparks" aria-hidden="true"></i> Agent</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Odpovídá na&nbsp;otázky</div>
+                        <div>Plní úkoly</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Potřebuje přesné instrukce</div>
+                        <div>Domyslí si detaily</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Výstup: text</div>
+                        <div>Výstup: hotový projekt</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Chyba = konec</div>
+                        <div>Chyba = opraví sám</div>
                     </div>
                 </div>
             </div>

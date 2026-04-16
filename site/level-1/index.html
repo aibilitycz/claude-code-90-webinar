@@ -95,6 +95,51 @@
         .next-step__icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: var(--color-accent-primary); color: white; border-radius: var(--radius-full); font-size: var(--text-2xl); margin-bottom: var(--space-4); }
         .next-step__title { font-family: var(--font-family-headings); font-size: var(--text-2xl); color: var(--color-text-primary); margin: 0 0 var(--space-3); font-weight: var(--font-normal); }
         .next-step__desc { font-size: var(--text-base); color: var(--color-text-secondary); margin: 0 0 var(--space-6); line-height: var(--leading-relaxed); }
+
+        /* Wireframe — anatomy of the output with source badges */
+        .wireframe-layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--space-8); margin-top: var(--space-6); }
+        @media (max-width: 860px) { .wireframe-layout { grid-template-columns: 1fr; gap: var(--space-6); } }
+        .wireframe-layout__head { font-family: var(--font-family); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-3); }
+        .wireframe { background: var(--color-bg-secondary); border: 1px dashed var(--color-border-light); border-radius: var(--radius-lg); padding: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+        .wire-row { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); }
+        .wire-row__icon { width: 32px; height: 32px; flex-shrink: 0; border-radius: var(--radius-md); background: var(--color-bg-secondary); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); font-size: var(--text-lg); }
+        .wire-row__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+        .wire-row__name { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-sm); line-height: var(--leading-snug); }
+        .wire-row__desc { color: var(--color-text-tertiary); font-size: var(--text-xs); line-height: var(--leading-snug); }
+        .wr-source { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); padding: 3px 10px; border-radius: var(--radius-full); white-space: nowrap; flex-shrink: 0; border: 1px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-secondary); }
+        .wr-source--purple { background: rgba(80, 0, 171, 0.08);  border-color: rgba(80, 0, 171, 0.2);   color: var(--color-accent-primary); }
+        .wr-source--teal   { background: rgba(8, 145, 178, 0.08); border-color: rgba(8, 145, 178, 0.2);  color: var(--color-accent-secondary); }
+        .wr-source--amber  { background: rgba(217, 119, 6, 0.08); border-color: rgba(217, 119, 6, 0.2);  color: var(--color-warning); }
+        .wr-source--green  { background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.2);  color: var(--color-success); }
+        .wr-source--ink    { background: var(--color-text-primary); border-color: var(--color-text-primary); color: #fff; }
+        @media (max-width: 520px) { .wire-row { flex-wrap: wrap; } .wr-source { margin-left: 44px; } }
+
+        /* Cumulative demo flow — bird's-eye view across 6 prompts */
+        .demoflow { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-6) 0 var(--space-4); }
+        @media (max-width: 980px) { .demoflow { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .demoflow { grid-template-columns: 1fr; } }
+        .demo-step { position: relative; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-4) var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); min-height: 220px; }
+        .demo-step__num { display: inline-flex; align-items: center; gap: var(--space-2); font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); color: var(--color-text-tertiary); letter-spacing: 0.04em; text-transform: uppercase; }
+        .demo-step__num .n { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: var(--radius-full); background: var(--color-text-primary); color: #fff; font-size: var(--text-xs); font-family: "SF Mono", Menlo, Consolas, monospace; }
+        .demo-step__folder { align-self: flex-start; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); color: var(--color-accent-primary); background: rgba(80, 0, 171, 0.08); border: 1px solid rgba(80, 0, 171, 0.2); padding: 2px 8px; border-radius: var(--radius-sm); }
+        .demo-step__title { font-family: var(--font-family-headings); font-size: var(--text-base); font-weight: var(--font-normal); color: var(--color-text-primary); margin: 0; line-height: var(--leading-snug); }
+        .demo-step__added { font-size: var(--text-sm); color: var(--color-text-secondary); display: flex; flex-direction: column; gap: 2px; }
+        .demo-step__added .plus { color: var(--color-success); font-family: "SF Mono", Menlo, Consolas, monospace; font-weight: var(--font-semibold); }
+        .demo-step__added .hint { font-size: var(--text-xs); color: var(--color-text-tertiary); font-family: "SF Mono", Menlo, Consolas, monospace; }
+        .demo-step__result { font-size: var(--text-sm); margin-top: auto; padding-top: var(--space-3); border-top: 1px dashed var(--color-border); }
+        .demo-step__result b { display: block; color: var(--color-text-primary); margin-bottom: 2px; }
+        .demo-step__result .hint { font-size: var(--text-xs); color: var(--color-text-tertiary); }
+        .demo-step__principle { font-size: var(--text-xs); color: var(--color-accent-primary); background: rgba(80, 0, 171, 0.04); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-3); font-style: italic; line-height: var(--leading-snug); }
+
+        /* Plan mode A/B/C mini-pipeline */
+        .planmode-flow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-3); margin: var(--space-5) 0 var(--space-8); }
+        @media (max-width: 720px) { .planmode-flow { grid-template-columns: 1fr; } }
+        .planmode-step { position: relative; background: rgba(80, 0, 171, 0.04); border: 1px solid rgba(80, 0, 171, 0.16); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-4); display: flex; flex-direction: column; gap: var(--space-1); }
+        .planmode-step__letter { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: var(--radius-full); background: var(--color-accent-primary); color: #fff; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); font-weight: var(--font-bold); margin-bottom: var(--space-1); }
+        .planmode-step__name { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-sm); }
+        .planmode-step__desc { font-size: var(--text-xs); color: var(--color-text-secondary); line-height: var(--leading-snug); }
+        .planmode-step + .planmode-step::before { content: '→'; position: absolute; left: calc(var(--space-3) * -1 - 4px); top: 50%; transform: translateY(-50%); color: var(--color-text-tertiary); font-size: var(--text-base); }
+        @media (max-width: 720px) { .planmode-step + .planmode-step::before { content: '↓'; left: 50%; top: calc(var(--space-3) * -1 - 2px); transform: translateX(-50%); } }
     </style>
 </head>
 <body>
@@ -132,6 +177,76 @@
                 <div class="page-hero__meta">
                     <span class="page-hero__meta-item"><i class="iconoir-clock"></i> Asi 20 minut</span>
                     <span class="page-hero__meta-item"><i class="iconoir-sparks"></i> Potřebujete hotový Začátek</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Co postavíte -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Co postavíte</span>
+                <h2 class="content-section__title">Osobní landing page&nbsp;— o&nbsp;vás, pro&nbsp;vás</h2>
+                <p class="content-section__lead">
+                    Klasická vizitka, kterou by si člověk jinak bastlil půl víkendu. Začneme úplně od&nbsp;nuly a&nbsp;za&nbsp;chvíli máte stránku s&nbsp;osobním obsahem, vlastním designem, sekcí o&nbsp;aktuálních trendech, samoopravou a&nbsp;na&nbsp;konci dark módem s&nbsp;kartami. Všechno v&nbsp;jednom HTML souboru&nbsp;— otevřete v&nbsp;prohlížeči a&nbsp;můžete sdílet.
+                </p>
+
+                <div class="wireframe-layout">
+                    <div>
+                        <div class="wireframe-layout__head">Z čeho finální stránka je</div>
+                        <div class="wireframe">
+                            <div class="wire-row">
+                                <div class="wire-row__icon"><i class="iconoir-user" aria-hidden="true"></i></div>
+                                <div class="wire-row__body">
+                                    <span class="wire-row__name">Hero&nbsp;— jméno a&nbsp;intro</span>
+                                    <span class="wire-row__desc">kdo jste, co děláte, kde</span>
+                                </div>
+                                <span class="wr-source wr-source--purple">muj-obsah.md</span>
+                            </div>
+                            <div class="wire-row">
+                                <div class="wire-row__icon"><i class="iconoir-design-pencil" aria-hidden="true"></i></div>
+                                <div class="wire-row__body">
+                                    <span class="wire-row__name">Vizuální jazyk</span>
+                                    <span class="wire-row__desc">barvy, typografie, layout, tlačítka</span>
+                                </div>
+                                <span class="wr-source wr-source--amber">design-inspirace.png</span>
+                            </div>
+                            <div class="wire-row">
+                                <div class="wire-row__icon"><i class="iconoir-graph-up" aria-hidden="true"></i></div>
+                                <div class="wire-row__body">
+                                    <span class="wire-row__name">Sekce „Trendy 2026"</span>
+                                    <span class="wire-row__desc">co je teď v&nbsp;designu osobních stránek</span>
+                                </div>
+                                <span class="wr-source wr-source--green">web search</span>
+                            </div>
+                            <div class="wire-row">
+                                <div class="wire-row__icon"><i class="iconoir-view-columns-3" aria-hidden="true"></i></div>
+                                <div class="wire-row__body">
+                                    <span class="wire-row__name">„Co dělám"&nbsp;— 3 karty</span>
+                                    <span class="wire-row__desc">přehled vaší činnosti</span>
+                                </div>
+                                <span class="wr-source wr-source--teal">plan mode</span>
+                            </div>
+                            <div class="wire-row">
+                                <div class="wire-row__icon"><i class="iconoir-half-moon" aria-hidden="true"></i></div>
+                                <div class="wire-row__body">
+                                    <span class="wire-row__name">Dark mode</span>
+                                    <span class="wire-row__desc">celá stránka v&nbsp;tmavém režimu</span>
+                                </div>
+                                <span class="wr-source wr-source--teal">plan mode</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="wireframe-layout__head">Jak to chodí</div>
+                        <ul class="learn-box__list" style="gap: var(--space-4);">
+                            <li><i class="iconoir-folder"></i><span><strong>Kumulativní složky</strong>&nbsp;— každý krok udělá kopii předchozí složky a&nbsp;něco přidá. Vidíte, jak stejný agent dává jiný výsledek s&nbsp;jiným kontextem.</span></li>
+                            <li><i class="iconoir-media-image"></i><span><strong>Multimodální</strong>&nbsp;— Claude vidí obrázek a&nbsp;převezme z&nbsp;něj barvy, typografii, spacing.</span></li>
+                            <li><i class="iconoir-globe"></i><span><strong>Grounding</strong>&nbsp;— trendy si najde na&nbsp;webu, přidá odkaz, odkud je vzal.</span></li>
+                            <li><i class="iconoir-list-select"></i><span><strong>Plan mode</strong>&nbsp;— u&nbsp;poslední úpravy nejdřív navrhne plán. Schvalujete, pak teprve sahá na&nbsp;kód.</span></li>
+                            <li><i class="iconoir-code-brackets"></i><span><strong>Výstup</strong>&nbsp;— HTML, které se otevírá v&nbsp;prohlížeči. Žádný build, žádné závislosti.</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -308,6 +423,24 @@
                     Pro složitější úkoly má Claude&nbsp;Code speciální režim: nejdřív naplánuje, co udělá, a&nbsp;teprve pak to provede. Tenhle krok ukážeme ve dvou fázích.
                 </p>
 
+                <div class="planmode-flow">
+                    <div class="planmode-step">
+                        <span class="planmode-step__letter">A</span>
+                        <span class="planmode-step__name">Plán</span>
+                        <span class="planmode-step__desc">Shift+Tab → plan mode. Agent navrhne, <strong>nic nemění</strong>.</span>
+                    </div>
+                    <div class="planmode-step">
+                        <span class="planmode-step__letter">B</span>
+                        <span class="planmode-step__name">Iterace</span>
+                        <span class="planmode-step__desc">Upravíte plán bez vznikajících souborů. Zdarma, dokud neschválíte.</span>
+                    </div>
+                    <div class="planmode-step">
+                        <span class="planmode-step__letter">C</span>
+                        <span class="planmode-step__name">Schválení</span>
+                        <span class="planmode-step__desc">„Jdi na&nbsp;to" → agent provede přesně to, co bylo odsouhlaseno.</span>
+                    </div>
+                </div>
+
                 <h3 class="sub-heading">Fáze A&nbsp;— návrh plánu</h3>
                 <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Před tímhle promptem přepněte do <strong>plan mode</strong> stiskem <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">Shift+Tab</code> (v&nbsp;terminálu uvidíte indikátor plan mode).</p>
 
@@ -337,6 +470,109 @@
                 <div class="callout callout--success">
                     <i class="iconoir-check-circle"></i>
                     <p><strong>Princip:</strong> U&nbsp;složitějších změn je levnější opravit plán než opravovat kód. Plan mode je vaše pojistka proti tomu, že agent vyrazí špatným směrem.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cumulative demo flow — bird's-eye view -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Bird's-eye view</span>
+                <h2 class="content-section__title">Jak jsme kontext přidávali krok za&nbsp;krokem</h2>
+                <p class="content-section__lead">
+                    Každý krok zkopíroval předchozí složku a&nbsp;něco přidal. Vidíte <strong>kumulativně</strong>, jak stejný agent dává úplně jiný výsledek, když dostane víc kontextu.
+                </p>
+
+                <div class="demoflow">
+                    <div class="demo-step">
+                        <div class="demo-step__num"><span class="n">1</span> holý start</div>
+                        <span class="demo-step__folder">01-zaklad/</span>
+                        <h3 class="demo-step__title">Jen prompt, nic víc</h3>
+                        <div class="demo-step__added">
+                            <span><span class="plus">+</span> jedna věta o&nbsp;mně</span>
+                            <span class="hint">žádný soubor, žádný obrázek</span>
+                        </div>
+                        <div class="demo-step__result">
+                            <b>→ Generická stránka</b>
+                            <span class="hint">nudná, vymyšlené fráze</span>
+                        </div>
+                        <div class="demo-step__principle">Bez kontextu = generický výsledek</div>
+                    </div>
+
+                    <div class="demo-step">
+                        <div class="demo-step__num"><span class="n">2</span> + obsah</div>
+                        <span class="demo-step__folder">01-obsah/</span>
+                        <h3 class="demo-step__title">Přidáme markdown</h3>
+                        <div class="demo-step__added">
+                            <span><span class="plus">+</span> muj-obsah.md</span>
+                            <span class="hint">„Reading muj-obsah.md" v&nbsp;terminálu</span>
+                        </div>
+                        <div class="demo-step__result">
+                            <b>→ Osobní stránka</b>
+                            <span class="hint">skutečná fakta, konkrétní obsah</span>
+                        </div>
+                        <div class="demo-step__principle">Agent čte, nevymýšlí si</div>
+                    </div>
+
+                    <div class="demo-step">
+                        <div class="demo-step__num"><span class="n">3</span> + vizuál</div>
+                        <span class="demo-step__folder">01-design/</span>
+                        <h3 class="demo-step__title">Přidáme obrázek</h3>
+                        <div class="demo-step__added">
+                            <span><span class="plus">+</span> design-inspirace.png</span>
+                            <span class="hint">multimodal — Claude vidí obraz</span>
+                        </div>
+                        <div class="demo-step__result">
+                            <b>→ Redesign</b>
+                            <span class="hint">jiné barvy, layout, typografie</span>
+                        </div>
+                        <div class="demo-step__principle">Kontext nejsou jen texty</div>
+                    </div>
+
+                    <div class="demo-step">
+                        <div class="demo-step__num"><span class="n">4</span> + web search</div>
+                        <span class="demo-step__folder">02-trendy/</span>
+                        <h3 class="demo-step__title">Přidáme aktuální data</h3>
+                        <div class="demo-step__added">
+                            <span><span class="plus">+</span> web search (vestavěný)</span>
+                            <span class="hint">trendy design 2026 — reálná data</span>
+                        </div>
+                        <div class="demo-step__result">
+                            <b>→ Nová sekce + zdroj</b>
+                            <span class="hint">komentář, odkud trend vzal</span>
+                        </div>
+                        <div class="demo-step__principle">Aktuální web, ne paměť z&nbsp;tréninku</div>
+                    </div>
+
+                    <div class="demo-step">
+                        <div class="demo-step__num"><span class="n">5</span> samooprava</div>
+                        <span class="demo-step__folder">03-oprava/</span>
+                        <h3 class="demo-step__title">Otevře + opraví</h3>
+                        <div class="demo-step__added">
+                            <span><span class="plus">+</span> otevření v&nbsp;prohlížeči</span>
+                            <span class="hint">ptá se — y / n</span>
+                        </div>
+                        <div class="demo-step__result">
+                            <b>→ Funkční stránka</b>
+                            <span class="hint">chybu najde, sám opraví, zkusí znovu</span>
+                        </div>
+                        <div class="demo-step__principle">Nic na&nbsp;počítači bez vašeho souhlasu</div>
+                    </div>
+
+                    <div class="demo-step">
+                        <div class="demo-step__num"><span class="n">6</span> plan mode</div>
+                        <span class="demo-step__folder">04-iterace/</span>
+                        <h3 class="demo-step__title">Plán → schválení → exekuce</h3>
+                        <div class="demo-step__added">
+                            <span><span class="plus">+</span> Shift+Tab → plan mode</span>
+                            <span class="hint">A) návrh  B) iterace  C) „jdi na&nbsp;to"</span>
+                        </div>
+                        <div class="demo-step__result">
+                            <b>→ Dark mode + 3 karty</b>
+                            <span class="hint">změny až po&nbsp;vašem schválení</span>
+                        </div>
+                        <div class="demo-step__principle">Levnější opravit plán než kód</div>
+                    </div>
                 </div>
             </div>
         </section>

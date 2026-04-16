@@ -88,22 +88,75 @@
         .model-card__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0; }
         .model-card__use { font-size: var(--text-xs); color: var(--color-text-tertiary); margin: 0; }
 
-        /* Orchestra visual */
-        .orchestra { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-3); margin: var(--space-8) 0; text-align: center; }
-        @media (max-width: 768px) { .orchestra { grid-template-columns: repeat(3, 1fr); } }
-        .orchestra__item { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
-        .orchestra__icon { width: 48px; height: 48px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); }
-        .orchestra__icon--purple { background: rgba(80, 0, 171, 0.08); color: var(--color-accent-primary); }
-        .orchestra__icon--teal { background: rgba(8, 145, 178, 0.08); color: var(--color-accent-secondary); }
-        .orchestra__icon--amber { background: rgba(217, 119, 6, 0.08); color: var(--color-warning); }
-        .orchestra__icon--green { background: rgba(5, 150, 105, 0.08); color: var(--color-success); }
-        .orchestra__label { font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary); }
-        .orchestra__desc { font-size: var(--text-xs); color: var(--color-text-tertiary); }
+        /* Orchestration diagram — inputs → brain → outputs */
+        .orch { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--space-5); align-items: center; margin: var(--space-10) 0; }
+        .orch-col { display: flex; flex-direction: column; gap: var(--space-3); }
+        .orch-col__head { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); letter-spacing: 0.1em; color: var(--color-text-tertiary); text-transform: uppercase; margin-bottom: var(--space-1); }
+        .orch-node { position: relative; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); box-shadow: var(--shadow-sm); }
+        .orch-node__dot { width: 8px; height: 8px; border-radius: var(--radius-full); flex-shrink: 0; }
+        .orch-node__dot--purple { background: var(--color-accent-primary); }
+        .orch-node__dot--teal   { background: var(--color-accent-secondary); }
+        .orch-node__dot--green  { background: var(--color-success); }
+        .orch-node__dot--amber  { background: var(--color-warning); }
+        .orch-node__dot--ink    { background: var(--color-text-primary); }
+        .orch-node i { color: var(--color-text-secondary); font-size: var(--text-lg); flex-shrink: 0; }
+        .orch-node__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+        .orch-node__title { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-sm); line-height: var(--leading-snug); }
+        .orch-node__meta { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); color: var(--color-text-tertiary); line-height: var(--leading-snug); }
+        .orch-col--inputs .orch-node::after,
+        .orch-col--outputs .orch-node::before { position: absolute; top: 50%; transform: translateY(-50%); color: var(--color-text-tertiary); font-size: var(--text-lg); }
+        .orch-col--inputs .orch-node::after { content: '→'; right: -18px; }
+        .orch-col--outputs .orch-node::before { content: '→'; left: -18px; }
+        .orch-center { background: var(--color-text-primary); color: #fff; border-radius: var(--radius-xl); padding: var(--space-6) var(--space-5); text-align: center; min-width: 180px; box-shadow: 0 10px 40px rgba(80, 0, 171, 0.18); }
+        .orch-center__icon { width: 56px; height: 56px; margin: 0 auto var(--space-3); border-radius: var(--radius-full); background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; font-size: var(--text-3xl); color: #fff; }
+        .orch-center__title { font-family: var(--font-family-headings); font-size: var(--text-xl); font-weight: var(--font-normal); margin: 0 0 var(--space-1); color: #fff; }
+        .orch-center__sub { font-size: var(--text-xs); color: rgba(255,255,255,.68); margin: 0; }
+        .orch-center__flow { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid rgba(255,255,255,.12); font-size: var(--text-xs); color: rgba(255,255,255,.7); font-family: "SF Mono", Menlo, Consolas, monospace; }
+        @media (max-width: 900px) {
+            .orch { grid-template-columns: 1fr; gap: var(--space-3); }
+            .orch-center { order: 2; margin: var(--space-2) 0; }
+            .orch-col--inputs { order: 1; }
+            .orch-col--outputs { order: 3; }
+            .orch-col--inputs .orch-node::after,
+            .orch-col--outputs .orch-node::before { display: none; }
+        }
 
         .next-step { margin-top: var(--space-10); padding: var(--space-8); background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%); border: 2px solid var(--color-accent-primary); border-radius: var(--radius-xl); text-align: center; }
         .next-step__icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: var(--color-accent-primary); color: white; border-radius: var(--radius-full); font-size: var(--text-2xl); margin-bottom: var(--space-4); }
         .next-step__title { font-family: var(--font-family-headings); font-size: var(--text-2xl); color: var(--color-text-primary); margin: 0 0 var(--space-3); font-weight: var(--font-normal); }
         .next-step__desc { font-size: var(--text-base); color: var(--color-text-secondary); margin: 0 0 var(--space-6); line-height: var(--leading-relaxed); }
+
+        /* Wireframe — anatomy of the dashboard with source badges */
+        .wireframe { background: var(--color-bg-secondary); border: 1px dashed var(--color-border-light); border-radius: var(--radius-lg); padding: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-4); }
+        .wireframe__extras { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); margin-top: var(--space-2); }
+        @media (max-width: 560px) { .wireframe__extras { grid-template-columns: 1fr; } }
+        .wireframe__extras .wire-row { background: rgba(80, 0, 171, 0.03); border-style: dashed; }
+        .wire-row { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); }
+        .wire-row__icon { width: 32px; height: 32px; flex-shrink: 0; border-radius: var(--radius-md); background: var(--color-bg-secondary); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); font-size: var(--text-lg); }
+        .wire-row__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+        .wire-row__name { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-sm); line-height: var(--leading-snug); }
+        .wire-row__desc { color: var(--color-text-tertiary); font-size: var(--text-xs); line-height: var(--leading-snug); }
+        .wr-source { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); padding: 3px 10px; border-radius: var(--radius-full); white-space: nowrap; flex-shrink: 0; border: 1px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-secondary); }
+        .wr-source--purple { background: rgba(80, 0, 171, 0.08);  border-color: rgba(80, 0, 171, 0.2);   color: var(--color-accent-primary); }
+        .wr-source--teal   { background: rgba(8, 145, 178, 0.08); border-color: rgba(8, 145, 178, 0.2);  color: var(--color-accent-secondary); }
+        .wr-source--amber  { background: rgba(217, 119, 6, 0.08); border-color: rgba(217, 119, 6, 0.2);  color: var(--color-warning); }
+        .wr-source--green  { background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.2);  color: var(--color-success); }
+        .wr-source--ink    { background: var(--color-text-primary); border-color: var(--color-text-primary); color: #fff; }
+        @media (max-width: 520px) { .wire-row { flex-wrap: wrap; } .wr-source { margin-left: 44px; } }
+
+        /* Three extensions card strip */
+        .ext-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-6) 0 var(--space-4); }
+        @media (max-width: 768px) { .ext-grid { grid-template-columns: 1fr; } }
+        .ext-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-left-width: 3px; border-radius: var(--radius-lg); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); }
+        .ext-card--purple { border-left-color: var(--color-accent-primary); }
+        .ext-card--teal   { border-left-color: var(--color-accent-secondary); }
+        .ext-card--green  { border-left-color: var(--color-success); }
+        .ext-card__path { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); color: var(--color-text-tertiary); margin: 0; }
+        .ext-card__name { font-family: var(--font-family-headings); font-size: var(--text-lg); color: var(--color-text-primary); margin: 0; font-weight: var(--font-normal); }
+        .ext-card--purple .ext-card__name { color: var(--color-accent-primary); }
+        .ext-card--teal .ext-card__name   { color: var(--color-accent-secondary); }
+        .ext-card--green .ext-card__name  { color: var(--color-success); }
+        .ext-card__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0; }
     </style>
 </head>
 <body>
@@ -149,19 +202,96 @@
         <section class="content-section">
             <div class="content-section__container">
                 <div class="learn-box">
-                    <h2 class="learn-box__title">Co postavíte</h2>
-                    <ul class="learn-box__list">
-                        <li><i class="iconoir-check"></i> Travel dashboard v&nbsp;prohlížeči&nbsp;— letenky, počasí, plán aktivit, praktické tipy</li>
-                        <li><i class="iconoir-check"></i> Vlastní CLAUDE.md s&nbsp;cestovními preferencemi (budget, časy, letiště)</li>
-                        <li><i class="iconoir-check"></i> Subagenta, který analyzuje fotky vysněné destinace</li>
-                        <li><i class="iconoir-check"></i> Hook, který automaticky otevře výsledek v&nbsp;prohlížeči</li>
-                        <li><i class="iconoir-check"></i> Slash command <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/pohlednice</code>, který napíše pohlednici z&nbsp;„dovolené"</li>
-                    </ul>
+                    <h2 class="learn-box__title">Co postavíte&nbsp;— anatomie dashboardu</h2>
+                    <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0;">Každý blok má jasný zdroj&nbsp;— odkud Claude bere data. Vpravo je označení, jaký nástroj (soubor, subagent, MCP, web search) blok naplnil.</p>
+
+                    <div class="wireframe">
+                        <div class="wire-row">
+                            <div class="wire-row__icon"><i class="iconoir-media-image-list" aria-hidden="true"></i></div>
+                            <div class="wire-row__body">
+                                <span class="wire-row__name">Hero carousel</span>
+                                <span class="wire-row__desc">fotky z&nbsp;wishlist/, auto-play, Ken Burns zoom</span>
+                            </div>
+                            <span class="wr-source wr-source--amber">wishlist/ + skill</span>
+                        </div>
+                        <div class="wire-row">
+                            <div class="wire-row__icon"><i class="iconoir-search" aria-hidden="true"></i></div>
+                            <div class="wire-row__body">
+                                <span class="wire-row__name">Detektivův verdikt</span>
+                                <span class="wire-row__desc">2–3 kandidáti → vítězná destinace, stopy z&nbsp;fotek</span>
+                            </div>
+                            <span class="wr-source wr-source--purple">subagent foto-detektiv</span>
+                        </div>
+                        <div class="wire-row">
+                            <div class="wire-row__icon"><i class="iconoir-airplane" aria-hidden="true"></i></div>
+                            <div class="wire-row__body">
+                                <span class="wire-row__name">Let Praha → destinace</span>
+                                <span class="wire-row__desc">cena, časy, SVG oblouk trasy, odpočet</span>
+                            </div>
+                            <span class="wr-source wr-source--teal">Kiwi MCP</span>
+                        </div>
+                        <div class="wire-row">
+                            <div class="wire-row__icon"><i class="iconoir-sun-light" aria-hidden="true"></i></div>
+                            <div class="wire-row__body">
+                                <span class="wire-row__name">Počasí na&nbsp;víkend</span>
+                                <span class="wire-row__desc">teploměr s&nbsp;aktuální teplotou</span>
+                            </div>
+                            <span class="wr-source wr-source--green">web search</span>
+                        </div>
+                        <div class="wire-row">
+                            <div class="wire-row__icon"><i class="iconoir-list" aria-hidden="true"></i></div>
+                            <div class="wire-row__body">
+                                <span class="wire-row__name">Plán aktivit</span>
+                                <span class="wire-row__desc">co dělat na&nbsp;místě&nbsp;— odvozeno z&nbsp;fotek</span>
+                            </div>
+                            <span class="wr-source wr-source--amber">wishlist.md + fotky</span>
+                        </div>
+                        <div class="wire-row">
+                            <div class="wire-row__icon"><i class="iconoir-light-bulb" aria-hidden="true"></i></div>
+                            <div class="wire-row__body">
+                                <span class="wire-row__name">Praktické tipy</span>
+                                <span class="wire-row__desc">transport, MHD, dýško, místní fráze, čemu se vyhnout</span>
+                            </div>
+                            <span class="wr-source wr-source--ink">Claude znalost</span>
+                        </div>
+                        <div class="wire-row">
+                            <div class="wire-row__icon"><i class="iconoir-sparks" aria-hidden="true"></i></div>
+                            <div class="wire-row__body">
+                                <span class="wire-row__name">Živé detaily</span>
+                                <span class="wire-row__desc">countdown, scroll-reveal karty, serif display na&nbsp;čísla</span>
+                            </div>
+                            <span class="wr-source wr-source--amber">inline JS + skill</span>
+                        </div>
+
+                        <div class="wireframe__extras">
+                            <div class="wire-row">
+                                <div class="wire-row__icon"><i class="iconoir-globe" aria-hidden="true"></i></div>
+                                <div class="wire-row__body">
+                                    <span class="wire-row__name">Auto-otevření</span>
+                                    <span class="wire-row__desc">prohlížeč + hlas „Dashboard je připraven"</span>
+                                </div>
+                                <span class="wr-source wr-source--amber">hook</span>
+                            </div>
+                            <div class="wire-row">
+                                <div class="wire-row__icon"><i class="iconoir-mail" aria-hidden="true"></i></div>
+                                <div class="wire-row__body">
+                                    <span class="wire-row__name">/pohlednice</span>
+                                    <span class="wire-row__desc">5–8 řádků „z&nbsp;dovolené", lež v&nbsp;PS</span>
+                                </div>
+                                <span class="wr-source wr-source--green">slash command</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="callout callout--success">
                     <i class="iconoir-check-circle"></i>
                     <p><strong>Velká myšlenka:</strong> V&nbsp;Levelu&nbsp;1 jste agenta poprosili o&nbsp;jeden úkol. V&nbsp;Levelu&nbsp;2 jste viděli celé workflow. Teď Level&nbsp;3&nbsp;— Claude Code čte pravidla, dívá se na fotky, volá letové API, hledá počasí na webu, staví dashboard a&nbsp;po dokončení sám otevře prohlížeč. Tohle je orchestrace.</p>
+                </div>
+
+                <div class="callout">
+                    <i class="iconoir-headset"></i>
+                    <p><strong>Nahrávka z&nbsp;webináře:</strong> Tuhle část jsme na&nbsp;živém webináři nestihli probrat do&nbsp;detailu. Poslechněte si&nbsp;<a href="https://supercut.ai/share/viacheslavzakhutskyi/4aMhpYW8LU_kaCl9PUg5W6" target="_blank" rel="noopener" style="color: var(--color-accent-primary); text-decoration: underline;">kompletní popis celého Levelu&nbsp;3 na&nbsp;Supercutu</a>&nbsp;— Slava prochází orchestraci krok po&nbsp;kroku, tak jak jste ji měli slyšet živě.</p>
                 </div>
             </div>
         </section>
@@ -336,7 +466,7 @@
                         <span class="prompt-card__title">Vložte do Claude Code</span>
                     </div>
                     <p class="prompt-card__desc">Tohle je ten hlavní prompt. Zkopírujte ho celý:</p>
-                    <p class="prompt-card__text">Postav mi travel dashboard.<br><br>Podívej se na fotky v wishlist/ a přečti wishlist.md. Přečti moje travel preferences z CLAUDE.md.<br><br>1. Z fotek odhadni destinaci — navrhni 2–3 varianty, které sedí, a vyber tu nejlepší podle mých preferencí.<br>2. Pro vybranou destinaci najdi přes Kiwi MCP nejlepší let z mého home airportu na příští víkend.<br>3. Vytvoř vystupy/travel-planner.html — dashboard s výsledky letu, počasím (web search), plánem aktivit podle mých fotek a praktickými tipy pro konkrétní destinaci (transport z letiště, MHD, dýško, místní fráze, co obejít).</p>
+                    <p class="prompt-card__text">Postav mi travel dashboard.<br><br>Podívej se na fotky v wishlist/ a přečti wishlist.md. Přečti moje travel preferences z CLAUDE.md.<br><br>1. Z fotek odhadni destinaci — navrhni 2–3 varianty, které sedí, a vyber tu nejlepší podle mých preferencí.<br>2. Pro vybranou destinaci najdi přes Kiwi MCP nejlepší let z mého home airportu na příští víkend.<br>3. Vytvoř vystupy/travel-planner.html — dashboard s výsledky letu, počasím (web search), plánem aktivit podle mých fotek a praktickými tipy pro konkrétní destinaci (transport z letiště, MHD, dýško, místní fráze, co obejít).<br><br>Design: použij bento design skill, ale přitáhni to o level výš — wow efekt, ne jen hezké kartičky:<br>– nahoře hero carousel s fotkami z wishlist/ (auto-play, jemný Ken Burns zoom, plynulý fade, popisek „co na téhle fotce sedí na destinaci")<br>– scroll-driven reveal animace u karet<br>– živý detail: odpočet do odletu, teploměr s aktuální teplotou, mapka trasy letu (SVG oblouk PRG→LIS)<br>– typografie: velký serif display na čísla, drobný mono na letové kódy, vzdušné mřížky<br>– všechno v jednom .html souboru, inline CSS + JS, žádné externí závislosti kromě Google Fonts</p>
                 </div>
 
                 <h3 class="sub-heading">Co uvidíte, jak agent pracuje</h3>
@@ -392,9 +522,32 @@
 
                 <div class="expected"><strong>Co se stane:</strong> Vznikne <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">.claude/commands/pohlednice.md</code>. Teď stačí napsat <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/pohlednice</code> (nebo <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/pohlednice mamce</code>) a Claude napíše hravou pohlednici s jednou drobnou lží prozrazenou v PS.</div>
 
+                <h3 class="sub-heading">Jeden vzor, tři rozšíření</h3>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-2);">
+                    Skill, subagent, slash command&nbsp;— každý z&nbsp;nich řeší jinou potřebu, ale všechny sdílí stejný princip: <strong>jeden markdown soubor ve&nbsp;složce <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">.claude/</code></strong>. Vyberete si, co vám sedí, napíšete markdown, máte napořád.
+                </p>
+
+                <div class="ext-grid">
+                    <article class="ext-card ext-card--purple">
+                        <p class="ext-card__path">.claude/skills/&lt;jméno&gt;/SKILL.md</p>
+                        <h4 class="ext-card__name">Skill</h4>
+                        <p class="ext-card__desc">Stabilní znalost nebo styl&nbsp;— bento design, firemní copy, formát reportu. Agent si ho sám zavolá podle popisu.</p>
+                    </article>
+                    <article class="ext-card ext-card--teal">
+                        <p class="ext-card__path">.claude/agents/&lt;jméno&gt;.md</p>
+                        <h4 class="ext-card__name">Subagent</h4>
+                        <p class="ext-card__desc">Specializovaná role&nbsp;— foto-detektiv, code reviewer. Vlastní kontext, vlastní tón. Hlavní Claude ho deleguje.</p>
+                    </article>
+                    <article class="ext-card ext-card--green">
+                        <p class="ext-card__path">.claude/commands/&lt;jméno&gt;.md</p>
+                        <h4 class="ext-card__name">Slash command</h4>
+                        <p class="ext-card__desc">Opakovaný workflow&nbsp;— <code style="background: var(--code-bg); padding: 2px 4px; border-radius: 4px; font-size: 0.85em;">/pohlednice</code>, <code style="background: var(--code-bg); padding: 2px 4px; border-radius: 4px; font-size: 0.85em;">/tydennireport</code>. Voláte ho lomítkem, přijímá argumenty.</p>
+                    </article>
+                </div>
+
                 <div class="callout">
                     <i class="iconoir-info-circle"></i>
-                    <p><strong>Jeden vzor, tři rozšíření:</strong> Subagent, hook, slash command&nbsp;— všechno je markdown ve složce <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">.claude/</code>. Žádná instalace, žádná kompilace. Napíšete markdown, máte napořád.</p>
+                    <p><strong>Žádná instalace, žádná kompilace.</strong> Napíšete markdown&nbsp;— ideálně necháte Claude napsat první verzi podle popisu&nbsp;— a&nbsp;máte nové schopnosti navždy. Tohle je ten „velký důsledek", o&nbsp;kterém se v&nbsp;Claude Code mluví nejvíc: <em>všechno je markdown</em>.</p>
                 </div>
             </div>
         </section>
@@ -437,35 +590,113 @@
                     Pravidla přes CLAUDE.md. Subagent na analýzu fotek. Reálná data z&nbsp;Kiwi přes MCP. Počasí z&nbsp;webu. Automatické otevření přes hook. Slash command na pohlednici. Každý dílek je jednoduchý. Dohromady je to orchestr.
                 </p>
 
-                <div class="orchestra">
-                    <div class="orchestra__item">
-                        <div class="orchestra__icon orchestra__icon--purple"><i class="iconoir-page"></i></div>
-                        <span class="orchestra__label">CLAUDE.md</span>
-                        <span class="orchestra__desc">Pravidla</span>
+                <div class="orch">
+                    <div class="orch-col orch-col--inputs">
+                        <span class="orch-col__head">Vstupy · kontext</span>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--ink"></span>
+                            <i class="iconoir-page" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">CLAUDE.md</span>
+                                <span class="orch-node__meta">pravidla — budget, čas, „číst, nehádat"</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--amber"></span>
+                            <i class="iconoir-media-image-list" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">Obrázky (multimodal)</span>
+                                <span class="orch-node__meta">wishlist/ — fotky destinace</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--purple"></span>
+                            <i class="iconoir-sparks" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">Subagent foto-detektiv</span>
+                                <span class="orch-node__meta">.claude/agents/*.md</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--teal"></span>
+                            <i class="iconoir-database" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">MCP · Kiwi</span>
+                                <span class="orch-node__meta">reálné lety, bez API klíče</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--green"></span>
+                            <i class="iconoir-globe" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">Web search</span>
+                                <span class="orch-node__meta">aktuální počasí — vestavěné</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--amber"></span>
+                            <i class="iconoir-puzzle" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">Skill bento</span>
+                                <span class="orch-node__meta">.claude/skills/*/SKILL.md</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="orchestra__item">
-                        <div class="orchestra__icon orchestra__icon--teal"><i class="iconoir-sparks"></i></div>
-                        <span class="orchestra__label">Subagent</span>
-                        <span class="orchestra__desc">Foto-detektiv</span>
+
+                    <div class="orch-center">
+                        <div class="orch-center__icon"><i class="iconoir-brain" aria-hidden="true"></i></div>
+                        <h3 class="orch-center__title">Claude Code</h3>
+                        <p class="orch-center__sub">dirigent · jeden prompt</p>
+                        <div class="orch-center__flow">čte → deleguje → volá → staví → zapisuje</div>
                     </div>
-                    <div class="orchestra__item">
-                        <div class="orchestra__icon orchestra__icon--amber"><i class="iconoir-database"></i></div>
-                        <span class="orchestra__label">MCP</span>
-                        <span class="orchestra__desc">Kiwi letenky</span>
-                    </div>
-                    <div class="orchestra__item">
-                        <div class="orchestra__icon orchestra__icon--green"><i class="iconoir-brain"></i></div>
-                        <span class="orchestra__label">Hook</span>
-                        <span class="orchestra__desc">Auto-otevření</span>
-                    </div>
-                    <div class="orchestra__item">
-                        <div class="orchestra__icon orchestra__icon--purple"><i class="iconoir-music-note"></i></div>
-                        <span class="orchestra__label">Command</span>
-                        <span class="orchestra__desc">/pohlednice</span>
+
+                    <div class="orch-col orch-col--outputs">
+                        <span class="orch-col__head">Výstup · automatizace</span>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--ink"></span>
+                            <i class="iconoir-code-brackets" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">HTML dashboard</span>
+                                <span class="orch-node__meta">vystupy/travel-planner.html</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--amber"></span>
+                            <i class="iconoir-refresh-double" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">Hook spouští</span>
+                                <span class="orch-node__meta">.claude/settings.json · matcher Write</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--teal"></span>
+                            <i class="iconoir-open-new-window" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">Prohlížeč se otevře</span>
+                                <span class="orch-node__meta">open $HTML — macOS „open"</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--purple"></span>
+                            <i class="iconoir-microphone" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">Mac: „Hotovo"</span>
+                                <span class="orch-node__meta">say -v Zuzana — slyšet přes Zoom</span>
+                            </div>
+                        </div>
+                        <div class="orch-node">
+                            <span class="orch-node__dot orch-node__dot--green"></span>
+                            <i class="iconoir-mail" aria-hidden="true"></i>
+                            <div class="orch-node__body">
+                                <span class="orch-node__title">/pohlednice</span>
+                                <span class="orch-node__meta">slash command · 5–8 řádků s PS</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); text-align: center; margin-top: var(--space-4);">
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); text-align: center; margin-top: var(--space-6); max-width: 620px; margin-left: auto; margin-right: auto;">
+                    <strong style="color: var(--color-text-primary);">Každý dílek je jednoduchý. Dohromady je to orchestr.</strong><br>
                     Všechno je markdown. Všechno se staví promptem. Claude&nbsp;Code je dirigent.
                 </p>
             </div>
