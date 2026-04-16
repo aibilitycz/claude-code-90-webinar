@@ -213,9 +213,9 @@
                     </div>
 
                     <div class="feature-card">
-                        <p class="feature-card__eyebrow">cat soubor.txt | claude -p "..."</p>
-                        <h3 class="feature-card__title">Piping — jednorázové úkoly</h3>
-                        <p class="feature-card__desc">Přepnutím vstupu přes rouru spustíte Claude Code pro jednorázový úkol bez otevírání interaktivní relace. Vhodné pro skripty a&nbsp;automatizace. Příklad: <code>cat report.txt | claude -p "shrň klíčové body"</code>.</p>
+                        <p class="feature-card__eyebrow">/btw</p>
+                        <h3 class="feature-card__title">Rychlé otázky mimo kontext</h3>
+                        <p class="feature-card__desc">Napište <code>/btw</code> a&nbsp;za ním otázku&nbsp;— odpověď se zobrazí v&nbsp;překryvném okně a&nbsp;<strong>nevstoupí do&nbsp;kontextu konverzace</strong>. Ideální, když si chcete ověřit detail, aniž byste plýtvali tokeny nebo narušili rozdělanou práci.</p>
                     </div>
                 </div>
             </div>
@@ -304,38 +304,52 @@
 
                 <ul class="tips-list">
                     <li class="tips-list__item">
-                        <div class="tips-list__icon"><i class="iconoir-folder"></i></div>
+                        <div class="tips-list__icon"><i class="iconoir-check-circle"></i></div>
                         <div class="tips-list__body">
-                            <h3 class="tips-list__title">Začínejte ve správné složce</h3>
-                            <p class="tips-list__desc">Spouštějte agenta vždy ve složce projektu, ne v kořenovém adresáři. Agent pak čte jen relevantní soubory — méně tokenů, přesnější výsledky.</p>
+                            <h3 class="tips-list__title">Dejte agentovi způsob, jak si ověřit výsledek</h3>
+                            <p class="tips-list__desc">Tohle je podle Anthropic <strong>nejúčinnější věc, kterou můžete udělat</strong>. Řekněte: „po dokončení ověř, že to funguje" nebo „porovnej výsledek s&nbsp;tímhle screenshotem". Bez ověření agent udělá něco, co <em>vypadá</em> správně. S&nbsp;ověřením to opravdu funguje.</p>
                         </div>
                     </li>
                     <li class="tips-list__item">
-                        <div class="tips-list__icon"><i class="iconoir-file-txt"></i></div>
+                        <div class="tips-list__icon"><i class="iconoir-search"></i></div>
                         <div class="tips-list__body">
-                            <h3 class="tips-list__title">Vytvořte si CLAUDE.md</h3>
-                            <p class="tips-list__desc">Jeden soubor s popisem projektu, preferencemi a opakujícími se instrukcemi. Agent ho čte automaticky při každém spuštění. Postup najdete v <a href="../level-3/">Level 3</a>.</p>
-                        </div>
-                    </li>
-                    <li class="tips-list__item">
-                        <div class="tips-list__icon"><i class="iconoir-refresh-double"></i></div>
-                        <div class="tips-list__body">
-                            <h3 class="tips-list__title">Používejte /clear mezi nesouvisejícími úkoly</h3>
-                            <p class="tips-list__desc">Kontext z předchozího úkolu může plést agenta při novém. <code>/clear</code> smaže konverzaci a nechá soubory beze změny — čistý start bez zbytečného šumu.</p>
+                            <h3 class="tips-list__title">Prozkoumej, naplánuj, pak teprve stavěj</h3>
+                            <p class="tips-list__desc">U&nbsp;složitějších úkolů nejdřív nechte agenta prozkoumat situaci (<code>/plan</code>), pak se dohodněte na&nbsp;plánu, pak teprve řekněte „jdi do toho". Předejdete tím situacím, kdy agent řeší špatný problém.</p>
                         </div>
                     </li>
                     <li class="tips-list__item">
                         <div class="tips-list__icon"><i class="iconoir-cursor-pointer"></i></div>
                         <div class="tips-list__body">
-                            <h3 class="tips-list__title">Buďte konkrétní v promptech</h3>
-                            <p class="tips-list__desc">Čím přesnější zadání, tím lepší výsledek. Místo „vytvoř web" zadejte „vytvoř landing page pro fitness studio s&nbsp;oddíly: hero, ceník, kontakt". Kontext a záměr jsou klíčové.</p>
+                            <h3 class="tips-list__title">Buďte konkrétní — odkazujte na soubory pomocí @</h3>
+                            <p class="tips-list__desc">Místo „podívej se na ten soubor" napište <code>@src/auth.ts</code>&nbsp;— agent ho přečte ještě před odpovědí. Funguje i&nbsp;s&nbsp;obrázky (přetáhněte do chatu) a&nbsp;s&nbsp;URL adresami.</p>
                         </div>
                     </li>
                     <li class="tips-list__item">
-                        <div class="tips-list__icon"><i class="iconoir-check-circle"></i></div>
+                        <div class="tips-list__icon"><i class="iconoir-refresh-double"></i></div>
                         <div class="tips-list__body">
-                            <h3 class="tips-list__title">Nechte agenta ověřovat svou práci</h3>
-                            <p class="tips-list__desc">Na konec zadání přidejte „zkontroluj si to po sobě" nebo „ověř, že vše funguje". Agent si projde výsledek vlastním pohledem a zachytí chyby dřív, než je uvidíte vy.</p>
+                            <h3 class="tips-list__title">/clear mezi úkoly, /compact když konverzace roste</h3>
+                            <p class="tips-list__desc"><code>/clear</code> smaže kontext&nbsp;— čistý start. <code>/compact</code> ho zkrátí, ale zachová důležité informace. Když agenta opravujete víc než dvakrát na&nbsp;to samé, dejte <code>/clear</code> a&nbsp;napište lepší prompt od&nbsp;začátku.</p>
+                        </div>
+                    </li>
+                    <li class="tips-list__item">
+                        <div class="tips-list__icon"><i class="iconoir-file-txt"></i></div>
+                        <div class="tips-list__body">
+                            <h3 class="tips-list__title">CLAUDE.md je mapa, ne encyklopedie</h3>
+                            <p class="tips-list__desc">Jen to, co agent nemůže zjistit sám. Pod 200 řádků. Důležité věci zvýrazněte slovem DŮLEŽITÉ. Začněte příkazem <code>/init</code>&nbsp;— agent si základ vytvoří sám. Detaily v&nbsp;<a href="../level-3/" style="color: var(--color-accent-primary);">Level&nbsp;3</a>.</p>
+                        </div>
+                    </li>
+                    <li class="tips-list__item">
+                        <div class="tips-list__icon"><i class="iconoir-brain"></i></div>
+                        <div class="tips-list__body">
+                            <h3 class="tips-list__title">Nechte agenta, ať se vás vyptá</h3>
+                            <p class="tips-list__desc">U&nbsp;větších projektů řekněte: „Chci vytvořit [popis]. Vyptej se mě na&nbsp;detaily — technické, UX, edge cases." Agent se zeptá na&nbsp;věci, na&nbsp;které byste sami nepomysleli, a&nbsp;pak napíše specifikaci.</p>
+                        </div>
+                    </li>
+                    <li class="tips-list__item">
+                        <div class="tips-list__icon"><i class="iconoir-sparks"></i></div>
+                        <div class="tips-list__body">
+                            <h3 class="tips-list__title">Subagenty šetří kontext</h3>
+                            <p class="tips-list__desc">Řekněte „použij subagenta na&nbsp;prozkoumání [téma]"&nbsp;— ten prozkoumá soubory ve&nbsp;vlastním kontextu a&nbsp;vrátí jenom shrnutí. Váš hlavní kontext zůstane čistý pro implementaci.</p>
                         </div>
                     </li>
                 </ul>
