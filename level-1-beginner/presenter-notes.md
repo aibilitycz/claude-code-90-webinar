@@ -34,10 +34,38 @@ Podrobnosti: https://docs.claude.com/en/docs/claude-code/slash-commands
 
 - `Shift+Tab` — přepíná mezi plan mode a auto-accept mode
 - `Esc` — přeruší Claude během odpovědi
-- `Esc Esc` — vrátí konverzaci k dřívější zprávě
+- `Esc Esc` — otevře **rewind menu** (viz sekce Checkpointy níže)
 - Prefix `!` — spustí shell příkaz přímo z promptu
 - Prefix `#` — přidá zápisek do `CLAUDE.md` jako trvalou paměť
 - Přetažení souboru do terminálu ho vloží do promptu jako odkaz
+
+---
+
+## Checkpointy — návrat k dřívějšímu stavu
+
+Claude Code automaticky ukládá stav souborů a konverzace před každým vaším promptem. Když se vám něco nelíbí, nemusíte nic vracet ručně.
+
+**Jak na to:**
+- Stiskněte `Esc` dvakrát, nebo napište `/rewind`
+- Otevře se seznam vašich předchozích promptů v aktuální session
+- Vyberte bod, kam se chcete vrátit, a zvolte jednu z akcí:
+
+| Akce | Co udělá |
+|------|----------|
+| **Restore code and conversation** | Vrátí zpátky soubory i konverzaci |
+| **Restore conversation** | Vrátí jen konverzaci, soubory zůstanou beze změny |
+| **Restore code** | Vrátí jen soubory, konverzace zůstane |
+| **Summarize from here** | Shrne zbytek konverzace (šetří kontextové okno) |
+
+**Důležitá omezení:**
+- Checkpointy sledují jen úpravy souborů, které dělá Claude přes své editor tools
+- **Nesledují změny přes bash příkazy** (`rm`, `mv`, `cp`) — ty se vrátit nedají
+- Nesledují ani ruční změny, které uděláte v jiném editoru
+- Checkpointy se drží ~30 dní a přežijí restart (dostupné i přes `/resume`)
+
+**Pravidlo palce:** checkpoint je rychlý local undo v rámci session, **git je opravdová historie**. Před větší změnou se vyplatí `git commit` — to je záchranná síť, která funguje vždy.
+
+Dokumentace: https://code.claude.com/docs/en/checkpointing
 
 ---
 
@@ -67,6 +95,25 @@ Závisí na modelu a délce úlohy. Typická drobná úloha vyjde na jednotky ce
 
 **Co musím mít nainstalované?**
 Node.js verze 18 nebo vyšší. Nic dalšího není potřeba.
+
+---
+
+## Zajímavosti, které se hodí zmínit
+
+**O Anthropicu a Claudovi:**
+- Jméno **Claude** je poctou Claudu Shannonovi, zakladateli teorie informace (1948) — bez něj by dnešní počítače a AI nevznikly.
+- Názvy modelů **Opus / Sonnet / Haiku** jsou metafora z hudby a poezie: opus = rozsáhlá kompozice, sonnet = střední forma, haiku = krátká báseň. Odpovídá to velikosti a hloubce modelu.
+- Anthropic založili v roce 2021 sourozenci Dario a Daniela Amodei společně s dalšími výzkumníky z OpenAI — se záměrem postavit AI lab s důrazem na výzkum bezpečnosti.
+- **Constitutional AI** je Anthropicův vlastní přístup k trénování — model se učí podle sady psaných principů (ústavy), ne jen z lidské zpětné vazby. Paper: https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback
+
+**O Claude Code, co se dá zmínit:**
+- Můžete Claudovi **poslat data přes pipe**: `cat chyba.log | claude "co je špatně?"`
+- Claude Code umí číst **obrázky v terminálu** — screenshot chyby stačí přetáhnout do prompt okna.
+- Prefix `@` v promptu odkazuje soubor nebo složku: `@src/app.js vysvětli mi tenhle soubor`.
+- `CLAUDE.md` podporuje **importy** dalších souborů — `@docs/architecture.md` přenese jeho obsah do kontextu.
+- `/doctor` diagnostikuje aktuální session — co je načtené, kde by mohl být problém.
+- Existuje **ne-interaktivní režim** pro skripty: `claude -p "zkontroluj tenhle commit"` — vrátí odpověď a skončí.
+- **Prompt caching** (standardem v Claude Code) pionýrsky nasadil Anthropic v roce 2024 — opakovaný kontext se platí výrazně levněji.
 
 ---
 
