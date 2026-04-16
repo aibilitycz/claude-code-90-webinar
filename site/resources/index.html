@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zdroje a odkazy — Naučte se Claude Code | Aibility</title>
+    <meta name="description" content="Kompletní seznam zdrojů ke Claude Code — kurzy, dokumentace, komunita, pluginy, cheat sheet a stránky ke stažení.">
+
+    <link rel="preload" href="../assets/css/styles.css" as="style">
+    <link rel="preload" href="../assets/css/iconoir.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta name="theme-color" content="#0B1221">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zdroje a odkazy — Naučte se Claude Code">
+    <meta property="og:description" content="Kurzy, dokumentace, komunita, pluginy a cheat sheet pro Claude Code.">
+    <meta property="og:site_name" content="Aibility">
+    <meta property="og:locale" content="cs_CZ">
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+    </noscript>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/iconoir.css">
+
+    <style>
+        /* Shared subpage styles */
+        .site-nav { background: var(--color-bg-card); border-bottom: 1px solid var(--color-border); padding: var(--space-2) 0; position: sticky; top: 60px; z-index: 90; }
+        .site-nav__list { display: flex; gap: var(--space-1); list-style: none; margin: 0; padding: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .site-nav__link { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: var(--font-medium); white-space: nowrap; transition: all var(--transition-fast); text-decoration: none; }
+        .site-nav__link:hover { color: var(--color-text-primary); background: var(--color-bg-secondary); }
+        .site-nav__link.is-active { color: var(--color-accent-primary); background: rgba(80, 0, 171, 0.08); font-weight: var(--font-semibold); }
+        .site-nav__link i { font-size: var(--text-base); }
+
+        .page-hero { padding: var(--space-16) 0 var(--space-10); background: var(--color-bg-primary); }
+        .page-hero__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
+        .page-hero__eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-accent-primary); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-4); }
+        .page-hero__title { font-family: var(--font-family-headings); font-size: clamp(2rem, 4vw, 3rem); line-height: var(--leading-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .page-hero__lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin: 0; max-width: 680px; }
+
+        .content-section { padding: var(--space-16) 0; border-bottom: 1px solid var(--color-border); }
+        .content-section:nth-child(even) { background: var(--color-bg-secondary); }
+        .content-section__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
+        .content-section__eyebrow { display: inline-block; color: var(--color-accent-primary); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--space-3); }
+        .content-section__title { font-family: var(--font-family-headings); font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: var(--leading-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .content-section__lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin: 0 0 var(--space-8); }
+
+        /* Link list */
+        .link-list { list-style: none; margin: var(--space-6) 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+        .link-list__item { display: flex; align-items: flex-start; gap: var(--space-4); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); transition: all var(--transition-fast); text-decoration: none; color: inherit; }
+        .link-list__item:hover { border-color: var(--color-border-light); box-shadow: var(--shadow-sm); }
+        .link-list__icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; font-size: var(--text-lg); }
+        .link-list__icon--purple { background: rgba(80, 0, 171, 0.08); color: var(--color-accent-primary); }
+        .link-list__icon--teal { background: rgba(8, 145, 178, 0.08); color: var(--color-accent-secondary); }
+        .link-list__icon--amber { background: rgba(217, 119, 6, 0.08); color: var(--color-warning); }
+        .link-list__icon--green { background: rgba(5, 150, 105, 0.08); color: var(--color-success); }
+        .link-list__body { flex: 1; min-width: 0; }
+        .link-list__title { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-base); margin: 0 0 2px; }
+        .link-list__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0; }
+        .link-list__url { font-size: var(--text-xs); color: var(--color-text-tertiary); margin-top: 4px; display: block; word-break: break-all; }
+
+        /* Commands table */
+        .commands-table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; }
+        .commands-table th, .commands-table td { padding: var(--space-3) var(--space-4); text-align: left; border-bottom: 1px solid var(--color-border); font-size: var(--text-sm); }
+        .commands-table th { color: var(--color-text-tertiary); font-weight: var(--font-semibold); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.05em; }
+        .commands-table td:first-child { font-family: "SF Mono", Menlo, Consolas, monospace; color: var(--color-accent-primary); white-space: nowrap; }
+        .commands-table td:last-child { color: var(--color-text-secondary); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Přeskočit na obsah</a>
+
+    <header class="header" id="header">
+        <div class="header__container container">
+            <div class="header__left">
+                <a href="../" class="header__logo" aria-label="Aibility">
+                    <img src="../assets/img/aibility-logo.svg" alt="Aibility" class="header__logo-img" width="120" height="40" fetchpriority="high">
+                </a>
+            </div>
+            <nav class="header__nav" aria-label="Hlavní navigace">
+                <ul class="header__nav-list">
+                    <li><a href="https://aibility.cz" class="header__nav-item" target="_blank" rel="noopener">aibility.cz</a></li>
+                    <li><a href="./" class="header__nav-item" style="color: var(--color-accent-primary);">Zdroje a&nbsp;odkazy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Průvodce">
+        <div class="container">
+            <ul class="site-nav__list">
+                <li><a href="../" class="site-nav__link"><i class="iconoir-home"></i> Přehled</a></li>
+                <li><a href="../zacatek/" class="site-nav__link"><i class="iconoir-play"></i> Začátek</a></li>
+                <li><a href="../level-1/" class="site-nav__link"><i class="iconoir-sparks"></i> Level 1</a></li>
+                <li><a href="../level-2/" class="site-nav__link"><i class="iconoir-plugin"></i> Level 2</a></li>
+                <li><a href="../level-3/" class="site-nav__link"><i class="iconoir-settings"></i> Level 3</a></li>
+                <li><a href="./" class="site-nav__link is-active"><i class="iconoir-bookmark"></i> Zdroje</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" tabindex="-1">
+        <section class="page-hero">
+            <div class="page-hero__container">
+                <span class="page-hero__eyebrow"><i class="iconoir-bookmark"></i> Zdroje</span>
+                <h1 class="page-hero__title">Zdroje a&nbsp;odkazy</h1>
+                <p class="page-hero__lead">
+                    Všechno na jednom místě&nbsp;— kurzy, dokumentace, komunita, stažení, pluginy a&nbsp;užitečné příkazy.
+                </p>
+            </div>
+        </section>
+
+        <!-- Courses -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Kurzy</span>
+                <h2 class="content-section__title">Oficiální bezplatné kurzy</h2>
+
+                <ul class="link-list">
+                    <li>
+                        <a href="https://anthropic.skilljar.com/claude-code-101" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--purple"><i class="iconoir-graduation-cap"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Claude Code 101</h3>
+                                <p class="link-list__desc">Bezplatný videokurz pro začátečníky. Od prvního spuštění po každodenní práci. Anglicky.</p>
+                                <span class="link-list__url">anthropic.skilljar.com/claude-code-101</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--purple"><i class="iconoir-graduation-cap"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Claude Code in Action</h3>
+                                <p class="link-list__desc">Pokročilejší kurz — architektura, MCP servery, GitHub integrace, Agent SDK. Anglicky.</p>
+                                <span class="link-list__url">anthropic.skilljar.com/claude-code-in-action</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Documentation -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Dokumentace</span>
+                <h2 class="content-section__title">Oficiální dokumentace</h2>
+
+                <ul class="link-list">
+                    <li>
+                        <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-book"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Overview</h3>
+                                <p class="link-list__desc">Přehled&nbsp;— hlavní vstupní bod do&nbsp;dokumentace Claude&nbsp;Code.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://code.claude.com/docs/en/desktop-quickstart" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-computer"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Desktop Quickstart</h3>
+                                <p class="link-list__desc">Návod na spuštění desktopové aplikace.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://code.claude.com/docs/en/web-quickstart" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-globe"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Web Quickstart</h3>
+                                <p class="link-list__desc">Návod na webovou verzi (claude.ai/code).</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-terminal"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">CLI Quickstart</h3>
+                                <p class="link-list__desc">Návod na terminálovou verzi.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-star"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Best Practices</h3>
+                                <p class="link-list__desc">Tipy pro efektivní práci s Claude Code.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://code.claude.com/docs/en/common-workflows" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-refresh-double"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Common Workflows</h3>
+                                <p class="link-list__desc">Běžné scénáře a jak je řešit.</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Downloads -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Stažení</span>
+                <h2 class="content-section__title">Instalace a&nbsp;stažení</h2>
+
+                <ul class="link-list">
+                    <li>
+                        <a href="https://claude.com/download" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--green"><i class="iconoir-download"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Desktopová aplikace</h3>
+                                <p class="link-list__desc">macOS, Windows a&nbsp;Linux. Nejjednodušší cesta pro začátečníky.</p>
+                                <span class="link-list__url">claude.com/download</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://claude.ai/code" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--green"><i class="iconoir-globe"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Webová aplikace</h3>
+                                <p class="link-list__desc">Žádná instalace. Běží v prohlížeči, práce probíhá v cloudu.</p>
+                                <span class="link-list__url">claude.ai/code</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--green"><i class="iconoir-code-brackets"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">VS Code rozšíření</h3>
+                                <p class="link-list__desc">Pro vývojáře, kteří pracují ve VS Code nebo Cursor.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://plugins.jetbrains.com/plugin/27310-claude-code-beta-" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--green"><i class="iconoir-code-brackets"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">JetBrains plugin (beta)</h3>
+                                <p class="link-list__desc">IntelliJ IDEA, PyCharm, WebStorm a další JetBrains IDE.</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Plugin ecosystems -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Pluginy a skills</span>
+                <h2 class="content-section__title">Ekosystémy rozšíření</h2>
+
+                <ul class="link-list">
+                    <li>
+                        <a href="https://github.com/anthropics/claude-code/tree/main/plugins" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--amber"><i class="iconoir-plugin"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Anthropic Official Plugins</h3>
+                                <p class="link-list__desc">Oficiální pluginy od tvůrců Claude Code.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--amber"><i class="iconoir-sparks"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Anthropic Skills</h3>
+                                <p class="link-list__desc">Oficiální repozitář agent skills od&nbsp;Anthropic. 118 000+ hvězd.</p>
+                                <span class="link-list__url">github.com/anthropics/skills</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--amber"><i class="iconoir-sparks"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Awesome Claude Code</h3>
+                                <p class="link-list__desc">Kurátorský seznam skills, pluginů, hooků a&nbsp;nástrojů. 39 000+ hvězd.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--amber"><i class="iconoir-settings"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Compound Engineering</h3>
+                                <p class="link-list__desc">Plugin od Every Inc.&nbsp;— 14 000+ hvězd. Code review, plánování, nasazení.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ondrej-svec/heart-of-gold-toolkit" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--amber"><i class="iconoir-heart"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Heart of Gold Toolkit</h3>
+                                <p class="link-list__desc">Komplexní toolkit — plánování, brainstorming, review, automatizace, vizualizace.</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Useful commands -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Příkazy</span>
+                <h2 class="content-section__title">Užitečné příkazy</h2>
+                <p class="content-section__lead">Příkazy, které se hodí znát od začátku.</p>
+
+                <table class="commands-table">
+                    <thead>
+                        <tr>
+                            <th>Příkaz</th>
+                            <th>Co dělá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>claude</td><td>Spuštění Claude Code (terminál)</td></tr>
+                        <tr><td>/help</td><td>Nápověda</td></tr>
+                        <tr><td>/init</td><td>Vytvořit CLAUDE.md z&nbsp;obsahu složky</td></tr>
+                        <tr><td>/clear</td><td>Vymazat kontext konverzace</td></tr>
+                        <tr><td>/compact</td><td>Zkrátit kontext (šetří tokeny)</td></tr>
+                        <tr><td>/rewind</td><td>Vrátit kód nebo konverzaci na&nbsp;předchozí bod</td></tr>
+                        <tr><td>/plan</td><td>Přepnout do režimu plánování</td></tr>
+                        <tr><td>/model</td><td>Přepnout model (Haiku / Sonnet / Opus)</td></tr>
+                        <tr><td>/cost</td><td>Zobrazit spotřebu (API uživatelé)</td></tr>
+                        <tr><td>/stats</td><td>Zobrazit statistiky používání</td></tr>
+                        <tr><td>/plugin</td><td>Správa pluginů a&nbsp;marketplace</td></tr>
+                        <tr><td>Esc</td><td>Zastavit generování</td></tr>
+                        <tr><td>Esc Esc</td><td>Otevřít nabídku pro vrácení změn</td></tr>
+                        <tr><td>Shift+Tab</td><td>Přepínat režimy oprávnění</td></tr>
+                        <tr><td>/exit</td><td>Ukončit Claude Code</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Events -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Události</span>
+                <h2 class="content-section__title">Code with Claude 2026</h2>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-6);">
+                    Anthropic pořádá sérii živých akcí s&nbsp;workshopy a&nbsp;ukázkami nových funkcí Claude&nbsp;Code. Virtuální účast je zdarma.
+                </p>
+
+                <ul class="link-list">
+                    <li>
+                        <a href="https://claude.com/code-with-claude" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--amber"><i class="iconoir-calendar"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Registrace na livestream</h3>
+                                <p class="link-list__desc">San Francisco (6.&nbsp;května), Londýn (19.&nbsp;května), Tokio (10.&nbsp;června). Virtuální účast zdarma.</p>
+                                <span class="link-list__url">claude.com/code-with-claude</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Community -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Komunita</span>
+                <h2 class="content-section__title">Kde najít pomoc a&nbsp;lidi</h2>
+
+                <ul class="link-list">
+                    <li>
+                        <a href="https://aibility.cz" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--purple"><i class="iconoir-community"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Aibility komunita</h3>
+                                <p class="link-list__desc">Česká komunita na Circle. Kurzy, webináře, sdílení zkušeností.</p>
+                                <span class="link-list__url">aibility.cz</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.anthropic.com/discord" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--purple"><i class="iconoir-chat-bubble"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Anthropic Discord</h3>
+                                <p class="link-list__desc">Oficiální Discord komunita od Anthropic. Anglicky.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--purple"><i class="iconoir-github"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">GitHub — Claude Code</h3>
+                                <p class="link-list__desc">Zdrojový kód, issues, diskuse.</p>
+                                <span class="link-list__url">github.com/anthropics/claude-code</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Pricing and product -->
+        <section class="content-section" style="border-bottom: none;">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Produkt</span>
+                <h2 class="content-section__title">O&nbsp;Claude&nbsp;Code</h2>
+
+                <ul class="link-list">
+                    <li>
+                        <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-sparks"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Produktová stránka</h3>
+                                <p class="link-list__desc">Přehled funkcí a možností Claude Code.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://claude.com/pricing" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-wallet"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">Ceník</h3>
+                                <p class="link-list__desc">Plány Pro, Max 5x a Max 20x.</p>
+                                <span class="link-list__url">claude.com/pricing</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://code.claude.com/docs/en/whats-new" target="_blank" rel="noopener" class="link-list__item">
+                            <div class="link-list__icon link-list__icon--teal"><i class="iconoir-flash"></i></div>
+                            <div class="link-list__body">
+                                <h3 class="link-list__title">What's New</h3>
+                                <p class="link-list__desc">Týdenní přehled novinek v Claude Code.</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="container footer__container">
+            <div class="footer__logo">
+                <img src="../assets/img/aibility-logo.svg" alt="Aibility" class="footer__logo-img" loading="lazy" width="120" height="40">
+            </div>
+            <p class="footer__copyright">© 2026 Aibility · <a href="https://github.com/aibilitycz/claude-code-90-webinar" target="_blank" rel="noopener" style="color: inherit;">GitHub</a> · <a href="https://aibility.cz" target="_blank" rel="noopener" style="color: inherit;">aibility.cz</a></p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/prework.js" defer></script>
+</body>
+</html>

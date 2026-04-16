@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Příprava na webinář — Intro do Claude Code | Aibility</title>
-    <meta name="description" content="Pět kroků, asi 15 minut. Připravte si Claude Code, Git a stáhněte si materiály k webináři Intro do Claude Code od Aibility.">
-    <meta name="robots" content="noindex, nofollow">
+    <title>Naučte se Claude Code — Průvodce od Aibility</title>
+    <meta name="description" content="Krok za krokem se naučte pracovat s Claude Code — AI agentem, který vám pomůže s čímkoli od webu po prezentaci. Žádné programátorské znalosti potřeba.">
 
     <link rel="preload" href="assets/css/styles.css" as="style">
     <link rel="preload" href="assets/css/iconoir.css" as="style">
@@ -18,8 +17,8 @@
     <meta name="theme-color" content="#0B1221">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Příprava na webinář — Intro do Claude Code">
-    <meta property="og:description" content="Pět kroků, asi 15 minut. Připravte si všechno před živým webinářem.">
+    <meta property="og:title" content="Naučte se Claude Code — Průvodce od Aibility">
+    <meta property="og:description" content="Krok za krokem se naučte pracovat s AI agentem Claude Code. Žádné programátorské znalosti potřeba.">
     <meta property="og:site_name" content="Aibility">
     <meta property="og:locale" content="cs_CZ">
 
@@ -33,13 +32,62 @@
 
     <style>
         /* ==========================================================================
-           Prework page — page-specific styles
+           Learning guide — shared page styles (landing + subpages)
            ========================================================================== */
 
-        /* Hero with grid overlay */
-        .prework-hero {
+        /* Site navigation */
+        .site-nav {
+            background: var(--color-bg-card);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-2) 0;
+            position: sticky;
+            top: 60px;
+            z-index: 90;
+        }
+
+        .site-nav__list {
+            display: flex;
+            gap: var(--space-1);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .site-nav__link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            color: var(--color-text-secondary);
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            white-space: nowrap;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+        }
+
+        .site-nav__link:hover {
+            color: var(--color-text-primary);
+            background: var(--color-bg-secondary);
+        }
+
+        .site-nav__link.is-active {
+            color: var(--color-accent-primary);
+            background: rgba(80, 0, 171, 0.08);
+            font-weight: var(--font-semibold);
+        }
+
+        .site-nav__link i {
+            font-size: var(--text-base);
+        }
+
+        /* Landing hero */
+        .guide-hero {
             position: relative;
-            min-height: 70vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             padding: var(--space-24) 0 var(--space-20);
@@ -47,7 +95,7 @@
             overflow: hidden;
         }
 
-        .prework-hero::before {
+        .guide-hero::before {
             content: "";
             position: absolute;
             inset: 0;
@@ -60,15 +108,15 @@
             pointer-events: none;
         }
 
-        .prework-hero__content {
+        .guide-hero__content {
             position: relative;
             text-align: center;
-            max-width: 760px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 var(--space-6);
         }
 
-        .prework-hero__eyebrow {
+        .guide-hero__eyebrow {
             display: inline-flex;
             align-items: center;
             gap: var(--space-2);
@@ -84,7 +132,7 @@
             margin-bottom: var(--space-6);
         }
 
-        .prework-hero__title {
+        .guide-hero__title {
             font-family: var(--font-family-headings);
             font-size: clamp(2.25rem, 5vw, 3.75rem);
             line-height: var(--leading-tight);
@@ -93,162 +141,285 @@
             font-weight: var(--font-normal);
         }
 
-        .prework-hero__title .text-accent {
+        .guide-hero__title .text-accent {
             color: var(--color-accent-primary);
         }
 
-        .prework-hero__subtitle {
+        .guide-hero__subtitle {
             font-size: var(--text-xl);
             line-height: var(--leading-relaxed);
             color: var(--color-text-secondary);
-            margin: 0 0 var(--space-8);
+            margin: 0 0 var(--space-10);
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .prework-hero__meta {
+        .guide-hero__meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+        }
+
+        .guide-hero__meta-item {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-3);
-            color: var(--color-text-tertiary);
-            font-size: var(--text-sm);
-            margin-top: var(--space-6);
-        }
-
-        .prework-hero__meta i {
-            color: var(--color-accent-primary);
-        }
-
-        /* Steps overview strip */
-        .steps-strip {
-            background: var(--color-bg-card);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-            padding: var(--space-8) 0;
-        }
-
-        .steps-strip__list {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: var(--space-4);
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .steps-strip__item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
             gap: var(--space-2);
             color: var(--color-text-tertiary);
             font-size: var(--text-sm);
-            position: relative;
         }
 
-        .steps-strip__item::after {
-            content: "";
-            position: absolute;
-            top: 18px;
-            left: calc(50% + 24px);
-            right: calc(-50% + 24px);
-            height: 1px;
-            background: var(--color-border);
+        .guide-hero__meta-item i {
+            color: var(--color-accent-primary);
         }
 
-        .steps-strip__item:last-child::after {
-            display: none;
-        }
-
-        .steps-strip__num {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-full);
-            background: var(--color-bg-primary);
-            border: 1px solid var(--color-border);
-            color: var(--color-text-secondary);
-            font-weight: var(--font-semibold);
-            font-size: var(--text-base);
-            position: relative;
-            z-index: 1;
+        /* Level cards */
+        .level-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-6);
+            margin: var(--space-10) 0;
         }
 
         @media (max-width: 768px) {
-            .steps-strip__list {
-                grid-template-columns: repeat(5, 1fr);
-                gap: var(--space-2);
-            }
-            .steps-strip__item {
-                font-size: var(--text-xs);
-            }
-            .steps-strip__item::after {
-                top: 14px;
-            }
-            .steps-strip__num {
-                width: 28px;
-                height: 28px;
-                font-size: var(--text-sm);
+            .level-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Step section */
-        .step-section {
-            padding: var(--space-20) 0;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .step-section:nth-child(even) {
-            background: var(--color-bg-secondary);
-        }
-
-        .step-section__container {
-            max-width: 880px;
-            margin: 0 auto;
-            padding: 0 var(--space-6);
-        }
-
-        .step-section__header {
+        .level-card {
             display: flex;
-            align-items: flex-start;
-            gap: var(--space-5);
-            margin-bottom: var(--space-5);
+            flex-direction: column;
+            gap: var(--space-4);
+            padding: var(--space-8);
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            transition: all var(--transition-base);
+            text-decoration: none;
+            color: inherit;
         }
 
-        .step-section__badge {
+        .level-card:hover {
+            border-color: var(--color-border-light);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .level-card__header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .level-card__badge {
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, var(--color-accent-primary) 0%, #7c3aed 100%);
-            color: white;
+            width: 56px;
+            height: 56px;
             border-radius: var(--radius-full);
             font-family: var(--font-family-headings);
-            font-size: var(--text-3xl);
+            font-size: var(--text-xl);
             font-weight: var(--font-normal);
-            box-shadow: 0 8px 24px rgba(80, 0, 171, 0.2);
+            color: white;
         }
 
-        .step-section__headings {
+        .level-card__badge--start {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            box-shadow: 0 4px 16px rgba(5, 150, 105, 0.25);
+        }
+
+        .level-card__badge--1 {
+            background: linear-gradient(135deg, var(--color-accent-primary) 0%, #7c3aed 100%);
+            box-shadow: 0 4px 16px rgba(80, 0, 171, 0.25);
+        }
+
+        .level-card__badge--2 {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            box-shadow: 0 4px 16px rgba(8, 145, 178, 0.25);
+        }
+
+        .level-card__badge--3 {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            box-shadow: 0 4px 16px rgba(217, 119, 6, 0.25);
+        }
+
+        .level-card__title {
+            font-family: var(--font-family-headings);
+            font-size: var(--text-2xl);
+            line-height: var(--leading-snug);
+            color: var(--color-text-primary);
+            margin: 0;
+            font-weight: var(--font-normal);
+        }
+
+        .level-card__desc {
+            color: var(--color-text-secondary);
+            font-size: var(--text-base);
+            line-height: var(--leading-relaxed);
+            margin: 0;
             flex: 1;
-            min-width: 0;
-            padding-top: var(--space-1);
         }
 
-        .step-section__eyebrow {
-            display: inline-block;
+        .level-card__meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            color: var(--color-text-tertiary);
+            font-size: var(--text-sm);
+        }
+
+        .level-card__meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+
+        .level-card__meta-item i {
+            font-size: var(--text-base);
+        }
+
+        .level-card__arrow {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
             color: var(--color-accent-primary);
-            font-size: var(--text-xs);
+            font-size: var(--text-sm);
             font-weight: var(--font-semibold);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: var(--space-2);
+            margin-top: auto;
         }
 
-        .step-section__title {
+        .level-card__arrow i {
+            transition: transform var(--transition-fast);
+        }
+
+        .level-card:hover .level-card__arrow i {
+            transform: translateX(4px);
+        }
+
+        /* "For whom" section */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-5);
+            margin: var(--space-8) 0;
+        }
+
+        @media (max-width: 768px) {
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .audience-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: var(--space-3);
+            padding: var(--space-6);
+        }
+
+        .audience-item__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-full);
+            background: var(--icon-bg);
+            color: var(--color-accent-primary);
+            font-size: var(--text-2xl);
+        }
+
+        .audience-item__label {
+            font-weight: var(--font-semibold);
+            color: var(--color-text-primary);
+            font-size: var(--text-base);
+        }
+
+        .audience-item__desc {
+            color: var(--color-text-secondary);
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+        }
+
+        /* Resources strip */
+        .resources-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            margin: var(--space-8) 0;
+        }
+
+        @media (max-width: 768px) {
+            .resources-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .resource-card {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            padding: var(--space-6);
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            transition: all var(--transition-base);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .resource-card:hover {
+            border-color: var(--color-border-light);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .resource-card__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            background: var(--icon-bg);
+            font-size: var(--text-xl);
+        }
+
+        .resource-card__icon--purple { color: var(--color-accent-primary); }
+        .resource-card__icon--teal { color: var(--color-accent-secondary); }
+        .resource-card__icon--amber { color: var(--color-warning); }
+
+        .resource-card__title {
+            font-family: var(--font-family-headings);
+            font-size: var(--text-xl);
+            color: var(--color-text-primary);
+            margin: 0;
+            font-weight: var(--font-normal);
+        }
+
+        .resource-card__desc {
+            color: var(--color-text-secondary);
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+            margin: 0;
+        }
+
+        /* CTA section */
+        .cta-section {
+            padding: var(--space-20) 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .cta-section__title {
             font-family: var(--font-family-headings);
             font-size: clamp(1.875rem, 3.5vw, 2.5rem);
             line-height: var(--leading-tight);
@@ -257,582 +428,13 @@
             font-weight: var(--font-normal);
         }
 
-        @media (max-width: 640px) {
-            .step-section__badge {
-                width: 56px;
-                height: 56px;
-                font-size: var(--text-2xl);
-            }
-            .step-section__header {
-                gap: var(--space-4);
-            }
-        }
-
-        /* Sub-headings within step sections */
-        .sub-heading {
-            font-family: var(--font-family-headings);
-            font-size: var(--text-xl);
-            color: var(--color-text-primary);
-            margin: var(--space-8) 0 var(--space-3);
-            font-weight: var(--font-normal);
-        }
-
-        /* "Ask Claude Code to do it" prompt card */
-        .ask-claude {
-            margin: var(--space-6) 0;
-            padding: var(--space-5) var(--space-6);
-            background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%);
-            border: 1px solid rgba(80, 0, 171, 0.16);
-            border-radius: var(--radius-xl);
-        }
-
-        .ask-claude__header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-            margin-bottom: var(--space-3);
-        }
-
-        .ask-claude__icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: var(--color-accent-primary);
-            color: white;
-            border-radius: var(--radius-full);
+        .cta-section__subtitle {
             font-size: var(--text-lg);
-            flex-shrink: 0;
-        }
-
-        .ask-claude__title {
-            font-weight: var(--font-semibold);
-            color: var(--color-text-primary);
-            font-size: var(--text-base);
-        }
-
-        .ask-claude__desc {
-            color: var(--color-text-secondary);
-            font-size: var(--text-sm);
-            line-height: var(--leading-relaxed);
-            margin: 0 0 var(--space-3);
-        }
-
-        .ask-claude__prompt {
-            margin: 0;
-            padding: var(--space-4) var(--space-5);
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px dashed rgba(80, 0, 171, 0.24);
-            border-radius: var(--radius-lg);
-            font-family: var(--font-family-headings);
-            font-size: var(--text-base);
-            line-height: var(--leading-snug);
-            color: var(--color-text-primary);
-            font-style: italic;
-            position: relative;
-        }
-
-        .ask-claude__prompt::before {
-            content: "\201E"; /* Czech opening quote */
-            position: absolute;
-            left: var(--space-2);
-            top: -8px;
-            font-size: var(--text-4xl);
-            color: var(--color-accent-primary);
-            line-height: 1;
-            opacity: 0.4;
-            font-family: var(--font-family-headings);
-        }
-
-        .ask-claude__prompt::after {
-            content: "\201C"; /* Czech closing quote */
-            position: absolute;
-            right: var(--space-3);
-            bottom: -22px;
-            font-size: var(--text-4xl);
-            color: var(--color-accent-primary);
-            line-height: 1;
-            opacity: 0.4;
-            font-family: var(--font-family-headings);
-        }
-
-        .step-section__lead {
-            font-size: var(--text-lg);
-            line-height: var(--leading-relaxed);
             color: var(--color-text-secondary);
             margin: 0 0 var(--space-8);
-        }
-
-        /* Plan cards (Step 1) */
-        .plan-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-5);
-            margin: var(--space-8) 0;
-        }
-
-        @media (max-width: 768px) {
-            .plan-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .plan-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-xl);
-            padding: var(--space-6);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-3);
-            transition: all var(--transition-base);
-        }
-
-        .plan-card:hover {
-            border-color: var(--color-border-light);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .plan-card--featured {
-            border-color: var(--color-accent-primary);
-            border-width: 2px;
-            background: linear-gradient(180deg, var(--color-bg-card) 0%, rgba(80, 0, 171, 0.03) 100%);
-            position: relative;
-        }
-
-        .plan-card--featured::before {
-            content: "Doporučeno pro webinář";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--color-accent-primary);
-            color: white;
-            font-size: var(--text-xs);
-            font-weight: var(--font-semibold);
-            padding: var(--space-1) var(--space-3);
-            border-radius: var(--radius-full);
-            white-space: nowrap;
-        }
-
-        .plan-card__name {
-            font-family: var(--font-family-headings);
-            font-size: var(--text-xl);
-            color: var(--color-text-primary);
-            margin: 0;
-        }
-
-        .plan-card__price {
-            font-size: var(--text-2xl);
-            font-weight: var(--font-bold);
-            color: var(--color-text-primary);
-            margin: 0;
-        }
-
-        .plan-card__price small {
-            font-size: var(--text-sm);
-            font-weight: var(--font-normal);
-            color: var(--color-text-tertiary);
-        }
-
-        .plan-card__price-note {
-            font-size: var(--text-xs);
-            color: var(--color-text-tertiary);
-            margin: 0;
-        }
-
-        .plan-card__desc {
-            font-size: var(--text-sm);
-            line-height: var(--leading-relaxed);
-            color: var(--color-text-secondary);
-            margin: var(--space-2) 0 0;
-            flex: 1;
-        }
-
-        /* Callout box (info / warning) */
-        .callout {
-            display: flex;
-            gap: var(--space-3);
-            align-items: flex-start;
-            padding: var(--space-4) var(--space-5);
-            background: rgba(80, 0, 171, 0.04);
-            border-left: 3px solid var(--color-accent-primary);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--space-8);
-        }
-
-        .callout i {
-            color: var(--color-accent-primary);
-            font-size: var(--text-xl);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .callout p {
-            margin: 0;
-            color: var(--color-text-secondary);
-            font-size: var(--text-sm);
-            line-height: var(--leading-relaxed);
-        }
-
-        .callout strong {
-            color: var(--color-text-primary);
-        }
-
-        /* Tabs (for surface choice and OS choice) */
-        .tabs {
-            margin: var(--space-6) 0;
-        }
-
-        .tabs__list {
-            display: flex;
-            gap: var(--space-2);
-            list-style: none;
-            margin: 0 0 var(--space-5);
-            padding: var(--space-1);
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-full);
-            width: fit-content;
-            max-width: 100%;
-            overflow-x: auto;
-        }
-
-        .tabs__button {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-2);
-            padding: var(--space-2) var(--space-5);
-            background: transparent;
-            border: none;
-            border-radius: var(--radius-full);
-            color: var(--color-text-secondary);
-            font-family: inherit;
-            font-size: var(--text-sm);
-            font-weight: var(--font-medium);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            white-space: nowrap;
-        }
-
-        .tabs__button:hover {
-            color: var(--color-text-primary);
-        }
-
-        .tabs__button[aria-selected="true"] {
-            background: var(--color-accent-primary);
-            color: white;
-        }
-
-        .tabs__panel {
-            display: none;
-        }
-
-        .tabs__panel[aria-hidden="false"] {
-            display: block;
-        }
-
-        /* Code blocks with copy-to-clipboard */
-        .code-block {
-            position: relative;
-            margin: var(--space-4) 0;
-        }
-
-        .code-block pre {
-            margin: 0;
-            padding: var(--space-5) var(--space-6);
-            padding-right: calc(var(--space-6) + 110px);
-            background: #0f172a;
-            color: #e2e8f0;
-            border-radius: var(--radius-lg);
-            font-family: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-            font-size: var(--text-sm);
-            line-height: var(--leading-relaxed);
-            overflow-x: auto;
-        }
-
-        .code-block pre code {
-            background: transparent;
-            color: inherit;
-            font-family: inherit;
-            font-size: inherit;
-            padding: 0;
-        }
-
-        .code-block__copy {
-            position: absolute;
-            top: var(--space-3);
-            right: var(--space-3);
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-2);
-            padding: var(--space-2) var(--space-3);
-            background: rgba(255, 255, 255, 0.08);
-            color: #e2e8f0;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: var(--radius-md);
-            font-family: inherit;
-            font-size: var(--text-xs);
-            font-weight: var(--font-medium);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-
-        .code-block__copy:hover {
-            background: rgba(255, 255, 255, 0.16);
-            border-color: rgba(255, 255, 255, 0.24);
-        }
-
-        .code-block__copy.is-copied {
-            background: rgba(5, 150, 105, 0.24);
-            border-color: rgba(5, 150, 105, 0.48);
-        }
-
-        /* Expected output block */
-        .expected {
-            margin: var(--space-2) 0 var(--space-5);
-            padding: var(--space-3) var(--space-5);
-            background: rgba(5, 150, 105, 0.06);
-            border-left: 3px solid var(--color-success);
-            border-radius: var(--radius-md);
-            font-size: var(--text-sm);
-            color: var(--color-text-secondary);
-        }
-
-        .expected strong {
-            color: var(--color-success);
-        }
-
-        /* Feature row (for "what's in the repo" lists) */
-        .feature-row {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: var(--space-3) var(--space-4);
-            margin: var(--space-5) 0;
-            align-items: start;
-        }
-
-        .feature-row i {
-            color: var(--color-accent-primary);
-            font-size: var(--text-xl);
-            margin-top: 2px;
-        }
-
-        .feature-row strong {
-            display: block;
-            color: var(--color-text-primary);
-            font-weight: var(--font-semibold);
-            margin-bottom: 2px;
-        }
-
-        .feature-row span {
-            color: var(--color-text-secondary);
-            font-size: var(--text-sm);
-            line-height: var(--leading-relaxed);
-        }
-
-        /* Preflight final state */
-        .preflight-final {
-            margin-top: var(--space-10);
-            padding: var(--space-8);
-            background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%);
-            border: 2px solid var(--color-accent-primary);
-            border-radius: var(--radius-xl);
-            text-align: center;
-        }
-
-        .preflight-final__icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 64px;
-            background: var(--color-accent-primary);
-            color: white;
-            border-radius: var(--radius-full);
-            font-size: var(--text-3xl);
-            margin-bottom: var(--space-4);
-        }
-
-        .preflight-final__title {
-            font-family: var(--font-family-headings);
-            font-size: var(--text-3xl);
-            color: var(--color-text-primary);
-            margin: 0 0 var(--space-3);
-            font-weight: var(--font-normal);
-        }
-
-        .preflight-final__lead {
-            font-size: var(--text-lg);
-            color: var(--color-text-secondary);
-            margin: 0 0 var(--space-2);
-        }
-
-        .preflight-final__meta {
-            font-size: var(--text-sm);
-            color: var(--color-text-tertiary);
-            margin: 0;
-        }
-
-        /* Help cards (troubleshooting section — two friendly paths) */
-        .help-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-5);
-            margin: var(--space-8) 0;
-        }
-
-        @media (max-width: 768px) {
-            .help-options {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .help-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-xl);
-            padding: var(--space-6);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-3);
-        }
-
-        .help-card__icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--color-accent-primary) 0%, #7c3aed 100%);
-            color: white;
-            border-radius: var(--radius-full);
-            font-size: var(--text-xl);
-            margin-bottom: var(--space-2);
-        }
-
-        .help-card__icon--secondary {
-            background: linear-gradient(135deg, var(--color-accent-secondary, #0891B2) 0%, #06b6d4 100%);
-        }
-
-        .help-card__title {
-            font-family: var(--font-family-headings);
-            font-size: var(--text-xl);
-            color: var(--color-text-primary);
-            margin: 0;
-            font-weight: var(--font-normal);
-        }
-
-        .help-card__desc {
-            color: var(--color-text-secondary);
-            font-size: var(--text-base);
-            line-height: var(--leading-relaxed);
-            margin: 0;
-        }
-
-        .help-card__example-label {
-            font-size: var(--text-xs);
-            color: var(--color-text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-weight: var(--font-semibold);
-            margin: var(--space-3) 0 var(--space-2);
-        }
-
-        /* Instruction list (timeline of numbered steps) */
-        .instruction-list {
-            list-style: none;
-            margin: var(--space-6) 0;
-            padding: 0;
-            counter-reset: instruction;
-        }
-
-        .instruction-list li {
-            counter-increment: instruction;
-            position: relative;
-            padding: var(--space-3) 0 var(--space-5) 60px;
-            color: var(--color-text-primary);
-            font-size: var(--text-base);
-            line-height: var(--leading-relaxed);
-            min-height: 44px;
-        }
-
-        .instruction-list li::before {
-            content: counter(instruction);
-            position: absolute;
-            left: 0;
-            top: var(--space-2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--color-bg-card);
-            border: 1.5px solid var(--color-accent-primary);
-            color: var(--color-accent-primary);
-            border-radius: var(--radius-full);
-            font-family: var(--font-family-headings);
-            font-weight: var(--font-semibold);
-            font-size: var(--text-lg);
-        }
-
-        .instruction-list li:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            left: 19.25px;
-            top: calc(var(--space-2) + 44px);
-            bottom: 0;
-            width: 1.5px;
-            background: rgba(80, 0, 171, 0.16);
-        }
-
-        /* Path tabs — specific variant of .tabs used for "AI path vs manual path" */
-        .path-tabs {
-            margin: var(--space-6) 0;
-        }
-
-        .path-tabs .tabs__list {
-            background: var(--color-bg-primary);
-        }
-
-        .path-tabs .tabs__button {
-            padding: var(--space-3) var(--space-6);
-            font-size: var(--text-base);
-        }
-
-        /* Price disclaimer */
-        .price-disclaimer {
-            display: flex;
-            gap: var(--space-2);
-            align-items: flex-start;
-            font-size: var(--text-xs);
-            color: var(--color-text-tertiary);
-            line-height: var(--leading-relaxed);
-            margin: var(--space-4) 0 var(--space-8);
-            max-width: 640px;
-        }
-
-        .price-disclaimer i {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        /* Skip link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--color-accent-primary);
-            color: white;
-            padding: var(--space-2) var(--space-4);
-            text-decoration: none;
-            border-radius: 0 0 var(--radius-md) 0;
-            z-index: 1000;
-        }
-        .skip-link:focus {
-            top: 0;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -842,455 +444,227 @@
     <header class="header" id="header">
         <div class="header__container container">
             <div class="header__left">
-                <a href="/" class="header__logo" aria-label="Aibility">
+                <a href="./" class="header__logo" aria-label="Aibility">
                     <img src="assets/img/aibility-logo.svg" alt="Aibility" class="header__logo-img" width="120" height="40" fetchpriority="high">
                 </a>
             </div>
             <nav class="header__nav" aria-label="Hlavní navigace">
                 <ul class="header__nav-list">
-                    <li><a href="#krok-1" class="header__nav-item">Účet</a></li>
-                    <li><a href="#krok-2" class="header__nav-item">Claude Code</a></li>
-                    <li><a href="#krok-3" class="header__nav-item">Git</a></li>
-                    <li><a href="#krok-4" class="header__nav-item">Materiály</a></li>
-                    <li><a href="#krok-5" class="header__nav-item">Preflight</a></li>
+                    <li><a href="https://aibility.cz" class="header__nav-item" target="_blank" rel="noopener">aibility.cz</a></li>
+                    <li><a href="resources/" class="header__nav-item">Zdroje a&nbsp;odkazy</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <nav class="site-nav" aria-label="Průvodce">
+        <div class="container">
+            <ul class="site-nav__list">
+                <li><a href="./" class="site-nav__link is-active"><i class="iconoir-home"></i> Přehled</a></li>
+                <li><a href="zacatek/" class="site-nav__link"><i class="iconoir-play"></i> Začátek</a></li>
+                <li><a href="level-1/" class="site-nav__link"><i class="iconoir-sparks"></i> Level 1</a></li>
+                <li><a href="level-2/" class="site-nav__link"><i class="iconoir-plugin"></i> Level 2</a></li>
+                <li><a href="level-3/" class="site-nav__link"><i class="iconoir-settings"></i> Level 3</a></li>
+                <li><a href="resources/" class="site-nav__link"><i class="iconoir-bookmark"></i> Zdroje</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <main id="main-content" tabindex="-1">
-        <section class="prework-hero">
-            <div class="prework-hero__content">
-                <div class="prework-hero__eyebrow">
+        <section class="guide-hero">
+            <div class="guide-hero__content">
+                <div class="guide-hero__eyebrow">
                     <i class="iconoir-sparks"></i>
-                    Příprava na webinář
+                    Průvodce od Aibility
                 </div>
-                <h1 class="prework-hero__title">
-                    Pět kroků, <span class="text-accent">15 minut</span>,<br>
-                    a jste připraveni.
+                <h1 class="guide-hero__title">
+                    Naučte se <span class="text-accent">Claude&nbsp;Code</span>
                 </h1>
-                <p class="prework-hero__subtitle">
-                    Než se uvidíme živě 16.&nbsp;dubna v&nbsp;10:00, projděte si tuhle stránku. Nainstalujete si Claude&nbsp;Code, založíte si Git, stáhnete materiály k&nbsp;webináři a&nbsp;ověříte si, že všechno funguje.
+                <p class="guide-hero__subtitle">
+                    AI agent, který pracuje s&nbsp;vašimi soubory, hledá na&nbsp;webu a&nbsp;staví věci za&nbsp;vás&nbsp;— od osobní stránky po analýzu dat. Tenhle průvodce vás provede krok za&nbsp;krokem, vlastním tempem, bez&nbsp;jediného řádku kódu.
                 </p>
-                <a href="#krok-1" class="btn btn--primary btn--lg">
-                    Začít přípravu
+                <a href="zacatek/" class="btn btn--primary btn--lg">
+                    Začít
                     <i class="iconoir-arrow-right btn__icon"></i>
                 </a>
-                <div class="prework-hero__meta">
-                    <i class="iconoir-clock"></i>
-                    <span>Asi 15 minut · žádné programátorské zkušenosti potřeba</span>
+                <div class="guide-hero__meta">
+                    <span class="guide-hero__meta-item">
+                        <i class="iconoir-clock"></i>
+                        Cca 60 minut celkem
+                    </span>
+                    <span class="guide-hero__meta-item">
+                        <i class="iconoir-code-brackets"></i>
+                        Žádné programování
+                    </span>
+                    <span class="guide-hero__meta-item">
+                        <i class="iconoir-language"></i>
+                        Česky
+                    </span>
                 </div>
             </div>
         </section>
 
-        <div class="steps-strip">
+        <!-- Levels -->
+        <section class="section" id="levels">
             <div class="container">
-                <ol class="steps-strip__list">
-                    <li class="steps-strip__item" data-step="1">
-                        <span class="steps-strip__num">1</span>
-                        <span>Účet Claude</span>
-                    </li>
-                    <li class="steps-strip__item" data-step="2">
-                        <span class="steps-strip__num">2</span>
-                        <span>Claude Code</span>
-                    </li>
-                    <li class="steps-strip__item" data-step="3">
-                        <span class="steps-strip__num">3</span>
-                        <span>Git</span>
-                    </li>
-                    <li class="steps-strip__item" data-step="4">
-                        <span class="steps-strip__num">4</span>
-                        <span>Materiály</span>
-                    </li>
-                    <li class="steps-strip__item" data-step="5">
-                        <span class="steps-strip__num">5</span>
-                        <span>Preflight</span>
-                    </li>
-                </ol>
-            </div>
-        </div>
+                <span class="section__eyebrow">Čtyři kroky</span>
+                <h2 class="section__title">Vyberte si, kde začít</h2>
+                <p class="section__description">
+                    Každý level stojí sám za&nbsp;sebe. Začněte od&nbsp;začátku, nebo skočte rovnou na&nbsp;to, co&nbsp;vás zajímá.
+                </p>
 
-        <section class="step-section" id="krok-1">
-            <div class="step-section__container">
-                <div class="step-section__header">
-                    <div class="step-section__badge">1</div>
-                    <div class="step-section__headings">
-                        <span class="step-section__eyebrow">Krok 1 ze 5</span>
-                        <h2 class="step-section__title">Založte si účet u&nbsp;Claude</h2>
+                <div class="level-grid">
+                    <a href="zacatek/" class="level-card">
+                        <div class="level-card__header">
+                            <div class="level-card__badge level-card__badge--start">
+                                <i class="iconoir-play"></i>
+                            </div>
+                            <h3 class="level-card__title">Začněte tady</h3>
+                        </div>
+                        <p class="level-card__desc">
+                            Co je Claude&nbsp;Code, kde ho spustit, kolik stojí a&nbsp;jak si ho nainstalovat. Na&nbsp;konci napíšete první zprávu a&nbsp;uvidíte, co agent umí.
+                        </p>
+                        <div class="level-card__meta">
+                            <span class="level-card__meta-item"><i class="iconoir-clock"></i> 15 min</span>
+                            <span class="level-card__meta-item"><i class="iconoir-emoji-satisfied"></i> Pro každého</span>
+                        </div>
+                        <span class="level-card__arrow">
+                            Otevřít <i class="iconoir-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <a href="level-1/" class="level-card">
+                        <div class="level-card__header">
+                            <div class="level-card__badge level-card__badge--1">1</div>
+                            <h3 class="level-card__title">První projekt</h3>
+                        </div>
+                        <p class="level-card__desc">
+                            Za deset minut postavíte něco skutečného&nbsp;— osobní stránku, appku nebo dokument. Zjistíte, jak agent přemýšlí, proč záleží na&nbsp;kontextu a&nbsp;jak ho navést správným směrem.
+                        </p>
+                        <div class="level-card__meta">
+                            <span class="level-card__meta-item"><i class="iconoir-clock"></i> 20 min</span>
+                            <span class="level-card__meta-item"><i class="iconoir-sparks"></i> Potřebujete Začátek</span>
+                        </div>
+                        <span class="level-card__arrow">
+                            Otevřít <i class="iconoir-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <a href="level-2/" class="level-card">
+                        <div class="level-card__header">
+                            <div class="level-card__badge level-card__badge--2">2</div>
+                            <h3 class="level-card__title">Skills a&nbsp;pluginy</h3>
+                        </div>
+                        <p class="level-card__desc">
+                            Opakovanou práci vyřešte jednou a&nbsp;uložte jako skill. Objevte marketplace s&nbsp;tisícovkami rozšíření&nbsp;— od obrázků přes e-mail po nasazení webu.
+                        </p>
+                        <div class="level-card__meta">
+                            <span class="level-card__meta-item"><i class="iconoir-clock"></i> 15 min</span>
+                            <span class="level-card__meta-item"><i class="iconoir-plugin"></i> Rozšiřuje Level 1</span>
+                        </div>
+                        <span class="level-card__arrow">
+                            Otevřít <i class="iconoir-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <a href="level-3/" class="level-card">
+                        <div class="level-card__header">
+                            <div class="level-card__badge level-card__badge--3">3</div>
+                            <h3 class="level-card__title">Orchestrace</h3>
+                        </div>
+                        <p class="level-card__desc">
+                            CLAUDE.md, MCP servery, modely a&nbsp;automatizace. Claude&nbsp;Code přestane být chatbot a&nbsp;stane se platformou, která spojí všechny vaše nástroje dohromady.
+                        </p>
+                        <div class="level-card__meta">
+                            <span class="level-card__meta-item"><i class="iconoir-clock"></i> 15 min</span>
+                            <span class="level-card__meta-item"><i class="iconoir-settings"></i> Pro pokročilé</span>
+                        </div>
+                        <span class="level-card__arrow">
+                            Otevřít <i class="iconoir-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- For whom -->
+        <section class="section" style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+            <div class="container">
+                <span class="section__eyebrow">Pro koho je průvodce</span>
+                <h2 class="section__title">Nepotřebujete umět programovat</h2>
+                <p class="section__description">
+                    Claude&nbsp;Code programuje za&nbsp;vás. Vy mu říkáte, co&nbsp;chcete&nbsp;— on to staví, hledá, analyzuje a&nbsp;upravuje.
+                </p>
+
+                <div class="audience-grid">
+                    <div class="audience-item">
+                        <div class="audience-item__icon"><i class="iconoir-megaphone"></i></div>
+                        <span class="audience-item__label">Marketing</span>
+                        <span class="audience-item__desc">Landing pages, analýzy kampaní, automatizace reportů</span>
+                    </div>
+                    <div class="audience-item">
+                        <div class="audience-item__icon"><i class="iconoir-clipboard-check"></i></div>
+                        <span class="audience-item__label">Produktový management</span>
+                        <span class="audience-item__desc">Prototypy, specifikace, analýzy zpětné vazby</span>
+                    </div>
+                    <div class="audience-item">
+                        <div class="audience-item__icon"><i class="iconoir-light-bulb"></i></div>
+                        <span class="audience-item__label">Podnikání</span>
+                        <span class="audience-item__desc">MVP za odpoledne, automatizace procesů, interní nástroje</span>
+                    </div>
+                    <div class="audience-item">
+                        <div class="audience-item__icon"><i class="iconoir-design-pencil"></i></div>
+                        <span class="audience-item__label">Kreativa</span>
+                        <span class="audience-item__desc">Portfolia, generování obsahu, interaktivní prezentace</span>
                     </div>
                 </div>
-                <p class="step-section__lead">
-                    Claude&nbsp;Code potřebuje účet u&nbsp;Anthropic — to je společnost, která Claude vyrobila. Stačí e-mail a&nbsp;heslo. Vyberte si plán, který vám sedí.
+            </div>
+        </section>
+
+        <!-- Resources preview -->
+        <section class="section">
+            <div class="container">
+                <span class="section__eyebrow">Zdroje k&nbsp;učení</span>
+                <h2 class="section__title">Oficiální materiály od Anthropic</h2>
+                <p class="section__description">
+                    Kromě tohoto průvodce máte k&nbsp;dispozici bezplatné kurzy, dokumentaci a&nbsp;komunitu přímo od tvůrců Claude.
                 </p>
 
-                <div class="callout">
-                    <i class="iconoir-info-circle"></i>
-                    <p><strong>Důležité:</strong> Claude&nbsp;Code <strong>není</strong> součástí bezplatného plánu. Nejlevnější placený plán, který ho obsahuje, je&nbsp;<strong>Pro</strong>.</p>
+                <div class="resources-strip">
+                    <a href="https://anthropic.skilljar.com/claude-code-101" target="_blank" rel="noopener" class="resource-card">
+                        <div class="resource-card__icon resource-card__icon--purple"><i class="iconoir-graduation-cap"></i></div>
+                        <h3 class="resource-card__title">Claude Code 101</h3>
+                        <p class="resource-card__desc">Bezplatný videokurz od&nbsp;Anthropic. Od&nbsp;prvního spuštění po&nbsp;každodenní práci. Anglicky, ale s&nbsp;ukázkami kódu, kterým rozumíte i&nbsp;bez angličtiny.</p>
+                    </a>
+
+                    <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener" class="resource-card">
+                        <div class="resource-card__icon resource-card__icon--teal"><i class="iconoir-book"></i></div>
+                        <h3 class="resource-card__title">Oficiální dokumentace</h3>
+                        <p class="resource-card__desc">Kompletní referenční příručka na&nbsp;code.claude.com. Quickstarty pro desktop, web i&nbsp;terminál, best practices, běžné scénáře.</p>
+                    </a>
+
+                    <a href="resources/" class="resource-card">
+                        <div class="resource-card__icon resource-card__icon--amber"><i class="iconoir-bookmark"></i></div>
+                        <h3 class="resource-card__title">Všechny odkazy</h3>
+                        <p class="resource-card__desc">Kompletní seznam zdrojů&nbsp;— kurzy, dokumentace, komunity, pluginy, cheat sheet a&nbsp;stránky ke&nbsp;stažení. Všechno na&nbsp;jednom místě.</p>
+                    </a>
                 </div>
+            </div>
+        </section>
 
-                <div class="plan-grid">
-                    <article class="plan-card plan-card--featured">
-                        <h3 class="plan-card__name">Pro</h3>
-                        <p class="plan-card__price">~460&nbsp;Kč <small>/ měsíc</small></p>
-                        <p class="plan-card__price-note">($20&nbsp;USD měsíčně, nebo $17&nbsp;USD s&nbsp;ročním závazkem)</p>
-                        <p class="plan-card__desc">Tohle stačí na&nbsp;webinář i&nbsp;první týdny vaší práce s&nbsp;Claude&nbsp;Codem. Můžete kdykoli zrušit.</p>
-                    </article>
-
-                    <article class="plan-card">
-                        <h3 class="plan-card__name">Max&nbsp;5×</h3>
-                        <p class="plan-card__price">~2&nbsp;300&nbsp;Kč <small>/ měsíc</small></p>
-                        <p class="plan-card__price-note">($100&nbsp;USD měsíčně)</p>
-                        <p class="plan-card__desc">Pětinásobné limity oproti&nbsp;Pro. Pro pravidelné používání po&nbsp;webináři, když se vám Claude&nbsp;Code „zalíbí".</p>
-                    </article>
-
-                    <article class="plan-card">
-                        <h3 class="plan-card__name">Max&nbsp;20×</h3>
-                        <p class="plan-card__price">~4&nbsp;600&nbsp;Kč <small>/ měsíc</small></p>
-                        <p class="plan-card__price-note">($200&nbsp;USD měsíčně)</p>
-                        <p class="plan-card__desc">Pro každodenní intenzivní práci. Začněte s&nbsp;Pro — přejít výš můžete kdykoli později.</p>
-                    </article>
-                </div>
-
-                <p class="price-disclaimer">
-                    <i class="iconoir-warning-triangle-outline"></i>
-                    Ceny v&nbsp;Kč jsou orientační (kurz ~23&nbsp;Kč/USD). Anthropic na&nbsp;claude.com zobrazuje ceny v&nbsp;amerických dolarech a&nbsp;vaše banka přepočte kurzem v&nbsp;den platby.
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-section__title">Připraveni?</h2>
+                <p class="cta-section__subtitle">
+                    První krok zabere asi pět minut. Na&nbsp;konci budete mít nainstalovaný Claude&nbsp;Code a&nbsp;první rozhovor za&nbsp;sebou.
                 </p>
-
-                <a href="https://claude.com/pricing" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
-                    Otevřít claude.com a&nbsp;vybrat plán
-                    <i class="iconoir-open-new-window btn__icon"></i>
+                <a href="zacatek/" class="btn btn--primary btn--lg">
+                    Začít s Claude Code
+                    <i class="iconoir-arrow-right btn__icon"></i>
                 </a>
             </div>
         </section>
-
-        <section class="step-section" id="krok-2">
-            <div class="step-section__container">
-                <div class="step-section__header">
-                    <div class="step-section__badge">2</div>
-                    <div class="step-section__headings">
-                        <span class="step-section__eyebrow">Krok 2 ze 5</span>
-                        <h2 class="step-section__title">Nainstalujte Claude&nbsp;Code</h2>
-                    </div>
-                </div>
-                <p class="step-section__lead">
-                    Claude&nbsp;Code běží na&nbsp;víc místech — v&nbsp;desktopové aplikaci, v&nbsp;prohlížeči, v&nbsp;terminálu, na&nbsp;mobilu nebo v&nbsp;editoru. Pro webinář potřebujete cestu, která umí otevřít naklonovanou složku z&nbsp;vašeho počítače. Doporučujeme <strong>desktopovou aplikaci</strong> — je to nejjednodušší start. Pokud chcete vidět přesně to, co my během živého vysílání, zvolte <strong>terminál</strong>.
-                </p>
-
-                <div class="callout">
-                    <i class="iconoir-info-circle"></i>
-                    <p>Webová aplikace <code>claude.ai/code</code> funguje pro běžný chat s&nbsp;Claude, ale <strong>neumí načíst společníka webináře</strong> — ten žije v&nbsp;naklonované složce na&nbsp;vašem disku. Proto pro webinář volte desktop nebo terminál.</p>
-                </div>
-
-                <div class="tabs" data-tabs>
-                    <div class="tabs__list" role="tablist">
-                        <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="desktop">
-                            <i class="iconoir-computer"></i> Desktopová aplikace
-                        </button>
-                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="cli">
-                            <i class="iconoir-terminal"></i> Terminál (CLI)
-                        </button>
-                    </div>
-
-                    <div class="tabs__panel" role="tabpanel" data-panel="desktop" aria-hidden="false">
-                        <ol class="instruction-list">
-                            <li>Otevřete <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a> v&nbsp;prohlížeči.</li>
-                            <li>Stáhněte instalátor pro&nbsp;<strong>macOS</strong> nebo&nbsp;<strong>Windows</strong>.</li>
-                            <li>Nainstalujte aplikaci stejně jako jakoukoli jinou&nbsp;— dvojklik na&nbsp;stažený soubor a&nbsp;odklikejte průvodce.</li>
-                            <li>Spusťte aplikaci a&nbsp;přihlaste se stejnými údaji jako u&nbsp;claude.com.</li>
-                        </ol>
-                        <p style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed); margin-top: var(--space-5);">
-                            Aplikace vypadá jako chat (podobně jako ChatGPT), ale navíc umí otevřít složky z&nbsp;vašeho počítače a&nbsp;pracovat s&nbsp;nimi. Tuhle vlastnost budeme během webináře hodně používat.
-                        </p>
-                    </div>
-
-                    <div class="tabs__panel" role="tabpanel" data-panel="cli" aria-hidden="true">
-                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-4);">
-                            <strong>Doporučený způsob:</strong> nativní instalátor, který nevyžaduje Node.js.
-                        </p>
-
-                        <div class="tabs" data-tabs>
-                            <div class="tabs__list" role="tablist">
-                                <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="mac-linux">
-                                    <i class="iconoir-apple-shortcut"></i> macOS / Linux
-                                </button>
-                                <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="windows">
-                                    <i class="iconoir-windows"></i> Windows
-                                </button>
-                            </div>
-
-                            <div class="tabs__panel" role="tabpanel" data-panel="mac-linux" aria-hidden="false">
-                                <div class="code-block">
-<pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="tabs__panel" role="tabpanel" data-panel="windows" aria-hidden="true">
-                                <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0 0 var(--space-2);">V&nbsp;PowerShellu (ne v&nbsp;CMD):</p>
-                                <div class="code-block">
-<pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: var(--space-5);">
-                            Po&nbsp;instalaci spusťte příkaz <code style="background: var(--color-bg-code); padding: 2px 6px; border-radius: 4px;">claude</code> v&nbsp;libovolné složce — při prvním spuštění se otevře prohlížeč k&nbsp;přihlášení.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="step-section" id="krok-3">
-            <div class="step-section__container">
-                <div class="step-section__header">
-                    <div class="step-section__badge">3</div>
-                    <div class="step-section__headings">
-                        <span class="step-section__eyebrow">Krok 3 ze 5</span>
-                        <h2 class="step-section__title">Nainstalujte Git</h2>
-                    </div>
-                </div>
-                <p class="step-section__lead">
-                    Git je nástroj, kterým se&nbsp;stahují projekty z&nbsp;GitHubu. Dnes ho potřebujete jen na&nbsp;jednu věc&nbsp;— stáhnout náš repozitář se&nbsp;společníkem webináře.
-                </p>
-
-                <div class="path-tabs tabs" data-tabs>
-                    <div class="tabs__list" role="tablist">
-                        <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="ai">
-                            <i class="iconoir-sparks"></i> Ať to udělá Claude&nbsp;Code
-                        </button>
-                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="manual">
-                            <i class="iconoir-settings"></i> Udělám to sám/sama
-                        </button>
-                    </div>
-
-                    <div class="tabs__panel" role="tabpanel" data-panel="ai" aria-hidden="false">
-                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-4);">
-                            V&nbsp;Kroku&nbsp;2 jste si nainstalovali Claude&nbsp;Code&nbsp;— teď&nbsp;ho pojďme využít. Otevřete ho a&nbsp;pošlete mu tuhle zprávu:
-                        </p>
-                        <p class="ask-claude__prompt">Potřebuju nainstalovat Git na&nbsp;svůj počítač. Zjisti, jaký mám operační systém, proveď mě instalací krok za&nbsp;krokem a&nbsp;na&nbsp;konci ověř, že to&nbsp;funguje.</p>
-                        <p style="color: var(--color-text-tertiary); font-size: var(--text-sm); margin-top: var(--space-5);">
-                            Agent zjistí, co&nbsp;máte za&nbsp;systém, provede vás instalací a&nbsp;na&nbsp;konci ověří, že&nbsp;je všechno v&nbsp;pořádku. Když se cestou na&nbsp;něčem zadrhne, zeptá se vás.
-                        </p>
-                    </div>
-
-                    <div class="tabs__panel" role="tabpanel" data-panel="manual" aria-hidden="true">
-                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-5);">
-                            Vyberte si podle toho, jaký máte operační systém:
-                        </p>
-
-                        <div class="tabs" data-tabs>
-                            <div class="tabs__list" role="tablist">
-                                <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="mac" data-os="mac">
-                                    <i class="iconoir-apple-shortcut"></i> macOS
-                                </button>
-                                <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="win" data-os="win">
-                                    <i class="iconoir-windows"></i> Windows
-                                </button>
-                                <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="linux" data-os="linux">
-                                    <i class="iconoir-linux"></i> Linux
-                                </button>
-                            </div>
-
-                            <div class="tabs__panel" role="tabpanel" data-panel="mac" aria-hidden="false">
-                                <p>Na&nbsp;macOS už možná Git máte. Otevřete <strong>Terminal</strong> (Cmd&nbsp;+&nbsp;Space → napsat „Terminal") a&nbsp;zkuste:</p>
-                                <div class="code-block">
-<pre><code>git --version</code></pre>
-                                </div>
-                                <div class="expected"><strong>Co očekávat:</strong> něco jako <code>git version 2.x.x</code>. Pokud to&nbsp;vidíte, máte hotovo.</div>
-                                <p>Pokud vám macOS místo toho nabídne instalaci <em>Xcode&nbsp;Command&nbsp;Line&nbsp;Tools</em>, klikněte na&nbsp;„Install"&nbsp;— stáhne se všechno, co&nbsp;potřebujete (pár minut).</p>
-                            </div>
-
-                            <div class="tabs__panel" role="tabpanel" data-panel="win" aria-hidden="true">
-                                <ol class="instruction-list">
-                                    <li>Otevřete <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a>.</li>
-                                    <li>Stáhněte a&nbsp;nainstalujte <strong>64-bit Git for Windows</strong>.</li>
-                                    <li>Během instalace klikejte <strong>„Next"</strong> a&nbsp;nechte všechno, jak je&nbsp;— výchozí nastavení stačí.</li>
-                                    <li>Po&nbsp;dokončení instalace otevřete <strong>PowerShell</strong> a&nbsp;ověřte instalaci:</li>
-                                </ol>
-                                <div class="code-block">
-<pre><code>git --version</code></pre>
-                                </div>
-                                <div class="expected"><strong>Co očekávat:</strong> něco jako <code>git version 2.x.x.windows.x</code>.</div>
-                            </div>
-
-                            <div class="tabs__panel" role="tabpanel" data-panel="linux" aria-hidden="true">
-                                <p>Podle distribuce Linuxu:</p>
-                                <div class="code-block">
-<pre><code># Debian, Ubuntu
-sudo apt install git
-
-# Fedora, RHEL
-sudo dnf install git
-
-# Arch
-sudo pacman -S git</code></pre>
-                                </div>
-                                <div class="expected"><strong>Ověření:</strong> <code>git --version</code> by&nbsp;mělo vrátit <code>git version 2.x.x</code>.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="step-section" id="krok-4">
-            <div class="step-section__container">
-                <div class="step-section__header">
-                    <div class="step-section__badge">4</div>
-                    <div class="step-section__headings">
-                        <span class="step-section__eyebrow">Krok 4 ze 5</span>
-                        <h2 class="step-section__title">Stáhněte materiály k&nbsp;webináři</h2>
-                    </div>
-                </div>
-                <p class="step-section__lead">
-                    Teď si stáhneme náš repozitář&nbsp;— dostanete tím <strong>společníka webináře</strong> (pomocníka, který vám během živého vysílání pomáhá), materiály ke&nbsp;každé části webináře a&nbsp;cheat&nbsp;sheet pro&nbsp;první půlhodinu po&nbsp;něm.
-                </p>
-
-                <div class="path-tabs tabs" data-tabs>
-                    <div class="tabs__list" role="tablist">
-                        <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="ai">
-                            <i class="iconoir-sparks"></i> Ať to udělá Claude&nbsp;Code
-                        </button>
-                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="manual">
-                            <i class="iconoir-settings"></i> Udělám to sám/sama
-                        </button>
-                    </div>
-
-                    <div class="tabs__panel" role="tabpanel" data-panel="ai" aria-hidden="false">
-                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-4);">
-                            Otevřete Claude&nbsp;Code a&nbsp;pošlete mu tuhle zprávu. On&nbsp;najde, kam materiály uložit, a&nbsp;postará se o&nbsp;zbytek.
-                        </p>
-                        <p class="ask-claude__prompt">Stáhni mi materiály k&nbsp;webináři Intro do&nbsp;Claude&nbsp;Code. Naklonuj repozitář <code>https://github.com/aibilitycz/claude-code-90-webinar.git</code> do&nbsp;rozumného místa (třeba složky Projects v&nbsp;mém domovském adresáři) a&nbsp;pak mi ukaž, co&nbsp;jsem dostal&nbsp;— hlavně jestli obsahuje složku <code>.claude/skills/claude-code-guide</code>.</p>
-                    </div>
-
-                    <div class="tabs__panel" role="tabpanel" data-panel="manual" aria-hidden="true">
-                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-3);">Otevřete terminál (macOS/Linux) nebo&nbsp;PowerShell (Windows) a&nbsp;spusťte:</p>
-                        <div class="code-block">
-<pre><code>git clone https://github.com/aibilitycz/claude-code-90-webinar.git
-cd claude-code-90-webinar</code></pre>
-                        </div>
-                        <div class="expected"><strong>Co očekávat:</strong> Git vypíše něco jako <code>Cloning into 'claude-code-90-webinar'…</code> a&nbsp;za&nbsp;pár vteřin jste ve&nbsp;vlastní kopii repozitáře.</div>
-                    </div>
-                </div>
-
-                <h3 class="sub-heading">Co&nbsp;jste právě dostali</h3>
-
-                <div class="feature-row">
-                    <i class="iconoir-sparks"></i>
-                    <span><strong>Společník webináře (<code>.claude/skills/claude-code-guide/</code>)</strong>Pomocník v&nbsp;Claude&nbsp;Code, který zná program webináře, má připravené prompty a&nbsp;umí odpovědět na&nbsp;časté otázky. Aktivuje se sám, když v&nbsp;této složce spustíte Claude&nbsp;Code.</span>
-                </div>
-                <div class="feature-row">
-                    <i class="iconoir-book"></i>
-                    <span><strong>Level 0–3</strong>Materiály ke každé části webináře. Budete je používat během dema.</span>
-                </div>
-                <div class="feature-row">
-                    <i class="iconoir-page"></i>
-                    <span><strong>Cheat sheet</strong>Průvodce „prvních 30 minut po webináři". Budete ho mít po ruce, až se pustíte do vlastního projektu.</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="step-section" id="krok-5">
-            <div class="step-section__container">
-                <div class="step-section__header">
-                    <div class="step-section__badge">5</div>
-                    <div class="step-section__headings">
-                        <span class="step-section__eyebrow">Krok 5 ze 5</span>
-                        <h2 class="step-section__title">Preflight&nbsp;check</h2>
-                    </div>
-                </div>
-                <p class="step-section__lead">
-                    Posledních pár minut. Ověřte si, že všechno funguje&nbsp;— ať nás 16.&nbsp;dubna ráno nic nepřekvapí.
-                </p>
-
-                <div class="path-tabs tabs" data-tabs>
-                    <div class="tabs__list" role="tablist">
-                        <button type="button" class="tabs__button" role="tab" aria-selected="true" data-tab="ai">
-                            <i class="iconoir-sparks"></i> Ať to zkontroluje Claude&nbsp;Code
-                        </button>
-                        <button type="button" class="tabs__button" role="tab" aria-selected="false" data-tab="manual">
-                            <i class="iconoir-settings"></i> Zkontroluju si&nbsp;to sám/sama
-                        </button>
-                    </div>
-
-                    <div class="tabs__panel" role="tabpanel" data-panel="ai" aria-hidden="false">
-                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-4);">
-                            Otevřete Claude&nbsp;Code v&nbsp;naklonované složce a&nbsp;pošlete mu tuhle jednu zprávu. Projde všechny kontroly za&nbsp;vás a&nbsp;na&nbsp;konci vám řekne, jestli je všechno v&nbsp;pořádku.
-                        </p>
-                        <p class="ask-claude__prompt">Jsem účastník webináře Intro do&nbsp;Claude&nbsp;Code. Zkontroluj mi prosím, že mám všechno připravené. Ověř: 1)&nbsp;funguje Git, 2)&nbsp;jsem ve&nbsp;správné složce s&nbsp;materiály webináře, 3)&nbsp;máš přístup ke&nbsp;společníkovi webináře (skill v&nbsp;<code>.claude/skills/claude-code-guide/</code>). Pak zkus na&nbsp;sobě samém zavolat společníka tak, že řekneš „Co mám zkusit poprvé?". Na&nbsp;konci mi krátce shrň, jestli jsem připraven/a.</p>
-                    </div>
-
-                    <div class="tabs__panel" role="tabpanel" data-panel="manual" aria-hidden="true">
-                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-5);">
-                            Tři rychlé kontroly v&nbsp;terminálu / PowerShellu. Ujistěte se, že jste ve&nbsp;složce <code>claude-code-90-webinar</code>, kterou jste si naklonovali v&nbsp;Kroku&nbsp;4.
-                        </p>
-
-                        <h3 class="sub-heading">1. Git funguje</h3>
-                        <div class="code-block">
-<pre><code>git --version</code></pre>
-                        </div>
-                        <div class="expected"><strong>Chceme vidět:</strong> <code>git version 2.x.x</code> (jakákoli verze&nbsp;2 stačí).</div>
-
-                        <h3 class="sub-heading">2. Jste ve správné složce</h3>
-                        <div class="code-block">
-<pre><code>ls .claude/skills</code></pre>
-                        </div>
-                        <div class="expected"><strong>Chceme vidět:</strong> <code>claude-code-guide</code>. Pokud vám <code>ls</code> nefunguje (Windows PowerShell), použijte <code>dir .claude\skills</code>.</div>
-
-                        <h3 class="sub-heading">3. Claude&nbsp;Code se&nbsp;ohlásí</h3>
-                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-3);">
-                            Spusťte Claude&nbsp;Code v&nbsp;téhle složce (ať už&nbsp;v&nbsp;terminálu příkazem <code>claude</code>, nebo v&nbsp;desktopové aplikaci volbou <strong>„Open folder"</strong>) a&nbsp;do&nbsp;chatu napište:
-                        </p>
-                        <p class="ask-claude__prompt">Co mám zkusit poprvé?</p>
-                        <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-top: var(--space-4);">
-                            Společník by&nbsp;se&nbsp;měl ozvat s&nbsp;nabídkou tří možností. Pokud ano, jste připraveni. Pokud vám místo toho Claude odpoví obecně (<em>„o&nbsp;webináři nic nevím"</em>), nejste ve&nbsp;správné složce nebo se&nbsp;skill nenačetl&nbsp;— zkuste to&nbsp;znovu po&nbsp;<code>cd claude-code-90-webinar</code>.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="preflight-final">
-                    <div class="preflight-final__icon">
-                        <i class="iconoir-check"></i>
-                    </div>
-                    <h3 class="preflight-final__title">Jste připraveni.</h3>
-                    <p class="preflight-final__lead">Uvidíme se v&nbsp;Zoomu&nbsp;16.&nbsp;dubna&nbsp;2026&nbsp;v&nbsp;10:00.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="step-section" id="troubleshooting">
-            <div class="step-section__container">
-                <span class="step-section__eyebrow">Něco se zaseklo?</span>
-                <h2 class="step-section__title">Dva způsoby, jak se odseknout</h2>
-                <p class="step-section__lead">
-                    Když se vám něco nepovede, nepanikařte. Žádné chyby, které během přípravy potkáte, nejsou fatální&nbsp;— a&nbsp;vy máte dva rychlé způsoby, jak se dostat dál.
-                </p>
-
-                <div class="help-options">
-                    <article class="help-card">
-                        <div class="help-card__icon"><i class="iconoir-sparks"></i></div>
-                        <h3 class="help-card__title">Zeptejte se Claude&nbsp;Code</h3>
-                        <p class="help-card__desc">
-                            Už jste si v&nbsp;Kroku&nbsp;2 nainstalovali agenta, který umí číst chybové hlášky lépe než většina lidí. Otevřete Claude&nbsp;Code a&nbsp;pošlete mu přesně to, co&nbsp;jste zkusili a&nbsp;co&nbsp;vám to vypsalo. Agent vám poradí, co&nbsp;dál&nbsp;— a&nbsp;většinou to sám rovnou napraví.
-                        </p>
-                        <p class="help-card__example-label">Vzorová zpráva:</p>
-                        <p class="ask-claude__prompt">Zkouším si připravit webinář Intro do&nbsp;Claude&nbsp;Code. Zasekl/a jsem se na&nbsp;tomhle: [co jste zkusili]. Vypsalo mi to: [chybová hláška]. Co s&nbsp;tím?</p>
-                    </article>
-
-                    <article class="help-card">
-                        <div class="help-card__icon help-card__icon--secondary"><i class="iconoir-chat-bubble"></i></div>
-                        <h3 class="help-card__title">Nebo jakýkoli jiný AI&nbsp;asistent</h3>
-                        <p class="help-card__desc">
-                            Pokud už používáte <strong>ChatGPT</strong>, <strong>Gemini</strong>, <strong>Copilot</strong> nebo&nbsp;jiného AI&nbsp;asistenta, klidně se zeptejte jeho&nbsp;— stejný princip platí všude. Popište, co&nbsp;jste zkusili a&nbsp;co&nbsp;vám to vypsalo. Moderní AI asistenti chybové hlášky čtou denně a&nbsp;poradí si s&nbsp;nimi téměř s&nbsp;jistotou.
-                        </p>
-                        <p class="help-card__desc" style="margin-top: var(--space-3);">
-                            Nepotřebujete mít zrovna Claude&nbsp;Code&nbsp;— jakýkoli LLM s&nbsp;webovým přístupem vám v&nbsp;tuhle chvíli pomůže.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <footer class="footer" id="footer">
@@ -1298,7 +672,7 @@ cd claude-code-90-webinar</code></pre>
             <div class="footer__logo">
                 <img src="assets/img/aibility-logo.svg" alt="Aibility" class="footer__logo-img" loading="lazy" width="120" height="40">
             </div>
-            <p class="footer__copyright">© 2026 Aibility · <a href="https://github.com/aibilitycz/claude-code-90-webinar" target="_blank" rel="noopener" style="color: inherit;">Repozitář na GitHubu</a></p>
+            <p class="footer__copyright">© 2026 Aibility · <a href="https://github.com/aibilitycz/claude-code-90-webinar" target="_blank" rel="noopener" style="color: inherit;">GitHub</a> · <a href="https://aibility.cz" target="_blank" rel="noopener" style="color: inherit;">aibility.cz</a></p>
         </div>
     </footer>
 

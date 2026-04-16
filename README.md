@@ -1,5 +1,7 @@
 # Intro do Claude Code: Jak používat Claude Code i když nejste vývojář
 
+> **Průvodce online:** [aibilitycz.github.io/claude-code-90-webinar](https://aibilitycz.github.io/claude-code-90-webinar/) — krok za krokem, vlastním tempem, bez programování.
+
 **Cílová skupina:** Marketéři, projektoví manažeři, podnikatelé, kreativci
 **Délka:** 90 minut
 **Úroveň:** 2 — Vytváření AI asistentů (znáte AI, chcete poznat Claude Code)

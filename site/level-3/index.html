@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Level 3: Orchestrace — Naučte se Claude Code | Aibility</title>
+    <meta name="description" content="CLAUDE.md, MCP servery, modely a automatizace. Claude Code jako platforma, která spojí všechny vaše nástroje.">
+
+    <link rel="preload" href="../assets/css/styles.css" as="style">
+    <link rel="preload" href="../assets/css/iconoir.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta name="theme-color" content="#0B1221">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Level 3: Orchestrace — Naučte se Claude Code">
+    <meta property="og:description" content="CLAUDE.md, MCP servery, modely a automatizace.">
+    <meta property="og:site_name" content="Aibility">
+    <meta property="og:locale" content="cs_CZ">
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+    </noscript>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/iconoir.css">
+
+    <style>
+        /* Shared subpage styles — compact */
+        .site-nav { background: var(--color-bg-card); border-bottom: 1px solid var(--color-border); padding: var(--space-2) 0; position: sticky; top: 60px; z-index: 90; }
+        .site-nav__list { display: flex; gap: var(--space-1); list-style: none; margin: 0; padding: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .site-nav__link { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: var(--font-medium); white-space: nowrap; transition: all var(--transition-fast); text-decoration: none; }
+        .site-nav__link:hover { color: var(--color-text-primary); background: var(--color-bg-secondary); }
+        .site-nav__link.is-active { color: var(--color-accent-primary); background: rgba(80, 0, 171, 0.08); font-weight: var(--font-semibold); }
+        .site-nav__link i { font-size: var(--text-base); }
+
+        .page-hero { padding: var(--space-16) 0 var(--space-10); background: var(--color-bg-primary); }
+        .page-hero__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
+        .page-hero__eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-accent-primary); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-4); }
+        .page-hero__title { font-family: var(--font-family-headings); font-size: clamp(2rem, 4vw, 3rem); line-height: var(--leading-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .page-hero__lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin: 0 0 var(--space-6); max-width: 680px; }
+        .page-hero__meta { display: flex; flex-wrap: wrap; gap: var(--space-4); color: var(--color-text-tertiary); font-size: var(--text-sm); }
+        .page-hero__meta-item { display: inline-flex; align-items: center; gap: var(--space-2); }
+        .page-hero__meta-item i { color: var(--color-accent-primary); }
+
+        .content-section { padding: var(--space-16) 0; border-bottom: 1px solid var(--color-border); }
+        .content-section:nth-child(even) { background: var(--color-bg-secondary); }
+        .content-section__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
+        .content-section__eyebrow { display: inline-block; color: var(--color-accent-primary); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--space-3); }
+        .content-section__title { font-family: var(--font-family-headings); font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: var(--leading-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .content-section__lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin: 0 0 var(--space-8); }
+        .sub-heading { font-family: var(--font-family-headings); font-size: var(--text-xl); color: var(--color-text-primary); margin: var(--space-8) 0 var(--space-3); font-weight: var(--font-normal); }
+
+        .callout { display: flex; gap: var(--space-3); align-items: flex-start; padding: var(--space-4) var(--space-5); background: rgba(80, 0, 171, 0.04); border-left: 3px solid var(--color-accent-primary); border-radius: var(--radius-md); margin-bottom: var(--space-8); }
+        .callout--success { background: rgba(5, 150, 105, 0.04); border-left-color: var(--color-success); }
+        .callout i { color: var(--color-accent-primary); font-size: var(--text-xl); flex-shrink: 0; margin-top: 2px; }
+        .callout--success i { color: var(--color-success); }
+        .callout p { margin: 0; color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); }
+        .callout strong { color: var(--color-text-primary); }
+
+        .code-block { position: relative; margin: var(--space-4) 0; }
+        .code-block pre { margin: 0; padding: var(--space-5) var(--space-6); padding-right: calc(var(--space-6) + 110px); background: #0f172a; color: #e2e8f0; border-radius: var(--radius-lg); font-family: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: var(--text-sm); line-height: var(--leading-relaxed); overflow-x: auto; }
+        .code-block pre code { background: transparent; color: inherit; font-family: inherit; font-size: inherit; padding: 0; }
+
+        .prompt-card { margin: var(--space-6) 0; padding: var(--space-5) var(--space-6); background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%); border: 1px solid rgba(80, 0, 171, 0.16); border-radius: var(--radius-xl); }
+        .prompt-card__header { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+        .prompt-card__icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-accent-primary); color: white; border-radius: var(--radius-full); font-size: var(--text-lg); flex-shrink: 0; }
+        .prompt-card__title { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-base); }
+        .prompt-card__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0 0 var(--space-3); }
+        .prompt-card__text { margin: 0; padding: var(--space-4) var(--space-5); background: rgba(255, 255, 255, 0.7); border: 1px dashed rgba(80, 0, 171, 0.24); border-radius: var(--radius-lg); font-family: var(--font-family-headings); font-size: var(--text-base); line-height: var(--leading-snug); color: var(--color-text-primary); font-style: italic; }
+
+        .expected { margin: var(--space-2) 0 var(--space-5); padding: var(--space-3) var(--space-5); background: rgba(5, 150, 105, 0.06); border-left: 3px solid var(--color-success); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-text-secondary); }
+        .expected strong { color: var(--color-success); }
+
+        .learn-box { margin: var(--space-6) 0; padding: var(--space-6); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); }
+        .learn-box__title { font-family: var(--font-family-headings); font-size: var(--text-lg); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .learn-box__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+        .learn-box__list li { display: flex; align-items: flex-start; gap: var(--space-3); color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); }
+        .learn-box__list li i { color: var(--color-accent-primary); font-size: var(--text-base); flex-shrink: 0; margin-top: 2px; }
+
+        /* Model cards */
+        .model-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-6) 0; }
+        @media (max-width: 768px) { .model-grid { grid-template-columns: 1fr; } }
+        .model-card { padding: var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-2); }
+        .model-card__name { font-family: var(--font-family-headings); font-size: var(--text-lg); color: var(--color-text-primary); margin: 0; font-weight: var(--font-normal); }
+        .model-card__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0; }
+        .model-card__use { font-size: var(--text-xs); color: var(--color-text-tertiary); margin: 0; }
+
+        /* Orchestra visual */
+        .orchestra { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-3); margin: var(--space-8) 0; text-align: center; }
+        @media (max-width: 768px) { .orchestra { grid-template-columns: repeat(3, 1fr); } }
+        .orchestra__item { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+        .orchestra__icon { width: 48px; height: 48px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); }
+        .orchestra__icon--purple { background: rgba(80, 0, 171, 0.08); color: var(--color-accent-primary); }
+        .orchestra__icon--teal { background: rgba(8, 145, 178, 0.08); color: var(--color-accent-secondary); }
+        .orchestra__icon--amber { background: rgba(217, 119, 6, 0.08); color: var(--color-warning); }
+        .orchestra__icon--green { background: rgba(5, 150, 105, 0.08); color: var(--color-success); }
+        .orchestra__label { font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary); }
+        .orchestra__desc { font-size: var(--text-xs); color: var(--color-text-tertiary); }
+
+        .next-step { margin-top: var(--space-10); padding: var(--space-8); background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%); border: 2px solid var(--color-accent-primary); border-radius: var(--radius-xl); text-align: center; }
+        .next-step__icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: var(--color-accent-primary); color: white; border-radius: var(--radius-full); font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+        .next-step__title { font-family: var(--font-family-headings); font-size: var(--text-2xl); color: var(--color-text-primary); margin: 0 0 var(--space-3); font-weight: var(--font-normal); }
+        .next-step__desc { font-size: var(--text-base); color: var(--color-text-secondary); margin: 0 0 var(--space-6); line-height: var(--leading-relaxed); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Přeskočit na obsah</a>
+
+    <header class="header" id="header">
+        <div class="header__container container">
+            <div class="header__left">
+                <a href="../" class="header__logo" aria-label="Aibility">
+                    <img src="../assets/img/aibility-logo.svg" alt="Aibility" class="header__logo-img" width="120" height="40" fetchpriority="high">
+                </a>
+            </div>
+            <nav class="header__nav" aria-label="Hlavní navigace">
+                <ul class="header__nav-list">
+                    <li><a href="https://aibility.cz" class="header__nav-item" target="_blank" rel="noopener">aibility.cz</a></li>
+                    <li><a href="../resources/" class="header__nav-item">Zdroje a&nbsp;odkazy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Průvodce">
+        <div class="container">
+            <ul class="site-nav__list">
+                <li><a href="../" class="site-nav__link"><i class="iconoir-home"></i> Přehled</a></li>
+                <li><a href="../zacatek/" class="site-nav__link"><i class="iconoir-play"></i> Začátek</a></li>
+                <li><a href="../level-1/" class="site-nav__link"><i class="iconoir-sparks"></i> Level 1</a></li>
+                <li><a href="../level-2/" class="site-nav__link"><i class="iconoir-plugin"></i> Level 2</a></li>
+                <li><a href="./" class="site-nav__link is-active"><i class="iconoir-settings"></i> Level 3</a></li>
+                <li><a href="../resources/" class="site-nav__link"><i class="iconoir-bookmark"></i> Zdroje</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" tabindex="-1">
+        <section class="page-hero">
+            <div class="page-hero__container">
+                <span class="page-hero__eyebrow"><i class="iconoir-settings"></i> Level 3</span>
+                <h1 class="page-hero__title">Orchestrace</h1>
+                <p class="page-hero__lead">
+                    Claude&nbsp;Code přestane být chatbot a&nbsp;stane se platformou. CLAUDE.md mu řekne, kdo jste. MCP servery ho propojí s&nbsp;vašimi nástroji. Modely vám dají kontrolu nad rychlostí a&nbsp;kvalitou. Všechno dohromady&nbsp;— to je orchestrace.
+                </p>
+                <div class="page-hero__meta">
+                    <span class="page-hero__meta-item"><i class="iconoir-clock"></i> Asi 15 minut</span>
+                    <span class="page-hero__meta-item"><i class="iconoir-settings"></i> Pro pokročilé</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- What you'll learn -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <div class="learn-box">
+                    <h2 class="learn-box__title">Co se naučíte</h2>
+                    <ul class="learn-box__list">
+                        <li><i class="iconoir-check"></i> Co je CLAUDE.md a&nbsp;proč zásadně snižuje halucinace</li>
+                        <li><i class="iconoir-check"></i> Co jsou MCP servery a&nbsp;jak propojí agenta s&nbsp;vnějším světem</li>
+                        <li><i class="iconoir-check"></i> Jak přepínat mezi modely (Haiku, Sonnet, Opus)</li>
+                        <li><i class="iconoir-check"></i> Jak všechno spojit dohromady do&nbsp;jednoho pracovního systému</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLAUDE.md -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">CLAUDE.md</span>
+                <h2 class="content-section__title">Řekněte agentovi, kdo jste</h2>
+                <p class="content-section__lead">
+                    CLAUDE.md je textový soubor, který agent přečte pokaždé, když ho spustíte. Obsahuje pravidla, preference a&nbsp;kontext&nbsp;— všechno, co potřebuje vědět, aby pracoval tak, jak chcete vy. Je to ten nejsilnější nástroj proti halucinacím.
+                </p>
+
+                <h3 class="sub-heading">Dva typy CLAUDE.md</h3>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    <strong>Projektový</strong> (<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">./CLAUDE.md</code>)&nbsp;— pravidla pro konkrétní projekt. Například: „Piš vždycky česky" nebo „Používej tenhle framework." Sdílí se s&nbsp;týmem přes Git.<br><br>
+                    <strong>Osobní</strong> (<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">~/.claude/CLAUDE.md</code>)&nbsp;— vaše globální preference. Například: „Jsem marketér, ne programátor" nebo „Na&nbsp;služební cesty létám s&nbsp;příručním zavazadlem."<br><br>
+                    <strong>Lokální</strong> (<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">./CLAUDE.local.md</code>)&nbsp;— osobní poznámky k&nbsp;projektu, které se nesdílí s&nbsp;týmem. Přidejte si ho do&nbsp;.gitignore.
+                </p>
+
+                <div class="callout callout--success">
+                    <i class="iconoir-check-circle"></i>
+                    <p><strong>Klíčový princip: „Agent musí číst, ne hádat."</strong> Jedna věta v&nbsp;CLAUDE.md dramaticky snižuje halucinace. Místo hádání agent vychází z&nbsp;toho, co jste mu napsali.</p>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Zkuste to</span>
+                    </div>
+                    <p class="prompt-card__desc">Nechte agenta vytvořit váš osobní CLAUDE.md:</p>
+                    <p class="prompt-card__text">Vytvoř mi osobní CLAUDE.md v&nbsp;~/.claude/CLAUDE.md. Jsem [vaše profese], pracuji v&nbsp;[obor/firma], preferuji [jazyk, styl, formát]. Přidej pravidla, která mi budou užitečná při každém spuštění.</p>
+                </div>
+
+                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary);">
+                    Dokumentace: <a href="https://code.claude.com/docs/en/settings" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Settings & CLAUDE.md</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- MCP -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">MCP</span>
+                <h2 class="content-section__title">Propojte agenta s&nbsp;vnějším světem</h2>
+                <p class="content-section__lead">
+                    MCP (Model Context Protocol) je způsob, jak agenta propojit s&nbsp;externími službami&nbsp;— kalendáři, databázemi, API, vyhledávači letenek. MCP servery jsou jako adaptéry: každý z&nbsp;nich přidává agentovi přístup k&nbsp;jednomu nástroji.
+                </p>
+
+                <h3 class="sub-heading">Příklad: hledání letenek</h3>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    Nainstalujte MCP server pro vyhledávání letenek (třeba Kiwi) a&nbsp;pak řekněte agentovi:
+                </p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Příklad s&nbsp;MCP</span>
+                    </div>
+                    <p class="prompt-card__text">Najdi mi letenky z&nbsp;Prahy do&nbsp;Lisabonu na&nbsp;příští víkend, jednosměrku, co nejlevnější. Pak mi to přidej do&nbsp;Google kalendáře.</p>
+                </div>
+
+                <div class="expected"><strong>Co se stane:</strong> Agent zavolá Kiwi MCP server (letenky), najde možnosti, a&nbsp;zavolá Google Calendar MCP (kalendář) — vytvoří událost. Dvě služby, jeden prompt.</div>
+
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-top: var(--space-4);">
+                    Existují stovky veřejných MCP serverů&nbsp;— pro databáze, cloud služby, komunikaci, projektové řízení a&nbsp;víc. Každý z&nbsp;nich se instaluje jedním příkazem přes <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/plugin</code>.
+                </p>
+
+                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary); margin-top: var(--space-4);">
+                    Dokumentace: <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Claude Code Docs</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Models -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Modely</span>
+                <h2 class="content-section__title">Tři modely, tři rychlosti</h2>
+                <p class="content-section__lead">
+                    Claude&nbsp;Code umí přepínat mezi třemi modely. Každý je jinak rychlý a&nbsp;jinak schopný. Přepínáte příkazem <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/model</code>.
+                </p>
+
+                <div class="model-grid">
+                    <article class="model-card">
+                        <h3 class="model-card__name">Haiku</h3>
+                        <p class="model-card__desc">Nejrychlejší, nejlevnější. Pro jednoduché úkoly, rychlé odpovědi, triviální úpravy.</p>
+                        <p class="model-card__use">Kdy: „přejmenuj proměnnou", „vypiš seznam"</p>
+                    </article>
+                    <article class="model-card">
+                        <h3 class="model-card__name">Sonnet</h3>
+                        <p class="model-card__desc">Vybalancovaný. Dobrý poměr rychlosti a&nbsp;kvality pro většinu každodenní práce.</p>
+                        <p class="model-card__use">Kdy: „napiš blog post", „analyzuj data"</p>
+                    </article>
+                    <article class="model-card">
+                        <h3 class="model-card__name">Opus</h3>
+                        <p class="model-card__desc">Nejschopnější. Pro složité úkoly, strategické rozhodování, komplexní analýzy.</p>
+                        <p class="model-card__use">Kdy: „navrhni architekturu", „zrecenzuj celý projekt"</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security and permissions -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Bezpečnost</span>
+                <h2 class="content-section__title">Jak je to s&nbsp;přístupem a&nbsp;daty</h2>
+                <p class="content-section__lead">
+                    Častá otázka: může agent smazat moje soubory? Vidí moje hesla? Kam posílá moje data?
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-4); margin: var(--space-6) 0;">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <i class="iconoir-lock" style="color: var(--color-accent-primary); font-size: var(--text-xl); flex-shrink: 0; margin-top: 2px;"></i>
+                        <div>
+                            <strong style="color: var(--color-text-primary);">Přístup jen ke&nbsp;složce</strong>
+                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 4px 0 0;">Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;nebezpečných akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <i class="iconoir-shield-check" style="color: var(--color-accent-primary); font-size: var(--text-xl); flex-shrink: 0; margin-top: 2px;"></i>
+                        <div>
+                            <strong style="color: var(--color-text-primary);">Kontrola nad&nbsp;daty</strong>
+                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 4px 0 0;">Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data nepoužívají k&nbsp;trénování a&nbsp;uchovávají se maximálně 30&nbsp;dní. U&nbsp;osobních plánů si nastavení soukromí upravíte v&nbsp;claude.ai/settings.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <i class="iconoir-settings" style="color: var(--color-accent-primary); font-size: var(--text-xl); flex-shrink: 0; margin-top: 2px;"></i>
+                        <div>
+                            <strong style="color: var(--color-text-primary);">Režimy oprávnění</strong>
+                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 4px 0 0;">Můžete si zvolit, jak moc volnosti agentovi dáte: od&nbsp;„ptej se na&nbsp;všechno" po&nbsp;„dělej sám". Pro začátek nechte výchozí nastavení&nbsp;— agent se bude ptát u&nbsp;důležitých kroků.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: var(--color-text-tertiary); font-size: var(--text-sm);">Pro firmy Anthropic nabízí enterprise licencování s&nbsp;přísnějšími bezpečnostními zárukami.</p>
+            </div>
+        </section>
+
+        <!-- Token management -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Tip</span>
+                <h2 class="content-section__title">Jak šetřit tokeny</h2>
+                <p class="content-section__lead">
+                    Tokeny jsou jednotky „myšlení", které agent spotřebovává. Čím víc musí hledat a&nbsp;přemýšlet, tím víc jich utratí. Tři způsoby, jak je šetřit:
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-6) 0;">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">1.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Začínejte ve&nbsp;správné složce.</strong> Nespouštějte agenta v&nbsp;kořenové složce celého počítače. Vždy jděte do&nbsp;konkrétního projektu.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">2.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Vytvořte si CLAUDE.md.</strong> Jedna věta o&nbsp;projektu ušetří stovky tokenů, protože agent nemusí hádat, s&nbsp;čím pracuje.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">3.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Používejte <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/compact</code>.</strong> Když konverzace naroste, tenhle příkaz ji zkrátí a&nbsp;uvolní místo v&nbsp;kontextovém okně.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Read don't guess -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Zlaté pravidlo</span>
+                <h2 class="content-section__title">Agent musí číst, ne hádat</h2>
+                <p class="content-section__lead">
+                    Tohle je nejdůležitější pravidlo celého průvodce. Kdykoli se vám zdá, že agent „halucinuje" nebo dává špatné výsledky, je řešení téměř vždy stejné: <strong>dejte mu víc kontextu</strong>.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-6) 0;">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base);">1.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>CLAUDE.md</strong>&nbsp;— Napište, kdo jste a&nbsp;co chcete. Agent to přečte pokaždé.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base);">2.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Soubory</strong>&nbsp;— Dejte agentovi materiál. Ať čte vaše texty, data, obrázky.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base);">3.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Web search</strong>&nbsp;— Nechte ho hledat aktuální informace, ne hádat z&nbsp;tréninku.</span>
+                    </div>
+                </div>
+
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed);">
+                    Čím víc kontextu = tím míň halucinací. Není to magie&nbsp;— je to prostě rozdíl mezi hádáním a&nbsp;čtením.
+                </p>
+            </div>
+        </section>
+
+        <!-- Orchestra -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Všechno dohromady</span>
+                <h2 class="content-section__title">Orchestr pod&nbsp;jednou taktovkou</h2>
+                <p class="content-section__lead">
+                    Představte si orchestr. CLAUDE.md je partitura. Skills jsou nástroje. MCP servery jsou hudebníci. Modely určují tempo. A&nbsp;Claude&nbsp;Code je dirigent, který to všechno spojuje dohromady.
+                </p>
+
+                <div class="orchestra">
+                    <div class="orchestra__item">
+                        <div class="orchestra__icon orchestra__icon--purple"><i class="iconoir-page"></i></div>
+                        <span class="orchestra__label">CLAUDE.md</span>
+                        <span class="orchestra__desc">Partitura</span>
+                    </div>
+                    <div class="orchestra__item">
+                        <div class="orchestra__icon orchestra__icon--teal"><i class="iconoir-sparks"></i></div>
+                        <span class="orchestra__label">Skills</span>
+                        <span class="orchestra__desc">Nástroje</span>
+                    </div>
+                    <div class="orchestra__item">
+                        <div class="orchestra__icon orchestra__icon--amber"><i class="iconoir-database"></i></div>
+                        <span class="orchestra__label">MCP</span>
+                        <span class="orchestra__desc">Hudebníci</span>
+                    </div>
+                    <div class="orchestra__item">
+                        <div class="orchestra__icon orchestra__icon--green"><i class="iconoir-brain"></i></div>
+                        <span class="orchestra__label">Modely</span>
+                        <span class="orchestra__desc">Tempo</span>
+                    </div>
+                    <div class="orchestra__item">
+                        <div class="orchestra__icon orchestra__icon--purple"><i class="iconoir-music-note"></i></div>
+                        <span class="orchestra__label">Claude Code</span>
+                        <span class="orchestra__desc">Dirigent</span>
+                    </div>
+                </div>
+
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); text-align: center; margin-top: var(--space-4);">
+                    Každý kus hraje svou roli. Claude&nbsp;Code je ten, kdo je drží pohromadě.
+                </p>
+            </div>
+        </section>
+
+        <!-- Closing -->
+        <section class="content-section" style="border-bottom: none;">
+            <div class="content-section__container">
+                <div class="next-step">
+                    <div class="next-step__icon"><i class="iconoir-check"></i></div>
+                    <h3 class="next-step__title">Průvodce dokončen</h3>
+                    <p class="next-step__desc">
+                        Prošli jste od&nbsp;prvního spuštění až po&nbsp;orchestraci. Teď máte základy, na&nbsp;kterých můžete stavět. Podívejte se na&nbsp;stránku se&nbsp;zdroji&nbsp;— najdete tam kurzy, dokumentaci, komunitu a&nbsp;cheat sheet.
+                    </p>
+                    <a href="../resources/" class="btn btn--primary btn--lg">
+                        Zdroje a&nbsp;odkazy
+                        <i class="iconoir-arrow-right btn__icon"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="container footer__container">
+            <div class="footer__logo">
+                <img src="../assets/img/aibility-logo.svg" alt="Aibility" class="footer__logo-img" loading="lazy" width="120" height="40">
+            </div>
+            <p class="footer__copyright">© 2026 Aibility · <a href="https://github.com/aibilitycz/claude-code-90-webinar" target="_blank" rel="noopener" style="color: inherit;">GitHub</a> · <a href="https://aibility.cz" target="_blank" rel="noopener" style="color: inherit;">aibility.cz</a></p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/prework.js" defer></script>
+</body>
+</html>

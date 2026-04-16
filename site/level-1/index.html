@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Level 1: První projekt — Naučte se Claude Code | Aibility</title>
+    <meta name="description" content="Za deset minut postavíte něco skutečného s Claude Code. Naučíte se, proč záleží na kontextu a jak agent přemýšlí.">
+
+    <link rel="preload" href="../assets/css/styles.css" as="style">
+    <link rel="preload" href="../assets/css/iconoir.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta name="theme-color" content="#0B1221">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Level 1: První projekt — Naučte se Claude Code">
+    <meta property="og:description" content="Za deset minut postavíte něco skutečného s Claude Code.">
+    <meta property="og:site_name" content="Aibility">
+    <meta property="og:locale" content="cs_CZ">
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+    </noscript>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/iconoir.css">
+
+    <style>
+        /* Site navigation */
+        .site-nav { background: var(--color-bg-card); border-bottom: 1px solid var(--color-border); padding: var(--space-2) 0; position: sticky; top: 60px; z-index: 90; }
+        .site-nav__list { display: flex; gap: var(--space-1); list-style: none; margin: 0; padding: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .site-nav__link { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: var(--font-medium); white-space: nowrap; transition: all var(--transition-fast); text-decoration: none; }
+        .site-nav__link:hover { color: var(--color-text-primary); background: var(--color-bg-secondary); }
+        .site-nav__link.is-active { color: var(--color-accent-primary); background: rgba(80, 0, 171, 0.08); font-weight: var(--font-semibold); }
+        .site-nav__link i { font-size: var(--text-base); }
+
+        /* Page hero */
+        .page-hero { padding: var(--space-16) 0 var(--space-10); background: var(--color-bg-primary); }
+        .page-hero__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
+        .page-hero__eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-accent-primary); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-4); }
+        .page-hero__title { font-family: var(--font-family-headings); font-size: clamp(2rem, 4vw, 3rem); line-height: var(--leading-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .page-hero__lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin: 0 0 var(--space-6); max-width: 680px; }
+        .page-hero__meta { display: flex; flex-wrap: wrap; gap: var(--space-4); color: var(--color-text-tertiary); font-size: var(--text-sm); }
+        .page-hero__meta-item { display: inline-flex; align-items: center; gap: var(--space-2); }
+        .page-hero__meta-item i { color: var(--color-accent-primary); }
+
+        /* Content sections */
+        .content-section { padding: var(--space-16) 0; border-bottom: 1px solid var(--color-border); }
+        .content-section:nth-child(even) { background: var(--color-bg-secondary); }
+        .content-section__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
+        .content-section__eyebrow { display: inline-block; color: var(--color-accent-primary); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--space-3); }
+        .content-section__title { font-family: var(--font-family-headings); font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: var(--leading-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .content-section__lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin: 0 0 var(--space-8); }
+        .sub-heading { font-family: var(--font-family-headings); font-size: var(--text-xl); color: var(--color-text-primary); margin: var(--space-8) 0 var(--space-3); font-weight: var(--font-normal); }
+
+        /* Callout, prompt card, code blocks, expected — same as zacatek */
+        .callout { display: flex; gap: var(--space-3); align-items: flex-start; padding: var(--space-4) var(--space-5); background: rgba(80, 0, 171, 0.04); border-left: 3px solid var(--color-accent-primary); border-radius: var(--radius-md); margin-bottom: var(--space-8); }
+        .callout--success { background: rgba(5, 150, 105, 0.04); border-left-color: var(--color-success); }
+        .callout--warning { background: rgba(217, 119, 6, 0.04); border-left-color: var(--color-warning); }
+        .callout i { color: var(--color-accent-primary); font-size: var(--text-xl); flex-shrink: 0; margin-top: 2px; }
+        .callout--success i { color: var(--color-success); }
+        .callout--warning i { color: var(--color-warning); }
+        .callout p { margin: 0; color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); }
+        .callout strong { color: var(--color-text-primary); }
+
+        .prompt-card { margin: var(--space-6) 0; padding: var(--space-5) var(--space-6); background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%); border: 1px solid rgba(80, 0, 171, 0.16); border-radius: var(--radius-xl); }
+        .prompt-card__header { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+        .prompt-card__icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-accent-primary); color: white; border-radius: var(--radius-full); font-size: var(--text-lg); flex-shrink: 0; }
+        .prompt-card__title { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-base); }
+        .prompt-card__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0 0 var(--space-3); }
+        .prompt-card__text { margin: 0; padding: var(--space-4) var(--space-5); background: rgba(255, 255, 255, 0.7); border: 1px dashed rgba(80, 0, 171, 0.24); border-radius: var(--radius-lg); font-family: var(--font-family-headings); font-size: var(--text-base); line-height: var(--leading-snug); color: var(--color-text-primary); font-style: italic; }
+
+        .expected { margin: var(--space-2) 0 var(--space-5); padding: var(--space-3) var(--space-5); background: rgba(5, 150, 105, 0.06); border-left: 3px solid var(--color-success); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-text-secondary); }
+        .expected strong { color: var(--color-success); }
+
+        /* Learning summary box */
+        .learn-box { margin: var(--space-6) 0; padding: var(--space-6); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); }
+        .learn-box__title { font-family: var(--font-family-headings); font-size: var(--text-lg); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .learn-box__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+        .learn-box__list li { display: flex; align-items: flex-start; gap: var(--space-3); color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); }
+        .learn-box__list li i { color: var(--color-accent-primary); font-size: var(--text-base); flex-shrink: 0; margin-top: 2px; }
+
+        /* Try it cards */
+        .try-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); margin: var(--space-8) 0; }
+        @media (max-width: 768px) { .try-grid { grid-template-columns: 1fr; } }
+        .try-card { padding: var(--space-6); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-3); }
+        .try-card__letter { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--color-accent-primary); color: white; font-weight: var(--font-bold); font-size: var(--text-sm); }
+        .try-card__title { font-family: var(--font-family-headings); font-size: var(--text-lg); color: var(--color-text-primary); margin: 0; font-weight: var(--font-normal); }
+        .try-card__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0; flex: 1; }
+        .try-card__prompt { margin: 0; padding: var(--space-3) var(--space-4); background: rgba(80, 0, 171, 0.04); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-text-primary); font-style: italic; line-height: var(--leading-relaxed); }
+
+        /* Next step box */
+        .next-step { margin-top: var(--space-10); padding: var(--space-8); background: linear-gradient(135deg, rgba(80, 0, 171, 0.04) 0%, rgba(8, 145, 178, 0.04) 100%); border: 2px solid var(--color-accent-primary); border-radius: var(--radius-xl); text-align: center; }
+        .next-step__icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: var(--color-accent-primary); color: white; border-radius: var(--radius-full); font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+        .next-step__title { font-family: var(--font-family-headings); font-size: var(--text-2xl); color: var(--color-text-primary); margin: 0 0 var(--space-3); font-weight: var(--font-normal); }
+        .next-step__desc { font-size: var(--text-base); color: var(--color-text-secondary); margin: 0 0 var(--space-6); line-height: var(--leading-relaxed); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Přeskočit na obsah</a>
+
+    <header class="header" id="header">
+        <div class="header__container container">
+            <div class="header__left">
+                <a href="../" class="header__logo" aria-label="Aibility">
+                    <img src="../assets/img/aibility-logo.svg" alt="Aibility" class="header__logo-img" width="120" height="40" fetchpriority="high">
+                </a>
+            </div>
+            <nav class="header__nav" aria-label="Hlavní navigace">
+                <ul class="header__nav-list">
+                    <li><a href="https://aibility.cz" class="header__nav-item" target="_blank" rel="noopener">aibility.cz</a></li>
+                    <li><a href="../resources/" class="header__nav-item">Zdroje a&nbsp;odkazy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Průvodce">
+        <div class="container">
+            <ul class="site-nav__list">
+                <li><a href="../" class="site-nav__link"><i class="iconoir-home"></i> Přehled</a></li>
+                <li><a href="../zacatek/" class="site-nav__link"><i class="iconoir-play"></i> Začátek</a></li>
+                <li><a href="./" class="site-nav__link is-active"><i class="iconoir-sparks"></i> Level 1</a></li>
+                <li><a href="../level-2/" class="site-nav__link"><i class="iconoir-plugin"></i> Level 2</a></li>
+                <li><a href="../level-3/" class="site-nav__link"><i class="iconoir-settings"></i> Level 3</a></li>
+                <li><a href="../resources/" class="site-nav__link"><i class="iconoir-bookmark"></i> Zdroje</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" tabindex="-1">
+        <section class="page-hero">
+            <div class="page-hero__container">
+                <span class="page-hero__eyebrow"><i class="iconoir-sparks"></i> Level 1</span>
+                <h1 class="page-hero__title">Váš první projekt s&nbsp;Claude&nbsp;Code</h1>
+                <p class="page-hero__lead">
+                    Teď to začne být zajímavé. Postavíte něco skutečného a&nbsp;přitom se naučíte nejdůležitější věc o&nbsp;práci s&nbsp;AI agentem: čím víc kontextu mu dáte, tím lepší výsledek dostanete.
+                </p>
+                <div class="page-hero__meta">
+                    <span class="page-hero__meta-item"><i class="iconoir-clock"></i> Asi 20 minut</span>
+                    <span class="page-hero__meta-item"><i class="iconoir-sparks"></i> Potřebujete hotový Začátek</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- What you'll learn -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <div class="learn-box">
+                    <h2 class="learn-box__title">Co se naučíte</h2>
+                    <ul class="learn-box__list">
+                        <li><i class="iconoir-check"></i> Proč holý prompt dává průměrný výsledek&nbsp;— a&nbsp;jak ho vylepšit kontextem</li>
+                        <li><i class="iconoir-check"></i> Jak agentovi dát soubory, obrázky a&nbsp;informace z&nbsp;webu</li>
+                        <li><i class="iconoir-check"></i> Jak funguje cyklus: přemýšlení → tvorba → oprava → povolení → výsledek</li>
+                        <li><i class="iconoir-check"></i> Jak použít plánování (plan mode) pro složitější úkoly</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 1: Bare prompt -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 1 ze 4</span>
+                <h2 class="content-section__title">Začněte bez kontextu</h2>
+                <p class="content-section__lead">
+                    Nejdřív si vyzkoušejte, co se stane, když agentovi řeknete, co chcete, ale nedáte mu žádný kontext. Výsledek bude funkční, ale obecný&nbsp;— a&nbsp;to je přesně ten bod, od kterého budeme vylepšovat.
+                </p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Prompt 1</span>
+                    </div>
+                    <p class="prompt-card__desc">Otevřete Claude&nbsp;Code v&nbsp;prázdné složce a&nbsp;napište:</p>
+                    <p class="prompt-card__text">Vytvoř mi osobní stránku — bio, kontakt, portfolio. Čistý, moderní design.</p>
+                </div>
+
+                <div class="expected"><strong>Co uvidíte:</strong> Agent vytvoří HTML soubor s&nbsp;generickým obsahem (Lorem ipsum, placeholder jméno). Funkční, ale ne vaše.</div>
+
+                <div class="callout callout--warning">
+                    <i class="iconoir-info-circle"></i>
+                    <p><strong>Klíčové zjištění:</strong> Bez kontextu agent hádá. Výsledek je „pro kohokoli" — a&nbsp;proto pro nikoho konkrétně. Přesně tohle teď napravíme.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Add context -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 2 ze 4</span>
+                <h2 class="content-section__title">Přidejte kontext</h2>
+                <p class="content-section__lead">
+                    Teď dáme agentovi něco, z&nbsp;čeho může čerpat. Vytvořte v&nbsp;té samé složce soubor s&nbsp;pár informacemi o&nbsp;sobě (nebo o&nbsp;komkoli, pro koho stránku děláte).
+                </p>
+
+                <h3 class="sub-heading">Připravte si soubor</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Vytvořte soubor <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">muj-obsah.md</code> a&nbsp;napište do něj pár vět o&nbsp;sobě&nbsp;— jméno, čím se zabýváte, co vás baví, kontakt. Stačí pár řádků, nemusí to být dokonalé. Nebo řekněte agentovi, ať soubor vytvoří za vás:</p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Prompt 2</span>
+                    </div>
+                    <p class="prompt-card__desc">Teď agentovi řeknete, aby pracoval s&nbsp;vaším obsahem:</p>
+                    <p class="prompt-card__text">Přečti si soubor muj-obsah.md a&nbsp;podle něj přepracuj tu osobní stránku. Použij skutečné informace, žádné placeholdery.</p>
+                </div>
+
+                <div class="expected"><strong>Co uvidíte:</strong> Agent přečte váš soubor a&nbsp;vytvoří stránku s&nbsp;vaším skutečným jménem, vaším popisem, vašimi informacemi. Zásadní rozdíl oproti prvnímu pokusu.</div>
+
+                <div class="callout callout--success">
+                    <i class="iconoir-check-circle"></i>
+                    <p><strong>Princip: „Kontextu je král."</strong> Agent neumí hádat, co chcete. Ale když mu dáte materiál — soubor, odkaz, obrázek — pracuje s&nbsp;ním přesně a&nbsp;věrně. Čím víc kontextu, tím lepší výsledek.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Add image + web search -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 3 ze 4</span>
+                <h2 class="content-section__title">Přidejte inspiraci</h2>
+                <p class="content-section__lead">
+                    Claude&nbsp;Code umí víc než číst text. Ukažte mu obrázek jako designovou inspiraci a&nbsp;pošlete ho hledat na&nbsp;web.
+                </p>
+
+                <h3 class="sub-heading">Vizuální inspirace</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Uložte si do složky screenshot webu, který se vám líbí (nebo jakýkoli obrázek s&nbsp;designem, který chcete napodobit).</p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Prompt 3</span>
+                    </div>
+                    <p class="prompt-card__desc">Agent vidí obrázky a&nbsp;umí z&nbsp;nich čerpat styl:</p>
+                    <p class="prompt-card__text">Podívej se na obrázek inspirace.png — líbí se mi tenhle vizuální styl. Uprav moji stránku tak, aby měla podobnou estetiku. Taky prosím vyhledej na webu aktuální trendy v&nbsp;osobních stránkách na rok 2026 a&nbsp;zapracuj je.</p>
+                </div>
+
+                <div class="expected"><strong>Co uvidíte:</strong> Agent analyzuje obrázek, vyhledá na webu trendy, a&nbsp;přepracuje design vaší stránky. Výsledek má styl inspirace a&nbsp;moderní prvky.</div>
+
+                <div class="callout">
+                    <i class="iconoir-info-circle"></i>
+                    <p><strong>Agent vidí obrázky.</strong> Můžete mu ukázat screenshot, wireframe, nákres na papíře — cokoli vizuálního. Taky umí hledat na webu aktuální informace, takže nepracuje jen s&nbsp;tím, co „zná" ze svého tréninku.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: Plan mode -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 4 ze 4</span>
+                <h2 class="content-section__title">Plánujte, pak stavte</h2>
+                <p class="content-section__lead">
+                    Pro složitější úkoly má Claude&nbsp;Code speciální režim: nejdřív naplánuje, co udělá, a&nbsp;teprve pak to provede. Tím předejdete situacím, kdy agent jde špatným směrem a&nbsp;vy to zjistíte pozdě.
+                </p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Prompt 4</span>
+                    </div>
+                    <p class="prompt-card__desc">Požádejte agenta o&nbsp;plán a&nbsp;schvalte ho:</p>
+                    <p class="prompt-card__text">Chci přidat na stránku sekci „Projekty" se třemi kartami. Nejdřív mi navrhni plán, jak to uděláš, a&nbsp;počkej na moje schválení, než začneš.</p>
+                </div>
+
+                <div class="expected"><strong>Co uvidíte:</strong> Agent popíše svůj plán (jaké sekce přidá, jak upraví layout, jaký styl použije) a&nbsp;počká na vaše „OK" nebo úpravy. Až schválíte, provede změny.</div>
+
+                <div class="callout callout--success">
+                    <i class="iconoir-check-circle"></i>
+                    <p><strong>Princip plánování:</strong> U&nbsp;větších úkolů vždycky nejdřív plán, pak realizace. Ušetříte čas, který byste jinak strávili opravováním výsledku. Můžete přímo napsat <code style="background: rgba(5, 150, 105, 0.1); padding: 2px 6px; border-radius: 4px;">/plan</code> nebo v&nbsp;terminálu přepínat režimy pomocí Shift+Tab.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How the agent works -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Pod kapotou</span>
+                <h2 class="content-section__title">Jak agent přemýšlí</h2>
+                <p class="content-section__lead">
+                    Všimněte si, co se děje, když agent pracuje. Není to jen „otázka → odpověď" jako u&nbsp;chatbota. Agent prochází cyklem:
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-3); margin: var(--space-8) 0; text-align: center;">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
+                        <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(80, 0, 171, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-accent-primary); font-size: var(--text-xl);"><i class="iconoir-brain"></i></div>
+                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Přemýšlení</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Analyzuje úkol</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
+                        <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(80, 0, 171, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-accent-primary); font-size: var(--text-xl);"><i class="iconoir-hammer"></i></div>
+                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Tvorba</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Píše kód, soubory</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
+                        <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(80, 0, 171, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-accent-primary); font-size: var(--text-xl);"><i class="iconoir-refresh-double"></i></div>
+                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Oprava</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Kontroluje sám sebe</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
+                        <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(80, 0, 171, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-accent-primary); font-size: var(--text-xl);"><i class="iconoir-lock"></i></div>
+                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Povolení</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Ptá se vás</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
+                        <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(5, 150, 105, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-success); font-size: var(--text-xl);"><i class="iconoir-check"></i></div>
+                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Výsledek</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Hotovo</span>
+                    </div>
+                </div>
+
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed);">
+                    Tohle je zásadní rozdíl oproti chatbotovi. Chatbot odpovídá. Agent <em>pracuje</em>&nbsp;— čte soubory, spouští příkazy, kontroluje výsledky, opravuje chyby, a&nbsp;u&nbsp;důležitých kroků se vás ptá na&nbsp;souhlas. Vy jste šéf, on je schopný asistent.
+                </p>
+            </div>
+        </section>
+
+        <!-- Undo / rewind -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Záchranná síť</span>
+                <h2 class="content-section__title">Když se něco nepovede</h2>
+                <p class="content-section__lead">
+                    Agent občas udělá něco jinak, než jste chtěli. Nemusíte panikařit&nbsp;— všechno se dá vrátit.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-4); margin: var(--space-6) 0;">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <span style="font-weight: var(--font-bold); color: var(--color-accent-primary); font-size: var(--text-lg); flex-shrink: 0;">Esc Esc</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed);">V&nbsp;terminálu zmáčkněte dvakrát <strong>Escape</strong> (nebo napište <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/rewind</code>)&nbsp;— otevře se nabídka, kde vrátíte kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <span style="font-weight: var(--font-bold); color: var(--color-accent-primary); font-size: var(--text-lg); flex-shrink: 0;">Esc</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed);">Jedním <strong>Escape</strong> zastavíte agenta uprostřed práce&nbsp;— když vidíte, že jde špatným směrem.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <span style="font-weight: var(--font-bold); color: var(--color-accent-primary); font-size: var(--text-lg); flex-shrink: 0;">Prompt</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed);">Nebo prostě řekněte: <em>„Vrať to zpátky, jak to bylo před poslední změnou."</em>&nbsp;— agent umí vrátit vlastní úpravy.</span>
+                    </div>
+                </div>
+
+                <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed);">
+                    Nebojte se experimentovat. Vždycky se dá vrátit zpátky.
+                </p>
+            </div>
+        </section>
+
+        <!-- Try it yourself -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Zkuste to sami</span>
+                <h2 class="content-section__title">Tři nápady na&nbsp;procvičení</h2>
+                <p class="content-section__lead">
+                    Vyberte si jeden a&nbsp;pusťte se do toho. Každý z&nbsp;nich využívá to, co jste se právě naučili&nbsp;— kontext, soubory, plánování.
+                </p>
+
+                <div class="try-grid">
+                    <article class="try-card">
+                        <div class="try-card__letter">A</div>
+                        <h3 class="try-card__title">Osobní stránka</h3>
+                        <p class="try-card__desc">Vytvořte si svou vlastní stránku od&nbsp;nuly. Připravte soubor s&nbsp;informacemi o&nbsp;sobě a&nbsp;obrázek jako inspiraci.</p>
+                        <p class="try-card__prompt">„Vytvoř mi osobní stránku podle souboru muj-obsah.md a&nbsp;podle vizuálního stylu v&nbsp;obrázku inspirace.png. Stránka má být v&nbsp;češtině."</p>
+                    </article>
+
+                    <article class="try-card">
+                        <div class="try-card__letter">B</div>
+                        <h3 class="try-card__title">To-do aplikace</h3>
+                        <p class="try-card__desc">Nechte agenta vytvořit jednoduchou aplikaci na&nbsp;úkoly. Funguje rovnou v&nbsp;prohlížeči.</p>
+                        <p class="try-card__prompt">„Vytvoř mi jednoduchou to-do aplikaci v&nbsp;HTML, CSS a&nbsp;JavaScriptu. Chci přidávat úkoly, označovat jako hotové a&nbsp;mazat. Pěkný design, tmavý režim."</p>
+                    </article>
+
+                    <article class="try-card">
+                        <div class="try-card__letter">C</div>
+                        <h3 class="try-card__title">Stránka o&nbsp;čemkoli</h3>
+                        <p class="try-card__desc">Máte koníček, firmu, projekt? Nechte agenta vytvořit stránku o&nbsp;tom, co&nbsp;vás baví.</p>
+                        <p class="try-card__prompt">„Vyhledej na webu informace o&nbsp;[vaše téma] a&nbsp;vytvoř krásnou informační stránku v&nbsp;češtině. Moderní design, s&nbsp;obrázky z&nbsp;webu."</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next step -->
+        <section class="content-section" style="border-bottom: none;">
+            <div class="content-section__container">
+                <div class="next-step">
+                    <div class="next-step__icon"><i class="iconoir-arrow-right"></i></div>
+                    <h3 class="next-step__title">Další krok: Level&nbsp;2</h3>
+                    <p class="next-step__desc">
+                        Umíte vytvořit projekt od&nbsp;nuly. V&nbsp;Level&nbsp;2 se naučíte, jak opakovanou práci vyřešit jednou provždy&nbsp;— pomocí skills a&nbsp;pluginů.
+                    </p>
+                    <a href="../level-2/" class="btn btn--primary btn--lg">
+                        Pokračovat na Level 2
+                        <i class="iconoir-arrow-right btn__icon"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="container footer__container">
+            <div class="footer__logo">
+                <img src="../assets/img/aibility-logo.svg" alt="Aibility" class="footer__logo-img" loading="lazy" width="120" height="40">
+            </div>
+            <p class="footer__copyright">© 2026 Aibility · <a href="https://github.com/aibilitycz/claude-code-90-webinar" target="_blank" rel="noopener" style="color: inherit;">GitHub</a> · <a href="https://aibility.cz" target="_blank" rel="noopener" style="color: inherit;">aibility.cz</a></p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/prework.js" defer></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-name: Deploy prework page to GitHub Pages
+name: Deploy learning guide to GitHub Pages
 
 on:
   push:
