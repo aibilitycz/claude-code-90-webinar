@@ -895,38 +895,71 @@
                     Tyhle otázky padly na&nbsp;našem webináři od&nbsp;desítek účastníků. Odpovědi vám ušetří čas.
                 </p>
 
-                <h3 class="sub-heading">Kde jsou moje soubory?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Agent ukládá soubory do&nbsp;složky, ve&nbsp;které jste ho spustili. V&nbsp;desktopové aplikaci je to složka, kterou jste vybrali na&nbsp;začátku relace. Pokud soubory nevidíte, řekněte agentovi: <em>„Kde přesně jsi uložil ty soubory? Pošli mi celou cestu."</em>&nbsp;— on vám ji vypíše a&nbsp;klidně soubor i&nbsp;otevře.
-                </p>
+                <div class="accordion accordion--plus">
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Kde jsou moje soubory?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Agent ukládá soubory do&nbsp;složky, ve&nbsp;které jste ho spustili. V&nbsp;desktopové aplikaci je to složka, kterou jste vybrali na&nbsp;začátku relace. Pokud soubory nevidíte, řekněte agentovi: <em>„Kde přesně jsi uložil ty soubory? Pošli mi celou cestu."</em>&nbsp;— on vám ji vypíše a&nbsp;klidně soubor i&nbsp;otevře.</p>
+                        </div>
+                    </div>
 
-                <h3 class="sub-heading">Co je „lokální" vs „cloud"?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    <strong>Lokální (Local)</strong>&nbsp;— agent běží na&nbsp;vašem počítači a&nbsp;pracuje přímo s&nbsp;vašimi soubory. Když něco vytvoří nebo změní, změny se projeví rovnou ve&nbsp;složce, kterou jste zvolili. Výpočty samotné probíhají na&nbsp;serverech Anthropic, ale soubory zůstávají u&nbsp;vás.<br><br>
-                    <strong>Cloud</strong>&nbsp;— agent běží v&nbsp;izolovaném prostředí na&nbsp;serverech Anthropic. Pracuje primárně s&nbsp;repozitáři na&nbsp;GitHubu&nbsp;— naklonuje je, provede změny a&nbsp;výsledek pošle zpět jako novou větev. Nic se nemění přímo na&nbsp;vašem disku. Hodí se, když chcete pracovat z&nbsp;prohlížeče bez instalace.<br><br>
-                    <strong>Pro začátek volte lokální</strong>&nbsp;— je to jednodušší a&nbsp;výsledky vidíte okamžitě u&nbsp;sebe na&nbsp;počítači.
-                </p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary);">
-                    Podrobněji: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Claude Code on the web</a> (anglicky)
-                </p>
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Co je „lokální" vs „cloud"?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p><strong>Lokální (Local)</strong>&nbsp;— agent běží na&nbsp;vašem počítači a&nbsp;pracuje přímo s&nbsp;vašimi soubory. Když něco vytvoří nebo změní, změny se projeví rovnou ve&nbsp;složce, kterou jste zvolili. Výpočty samotné probíhají na&nbsp;serverech Anthropic, ale soubory zůstávají u&nbsp;vás.</p>
+                            <p><strong>Cloud</strong>&nbsp;— agent běží v&nbsp;izolovaném prostředí na&nbsp;serverech Anthropic. Pracuje primárně s&nbsp;repozitáři na&nbsp;GitHubu&nbsp;— naklonuje je, provede změny a&nbsp;výsledek pošle zpět jako novou větev. Nic se nemění přímo na&nbsp;vašem disku. Hodí se, když chcete pracovat z&nbsp;prohlížeče bez instalace.</p>
+                            <p><strong>Pro začátek volte lokální</strong>&nbsp;— je to jednodušší a&nbsp;výsledky vidíte okamžitě u&nbsp;sebe na&nbsp;počítači.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener">Claude Code on the web</a> (anglicky)</p>
+                        </div>
+                    </div>
 
-                <h3 class="sub-heading">Jsou moje data v&nbsp;bezpečí?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data uchovávají maximálně 30&nbsp;dní a&nbsp;nepoužívají se k&nbsp;trénování. U&nbsp;osobních plánů (Pro, Max) záleží na&nbsp;vašem nastavení soukromí v&nbsp;claude.ai/settings. Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;důležitých akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení.
-                </p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary);">
-                    Podrobněji: <a href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Security</a> · <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Data usage</a> (anglicky)
-                </p>
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jsou moje data v&nbsp;bezpečí?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data uchovávají maximálně 30&nbsp;dní a&nbsp;nepoužívají se k&nbsp;trénování. U&nbsp;osobních plánů (Pro, Max) záleží na&nbsp;vašem nastavení soukromí v&nbsp;claude.ai/settings. Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;důležitých akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener">Security</a> · <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener">Data usage</a> (anglicky)</p>
+                        </div>
+                    </div>
 
-                <h3 class="sub-heading">Jak se vrátit zpátky, když agent něco pokazí?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    V&nbsp;terminálu zmáčkněte dvakrát <strong>Escape</strong> (nebo napište <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/rewind</code>)&nbsp;— otevře se nabídka, kde můžete vrátit kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod. V&nbsp;desktopové aplikaci najdete historii relací v&nbsp;postranním panelu. Více v&nbsp;<a href="../level-1/#zachranna-sit" style="color: var(--color-accent-primary); text-decoration: underline;">Level&nbsp;1</a>.
-                </p>
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jak se vrátit zpátky, když agent něco pokazí?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>V&nbsp;terminálu zmáčkněte dvakrát <strong>Escape</strong> (nebo napište <code>/rewind</code>)&nbsp;— otevře se nabídka, kde můžete vrátit kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod. V&nbsp;desktopové aplikaci najdete historii relací v&nbsp;postranním panelu. Více v&nbsp;<a href="../level-1/#zachranna-sit">Level&nbsp;1</a>.</p>
+                        </div>
+                    </div>
 
-                <h3 class="sub-heading">Proč mi tak rychle ubývají tokeny?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-8);">
-                    Nejčastější důvod: spouštíte agenta v&nbsp;příliš velké složce bez kontextu. Agent pak musí prohledávat desítky souborů, aby pochopil, kde je. Řešení: vždy začněte ve&nbsp;složce konkrétního projektu a&nbsp;vytvořte si <strong>CLAUDE.md</strong> (více v&nbsp;<a href="../level-3/" style="color: var(--color-accent-primary); text-decoration: underline;">Level&nbsp;3</a>)&nbsp;— jedna věta typu „tento projekt je osobní web v&nbsp;HTML" agentovi ušetří stovky zbytečných tokenů.
-                </p>
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Proč mi tak rychle ubývají tokeny?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Nejčastější důvod: spouštíte agenta v&nbsp;příliš velké složce bez kontextu. Agent pak musí prohledávat desítky souborů, aby pochopil, kde je. Řešení: vždy začněte ve&nbsp;složce konkrétního projektu a&nbsp;vytvořte si <strong>CLAUDE.md</strong> (více v&nbsp;<a href="../level-3/">Level&nbsp;3</a>)&nbsp;— jedna věta typu „tento projekt je osobní web v&nbsp;HTML" agentovi ušetří stovky zbytečných tokenů.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 

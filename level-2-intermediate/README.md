@@ -28,7 +28,7 @@ Tři věty, které musí padnout. Žádný scénář — kotvy.
 
 ## 41–48 min · Demo A — Bobo content flow
 
-Reálný osobní postup, na kterém Ondřej dělá svůj blog a LinkedIn. Každou noc kolem půl třetí ráno spustí cron Claude Code, ten projde RSS, web a poznámky zachycené přes den, sestaví denní brief s úhly pohledu, návrhy LinkedIn postů a osnovu blogového článku, uloží to do Gitu a jde dál spát.
+Reálný osobní postup, na kterém Ondřej dělá svůj blog a LinkedIn. Každou noc kolem půl třetí ráno spustí cron Claude Code, ten projde newslettery z e-mailu, RSS, web a poznámky zachycené přes den, sestaví denní brief s úhly pohledu, návrhy LinkedIn postů a osnovu blogového článku, uloží to do Gitu a jde dál spát.
 
 Pointa, která musí zaznít nahlas: **tohle není jeden velký prompt. Jsou to skilly.** Pipeline, capture, write-post — každý z nich je krátký markdown soubor. Ondřej je nepsal najednou; psal je postupně, vždycky ve chvíli, kdy zjistil, že tu samou věc dělá pořád dokola.
 
