@@ -56,6 +56,7 @@ Kompletní instrukce pro vedení 90minutového webináře s časovým rozpisem.
 
 ### Průvodci
 - **[Průvodce lektora](./00-session-guide.md)** — Podrobný scénář celého webináře
+- **[Workshop visuals](./workshop-visuals.html)** — Vizuální podklady k Levelu 0, 1 a 3 (otevřete v prohlížeči)
 - **[Quick Start CZ](./cheat-sheet/claude-code-quickstart-cs.md)** — Váš první půlhodina s Claude Code
 - **[Quick Start EN](./cheat-sheet/claude-code-quickstart-en.md)** — Your first 30 minutes with Claude Code
 
