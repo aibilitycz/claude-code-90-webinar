@@ -32,12 +32,6 @@
 
     <style>
         /* Shared subpage styles — compact */
-        .site-nav { background: var(--color-bg-card); border-bottom: 1px solid var(--color-border); padding: var(--space-2) 0; }
-        .site-nav__list { display: flex; gap: var(--space-1); list-style: none; margin: 0; padding: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        .site-nav__link { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: var(--font-medium); white-space: nowrap; transition: all var(--transition-fast); text-decoration: none; }
-        .site-nav__link:hover { color: var(--color-text-primary); background: var(--color-bg-secondary); }
-        .site-nav__link.is-active { color: var(--color-accent-primary); background: rgba(80, 0, 171, 0.08); font-weight: var(--font-semibold); }
-        .site-nav__link i { font-size: var(--text-base); }
 
         .page-hero { padding: var(--space-16) 0 var(--space-10); background: var(--color-bg-primary); }
         .page-hero__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
@@ -121,25 +115,16 @@
             </div>
             <nav class="header__nav" aria-label="Hlavní navigace">
                 <ul class="header__nav-list">
-                    <li><a href="https://aibility.cz" class="header__nav-item" target="_blank" rel="noopener">aibility.cz</a></li>
-                    <li><a href="../resources/" class="header__nav-item">Zdroje a&nbsp;odkazy</a></li>
+                    <li><a href="../" class="header__nav-item">Přehled</a></li>
+                    <li><a href="../zacatek/" class="header__nav-item">Začátek</a></li>
+                    <li><a href="../level-1/" class="header__nav-item">Level 1</a></li>
+                    <li><a href="../level-2/" class="header__nav-item">Level 2</a></li>
+                    <li><a href="./" class="header__nav-item" style="color: var(--color-accent-primary); font-weight: var(--font-semibold);">Level 3</a></li>
+                    <li><a href="../resources/" class="header__nav-item">Zdroje</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
-    <nav class="site-nav" aria-label="Průvodce">
-        <div class="container">
-            <ul class="site-nav__list">
-                <li><a href="../" class="site-nav__link"><i class="iconoir-home"></i> Přehled</a></li>
-                <li><a href="../zacatek/" class="site-nav__link"><i class="iconoir-play"></i> Začátek</a></li>
-                <li><a href="../level-1/" class="site-nav__link"><i class="iconoir-sparks"></i> Level 1</a></li>
-                <li><a href="../level-2/" class="site-nav__link"><i class="iconoir-puzzle"></i> Level 2</a></li>
-                <li><a href="./" class="site-nav__link is-active"><i class="iconoir-settings"></i> Level 3</a></li>
-                <li><a href="../resources/" class="site-nav__link"><i class="iconoir-bookmark"></i> Zdroje</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <main id="main-content" tabindex="-1">
         <section class="page-hero">
