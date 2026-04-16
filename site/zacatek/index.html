@@ -678,7 +678,7 @@
                 <li><a href="../" class="site-nav__link"><i class="iconoir-home"></i> Přehled</a></li>
                 <li><a href="./" class="site-nav__link is-active"><i class="iconoir-play"></i> Začátek</a></li>
                 <li><a href="../level-1/" class="site-nav__link"><i class="iconoir-sparks"></i> Level 1</a></li>
-                <li><a href="../level-2/" class="site-nav__link"><i class="iconoir-plugin"></i> Level 2</a></li>
+                <li><a href="../level-2/" class="site-nav__link"><i class="iconoir-puzzle"></i> Level 2</a></li>
                 <li><a href="../level-3/" class="site-nav__link"><i class="iconoir-settings"></i> Level 3</a></li>
                 <li><a href="../resources/" class="site-nav__link"><i class="iconoir-bookmark"></i> Zdroje</a></li>
             </ul>
@@ -955,17 +955,25 @@
 
                 <h3 class="sub-heading">Co je „lokální" vs „cloud"?</h3>
                 <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    <strong>Lokální</strong> znamená, že agent pracuje přímo s&nbsp;vašimi soubory na&nbsp;počítači. <strong>Cloud</strong> znamená, že pracuje se&nbsp;soubory na&nbsp;GitHubu&nbsp;— nic se nemění u&nbsp;vás na&nbsp;disku. Pro začátek vždycky volte <strong>lokální</strong>.
+                    <strong>Lokální (Local)</strong>&nbsp;— agent běží na&nbsp;vašem počítači a&nbsp;pracuje přímo s&nbsp;vašimi soubory. Když něco vytvoří nebo změní, změny se projeví rovnou ve&nbsp;složce, kterou jste zvolili. Výpočty samotné probíhají na&nbsp;serverech Anthropic, ale soubory zůstávají u&nbsp;vás.<br><br>
+                    <strong>Cloud</strong>&nbsp;— agent běží v&nbsp;izolovaném prostředí na&nbsp;serverech Anthropic. Pracuje primárně s&nbsp;repozitáři na&nbsp;GitHubu&nbsp;— naklonuje je, provede změny a&nbsp;výsledek pošle zpět jako novou větev. Nic se nemění přímo na&nbsp;vašem disku. Hodí se, když chcete pracovat z&nbsp;prohlížeče bez instalace.<br><br>
+                    <strong>Pro začátek volte lokální</strong>&nbsp;— je to jednodušší a&nbsp;výsledky vidíte okamžitě u&nbsp;sebe na&nbsp;počítači.
+                </p>
+                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary);">
+                    Podrobněji: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Claude Code on the web</a> (anglicky)
                 </p>
 
                 <h3 class="sub-heading">Jsou moje data v&nbsp;bezpečí?</h3>
                 <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
                     Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data uchovávají maximálně 30&nbsp;dní a&nbsp;nepoužívají se k&nbsp;trénování. U&nbsp;osobních plánů (Pro, Max) záleží na&nbsp;vašem nastavení soukromí v&nbsp;claude.ai/settings. Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;důležitých akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení.
                 </p>
+                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary);">
+                    Podrobněji: <a href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Security</a> · <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Data usage</a> (anglicky)
+                </p>
 
                 <h3 class="sub-heading">Jak se vrátit zpátky, když agent něco pokazí?</h3>
                 <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    V&nbsp;terminálu zmáčkněte dvakrát <strong>Escape</strong> (nebo napište <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/rewind</code>)&nbsp;— otevře se nabídka, kde můžete vrátit kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod. V&nbsp;desktopové aplikaci najdete historii relací v&nbsp;postranním panelu.
+                    V&nbsp;terminálu zmáčkněte dvakrát <strong>Escape</strong> (nebo napište <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/rewind</code>)&nbsp;— otevře se nabídka, kde můžete vrátit kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod. V&nbsp;desktopové aplikaci najdete historii relací v&nbsp;postranním panelu. Více v&nbsp;<a href="../level-1/#zachranna-sit" style="color: var(--color-accent-primary); text-decoration: underline;">Level&nbsp;1</a>.
                 </p>
 
                 <h3 class="sub-heading">Proč mi tak rychle ubývají tokeny?</h3>
