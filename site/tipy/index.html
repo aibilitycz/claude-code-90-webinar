@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tipy a triky — Naučte se Claude Code | Aibility</title>
+    <meta name="description" content="Praktický tahák pro každodenní práci s Claude Code. Příkazy, klávesové zkratky, pokročilé funkce a tipy pro efektivní práci.">
+
+    <link rel="preload" href="../assets/css/styles.css" as="style">
+    <link rel="preload" href="../assets/css/iconoir.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta name="theme-color" content="#0B1221">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tipy a triky — Naučte se Claude Code">
+    <meta property="og:description" content="Praktický tahák pro každodenní práci s Claude Code. Příkazy, zkratky, pokročilé funkce.">
+    <meta property="og:site_name" content="Aibility">
+    <meta property="og:locale" content="cs_CZ">
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+    </noscript>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/iconoir.css">
+
+    <style>
+        /* Shared subpage styles */
+
+        /* Header offset */
+        body { padding-top: 80px; }
+
+        .page-hero { padding: var(--space-16) 0 var(--space-10); background: var(--color-bg-primary); }
+        .page-hero__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
+        .page-hero__eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-accent-primary); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-4); }
+        .page-hero__title { font-family: var(--font-family-headings); font-size: clamp(2rem, 4vw, 3rem); line-height: var(--leading-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .page-hero__lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin: 0; max-width: 680px; }
+
+        .content-section { padding: var(--space-16) 0; border-bottom: 1px solid var(--color-border); }
+        .content-section:nth-child(even) { background: var(--color-bg-secondary); }
+        .content-section__container { max-width: 880px; margin: 0 auto; padding: 0 var(--space-6); }
+        .content-section__eyebrow { display: inline-block; color: var(--color-accent-primary); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--space-3); }
+        .content-section__title { font-family: var(--font-family-headings); font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: var(--leading-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); font-weight: var(--font-normal); }
+        .content-section__lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin: 0 0 var(--space-8); }
+
+        /* Commands table */
+        .commands-table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; }
+        .commands-table th, .commands-table td { padding: var(--space-3) var(--space-4); text-align: left; border-bottom: 1px solid var(--color-border); font-size: var(--text-sm); }
+        .commands-table th { color: var(--color-text-tertiary); font-weight: var(--font-semibold); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.05em; }
+        .commands-table td:first-child { font-family: "SF Mono", Menlo, Consolas, monospace; color: var(--color-accent-primary); white-space: nowrap; }
+        .commands-table td:last-child { color: var(--color-text-secondary); }
+
+        /* Tips list */
+        .tips-list { list-style: none; margin: var(--space-6) 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+        .tips-list__item { display: flex; align-items: flex-start; gap: var(--space-4); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+        .tips-list__icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; font-size: var(--text-base); background: rgba(80, 0, 171, 0.08); color: var(--color-accent-primary); }
+        .tips-list__body { flex: 1; min-width: 0; }
+        .tips-list__title { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-base); margin: 0 0 2px; }
+        .tips-list__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0; }
+
+        /* Feature cards grid */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: var(--space-4); margin: var(--space-6) 0; }
+        .feature-card { padding: var(--space-5) var(--space-6); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+        .feature-card__eyebrow { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: var(--text-xs); color: var(--color-accent-primary); font-weight: var(--font-semibold); letter-spacing: 0.04em; margin: 0 0 var(--space-2); }
+        .feature-card__title { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-base); margin: 0 0 var(--space-2); }
+        .feature-card__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0; }
+        .feature-card__desc code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.85em; color: var(--color-accent-primary); background: rgba(80, 0, 171, 0.06); padding: 1px 5px; border-radius: 3px; }
+        .feature-card__options { margin: var(--space-3) 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--space-1); }
+        .feature-card__options li { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-relaxed); padding-left: var(--space-4); position: relative; }
+        .feature-card__options li::before { content: "–"; position: absolute; left: 0; color: var(--color-text-tertiary); }
+        .feature-card__options li code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.85em; color: var(--color-accent-primary); background: rgba(80, 0, 171, 0.06); padding: 1px 5px; border-radius: 3px; }
+
+        @media (max-width: 600px) {
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Přeskočit na obsah</a>
+
+    <header class="header" id="header">
+        <div class="header__container container">
+            <div class="header__left">
+                <a href="../" class="header__logo" aria-label="Aibility">
+                    <img src="../assets/img/aibility-logo.svg" alt="Aibility" class="header__logo-img" width="120" height="40" fetchpriority="high">
+                </a>
+            </div>
+            <nav class="header__nav" aria-label="Hlavní navigace">
+                <ul class="header__nav-list">
+                    <li><a href="../" class="header__nav-item">Přehled</a></li>
+                    <li><a href="../zacatek/" class="header__nav-item">Začátek</a></li>
+                    <li><a href="../level-1/" class="header__nav-item">Level 1</a></li>
+                    <li><a href="../level-2/" class="header__nav-item">Level 2</a></li>
+                    <li><a href="../level-3/" class="header__nav-item">Level 3</a></li>
+                    <li><a href="./" class="header__nav-item" style="color: var(--color-accent-primary); font-weight: var(--font-semibold);">Tipy</a></li>
+                    <li><a href="../odkazy/" class="header__nav-item">Odkazy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+        <section class="page-hero">
+            <div class="page-hero__container">
+                <span class="page-hero__eyebrow"><i class="iconoir-sparks"></i> Tipy</span>
+                <h1 class="page-hero__title">Tipy a&nbsp;triky</h1>
+                <p class="page-hero__lead">
+                    Praktický tahák pro každodenní práci s&nbsp;Claude&nbsp;Code. Příkazy, zkratky, pokročilé funkce&nbsp;— všechno, co se hodí mít po&nbsp;ruce.
+                </p>
+            </div>
+        </section>
+
+        <!-- Commands -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Příkazy</span>
+                <h2 class="content-section__title">Užitečné příkazy</h2>
+                <p class="content-section__lead">Příkazy, které se hodí znát od začátku.</p>
+
+                <table class="commands-table">
+                    <thead>
+                        <tr>
+                            <th>Příkaz</th>
+                            <th>Co dělá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>claude</td><td>Spuštění Claude Code (terminál)</td></tr>
+                        <tr><td>/help</td><td>Nápověda</td></tr>
+                        <tr><td>/init</td><td>Vytvořit CLAUDE.md z&nbsp;obsahu složky</td></tr>
+                        <tr><td>/clear</td><td>Vymazat kontext konverzace</td></tr>
+                        <tr><td>/compact</td><td>Zkrátit kontext (šetří tokeny)</td></tr>
+                        <tr><td>/rewind</td><td>Vrátit kód nebo konverzaci na&nbsp;předchozí bod</td></tr>
+                        <tr><td>/plan</td><td>Přepnout do režimu plánování</td></tr>
+                        <tr><td>/model</td><td>Přepnout model (Haiku / Sonnet / Opus)</td></tr>
+                        <tr><td>/cost</td><td>Zobrazit spotřebu (API uživatelé)</td></tr>
+                        <tr><td>/stats</td><td>Zobrazit statistiky používání</td></tr>
+                        <tr><td>/plugin</td><td>Správa pluginů a&nbsp;marketplace</td></tr>
+                        <tr><td>/exit</td><td>Ukončit Claude Code</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Keyboard shortcuts -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Zkratky</span>
+                <h2 class="content-section__title">Klávesové zkratky</h2>
+                <p class="content-section__lead">Základní zkratky, které urychlí každodenní práci.</p>
+
+                <table class="commands-table">
+                    <thead>
+                        <tr>
+                            <th>Zkratka</th>
+                            <th>Co dělá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Esc</td><td>Zastavit agenta (přeruší generování)</td></tr>
+                        <tr><td>Esc Esc</td><td>Otevřít nabídku rewind (vrácení změn)</td></tr>
+                        <tr><td>Shift+Tab</td><td>Přepínat režimy oprávnění (default → acceptEdits → plan)</td></tr>
+                        <tr><td>Tab</td><td>Odeslat zprávu</td></tr>
+                        <tr><td>Ctrl+C</td><td>Ukončit běžící příkaz v&nbsp;terminálu</td></tr>
+                        <tr><td>@</td><td>Odkázat na soubor v&nbsp;promptu</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Advanced features -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Pokročilé funkce</span>
+                <h2 class="content-section__title">Pokročilé funkce</h2>
+                <p class="content-section__lead">Funkce, které se hodí znát, jakmile se zorientujete v&nbsp;základech.</p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <p class="feature-card__eyebrow">/rewind · Esc Esc</p>
+                        <h3 class="feature-card__title">Rewind — vrácení změn</h3>
+                        <p class="feature-card__desc">Dvakrát <code>Esc</code> nebo příkaz <code>/rewind</code> otevře nabídku se čtyřmi možnostmi:</p>
+                        <ul class="feature-card__options">
+                            <li>Vrátit kód i&nbsp;konverzaci na vybraný bod</li>
+                            <li>Vrátit pouze kód (konverzace zůstane)</li>
+                            <li>Vrátit pouze konverzaci (kód zůstane)</li>
+                            <li>Shrnout konverzaci od vybraného bodu</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <p class="feature-card__eyebrow">claude --continue · --resume</p>
+                        <h3 class="feature-card__title">Resume — pokračování v&nbsp;chatu</h3>
+                        <p class="feature-card__desc"><code>claude --continue</code> okamžitě navazuje na&nbsp;poslední konverzaci — ideální, když zavřete terminál a&nbsp;chcete pokračovat tam, kde jste skončili. <code>claude --resume</code> zobrazí seznam uložených konverzací a&nbsp;nechá vás vybrat kteroukoli z&nbsp;nich.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <p class="feature-card__eyebrow">/config → remote control</p>
+                        <h3 class="feature-card__title">Remote control — ovládání z&nbsp;telefonu</h3>
+                        <p class="feature-card__desc">V&nbsp;terminálu zadejte <code>/config</code> a&nbsp;zapněte remote control. Pak otevřete Claude appku na&nbsp;mobilu a&nbsp;připojte se k&nbsp;běžící relaci. Spustíte práci na počítači, pak odejdete — a&nbsp;sledujete průběh nebo zadáváte pokyny z&nbsp;telefonu.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <p class="feature-card__eyebrow">claude --worktree</p>
+                        <h3 class="feature-card__title">Paralelní relace</h3>
+                        <p class="feature-card__desc"><code>claude --worktree</code> vytvoří izolovanou kopii projektu (git worktree), ve&nbsp;které může agent pracovat souběžně s&nbsp;vaší hlavní větví. Hodí se, když chcete testovat experimentální změny, aniž by ovlivnily rozdělanou práci.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <p class="feature-card__eyebrow">cat soubor.txt | claude -p "..."</p>
+                        <h3 class="feature-card__title">Piping — jednorázové úkoly</h3>
+                        <p class="feature-card__desc">Přepnutím vstupu přes rouru spustíte Claude Code pro jednorázový úkol bez otevírání interaktivní relace. Vhodné pro skripty a&nbsp;automatizace. Příklad: <code>cat report.txt | claude -p "shrň klíčové body"</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">FAQ</span>
+                <h2 class="content-section__title">Časté otázky</h2>
+
+                <div class="accordion accordion--plus">
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jsou moje data v&nbsp;bezpečí?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;důležitých akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení. Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data nepoužívají k&nbsp;trénování a&nbsp;uchovávají se maximálně 30&nbsp;dní. U&nbsp;osobních plánů (Pro, Max) záleží na&nbsp;vašem nastavení soukromí v&nbsp;claude.ai/settings. Pro firmy Anthropic nabízí enterprise licencování s&nbsp;přísnějšími zárukami.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener">Security</a> · <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener">Data usage</a></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jak šetřit tokeny?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Tokeny jsou jednotky „myšlení", které agent spotřebovává. Tři způsoby, jak je šetřit: <strong>1)</strong>&nbsp;Začínejte ve&nbsp;správné složce — nespouštějte agenta v&nbsp;kořenovém adresáři. <strong>2)</strong>&nbsp;Vytvořte si CLAUDE.md — jedna věta o&nbsp;projektu ušetří stovky tokenů. <strong>3)</strong>&nbsp;Používejte <code>/compact</code> — zkrátí konverzaci a&nbsp;uvolní kontextové okno.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Costs</a> · <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener">Best practices</a></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Co je „lokální" vs „cloud"?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p><strong>Lokální</strong>&nbsp;— agent pracuje přímo s&nbsp;vašimi soubory na&nbsp;počítači. Výpočty probíhají na&nbsp;serverech Anthropic, ale soubory zůstávají u&nbsp;vás. <strong>Cloud</strong>&nbsp;— agent běží v&nbsp;izolovaném prostředí na&nbsp;serverech Anthropic, pracuje primárně s&nbsp;repozitáři na&nbsp;GitHubu. Pro začátek volte lokální.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener">Claude Code on the web</a></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jaký je rozdíl mezi skills, agenty a&nbsp;subagenty?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p><strong>Skill</strong> je textový soubor s&nbsp;instrukcemi — říká agentovi, jak provést konkrétní úkol. Načítá se na&nbsp;vyžádání. <strong>Subagent</strong> je izolovaný pracovník s&nbsp;vlastním kontextovým oknem — agent si ho pouští na&nbsp;dílčí úkoly, aby nezaplnil svůj hlavní kontext. <strong>Plugin</strong> je balíček, který může obsahovat skills, subagenty, hooky a&nbsp;MCP servery dohromady.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">Skills</a> · <a href="https://code.claude.com/docs/en/features-overview" target="_blank" rel="noopener">Features overview</a></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jak se vrátit zpátky, když agent něco pokazí?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Dvakrát <strong>Escape</strong> (nebo příkaz <code>/rewind</code>) otevře nabídku, kde vrátíte kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod. Jedním Escape zastavíte agenta uprostřed práce. Nebo prostě řekněte: „Vrať to zpátky."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Effective work tips -->
+        <section class="content-section" style="border-bottom: none;">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Efektivní práce</span>
+                <h2 class="content-section__title">Tipy pro efektivní práci</h2>
+                <p class="content-section__lead">Jednoduché návyky, které výrazně zlepší výsledky.</p>
+
+                <ul class="tips-list">
+                    <li class="tips-list__item">
+                        <div class="tips-list__icon"><i class="iconoir-folder"></i></div>
+                        <div class="tips-list__body">
+                            <h3 class="tips-list__title">Začínejte ve správné složce</h3>
+                            <p class="tips-list__desc">Spouštějte agenta vždy ve složce projektu, ne v kořenovém adresáři. Agent pak čte jen relevantní soubory — méně tokenů, přesnější výsledky.</p>
+                        </div>
+                    </li>
+                    <li class="tips-list__item">
+                        <div class="tips-list__icon"><i class="iconoir-file-txt"></i></div>
+                        <div class="tips-list__body">
+                            <h3 class="tips-list__title">Vytvořte si CLAUDE.md</h3>
+                            <p class="tips-list__desc">Jeden soubor s popisem projektu, preferencemi a opakujícími se instrukcemi. Agent ho čte automaticky při každém spuštění. Postup najdete v <a href="../level-3/">Level 3</a>.</p>
+                        </div>
+                    </li>
+                    <li class="tips-list__item">
+                        <div class="tips-list__icon"><i class="iconoir-refresh-double"></i></div>
+                        <div class="tips-list__body">
+                            <h3 class="tips-list__title">Používejte /clear mezi nesouvisejícími úkoly</h3>
+                            <p class="tips-list__desc">Kontext z předchozího úkolu může plést agenta při novém. <code>/clear</code> smaže konverzaci a nechá soubory beze změny — čistý start bez zbytečného šumu.</p>
+                        </div>
+                    </li>
+                    <li class="tips-list__item">
+                        <div class="tips-list__icon"><i class="iconoir-cursor-pointer"></i></div>
+                        <div class="tips-list__body">
+                            <h3 class="tips-list__title">Buďte konkrétní v promptech</h3>
+                            <p class="tips-list__desc">Čím přesnější zadání, tím lepší výsledek. Místo „vytvoř web" zadejte „vytvoř landing page pro fitness studio s&nbsp;oddíly: hero, ceník, kontakt". Kontext a záměr jsou klíčové.</p>
+                        </div>
+                    </li>
+                    <li class="tips-list__item">
+                        <div class="tips-list__icon"><i class="iconoir-check-circle"></i></div>
+                        <div class="tips-list__body">
+                            <h3 class="tips-list__title">Nechte agenta ověřovat svou práci</h3>
+                            <p class="tips-list__desc">Na konec zadání přidejte „zkontroluj si to po sobě" nebo „ověř, že vše funguje". Agent si projde výsledek vlastním pohledem a zachytí chyby dřív, než je uvidíte vy.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="container footer__container">
+            <div class="footer__logo">
+                <img src="../assets/img/aibility-logo.svg" alt="Aibility" class="footer__logo-img" loading="lazy" width="120" height="40">
+            </div>
+            <p class="footer__copyright">© 2026 Aibility · <a href="https://github.com/aibilitycz/claude-code-90-webinar" target="_blank" rel="noopener" style="color: inherit;">GitHub</a> · <a href="https://aibility.cz" target="_blank" rel="noopener" style="color: inherit;">aibility.cz</a></p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/prework.js" defer></script>
+</body>
+</html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Zdroje a odkazy — Naučte se Claude Code | Aibility</title>
-    <meta name="description" content="Kompletní seznam zdrojů ke Claude Code — kurzy, dokumentace, komunita, pluginy, cheat sheet a stránky ke stažení.">
+    <title>Odkazy a zdroje — Naučte se Claude Code | Aibility</title>
+    <meta name="description" content="Kurzy, dokumentace, komunita, pluginy, stažení a doporučené čtení ke Claude Code — všechny odkazy na jednom místě.">
 
     <link rel="preload" href="../assets/css/styles.css" as="style">
     <link rel="preload" href="../assets/css/iconoir.css" as="style">
@@ -17,8 +17,8 @@
     <meta name="theme-color" content="#0B1221">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Zdroje a odkazy — Naučte se Claude Code">
-    <meta property="og:description" content="Kurzy, dokumentace, komunita, pluginy a cheat sheet pro Claude Code.">
+    <meta property="og:title" content="Odkazy a zdroje — Naučte se Claude Code">
+    <meta property="og:description" content="Kurzy, dokumentace, komunita, pluginy, stažení a doporučené čtení ke Claude Code.">
     <meta property="og:site_name" content="Aibility">
     <meta property="og:locale" content="cs_CZ">
 
@@ -62,13 +62,6 @@
         .link-list__title { font-weight: var(--font-semibold); color: var(--color-text-primary); font-size: var(--text-base); margin: 0 0 2px; }
         .link-list__desc { color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-relaxed); margin: 0; }
         .link-list__url { font-size: var(--text-xs); color: var(--color-text-tertiary); margin-top: 4px; display: block; word-break: break-all; }
-
-        /* Commands table */
-        .commands-table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; }
-        .commands-table th, .commands-table td { padding: var(--space-3) var(--space-4); text-align: left; border-bottom: 1px solid var(--color-border); font-size: var(--text-sm); }
-        .commands-table th { color: var(--color-text-tertiary); font-weight: var(--font-semibold); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.05em; }
-        .commands-table td:first-child { font-family: "SF Mono", Menlo, Consolas, monospace; color: var(--color-accent-primary); white-space: nowrap; }
-        .commands-table td:last-child { color: var(--color-text-secondary); }
     </style>
 </head>
 <body>
@@ -88,7 +81,8 @@
                     <li><a href="../level-1/" class="header__nav-item">Level 1</a></li>
                     <li><a href="../level-2/" class="header__nav-item">Level 2</a></li>
                     <li><a href="../level-3/" class="header__nav-item">Level 3</a></li>
-                    <li><a href="./" class="header__nav-item" style="color: var(--color-accent-primary); font-weight: var(--font-semibold);">Zdroje</a></li>
+                    <li><a href="../tipy/" class="header__nav-item">Tipy</a></li>
+                    <li><a href="./" class="header__nav-item" style="color: var(--color-accent-primary); font-weight: var(--font-semibold);">Odkazy</a></li>
                 </ul>
             </nav>
         </div>
@@ -97,10 +91,10 @@
     <main id="main-content" tabindex="-1">
         <section class="page-hero">
             <div class="page-hero__container">
-                <span class="page-hero__eyebrow"><i class="iconoir-bookmark"></i> Zdroje</span>
-                <h1 class="page-hero__title">Zdroje a&nbsp;odkazy</h1>
+                <span class="page-hero__eyebrow"><i class="iconoir-link"></i> Odkazy</span>
+                <h1 class="page-hero__title">Odkazy a&nbsp;zdroje</h1>
                 <p class="page-hero__lead">
-                    Všechno na jednom místě&nbsp;— kurzy, dokumentace, komunita, stažení, pluginy a&nbsp;užitečné příkazy.
+                    Kurzy, dokumentace, komunita, pluginy, stažení a&nbsp;doporučené čtení&nbsp;— všechny odkazy na&nbsp;jednom místě.
                 </p>
             </div>
         </section>
@@ -307,41 +301,6 @@
             </div>
         </section>
 
-        <!-- Useful commands -->
-        <section class="content-section">
-            <div class="content-section__container">
-                <span class="content-section__eyebrow">Příkazy</span>
-                <h2 class="content-section__title">Užitečné příkazy</h2>
-                <p class="content-section__lead">Příkazy, které se hodí znát od začátku.</p>
-
-                <table class="commands-table">
-                    <thead>
-                        <tr>
-                            <th>Příkaz</th>
-                            <th>Co dělá</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>claude</td><td>Spuštění Claude Code (terminál)</td></tr>
-                        <tr><td>/help</td><td>Nápověda</td></tr>
-                        <tr><td>/init</td><td>Vytvořit CLAUDE.md z&nbsp;obsahu složky</td></tr>
-                        <tr><td>/clear</td><td>Vymazat kontext konverzace</td></tr>
-                        <tr><td>/compact</td><td>Zkrátit kontext (šetří tokeny)</td></tr>
-                        <tr><td>/rewind</td><td>Vrátit kód nebo konverzaci na&nbsp;předchozí bod</td></tr>
-                        <tr><td>/plan</td><td>Přepnout do režimu plánování</td></tr>
-                        <tr><td>/model</td><td>Přepnout model (Haiku / Sonnet / Opus)</td></tr>
-                        <tr><td>/cost</td><td>Zobrazit spotřebu (API uživatelé)</td></tr>
-                        <tr><td>/stats</td><td>Zobrazit statistiky používání</td></tr>
-                        <tr><td>/plugin</td><td>Správa pluginů a&nbsp;marketplace</td></tr>
-                        <tr><td>Esc</td><td>Zastavit generování</td></tr>
-                        <tr><td>Esc Esc</td><td>Otevřít nabídku pro vrácení změn</td></tr>
-                        <tr><td>Shift+Tab</td><td>Přepínat režimy oprávnění</td></tr>
-                        <tr><td>/exit</td><td>Ukončit Claude Code</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
         <!-- Events -->
         <section class="content-section">
             <div class="content-section__container">
@@ -406,80 +365,6 @@
             </div>
         </section>
 
-        <!-- FAQ -->
-        <section class="content-section">
-            <div class="content-section__container">
-                <span class="content-section__eyebrow">FAQ</span>
-                <h2 class="content-section__title">Časté otázky</h2>
-
-                <div class="accordion accordion--plus">
-                    <div class="accordion__item">
-                        <button class="accordion__header" aria-expanded="false">
-                            <span class="accordion__question">Jsou moje data v&nbsp;bezpečí?</span>
-                            <span class="accordion__icon accordion__icon--plus">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                            </span>
-                        </button>
-                        <div class="accordion__content">
-                            <p>Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;důležitých akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení. Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data nepoužívají k&nbsp;trénování a&nbsp;uchovávají se maximálně 30&nbsp;dní. U&nbsp;osobních plánů (Pro, Max) záleží na&nbsp;vašem nastavení soukromí v&nbsp;claude.ai/settings. Pro firmy Anthropic nabízí enterprise licencování s&nbsp;přísnějšími zárukami.</p>
-                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener">Security</a> · <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener">Data usage</a></p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item">
-                        <button class="accordion__header" aria-expanded="false">
-                            <span class="accordion__question">Jak šetřit tokeny?</span>
-                            <span class="accordion__icon accordion__icon--plus">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                            </span>
-                        </button>
-                        <div class="accordion__content">
-                            <p>Tokeny jsou jednotky „myšlení", které agent spotřebovává. Tři způsoby, jak je šetřit: <strong>1)</strong>&nbsp;Začínejte ve&nbsp;správné složce — nespouštějte agenta v&nbsp;kořenovém adresáři. <strong>2)</strong>&nbsp;Vytvořte si CLAUDE.md — jedna věta o&nbsp;projektu ušetří stovky tokenů. <strong>3)</strong>&nbsp;Používejte <code>/compact</code> — zkrátí konverzaci a&nbsp;uvolní kontextové okno.</p>
-                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Costs</a> · <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener">Best practices</a></p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item">
-                        <button class="accordion__header" aria-expanded="false">
-                            <span class="accordion__question">Co je „lokální" vs „cloud"?</span>
-                            <span class="accordion__icon accordion__icon--plus">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                            </span>
-                        </button>
-                        <div class="accordion__content">
-                            <p><strong>Lokální</strong>&nbsp;— agent pracuje přímo s&nbsp;vašimi soubory na&nbsp;počítači. Výpočty probíhají na&nbsp;serverech Anthropic, ale soubory zůstávají u&nbsp;vás. <strong>Cloud</strong>&nbsp;— agent běží v&nbsp;izolovaném prostředí na&nbsp;serverech Anthropic, pracuje primárně s&nbsp;repozitáři na&nbsp;GitHubu. Pro začátek volte lokální.</p>
-                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener">Claude Code on the web</a></p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item">
-                        <button class="accordion__header" aria-expanded="false">
-                            <span class="accordion__question">Jaký je rozdíl mezi skills, agenty a&nbsp;subagenty?</span>
-                            <span class="accordion__icon accordion__icon--plus">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                            </span>
-                        </button>
-                        <div class="accordion__content">
-                            <p><strong>Skill</strong> je textový soubor s&nbsp;instrukcemi — říká agentovi, jak provést konkrétní úkol. Načítá se na&nbsp;vyžádání. <strong>Subagent</strong> je izolovaný pracovník s&nbsp;vlastním kontextovým oknem — agent si ho pouští na&nbsp;dílčí úkoly, aby nezaplnil svůj hlavní kontext. <strong>Plugin</strong> je balíček, který může obsahovat skills, subagenty, hooky a&nbsp;MCP servery dohromady.</p>
-                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">Skills</a> · <a href="https://code.claude.com/docs/en/features-overview" target="_blank" rel="noopener">Features overview</a></p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item">
-                        <button class="accordion__header" aria-expanded="false">
-                            <span class="accordion__question">Jak se vrátit zpátky, když agent něco pokazí?</span>
-                            <span class="accordion__icon accordion__icon--plus">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                            </span>
-                        </button>
-                        <div class="accordion__content">
-                            <p>Dvakrát <strong>Escape</strong> (nebo příkaz <code>/rewind</code>) otevře nabídku, kde vrátíte kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod. Jedním Escape zastavíte agenta uprostřed práce. Nebo prostě řekněte: „Vrať to zpátky."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Recommended reading -->
         <section class="content-section">
             <div class="content-section__container">
@@ -527,7 +412,7 @@
             </div>
         </section>
 
-        <!-- Pricing and product -->
+        <!-- Product -->
         <section class="content-section" style="border-bottom: none;">
             <div class="content-section__container">
                 <span class="content-section__eyebrow">Produkt</span>
