@@ -412,45 +412,71 @@
                 <span class="content-section__eyebrow">FAQ</span>
                 <h2 class="content-section__title">Časté otázky</h2>
 
-                <h3 class="sub-heading">Jsou moje data v&nbsp;bezpečí?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;důležitých akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení. Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data nepoužívají k&nbsp;trénování a&nbsp;uchovávají se maximálně 30&nbsp;dní. U&nbsp;osobních plánů (Pro, Max) záleží na&nbsp;vašem nastavení soukromí v&nbsp;claude.ai/settings. Pro firmy Anthropic nabízí enterprise licencování s&nbsp;přísnějšími zárukami.
-                </p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary); margin-bottom: var(--space-6);">
-                    Podrobněji: <a href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Security</a> · <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Data usage</a>
-                </p>
+                <div class="accordion accordion--plus">
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jsou moje data v&nbsp;bezpečí?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;důležitých akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení. Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data nepoužívají k&nbsp;trénování a&nbsp;uchovávají se maximálně 30&nbsp;dní. U&nbsp;osobních plánů (Pro, Max) záleží na&nbsp;vašem nastavení soukromí v&nbsp;claude.ai/settings. Pro firmy Anthropic nabízí enterprise licencování s&nbsp;přísnějšími zárukami.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener">Security</a> · <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener">Data usage</a></p>
+                        </div>
+                    </div>
 
-                <h3 class="sub-heading">Jak šetřit tokeny?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Tokeny jsou jednotky „myšlení", které agent spotřebovává. Tři způsoby, jak je šetřit: <strong>1)</strong>&nbsp;Začínejte ve&nbsp;správné složce — nespouštějte agenta v&nbsp;kořenovém adresáři. <strong>2)</strong>&nbsp;Vytvořte si CLAUDE.md — jedna věta o&nbsp;projektu ušetří stovky tokenů. <strong>3)</strong>&nbsp;Používejte <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/compact</code> — zkrátí konverzaci a&nbsp;uvolní kontextové okno.
-                </p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary); margin-bottom: var(--space-6);">
-                    Podrobněji: <a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Costs</a> · <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Best practices</a>
-                </p>
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jak šetřit tokeny?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Tokeny jsou jednotky „myšlení", které agent spotřebovává. Tři způsoby, jak je šetřit: <strong>1)</strong>&nbsp;Začínejte ve&nbsp;správné složce — nespouštějte agenta v&nbsp;kořenovém adresáři. <strong>2)</strong>&nbsp;Vytvořte si CLAUDE.md — jedna věta o&nbsp;projektu ušetří stovky tokenů. <strong>3)</strong>&nbsp;Používejte <code>/compact</code> — zkrátí konverzaci a&nbsp;uvolní kontextové okno.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Costs</a> · <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener">Best practices</a></p>
+                        </div>
+                    </div>
 
-                <h3 class="sub-heading">Co je „lokální" vs „cloud"?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    <strong>Lokální</strong>&nbsp;— agent pracuje přímo s&nbsp;vašimi soubory na&nbsp;počítači. Výpočty probíhají na&nbsp;serverech Anthropic, ale soubory zůstávají u&nbsp;vás.
-                    <strong>Cloud</strong>&nbsp;— agent běží v&nbsp;izolovaném prostředí na&nbsp;serverech Anthropic, pracuje primárně s&nbsp;repozitáři na&nbsp;GitHubu. Pro začátek volte lokální.
-                </p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary); margin-bottom: var(--space-6);">
-                    Podrobněji: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Claude Code on the web</a>
-                </p>
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Co je „lokální" vs „cloud"?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p><strong>Lokální</strong>&nbsp;— agent pracuje přímo s&nbsp;vašimi soubory na&nbsp;počítači. Výpočty probíhají na&nbsp;serverech Anthropic, ale soubory zůstávají u&nbsp;vás. <strong>Cloud</strong>&nbsp;— agent běží v&nbsp;izolovaném prostředí na&nbsp;serverech Anthropic, pracuje primárně s&nbsp;repozitáři na&nbsp;GitHubu. Pro začátek volte lokální.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener">Claude Code on the web</a></p>
+                        </div>
+                    </div>
 
-                <h3 class="sub-heading">Jaký je rozdíl mezi skills, agenty a&nbsp;subagenty?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    <strong>Skill</strong> je textový soubor s&nbsp;instrukcemi — říká agentovi, jak provést konkrétní úkol. Načítá se na&nbsp;vyžádání.
-                    <strong>Subagent</strong> je izolovaný pracovník s&nbsp;vlastním kontextovým oknem — agent si ho pouští na&nbsp;dílčí úkoly, aby nezaplnil svůj hlavní kontext.
-                    <strong>Plugin</strong> je balíček, který může obsahovat skills, subagenty, hooky a&nbsp;MCP servery dohromady.
-                </p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary); margin-bottom: var(--space-6);">
-                    Podrobněji: <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Skills</a> · <a href="https://code.claude.com/docs/en/features-overview" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Features overview</a>
-                </p>
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jaký je rozdíl mezi skills, agenty a&nbsp;subagenty?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p><strong>Skill</strong> je textový soubor s&nbsp;instrukcemi — říká agentovi, jak provést konkrétní úkol. Načítá se na&nbsp;vyžádání. <strong>Subagent</strong> je izolovaný pracovník s&nbsp;vlastním kontextovým oknem — agent si ho pouští na&nbsp;dílčí úkoly, aby nezaplnil svůj hlavní kontext. <strong>Plugin</strong> je balíček, který může obsahovat skills, subagenty, hooky a&nbsp;MCP servery dohromady.</p>
+                            <p class="accordion__links">Podrobněji: <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">Skills</a> · <a href="https://code.claude.com/docs/en/features-overview" target="_blank" rel="noopener">Features overview</a></p>
+                        </div>
+                    </div>
 
-                <h3 class="sub-heading">Jak se vrátit zpátky, když agent něco pokazí?</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Dvakrát <strong>Escape</strong> (nebo příkaz <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/rewind</code>) otevře nabídku, kde vrátíte kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod. Jedním Escape zastavíte agenta uprostřed práce. Nebo prostě řekněte: „Vrať to zpátky."
-                </p>
+                    <div class="accordion__item">
+                        <button class="accordion__header" aria-expanded="false">
+                            <span class="accordion__question">Jak se vrátit zpátky, když agent něco pokazí?</span>
+                            <span class="accordion__icon accordion__icon--plus">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Dvakrát <strong>Escape</strong> (nebo příkaz <code>/rewind</code>) otevře nabídku, kde vrátíte kód, konverzaci, nebo oboje na&nbsp;libovolný předchozí bod. Jedním Escape zastavíte agenta uprostřed práce. Nebo prostě řekněte: „Vrať to zpátky."</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 

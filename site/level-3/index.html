@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Level 3: Orchestrace — Naučte se Claude Code | Aibility</title>
-    <meta name="description" content="CLAUDE.md, MCP servery, modely a automatizace. Claude Code jako platforma, která spojí všechny vaše nástroje.">
+    <meta name="description" content="Postavte si travel dashboard jedním promptem. CLAUDE.md, subagent, MCP, hook, slash command — všechno dohromady.">
 
     <link rel="preload" href="../assets/css/styles.css" as="style">
     <link rel="preload" href="../assets/css/iconoir.css" as="style">
@@ -18,7 +18,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Level 3: Orchestrace — Naučte se Claude Code">
-    <meta property="og:description" content="CLAUDE.md, MCP servery, modely a automatizace.">
+    <meta property="og:description" content="Postavte si travel dashboard jedním promptem. CLAUDE.md, subagent, MCP, hook, slash command.">
     <meta property="og:site_name" content="Aibility">
     <meta property="og:locale" content="cs_CZ">
 
@@ -133,9 +133,9 @@
         <section class="page-hero">
             <div class="page-hero__container">
                 <span class="page-hero__eyebrow"><i class="iconoir-settings"></i> Level 3</span>
-                <h1 class="page-hero__title">Orchestrace</h1>
+                <h1 class="page-hero__title">Orchestrace: travel dashboard</h1>
                 <p class="page-hero__lead">
-                    Claude&nbsp;Code přestane být chatbot a&nbsp;stane se platformou. CLAUDE.md mu řekne, kdo jste. MCP servery ho propojí s&nbsp;vašimi nástroji. Modely vám dají kontrolu nad rychlostí a&nbsp;kvalitou. Všechno dohromady&nbsp;— to je orchestrace.
+                    Jeden prompt, pět nástrojů, žádný kód. Postavíte si travel dashboard, kde Claude&nbsp;Code přečte vaše pravidla, analyzuje fotky, najde letenky přes API, zjistí počasí z&nbsp;webu a&nbsp;složí to do&nbsp;HTML stránky&nbsp;— sám.
                 </p>
                 <div class="page-hero__meta">
                     <span class="page-hero__meta-item"><i class="iconoir-clock"></i> Asi 15 minut</span>
@@ -144,190 +144,360 @@
             </div>
         </section>
 
-        <!-- What you'll learn -->
+        <!-- What you'll build -->
         <section class="content-section">
             <div class="content-section__container">
                 <div class="learn-box">
-                    <h2 class="learn-box__title">Co se naučíte</h2>
+                    <h2 class="learn-box__title">Co postavíte</h2>
                     <ul class="learn-box__list">
-                        <li><i class="iconoir-check"></i> Co je CLAUDE.md a&nbsp;proč zásadně snižuje halucinace</li>
-                        <li><i class="iconoir-check"></i> Co jsou MCP servery a&nbsp;jak propojí agenta s&nbsp;vnějším světem</li>
-                        <li><i class="iconoir-check"></i> Jak přepínat mezi modely (Haiku, Sonnet, Opus)</li>
-                        <li><i class="iconoir-check"></i> Jak všechno spojit dohromady do&nbsp;jednoho pracovního systému</li>
+                        <li><i class="iconoir-check"></i> Travel dashboard v&nbsp;prohlížeči&nbsp;— letenky, počasí, plán aktivit, praktické tipy</li>
+                        <li><i class="iconoir-check"></i> Vlastní CLAUDE.md s&nbsp;cestovními preferencemi (budget, časy, letiště)</li>
+                        <li><i class="iconoir-check"></i> Subagenta, který analyzuje fotky vysněné destinace</li>
+                        <li><i class="iconoir-check"></i> Hook, který automaticky otevře výsledek v&nbsp;prohlížeči</li>
+                        <li><i class="iconoir-check"></i> Slash command <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/pohlednice</code>, který napíše pohlednici z&nbsp;„dovolené"</li>
                     </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- CLAUDE.md -->
-        <section class="content-section">
-            <div class="content-section__container">
-                <span class="content-section__eyebrow">CLAUDE.md</span>
-                <h2 class="content-section__title">Řekněte agentovi, kdo jste</h2>
-                <p class="content-section__lead">
-                    CLAUDE.md je textový soubor, který agent přečte pokaždé, když ho spustíte. Obsahuje pravidla, preference a&nbsp;kontext&nbsp;— všechno, co potřebuje vědět, aby pracoval tak, jak chcete vy. Je to ten nejsilnější nástroj proti halucinacím.
-                </p>
-
-                <h3 class="sub-heading">Dva typy CLAUDE.md</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    <strong>Projektový</strong> (<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">./CLAUDE.md</code>)&nbsp;— pravidla pro konkrétní projekt. Například: „Piš vždycky česky" nebo „Používej tenhle framework." Sdílí se s&nbsp;týmem přes Git.<br><br>
-                    <strong>Osobní</strong> (<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">~/.claude/CLAUDE.md</code>)&nbsp;— vaše globální preference. Například: „Jsem marketér, ne programátor" nebo „Na&nbsp;služební cesty létám s&nbsp;příručním zavazadlem."<br><br>
-                    <strong>Lokální</strong> (<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">./CLAUDE.local.md</code>)&nbsp;— osobní poznámky k&nbsp;projektu, které se nesdílí s&nbsp;týmem. Přidejte si ho do&nbsp;.gitignore.
-                </p>
 
                 <div class="callout callout--success">
                     <i class="iconoir-check-circle"></i>
-                    <p><strong>Klíčový princip: „Agent musí číst, ne hádat."</strong> Jedna věta v&nbsp;CLAUDE.md dramaticky snižuje halucinace. Místo hádání agent vychází z&nbsp;toho, co jste mu napsali.</p>
+                    <p><strong>Velká myšlenka:</strong> V&nbsp;Levelu&nbsp;1 jste agenta poprosili o&nbsp;jeden úkol. V&nbsp;Levelu&nbsp;2 jste viděli celé workflow. Teď Level&nbsp;3&nbsp;— Claude Code čte pravidla, dívá se na fotky, volá letové API, hledá počasí na webu, staví dashboard a&nbsp;po dokončení sám otevře prohlížeč. Tohle je orchestrace.</p>
                 </div>
-
-                <div class="prompt-card">
-                    <div class="prompt-card__header">
-                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">Zkuste to</span>
-                    </div>
-                    <p class="prompt-card__desc">Nechte agenta vytvořit váš osobní CLAUDE.md:</p>
-                    <p class="prompt-card__text">Vytvoř mi osobní CLAUDE.md v&nbsp;~/.claude/CLAUDE.md. Jsem [vaše profese], pracuji v&nbsp;[obor/firma], preferuji [jazyk, styl, formát]. Přidej pravidla, která mi budou užitečná při každém spuštění.</p>
-                </div>
-
-                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary);">
-                    Dokumentace: <a href="https://code.claude.com/docs/en/settings" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Settings & CLAUDE.md</a>
-                </p>
             </div>
         </section>
 
-        <!-- MCP -->
+        <!-- Preparation -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">MCP</span>
-                <h2 class="content-section__title">Propojte agenta s&nbsp;vnějším světem</h2>
+                <span class="content-section__eyebrow">Příprava</span>
+                <h2 class="content-section__title">Co máte ve&nbsp;složce demo-files/</h2>
                 <p class="content-section__lead">
-                    MCP (Model Context Protocol) je způsob, jak agenta propojit s&nbsp;externími službami&nbsp;— kalendáři, databázemi, API, vyhledávači letenek. MCP servery jsou jako adaptéry: každý z&nbsp;nich přidává agentovi přístup k&nbsp;jednomu nástroji.
+                    Všechno potřebné je připravené ve&nbsp;složce <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">level-3-advanced/demo-files/</code>. Podívejte se, co tam je:
                 </p>
 
-                <h3 class="sub-heading">Příklad: hledání letenek</h3>
+                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-6) 0;">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-accent-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">wishlist/</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Fotky vysněné destinace&nbsp;— pláž, uličky, jídlo, maják. Agent je analyzuje a&nbsp;odhadne, kam chcete jet.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-accent-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">wishlist.md</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Popis, co na dovolené chcete&nbsp;— moře, staré uličky, lokální jídlo. Bez jména destinace.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-accent-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">CLAUDE.md</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Projektový soubor s&nbsp;cestovními preferencemi (budget, časy odletů, home airport) a&nbsp;pravidlem „číst, ne hádat".</span>
+                    </div>
+                </div>
+
+                <h3 class="sub-heading">Nainstalujte Kiwi MCP</h3>
                 <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Nainstalujte MCP server pro vyhledávání letenek (třeba Kiwi) a&nbsp;pak řekněte agentovi:
+                    MCP (Model Context Protocol) propojí agenta s&nbsp;externí službou. V&nbsp;tomhle případě s&nbsp;vyhledáváním letenek od Kiwi.com. Žádný API klíč, žádná registrace. Řekněte Claude&nbsp;Code:
                 </p>
 
                 <div class="prompt-card">
                     <div class="prompt-card__header">
                         <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">Příklad s&nbsp;MCP</span>
+                        <span class="prompt-card__title">Řekněte Claude&nbsp;Code</span>
                     </div>
-                    <p class="prompt-card__text">Najdi mi letenky z&nbsp;Prahy do&nbsp;Lisabonu na&nbsp;příští víkend, jednosměrku, co nejlevnější. Pak mi to přidej do&nbsp;Google kalendáře.</p>
+                    <p class="prompt-card__text">Potřebuju přidat MCP server na&nbsp;vyhledávání letenek od&nbsp;Kiwi.com. Nainstaluj ho za&nbsp;mě.</p>
                 </div>
 
-                <div class="expected"><strong>Co se stane:</strong> Agent zavolá Kiwi MCP server (letenky), najde možnosti, a&nbsp;zavolá Google Calendar MCP (kalendář) — vytvoří událost. Dvě služby, jeden prompt.</div>
+                <div class="expected"><strong>Co se stane:</strong> Agent spustí příkaz na&nbsp;přidání Kiwi MCP serveru. Od&nbsp;teď umí vyhledávat letenky&nbsp;— když mu řeknete „najdi let z Prahy do Lisabonu", zavolá Kiwi API a&nbsp;vrátí reálné lety s cenami.</div>
+            </div>
+        </section>
 
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-top: var(--space-4);">
-                    Existují stovky veřejných MCP serverů&nbsp;— pro databáze, cloud služby, komunikaci, projektové řízení a&nbsp;víc. Každý z&nbsp;nich se instaluje jedním příkazem přes <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/plugin</code>.
+        <!-- Step 1: CLAUDE.md -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 1</span>
+                <h2 class="content-section__title">Vytvořte CLAUDE.md s&nbsp;cestovními preferencemi</h2>
+                <p class="content-section__lead">
+                    CLAUDE.md je soubor, který agent přečte pokaždé, když ho spustíte. Napíšete tam jednou, co potřebuje vědět&nbsp;— a&nbsp;on to pak respektuje v&nbsp;každém promptu.
                 </p>
 
-                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary); margin-top: var(--space-4);">
-                    Dokumentace: <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Claude Code Docs</a>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    Ve složce <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">demo-files/</code> je připravený CLAUDE.md s&nbsp;tímhle obsahem:
+                </p>
+
+                <div class="code-block">
+                    <pre><code># Pravidla projektu
+
+## Travel preferences
+
+- Odlet: pátek po 16:00, návrat neděle do 22:00
+- Budget: strop 12000 Kč za zpáteční letenku
+- Preferuju přímé lety (pokud není přímý do budgetu, s přestupem ok)
+- Home airport: Praha (PRG)
+
+## Jak pracuješ
+
+- Piš vždy česky
+- Než cokoli upravíš nebo napíšeš, nejdřív si přečti
+  relevantní soubory a ověř si aktuální fakta.
+  Nikdy si nevymýšlej z paměti.</code></pre>
+                </div>
+
+                <div class="callout callout--success">
+                    <i class="iconoir-check-circle"></i>
+                    <p><strong>Klíčový princip: „Agent musí číst, ne hádat."</strong> Ta poslední sekce je nejdůležitější věta celého průvodce. Jedna instrukce v&nbsp;CLAUDE.md dramaticky snižuje halucinace&nbsp;— agent vychází z&nbsp;toho, co přečte, ne z&nbsp;toho, co si „pamatuje".</p>
+                </div>
+
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed);">
+                    <strong>Dva typy CLAUDE.md:</strong>
+                    <strong>Projektový</strong> (<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">./CLAUDE.md</code>)&nbsp;— pravidla pro konkrétní projekt, sdílí se s&nbsp;týmem přes Git.
+                    <strong>Osobní</strong> (<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">~/.claude/CLAUDE.md</code>)&nbsp;— vaše globální preference, platí pro všechny projekty.
+                    Agent si oba zkombinuje.
                 </p>
             </div>
         </section>
 
-        <!-- Models -->
+        <!-- Step 2: Subagent -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Modely</span>
-                <h2 class="content-section__title">Tři modely, tři rychlosti</h2>
+                <span class="content-section__eyebrow">Krok 2</span>
+                <h2 class="content-section__title">Postavte subagenta foto-detektiva</h2>
                 <p class="content-section__lead">
-                    Claude&nbsp;Code umí přepínat mezi třemi modely. Každý je jinak rychlý a&nbsp;jinak schopný. Přepínáte příkazem <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/model</code>.
+                    Subagent je specializovaný agent, kterého si hlavní Claude sám zavolá pro podúkol. Postavíte ho jedním promptem&nbsp;— je to jeden markdown soubor.
+                </p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Vložte do Claude Code</span>
+                    </div>
+                    <p class="prompt-card__desc">Tenhle prompt vytvoří subagenta, který umí analyzovat fotky jako detektiv:</p>
+                    <p class="prompt-card__text">Vytvoř subagenta v .claude/agents/foto-detektiv.md. Role: destinační detektiv ve stylu Sherlocka Holmese. Dostane složku s fotkami, hledá stopy (architektura, vegetace, světlo, nápisy, jídlo) a navrhne 2–3 kandidátní destinace s verdiktem. Česky, teatrálně, ale opřený o konkrétní stopy. Barva fialová. Každou odpověď začíná ASCII bannerem s lupou.</p>
+                </div>
+
+                <div class="expected"><strong>Co se stane:</strong> Vznikne soubor <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">.claude/agents/foto-detektiv.md</code> s frontmatterem (name, description, tools, color) a tělem s instrukcemi. Hlavní agent si ho za chvíli sám najde podle popisu.</div>
+
+                <div class="callout">
+                    <i class="iconoir-info-circle"></i>
+                    <p><strong>Princip:</strong> Subagent je Claude, kterého si váš hlavní Claude zavolá. Vlastní role, vlastní kontext, vlastní tón. Celý subagent je jeden markdown&nbsp;— žádná instalace, žádná kompilace.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Hook -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 3</span>
+                <h2 class="content-section__title">Postavte hook&nbsp;— automatické otevření výsledku</h2>
+                <p class="content-section__lead">
+                    Hook je automatická akce, která se spustí v&nbsp;určitém momentě. Tenhle hook otevře dashboard v&nbsp;prohlížeči pokaždé, když agent zapíše HTML soubor.
+                </p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Vložte do Claude Code</span>
+                    </div>
+                    <p class="prompt-card__desc">Tenhle prompt nastaví automatizaci:</p>
+                    <p class="prompt-card__text">Přidej do .claude/settings.json hook: pokaždé, když zapíšeš HTML soubor do vystupy/, otevři ho v prohlížeči a český hlas "Zuzana" nahlas řekne "Dashboard je připraven, koukej do prohlížeče". Použij PostToolUse matcher "Write".</p>
+                </div>
+
+                <div class="expected"><strong>Co se stane:</strong> Vznikne <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">.claude/settings.json</code> s pár řádky JSON. Matcher na nástroj <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">Write</code> je spolehlivější než grepovat transcript&nbsp;— hook se spustí deterministicky.</div>
+            </div>
+        </section>
+
+        <!-- Step 4: Main prompt -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 4</span>
+                <h2 class="content-section__title">Hlavní prompt&nbsp;— jeden prompt, všechno dohromady</h2>
+                <p class="content-section__lead">
+                    Tady se všechno spojí. Jeden prompt, který využije CLAUDE.md, subagenta, fotky, Kiwi MCP, web search, design skill i&nbsp;hook.
+                </p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Vložte do Claude Code</span>
+                    </div>
+                    <p class="prompt-card__desc">Tohle je ten hlavní prompt. Zkopírujte ho celý:</p>
+                    <p class="prompt-card__text">Postav mi travel dashboard.<br><br>Podívej se na fotky v wishlist/ a přečti wishlist.md. Přečti moje travel preferences z CLAUDE.md.<br><br>1. Z fotek odhadni destinaci — navrhni 2–3 varianty, které sedí, a vyber tu nejlepší podle mých preferencí.<br>2. Pro vybranou destinaci najdi přes Kiwi MCP nejlepší let z mého home airportu na příští víkend.<br>3. Vytvoř vystupy/travel-planner.html — dashboard s výsledky letu, počasím (web search), plánem aktivit podle mých fotek a praktickými tipy pro konkrétní destinaci (transport z letiště, MHD, dýško, místní fráze, co obejít).</p>
+                </div>
+
+                <h3 class="sub-heading">Co uvidíte, jak agent pracuje</h3>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-6) 0;">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">1.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Přečte <strong>CLAUDE.md</strong>&nbsp;— zjistí budget, časy odletů, preferenci přímých letů</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">2.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Deleguje na <strong>foto-detektiva</strong>&nbsp;— fialový tag, ASCII lupa, Sherlock verdikt s kandidátními destinacemi</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">3.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Přečte <strong>wishlist.md</strong>&nbsp;— doplní kontext o tom, co na dovolené chcete</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">4.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Zavolá <strong>Kiwi MCP</strong>&nbsp;— reálné lety s cenami z vyhledávače letenek</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">5.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Spustí <strong>web search</strong>&nbsp;— zjistí počasí na příští víkend</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-semibold);">6.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">Postaví <strong>HTML dashboard</strong>&nbsp;— zapíše soubor a hook otevře prohlížeč</span>
+                    </div>
+                </div>
+
+                <div class="expected"><strong>Výsledek:</strong> V prohlížeči se otevře travel dashboard s reálnými letenkymi, počasím, aktivitami a praktickými tipy. Pokud máte hlas Zuzana, Mac řekne „Dashboard je připraven".</div>
+            </div>
+        </section>
+
+        <!-- Step 5: Slash command -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 5</span>
+                <h2 class="content-section__title">Vytvořte slash command /pohlednice</h2>
+                <p class="content-section__lead">
+                    Slash command je opakovatelný workflow za lomítkem. Napíšete <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/pohlednice</code> a&nbsp;Claude vám napíše pohlednici „z&nbsp;dovolené" na základě hotového dashboardu.
+                </p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Vložte do Claude Code</span>
+                    </div>
+                    <p class="prompt-card__desc">Tenhle prompt vytvoří slash command:</p>
+                    <p class="prompt-card__text">Vytvoř slash command v .claude/commands/pohlednice.md. Command se jmenuje "pohlednice". Když ho spustím, přečte vystupy/travel-planner.html a napíše 5–8řádkovou pohlednici "z dovolené" — česky, osobně, jako bych tam skutečně byl. Použij konkrétní detaily z dashboardu (destinace, jídlo, místa). Přidej jednu drobnou smyšlenost a na konci PS, kde tu lež žertovně prozradíš. Volitelný argument: adresát (např. "mamce") — pokud je, oslov ho na začátku.</p>
+                </div>
+
+                <div class="expected"><strong>Co se stane:</strong> Vznikne <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">.claude/commands/pohlednice.md</code>. Teď stačí napsat <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/pohlednice</code> (nebo <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/pohlednice mamce</code>) a Claude napíše hravou pohlednici s jednou drobnou lží prozrazenou v PS.</div>
+
+                <div class="callout">
+                    <i class="iconoir-info-circle"></i>
+                    <p><strong>Jeden vzor, tři rozšíření:</strong> Subagent, hook, slash command&nbsp;— všechno je markdown ve složce <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">.claude/</code>. Žádná instalace, žádná kompilace. Napíšete markdown, máte napořád.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 6: Models -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 6</span>
+                <h2 class="content-section__title">Modely&nbsp;— přepněte si podle potřeby</h2>
+                <p class="content-section__lead">
+                    Claude Code umí běžet na různých modelech. Přepnete kdykoli příkazem <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/model</code>:
                 </p>
 
                 <div class="model-grid">
                     <article class="model-card">
                         <h3 class="model-card__name">Haiku</h3>
-                        <p class="model-card__desc">Nejrychlejší, nejlevnější. Pro jednoduché úkoly, rychlé odpovědi, triviální úpravy.</p>
-                        <p class="model-card__use">Kdy: „přejmenuj proměnnou", „vypiš seznam"</p>
+                        <p class="model-card__desc">Nejrychlejší, nejlevnější. Pro jednoduché úkoly&nbsp;— přečíst soubor, najít text, drobná úprava.</p>
+                        <p class="model-card__use">Triviální úkol? Haiku.</p>
                     </article>
                     <article class="model-card">
                         <h3 class="model-card__name">Sonnet</h3>
-                        <p class="model-card__desc">Vybalancovaný. Dobrý poměr rychlosti a&nbsp;kvality pro většinu každodenní práce.</p>
-                        <p class="model-card__use">Kdy: „napiš blog post", „analyzuj data"</p>
+                        <p class="model-card__desc">Výchozí volba pro 90&nbsp;% práce. Dobrý poměr rychlosti a&nbsp;kvality.</p>
+                        <p class="model-card__use">Výchozí. Začněte tady.</p>
                     </article>
                     <article class="model-card">
                         <h3 class="model-card__name">Opus</h3>
-                        <p class="model-card__desc">Nejschopnější. Pro složité úkoly, strategické rozhodování, komplexní analýzy.</p>
-                        <p class="model-card__use">Kdy: „navrhni architekturu", „zrecenzuj celý projekt"</p>
+                        <p class="model-card__desc">Nejschopnější. Složité plánování, velké refaktory, strategické rozhodování.</p>
+                        <p class="model-card__use">Claude tápe? Přepněte na Opus.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Read don't guess -->
+        <!-- Orchestra moment -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Zlaté pravidlo</span>
-                <h2 class="content-section__title">Agent musí číst, ne hádat</h2>
+                <span class="content-section__eyebrow">Výsledek</span>
+                <h2 class="content-section__title">Podívejte se, co jste právě složili</h2>
                 <p class="content-section__lead">
-                    Tohle je nejdůležitější pravidlo celého průvodce. Kdykoli se vám zdá, že agent „halucinuje" nebo dává špatné výsledky, je řešení téměř vždy stejné: <strong>dejte mu víc kontextu</strong>.
-                </p>
-
-                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-6) 0;">
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
-                        <span style="color: var(--color-text-primary); font-size: var(--text-base);">1.</span>
-                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>CLAUDE.md</strong>&nbsp;— Napište, kdo jste a&nbsp;co chcete. Agent to přečte pokaždé.</span>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
-                        <span style="color: var(--color-text-primary); font-size: var(--text-base);">2.</span>
-                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Soubory</strong>&nbsp;— Dejte agentovi materiál. Ať čte vaše texty, data, obrázky.</span>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
-                        <span style="color: var(--color-text-primary); font-size: var(--text-base);">3.</span>
-                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Web search</strong>&nbsp;— Nechte ho hledat aktuální informace, ne hádat z&nbsp;tréninku.</span>
-                    </div>
-                </div>
-
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed);">
-                    Čím víc kontextu = tím míň halucinací. Není to magie&nbsp;— je to prostě rozdíl mezi hádáním a&nbsp;čtením.
-                </p>
-            </div>
-        </section>
-
-        <!-- Orchestra -->
-        <section class="content-section">
-            <div class="content-section__container">
-                <span class="content-section__eyebrow">Všechno dohromady</span>
-                <h2 class="content-section__title">Orchestr pod&nbsp;jednou taktovkou</h2>
-                <p class="content-section__lead">
-                    Představte si orchestr. CLAUDE.md je partitura. Skills jsou nástroje. MCP servery jsou hudebníci. Modely určují tempo. A&nbsp;Claude&nbsp;Code je dirigent, který to všechno spojuje dohromady.
+                    Pravidla přes CLAUDE.md. Subagent na analýzu fotek. Reálná data z&nbsp;Kiwi přes MCP. Počasí z&nbsp;webu. Automatické otevření přes hook. Slash command na pohlednici. Každý dílek je jednoduchý. Dohromady je to orchestr.
                 </p>
 
                 <div class="orchestra">
                     <div class="orchestra__item">
                         <div class="orchestra__icon orchestra__icon--purple"><i class="iconoir-page"></i></div>
                         <span class="orchestra__label">CLAUDE.md</span>
-                        <span class="orchestra__desc">Partitura</span>
+                        <span class="orchestra__desc">Pravidla</span>
                     </div>
                     <div class="orchestra__item">
                         <div class="orchestra__icon orchestra__icon--teal"><i class="iconoir-sparks"></i></div>
-                        <span class="orchestra__label">Skills</span>
-                        <span class="orchestra__desc">Nástroje</span>
+                        <span class="orchestra__label">Subagent</span>
+                        <span class="orchestra__desc">Foto-detektiv</span>
                     </div>
                     <div class="orchestra__item">
                         <div class="orchestra__icon orchestra__icon--amber"><i class="iconoir-database"></i></div>
                         <span class="orchestra__label">MCP</span>
-                        <span class="orchestra__desc">Hudebníci</span>
+                        <span class="orchestra__desc">Kiwi letenky</span>
                     </div>
                     <div class="orchestra__item">
                         <div class="orchestra__icon orchestra__icon--green"><i class="iconoir-brain"></i></div>
-                        <span class="orchestra__label">Modely</span>
-                        <span class="orchestra__desc">Tempo</span>
+                        <span class="orchestra__label">Hook</span>
+                        <span class="orchestra__desc">Auto-otevření</span>
                     </div>
                     <div class="orchestra__item">
                         <div class="orchestra__icon orchestra__icon--purple"><i class="iconoir-music-note"></i></div>
-                        <span class="orchestra__label">Claude Code</span>
-                        <span class="orchestra__desc">Dirigent</span>
+                        <span class="orchestra__label">Command</span>
+                        <span class="orchestra__desc">/pohlednice</span>
                     </div>
                 </div>
 
                 <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); text-align: center; margin-top: var(--space-4);">
-                    Každý kus hraje svou roli. Claude&nbsp;Code je ten, kdo je drží pohromadě.
+                    Všechno je markdown. Všechno se staví promptem. Claude&nbsp;Code je dirigent.
                 </p>
+            </div>
+        </section>
+
+        <!-- For home study -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Pro studium doma</span>
+                <h2 class="content-section__title">CLAUDE.md pro vaši profesi</h2>
+                <p class="content-section__lead">
+                    CLAUDE.md není jen pro cestování. Tady jsou příklady pro marketéry a&nbsp;projektové manažery&nbsp;— upravte si je podle sebe.
+                </p>
+
+                <h3 class="sub-heading">Pro marketéra</h3>
+                <div class="code-block">
+                    <pre><code># Marketing projekt
+
+## Styl obsahu
+- Tón: profesionální ale přístupný
+- Cílová skupina: malé a střední firmy
+- Jazyk: čeština, žádné anglicismy pokud existuje český ekvivalent
+- Formát: krátké odstavce, bullet pointy, jasné CTA
+
+## Pravidla
+- Každý text musí mít hook v první větě
+- LinkedIn příspěvky max 1300 znaků
+- Email subject lines max 50 znaků
+
+## Než něco napíšeš
+- Když píšeš o produktu nebo trendu, nejdřív si ověř
+  aktuální fakta přes web search. Nepiš ze své paměti.
+- Když navazuješ na předchozí kampaň, nejdřív si ji přečti.</code></pre>
+                </div>
+
+                <h3 class="sub-heading">Pro projektového manažera</h3>
+                <div class="code-block">
+                    <pre><code># PM workspace
+
+## Výstupy
+- Vždy strukturované: problém → analýza → doporučení
+- Tabulky pro porovnání variant
+- Timeline s milníky u plánů
+- Rizika vždy s pravděpodobností a dopadem
+
+## Formát
+- Reporty v Markdown
+- Executive summary na začátku každého dokumentu
+
+## Než něco navrhneš
+- Nejdřív si přečti zadání projektu a předchozí reporty
+- Když se odkazuješ na data, ověř si je — neuvádíš čísla z paměti</code></pre>
+                </div>
             </div>
         </section>
 
@@ -338,7 +508,7 @@
                     <div class="next-step__icon"><i class="iconoir-check"></i></div>
                     <h3 class="next-step__title">Průvodce dokončen</h3>
                     <p class="next-step__desc">
-                        Prošli jste od&nbsp;prvního spuštění až po&nbsp;orchestraci. Teď máte základy, na&nbsp;kterých můžete stavět. Podívejte se na&nbsp;stránku se&nbsp;zdroji&nbsp;— najdete tam kurzy, dokumentaci, komunitu a&nbsp;cheat sheet.
+                        Prošli jste od&nbsp;prvního spuštění až po&nbsp;orchestraci&nbsp;— CLAUDE.md, subagenty, MCP, hooky, slash commands a&nbsp;modely. Teď máte základy, na&nbsp;kterých můžete stavět. Podívejte se na&nbsp;stránku se&nbsp;zdroji&nbsp;— najdete tam dokumentaci, pluginy, komunitu a&nbsp;cheat sheet.
                     </p>
                     <a href="../resources/" class="btn btn--primary btn--lg">
                         Zdroje a&nbsp;odkazy

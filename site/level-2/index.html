@@ -126,26 +126,11 @@
                 <span class="page-hero__eyebrow"><i class="iconoir-puzzle"></i> Level 2</span>
                 <h1 class="page-hero__title">Skills a&nbsp;pluginy</h1>
                 <p class="page-hero__lead">
-                    V&nbsp;Level&nbsp;1 jste postavili projekt ručně. Teď se naučíte, jak opakovanou práci vyřešit jednou a&nbsp;uložit&nbsp;— aby se příště stačilo říct jedno slovo.
+                    V&nbsp;Level&nbsp;1 jste s&nbsp;Claude&nbsp;Code něco postavili. Teď to samé uděláte znovu&nbsp;— a&nbsp;pak z&nbsp;toho vytvoříte skill, aby to příště šlo na&nbsp;jedno slovo.
                 </p>
                 <div class="page-hero__meta">
                     <span class="page-hero__meta-item"><i class="iconoir-clock"></i> Asi 15 minut</span>
                     <span class="page-hero__meta-item"><i class="iconoir-puzzle"></i> Rozšiřuje Level 1</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- What you'll learn -->
-        <section class="content-section">
-            <div class="content-section__container">
-                <div class="learn-box">
-                    <h2 class="learn-box__title">Co se naučíte</h2>
-                    <ul class="learn-box__list">
-                        <li><i class="iconoir-check"></i> Co je to skill a&nbsp;proč je to silnější než prompt</li>
-                        <li><i class="iconoir-check"></i> Jak jedním příkazem rozšířit schopnosti agenta o&nbsp;tisíce nových funkcí</li>
-                        <li><i class="iconoir-check"></i> Kde najít pluginy a&nbsp;skills od komunity</li>
-                        <li><i class="iconoir-check"></i> Jak si nechat vytvořit vlastní skill</li>
-                    </ul>
                 </div>
             </div>
         </section>
@@ -156,33 +141,50 @@
                 <span class="content-section__eyebrow">Princip</span>
                 <h2 class="content-section__title">OHIO&nbsp;— „Only Handle It Once"</h2>
                 <p class="content-section__lead">
-                    Každou opakovanou práci vyřešte jednou. Pak ji uložte jako skill&nbsp;— krátký textový soubor, který agentovi říká, jak daný úkol provést. Příště stačí zavolat jméno skillu a&nbsp;agent to zopakuje přesně, rychle a&nbsp;konzistentně.
+                    Vyřeš to napoprvé, pak z&nbsp;toho udělej skill&nbsp;— a&nbsp;příště to nedělej vůbec. Ten skill to udělá za&nbsp;tebe.
                 </p>
 
                 <div class="callout callout--success">
                     <i class="iconoir-quote"></i>
-                    <p><strong>Simon Willison (AI researcher):</strong> „Claude Skills are maybe a&nbsp;bigger deal than MCP."&nbsp;— Skills jsou možná důležitější než MCP, protože mění způsob, jakým lidé s&nbsp;AI agenty pracují každý den.</p>
+                    <p><strong>Simon Willison (autor Djanga, AI researcher):</strong> „Claude Skills jsou možná větší věc než MCP."</p>
                 </div>
             </div>
         </section>
 
-        <!-- What is a skill -->
+        <!-- Step 1: Do it manually -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Skills</span>
-                <h2 class="content-section__title">Co je skill</h2>
+                <span class="content-section__eyebrow">Krok 1</span>
+                <h2 class="content-section__title">Udělejte úkol ručně</h2>
                 <p class="content-section__lead">
-                    Skill je textový soubor v&nbsp;Markdownu (SKILL.md), který agentovi říká: „Když se tě někdo zeptá na&nbsp;X, udělej Y tímhle způsobem." Může obsahovat instrukce, šablony, pravidla, příklady&nbsp;— cokoli, co agent potřebuje k&nbsp;tomu, aby úkol zvládl sám.
+                    Nejdřív si s&nbsp;Claude&nbsp;Code projdete celý úkol krok za&nbsp;krokem&nbsp;— jako byste ho dělali poprvé. Například: vytvořte LinkedIn carousel ze&nbsp;tří screenshotů.
                 </p>
 
-                <h3 class="sub-heading">Příklad z&nbsp;praxe: denní brief</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Představte si, že každé ráno potřebujete souhrn novinek z&nbsp;vašeho oboru. Bez skillu to vypadá takhle: otevřete agenta, napíšete dlouhý prompt s&nbsp;instrukcemi, počkáte, výsledek ručně upravíte. Se skillem řeknete <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/daily-brief</code>&nbsp;— a&nbsp;agent udělá přesně to samé, pokaždé stejně, každý den.
-                </p>
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Zadejte úkol</span>
+                    </div>
+                    <p class="prompt-card__desc">Otevřete Claude Code v&nbsp;libovolné složce a&nbsp;napište:</p>
+                    <p class="prompt-card__text">Tady máš tři screenshoty (screen1.png, screen2.png, screen3.png). Udělej z&nbsp;nich LinkedIn carousel jako PDF&nbsp;— jeden screenshot na stránku, čistý layout, připraveno k&nbsp;publikování.</p>
+                </div>
 
-                <h3 class="sub-heading">Jak si nechat vytvořit skill</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Nemusíte skill psát ručně. Udělejte úkol jednou s&nbsp;agentem, a&nbsp;pak mu řekněte:
+                <div class="expected"><strong>Co uvidíte:</strong> Claude Code přečte obrázky, sestaví layout a&nbsp;vygeneruje hotové PDF. Celý proces trvá pod minutu.</div>
+
+                <div class="callout">
+                    <i class="iconoir-light-bulb"></i>
+                    <p><strong>Princip:</strong> Poprvé to děláte ručně&nbsp;— díváte se, jak Claude Code postupuje, a&nbsp;ověřujete, že výsledek sedí. Tohle je důležité: skill vzniká z&nbsp;ověřeného postupu, ne z&nbsp;prvního pokusu.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Turn it into a skill -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 2</span>
+                <h2 class="content-section__title">Udělejte z&nbsp;toho skill</h2>
+                <p class="content-section__lead">
+                    Výsledek sedí? Řekněte Claude&nbsp;Code, aby z&nbsp;toho, co právě udělal, vytvořil skill. Nemusíte nic psát ručně&nbsp;— agent to napíše sám.
                 </p>
 
                 <div class="prompt-card">
@@ -190,49 +192,101 @@
                         <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
                         <span class="prompt-card__title">Nechte agenta vytvořit skill</span>
                     </div>
+                    <p class="prompt-card__desc">Ve&nbsp;stejné session napište:</p>
                     <p class="prompt-card__text">To, co jsme právě udělali, chci opakovat. Vytvoř z&nbsp;toho skill&nbsp;— SKILL.md soubor, který můžu příště zavolat jedním příkazem.</p>
                 </div>
 
-                <div class="expected"><strong>Co uvidíte:</strong> Agent vytvoří soubor SKILL.md s&nbsp;instrukcemi, které zachycují váš pracovní postup. Příště stačí zavolat skill jménem.</div>
+                <div class="expected"><strong>Co uvidíte:</strong> Claude Code vytvoří soubor <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">SKILL.md</code> s&nbsp;hlavičkou (jméno, popis, spouštěcí fráze) a&nbsp;tělem (instrukce pro agenta). Pár desítek řádků Markdownu&nbsp;— žádná magie.</div>
+
+                <div class="callout">
+                    <i class="iconoir-light-bulb"></i>
+                    <p><strong>Princip:</strong> Skill je textový soubor v&nbsp;Markdownu, který agentovi říká: „Když se tě někdo zeptá na&nbsp;X, udělej Y tímhle způsobem." Může obsahovat instrukce, šablony, pravidla, příklady.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Plugins and marketplace -->
+        <!-- Step 3: Use the skill -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Pluginy</span>
-                <h2 class="content-section__title">Marketplace: tisíce rozšíření</h2>
+                <span class="content-section__eyebrow">Krok 3</span>
+                <h2 class="content-section__title">Použijte skill</h2>
                 <p class="content-section__lead">
-                    Skills jsou vaše vlastní pracovní postupy. Pluginy jsou rozšíření od&nbsp;komunity&nbsp;— tisíce hotových nástrojů, které agentovi přidávají nové schopnosti: od&nbsp;generování obrázků přes správu e-mailů po nasazení webu.
-                </p>
-
-                <h3 class="sub-heading">Jak nainstalovat plugin</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    Napište v&nbsp;Claude&nbsp;Code <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/plugin</code> a&nbsp;vyberte <strong>Discover</strong>. Otevře se katalog s&nbsp;kategoriemi — vyberete, co chcete, a&nbsp;agent si plugin sám nainstaluje.
+                    Skill existuje. Teď ho vyzkoušejte&nbsp;— otevřete novou session a&nbsp;zadejte úkol jednou větou. Claude&nbsp;Code skill rozpozná sám a&nbsp;spustí ho.
                 </p>
 
                 <div class="prompt-card">
                     <div class="prompt-card__header">
                         <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">Zkuste to</span>
+                        <span class="prompt-card__title">Vyvolejte skill</span>
                     </div>
-                    <p class="prompt-card__desc">Tenhle příkaz vám ukáže, co je k dispozici:</p>
-                    <p class="prompt-card__text">/plugin</p>
+                    <p class="prompt-card__desc">V&nbsp;nové session napište jednu větu:</p>
+                    <p class="prompt-card__text">Udělej LinkedIn carousel z&nbsp;těchhle screenshotů.</p>
                 </div>
 
-                <h3 class="sub-heading">Co pluginy umí</h3>
-                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
-                    S&nbsp;pluginy agent zvládne věci, které sám o&nbsp;sobě neumí:
+                <div class="expected"><strong>Co uvidíte:</strong> Claude Code rozpozná, že pro tenhle úkol existuje skill, a&nbsp;provede ho automaticky&nbsp;— se stejným postupem, stejnou kvalitou, bez dalšího vysvětlování.</div>
+
+                <div class="callout callout--success">
+                    <i class="iconoir-check-circle"></i>
+                    <p><strong>OHIO v akci:</strong> Poprvé jste úkol řešili ručně. Podruhé jste řekli jednu větu. Potřetí, počtvrté, podeváté&nbsp;— pořád ta jedna věta. Složené úročení vaší vlastní práce.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: Explore the marketplace -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 4</span>
+                <h2 class="content-section__title">Prozkoumejte marketplace</h2>
+                <p class="content-section__lead">
+                    Nemusíte si všechno stavět sami. V&nbsp;Claude&nbsp;Code je zabudovaný marketplace s&nbsp;tisícovkami hotových pluginů od&nbsp;komunity.
                 </p>
 
-                <div class="capability-grid">
-                    <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); font-size: var(--text-sm);"><i class="iconoir-media-image" style="color: var(--color-accent-primary); flex-shrink: 0;"></i> <span><strong>Obrázky</strong>&nbsp;— generování a&nbsp;editace</span></div>
-                    <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); font-size: var(--text-sm);"><i class="iconoir-sound-high" style="color: var(--color-accent-primary); flex-shrink: 0;"></i> <span><strong>Audio</strong>&nbsp;— text-to-speech, podcasty</span></div>
-                    <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); font-size: var(--text-sm);"><i class="iconoir-cloud-upload" style="color: var(--color-accent-primary); flex-shrink: 0;"></i> <span><strong>Deploy</strong>&nbsp;— nasazení webu na&nbsp;internet</span></div>
-                    <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); font-size: var(--text-sm);"><i class="iconoir-database" style="color: var(--color-accent-primary); flex-shrink: 0;"></i> <span><strong>Databáze</strong>&nbsp;— připojení k&nbsp;datům</span></div>
-                    <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); font-size: var(--text-sm);"><i class="iconoir-design-nib" style="color: var(--color-accent-primary); flex-shrink: 0;"></i> <span><strong>Design</strong>&nbsp;— Figma, prototypování</span></div>
-                    <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); font-size: var(--text-sm);"><i class="iconoir-chat-bubble" style="color: var(--color-accent-primary); flex-shrink: 0;"></i> <span><strong>Komunikace</strong>&nbsp;— Slack, e-mail, Notion</span></div>
+                <h3 class="sub-heading">Otevřete katalog</h3>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    V&nbsp;Claude Code napište:
+                </p>
+
+                <div class="code-block">
+                    <pre><code>/plugin</code></pre>
                 </div>
+
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    Zobrazí se nabídka. Vyberte <strong>Discover</strong>.
+                </p>
+
+                <div class="expected"><strong>Co uvidíte:</strong> Katalog s&nbsp;kategoriemi&nbsp;— obrázky, audio, deploy, databáze, design, komunikace. Reálné pluginy od reálných týmů. Scrollujte a&nbsp;podívejte se, co je k&nbsp;dispozici.</div>
+
+                <div class="callout">
+                    <i class="iconoir-light-bulb"></i>
+                    <p><strong>Princip:</strong> Skills jsou vaše vlastní postupy. Pluginy jsou rozšíření od&nbsp;komunity&nbsp;— hotové nástroje, které agentovi přidávají schopnosti, které sám o&nbsp;sobě nemá.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 5: Install a plugin -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Krok 5</span>
+                <h2 class="content-section__title">Nainstalujte plugin</h2>
+                <p class="content-section__lead">
+                    Vybrali jste si plugin v&nbsp;katalogu? Instalace je jeden příkaz.
+                </p>
+
+                <h3 class="sub-heading">Z katalogu Discover</h3>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    V&nbsp;katalogu (z&nbsp;předchozího kroku) vyberte plugin, který vás zaujal. Claude Code ho nainstaluje sám&nbsp;— potvrdíte a&nbsp;je to.
+                </p>
+
+                <h3 class="sub-heading">Z GitHubu</h3>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    Pokud víte o&nbsp;konkrétním pluginu na GitHubu, nainstalujte ho přímo:
+                </p>
+
+                <div class="code-block">
+                    <pre><code>/plugin marketplace add ondrej-svec/heart-of-gold-toolkit</code></pre>
+                </div>
+
+                <div class="expected"><strong>Co uvidíte:</strong> Claude Code stáhne plugin a&nbsp;zpřístupní jeho skills ve&nbsp;vaší session. Od&nbsp;teď máte k&nbsp;dispozici nové příkazy a&nbsp;postupy.</div>
             </div>
         </section>
 
@@ -242,62 +296,33 @@
                 <span class="content-section__eyebrow">Kde hledat</span>
                 <h2 class="content-section__title">Čtyři ekosystémy rozšíření</h2>
                 <p class="content-section__lead">
-                    Pluginy a&nbsp;skills najdete na&nbsp;několika místech. Tady jsou ty hlavní:
+                    Pluginy a&nbsp;skills najdete na&nbsp;několika místech:
                 </p>
 
                 <div class="eco-grid">
                     <a href="https://github.com/anthropics/claude-code/tree/main/plugins" target="_blank" rel="noopener" class="eco-card">
                         <h3 class="eco-card__title">Anthropic Official</h3>
-                        <p class="eco-card__desc">Oficiální pluginy přímo od tvůrců Claude&nbsp;Code. Ověřené, stabilní, dobře dokumentované.</p>
+                        <p class="eco-card__desc">Zabudovaný přímo v&nbsp;<code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/plugin</code> Discover. Pluginy ověřené Anthropicem.</p>
                         <span class="eco-card__meta">github.com/anthropics/claude-code</span>
                     </a>
 
-                    <a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener" class="eco-card">
-                        <h3 class="eco-card__title">Awesome Claude Code</h3>
-                        <p class="eco-card__desc">Kurátorský seznam skills, pluginů, hooků a&nbsp;nástrojů pro Claude&nbsp;Code. 39 000+ hvězd na&nbsp;GitHubu.</p>
-                        <span class="eco-card__meta">github.com/hesreallyhim/awesome-claude-code</span>
+                    <a href="https://github.com/EveryInc/compound-engineering" target="_blank" rel="noopener" class="eco-card">
+                        <h3 class="eco-card__title">Compound Engineering</h3>
+                        <p class="eco-card__desc">Plugin od Every Inc. s&nbsp;10 000+ hvězdami. Smyčka plan&nbsp;-&nbsp;work&nbsp;-&nbsp;review&nbsp;-&nbsp;compound&nbsp;— přesně OHIO princip, jiným jménem.</p>
+                        <span class="eco-card__meta">github.com/EveryInc/compound-engineering</span>
                     </a>
 
-                    <a href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank" rel="noopener" class="eco-card">
-                        <h3 class="eco-card__title">Compound Engineering</h3>
-                        <p class="eco-card__desc">Plugin od Every Inc. s&nbsp;14 000+ hvězdami. Skills pro code review, plánování, nasazení a&nbsp;víc.</p>
-                        <span class="eco-card__meta">github.com/EveryInc/compound-engineering-plugin</span>
+                    <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" rel="noopener" class="eco-card">
+                        <h3 class="eco-card__title">Awesome Agent Skills</h3>
+                        <p class="eco-card__desc">Přes 1000 kurátovaných skillů od reálných týmů: Anthropic, Google, Vercel, Stripe, Cloudflare, Figma, Sentry.</p>
+                        <span class="eco-card__meta">github.com/VoltAgent/awesome-agent-skills</span>
                     </a>
 
                     <a href="https://github.com/ondrej-svec/heart-of-gold-toolkit" target="_blank" rel="noopener" class="eco-card">
                         <h3 class="eco-card__title">Heart of Gold Toolkit</h3>
-                        <p class="eco-card__desc">Komplexní toolkit pro pokročilé uživatele&nbsp;— plánování, brainstorming, review, automatizace, vizualizace.</p>
+                        <p class="eco-card__desc">Open-source toolkit pro pokročilé uživatele&nbsp;— plánování, brainstorming, review, content pipeline, vizualizace.</p>
                         <span class="eco-card__meta">github.com/ondrej-svec/heart-of-gold-toolkit</span>
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Try it -->
-        <section class="content-section">
-            <div class="content-section__container">
-                <span class="content-section__eyebrow">Zkuste to sami</span>
-                <h2 class="content-section__title">Dvě věci k&nbsp;vyzkoušení</h2>
-                <p class="content-section__lead">
-                    Vyberte si jednu nebo obě:
-                </p>
-
-                <div class="prompt-card" style="margin-bottom: var(--space-6);">
-                    <div class="prompt-card__header">
-                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">A) Prozkoumejte marketplace</span>
-                    </div>
-                    <p class="prompt-card__desc">Podívejte se, jaké pluginy jsou k&nbsp;dispozici:</p>
-                    <p class="prompt-card__text">/plugin</p>
-                </div>
-
-                <div class="prompt-card">
-                    <div class="prompt-card__header">
-                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">B) Vytvořte si vlastní skill</span>
-                    </div>
-                    <p class="prompt-card__desc">Udělejte s&nbsp;agentem nějaký opakovaný úkol a&nbsp;pak ho uložte:</p>
-                    <p class="prompt-card__text">Vytvoř mi LinkedIn post o&nbsp;[vaše téma]. Pak z&nbsp;toho postupu udělej skill, který příště zavolám jedním příkazem.</p>
                 </div>
             </div>
         </section>
@@ -308,8 +333,46 @@
                 <span class="content-section__eyebrow">Dobrá zpráva</span>
                 <h2 class="content-section__title">SKILL.md je otevřený standard</h2>
                 <p class="content-section__lead">
-                    Skills nejsou zamčené v&nbsp;Claude&nbsp;Code. Formát SKILL.md je otevřený&nbsp;— funguje i&nbsp;v&nbsp;Codex CLI od OpenAI, v&nbsp;Cursor, v&nbsp;Gemini CLI a&nbsp;v&nbsp;dalších nástrojích. Co vytvoříte jednou, použijete kdekoli.
+                    Skills nejsou zamčené v&nbsp;Claude&nbsp;Code. Formát SKILL.md je otevřený&nbsp;— funguje i&nbsp;v&nbsp;Codex CLI od&nbsp;OpenAI, v&nbsp;Cursor, v&nbsp;Gemini CLI a&nbsp;v&nbsp;dalších nástrojích. Neinvestujete do jednoho nástroje, investujete do přenositelného formátu.
                 </p>
+            </div>
+        </section>
+
+        <!-- Try it yourself -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Zkuste to sami</span>
+                <h2 class="content-section__title">Tři věci k&nbsp;vyzkoušení</h2>
+                <p class="content-section__lead">
+                    Vyberte si jednu, dvě, nebo všechny tři:
+                </p>
+
+                <div class="prompt-card" style="margin-bottom: var(--space-6);">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">A) Vytvořte si vlastní skill</span>
+                    </div>
+                    <p class="prompt-card__desc">Udělejte s&nbsp;agentem libovolný opakovaný úkol a&nbsp;pak z&nbsp;něj vytvořte skill:</p>
+                    <p class="prompt-card__text">Napiš mi LinkedIn post o&nbsp;[vaše téma]. Pak z&nbsp;toho postupu udělej skill, který příště zavolám jedním příkazem.</p>
+                </div>
+
+                <div class="prompt-card" style="margin-bottom: var(--space-6);">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">B) Prozkoumejte marketplace</span>
+                    </div>
+                    <p class="prompt-card__desc">Podívejte se, co všechno je k&nbsp;dispozici:</p>
+                    <p class="prompt-card__text">/plugin</p>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">C) Nainstalujte plugin z GitHubu</span>
+                    </div>
+                    <p class="prompt-card__desc">Vyzkoušejte instalaci z&nbsp;příkazové řádky:</p>
+                    <p class="prompt-card__text">/plugin marketplace add ondrej-svec/heart-of-gold-toolkit</p>
+                </div>
             </div>
         </section>
 

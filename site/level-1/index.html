@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Level 1: První projekt — Naučte se Claude Code | Aibility</title>
-    <meta name="description" content="Za deset minut postavíte něco skutečného s Claude Code. Naučíte se, proč záleží na kontextu a jak agent přemýšlí.">
+    <meta name="description" content="Za dvacet minut postavíte něco skutečného s Claude Code. Krok po kroku — od holého promptu po hotovou stránku s designem.">
 
     <link rel="preload" href="../assets/css/styles.css" as="style">
     <link rel="preload" href="../assets/css/iconoir.css" as="style">
@@ -18,7 +18,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Level 1: První projekt — Naučte se Claude Code">
-    <meta property="og:description" content="Za deset minut postavíte něco skutečného s Claude Code.">
+    <meta property="og:description" content="Za dvacet minut postavíte něco skutečného s Claude Code.">
     <meta property="og:site_name" content="Aibility">
     <meta property="og:locale" content="cs_CZ">
 
@@ -126,7 +126,7 @@
                 <span class="page-hero__eyebrow"><i class="iconoir-sparks"></i> Level 1</span>
                 <h1 class="page-hero__title">Váš první projekt s&nbsp;Claude&nbsp;Code</h1>
                 <p class="page-hero__lead">
-                    Teď to začne být zajímavé. Postavíte něco skutečného a&nbsp;přitom se naučíte nejdůležitější věc o&nbsp;práci s&nbsp;AI agentem: čím víc kontextu mu dáte, tím lepší výsledek dostanete.
+                    Od holého promptu po hotovou osobní stránku s&nbsp;designem. Krok po&nbsp;kroku uvidíte, jak obrovský rozdíl dělá kontext&nbsp;— soubory, obrázky, informace z&nbsp;webu.
                 </p>
                 <div class="page-hero__meta">
                     <span class="page-hero__meta-item"><i class="iconoir-clock"></i> Asi 20 minut</span>
@@ -135,169 +135,245 @@
             </div>
         </section>
 
-        <!-- What you'll learn -->
+        <!-- Preparation -->
         <section class="content-section">
             <div class="content-section__container">
-                <div class="learn-box">
-                    <h2 class="learn-box__title">Co se naučíte</h2>
-                    <ul class="learn-box__list">
-                        <li><i class="iconoir-check"></i> Proč holý prompt dává průměrný výsledek&nbsp;— a&nbsp;jak ho vylepšit kontextem</li>
-                        <li><i class="iconoir-check"></i> Jak agentovi dát soubory, obrázky a&nbsp;informace z&nbsp;webu</li>
-                        <li><i class="iconoir-check"></i> Jak funguje cyklus: přemýšlení → tvorba → oprava → povolení → výsledek</li>
-                        <li><i class="iconoir-check"></i> Jak použít plánování (plan mode) pro složitější úkoly</li>
-                    </ul>
+                <span class="content-section__eyebrow">Příprava</span>
+                <h2 class="content-section__title">Co máte k&nbsp;dispozici</h2>
+                <p class="content-section__lead">
+                    V&nbsp;repozitáři webináře jsou předpřipravené soubory, se&nbsp;kterými budete pracovat. Otevřete Claude&nbsp;Code ve&nbsp;složce <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">level-1-beginner/demo-files</code>&nbsp;— v&nbsp;desktopové aplikaci vyberte tuhle složku při vytváření nové relace, v&nbsp;terminálu napište <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">cd level-1-beginner/demo-files</code> a&nbsp;pak <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">claude</code>.
+                </p>
+
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Ve&nbsp;složce <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">demo-files/</code> najdete:</p>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-6);">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; font-size: var(--text-sm);">muj-obsah.md</code>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-sm);">Krátký markdown s&nbsp;informacemi o&nbsp;vás</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; font-size: var(--text-sm);">design-inspirace.png</code>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-sm);">Screenshot designu jako vizuální inspirace</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+                        <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; font-size: var(--text-sm);">CLAUDE.md</code>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-sm);">Jednoduchá pravidla pro agenta (česky, čistý design)</span>
+                    </div>
+                </div>
+
+                <div class="callout callout--success">
+                    <i class="iconoir-info-circle"></i>
+                    <p><strong>Tip:</strong> Než začnete, upravte si <code style="background: rgba(5, 150, 105, 0.1); padding: 2px 6px; border-radius: 4px;">muj-obsah.md</code>&nbsp;— napište tam své jméno, čím se zabýváte, co vás baví. Čím konkrétnější obsah, tím lepší výsledek.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Step 1: Bare prompt -->
+        <!-- Prompt 1a: Bare start -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Krok 1 ze 4</span>
-                <h2 class="content-section__title">Začněte bez kontextu</h2>
+                <span class="content-section__eyebrow">Prompt 1a</span>
+                <h2 class="content-section__title">Holý start&nbsp;— bez kontextu</h2>
                 <p class="content-section__lead">
-                    Nejdřív si vyzkoušejte, co se stane, když agentovi řeknete, co chcete, ale nedáte mu žádný kontext. Výsledek bude funkční, ale obecný&nbsp;— a&nbsp;to je přesně ten bod, od kterého budeme vylepšovat.
+                    Začněte úplně jednoduše. Jedna věta, žádné soubory. Podívejte se, co agent vytvoří, když nemá žádný kontext.
                 </p>
 
                 <div class="prompt-card">
                     <div class="prompt-card__header">
                         <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">Prompt 1</span>
+                        <span class="prompt-card__title">Napište do Claude Code</span>
                     </div>
-                    <p class="prompt-card__desc">Otevřete Claude&nbsp;Code v&nbsp;prázdné složce a&nbsp;napište:</p>
-                    <p class="prompt-card__text">Vytvoř mi osobní stránku — bio, kontakt, portfolio. Čistý, moderní design.</p>
+                    <p class="prompt-card__text">Vytvoř mi osobní webovou stránku. Jmenuju se Slava, pracuju v&nbsp;AI firmě Aibility. Ulož do složky vystupy/01-zaklad/.</p>
                 </div>
 
-                <div class="expected"><strong>Co uvidíte:</strong> Agent vytvoří HTML soubor s&nbsp;generickým obsahem (Lorem ipsum, placeholder jméno). Funkční, ale ne vaše.</div>
+                <div class="expected"><strong>Co pozorujete:</strong> Agent vytvoří stránku&nbsp;— ale je generická, nudná, plná vymyšlených frází. Nemá žádný kontext, tak si vymýšlí.</div>
 
                 <div class="callout callout--warning">
                     <i class="iconoir-info-circle"></i>
-                    <p><strong>Klíčové zjištění:</strong> Bez kontextu agent hádá. Výsledek je „pro kohokoli" — a&nbsp;proto pro nikoho konkrétně. Přesně tohle teď napravíme.</p>
+                    <p><strong>Princip:</strong> Prompt bez kontextu = generický výsledek. Agent je chytrý, ale není jasnovidec.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Step 2: Add context -->
+        <!-- Prompt 1b: Add context file -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Krok 2 ze 4</span>
-                <h2 class="content-section__title">Přidejte kontext</h2>
+                <span class="content-section__eyebrow">Prompt 1b</span>
+                <h2 class="content-section__title">Přidejte soubor s&nbsp;kontextem</h2>
                 <p class="content-section__lead">
-                    Teď dáme agentovi něco, z&nbsp;čeho může čerpat. Vytvořte v&nbsp;té samé složce soubor s&nbsp;pár informacemi o&nbsp;sobě (nebo o&nbsp;komkoli, pro koho stránku děláte).
+                    Teď dáme agentovi něco, z&nbsp;čeho může čerpat&nbsp;— váš soubor <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">muj-obsah.md</code> se skutečnými informacemi.
                 </p>
-
-                <h3 class="sub-heading">Připravte si soubor</h3>
-                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Vytvořte soubor <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">muj-obsah.md</code> a&nbsp;napište do něj pár vět o&nbsp;sobě&nbsp;— jméno, čím se zabýváte, co vás baví, kontakt. Stačí pár řádků, nemusí to být dokonalé. Nebo řekněte agentovi, ať soubor vytvoří za vás:</p>
 
                 <div class="prompt-card">
                     <div class="prompt-card__header">
                         <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">Prompt 2</span>
+                        <span class="prompt-card__title">Napište do Claude Code</span>
                     </div>
-                    <p class="prompt-card__desc">Teď agentovi řeknete, aby pracoval s&nbsp;vaším obsahem:</p>
-                    <p class="prompt-card__text">Přečti si soubor muj-obsah.md a&nbsp;podle něj přepracuj tu osobní stránku. Použij skutečné informace, žádné placeholdery.</p>
+                    <p class="prompt-card__text">Přečti si muj-obsah.md&nbsp;— tam jsou skutečné informace o&nbsp;mně. Zkopíruj vystupy/01-zaklad/ do vystupy/01-obsah/ a&nbsp;přepiš stránku v&nbsp;nové složce podle toho, co se tam dozvíš.</p>
                 </div>
 
-                <div class="expected"><strong>Co uvidíte:</strong> Agent přečte váš soubor a&nbsp;vytvoří stránku s&nbsp;vaším skutečným jménem, vaším popisem, vašimi informacemi. Zásadní rozdíl oproti prvnímu pokusu.</div>
+                <div class="expected"><strong>Co pozorujete:</strong> Agent čte <code style="background: rgba(5, 150, 105, 0.1); padding: 2px 6px; border-radius: 4px;">muj-obsah.md</code>&nbsp;— v&nbsp;terminálu vidíte <em>"Reading muj-obsah.md"</em>. Stránka je najednou osobní, konkrétní, se&nbsp;skutečným obsahem. Stejný agent, stejný projekt&nbsp;— jen dostal kontext.</div>
 
                 <div class="callout callout--success">
                     <i class="iconoir-check-circle"></i>
-                    <p><strong>Princip: „Kontextu je král."</strong> Agent neumí hádat, co chcete. Ale když mu dáte materiál — soubor, odkaz, obrázek — pracuje s&nbsp;ním přesně a&nbsp;věrně. Čím víc kontextu, tím lepší výsledek.</p>
+                    <p><strong>Princip:</strong> Agent čte reálné zdroje, nevymýšlí si z&nbsp;paměti. Říkáme tomu „číst, ne hádat"&nbsp;— vrátíme se k&nbsp;tomu v&nbsp;Levelu&nbsp;3.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Step 3: Add image + web search -->
+        <!-- Prompt 1c: Add visual inspiration -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Krok 3 ze 4</span>
-                <h2 class="content-section__title">Přidejte inspiraci</h2>
+                <span class="content-section__eyebrow">Prompt 1c</span>
+                <h2 class="content-section__title">Přidejte vizuální inspiraci</h2>
                 <p class="content-section__lead">
-                    Claude&nbsp;Code umí víc než číst text. Ukažte mu obrázek jako designovou inspiraci a&nbsp;pošlete ho hledat na&nbsp;web.
+                    Claude&nbsp;Code je multimodální&nbsp;— vidí obrázky, ne jen text. Ukažte mu screenshot designu, který se vám líbí.
                 </p>
-
-                <h3 class="sub-heading">Vizuální inspirace</h3>
-                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Uložte si do složky screenshot webu, který se vám líbí (nebo jakýkoli obrázek s&nbsp;designem, který chcete napodobit).</p>
 
                 <div class="prompt-card">
                     <div class="prompt-card__header">
                         <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">Prompt 3</span>
+                        <span class="prompt-card__title">Napište do Claude Code</span>
                     </div>
-                    <p class="prompt-card__desc">Agent vidí obrázky a&nbsp;umí z&nbsp;nich čerpat styl:</p>
-                    <p class="prompt-card__text">Podívej se na obrázek inspirace.png — líbí se mi tenhle vizuální styl. Uprav moji stránku tak, aby měla podobnou estetiku. Taky prosím vyhledej na webu aktuální trendy v&nbsp;osobních stránkách na rok 2026 a&nbsp;zapracuj je.</p>
+                    <p class="prompt-card__text">Podívej se na design-inspirace.png a&nbsp;zkopíruj vystupy/01-obsah/ do vystupy/01-design/. V&nbsp;nové složce uprav stránku tak, aby co nejvíc odpovídala tomu, co vidíš na obrázku. Převezmi z&nbsp;něj všechno, co jde&nbsp;— barevnou paletu, typografii, layout, tvary, styl tlačítek, spacing. Cílem je, aby výsledek vypadal jako variace té stránky z&nbsp;obrázku, ne jen vzdálená inspirace.</p>
                 </div>
 
-                <div class="expected"><strong>Co uvidíte:</strong> Agent analyzuje obrázek, vyhledá na webu trendy, a&nbsp;přepracuje design vaší stránky. Výsledek má styl inspirace a&nbsp;moderní prvky.</div>
+                <div class="expected"><strong>Co pozorujete:</strong> Agent analyzuje obrázek&nbsp;— barvy, layout, typografie odpovídají inspiraci. Obsah zůstává, mění se jen vizuál.</div>
+
+                <div class="callout callout--success">
+                    <i class="iconoir-check-circle"></i>
+                    <p><strong>Princip:</strong> Kontext nejsou jen texty. Obrázky, screenshoty, diagramy&nbsp;— agent vidí všechno.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prompt 2: Web search -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Prompt 2</span>
+                <h2 class="content-section__title">Web search&nbsp;— reálná data z&nbsp;webu</h2>
+                <p class="content-section__lead">
+                    Agent umí hledat na webu aktuální informace. Nepracuje jen s&nbsp;tím, co „zná" ze&nbsp;svého tréninku.
+                </p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Napište do Claude Code</span>
+                    </div>
+                    <p class="prompt-card__text">Vezmi stránku z&nbsp;vystupy/01-design/ a&nbsp;zkopíruj ji do vystupy/02-trendy/. Tam se podívej, co jsou aktuální trendy v&nbsp;designu osobních stránek v&nbsp;roce 2026 (použij web search) a&nbsp;přidej jednu sekci, která takovému trendu odpovídá a&nbsp;ladí se zbytkem stránky. Napiš komentář, odkud jsi trend vzal. Původní složku nech beze změny.</p>
+                </div>
+
+                <div class="expected"><strong>Co pozorujete:</strong> Agent hledá na webu&nbsp;— reálná data, ne paměť z&nbsp;tréninku. Přidává sekci s&nbsp;odkazem na zdroj.</div>
 
                 <div class="callout">
                     <i class="iconoir-info-circle"></i>
-                    <p><strong>Agent vidí obrázky.</strong> Můžete mu ukázat screenshot, wireframe, nákres na papíře — cokoli vizuálního. Taky umí hledat na webu aktuální informace, takže nepracuje jen s&nbsp;tím, co „zná" ze svého tréninku.</p>
+                    <p><strong>Poznámka:</strong> Claude Code má přístup k&nbsp;webovému vyhledávání nativně&nbsp;— žádný plugin není potřeba.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Step 4: Plan mode -->
+        <!-- Prompt 3: Self-correction + permission -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Krok 4 ze 4</span>
-                <h2 class="content-section__title">Plánujte, pak stavte</h2>
+                <span class="content-section__eyebrow">Prompt 3</span>
+                <h2 class="content-section__title">Samooprava + povolení</h2>
                 <p class="content-section__lead">
-                    Pro složitější úkoly má Claude&nbsp;Code speciální režim: nejdřív naplánuje, co udělá, a&nbsp;teprve pak to provede. Tím předejdete situacím, kdy agent jde špatným směrem a&nbsp;vy to zjistíte pozdě.
+                    Tady uvidíte dvě důležité vlastnosti agenta najednou: umí se sám zkontrolovat a&nbsp;opravit, a&nbsp;než provede akci na vašem počítači, zeptá se na povolení.
                 </p>
 
                 <div class="prompt-card">
                     <div class="prompt-card__header">
                         <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
-                        <span class="prompt-card__title">Prompt 4</span>
+                        <span class="prompt-card__title">Napište do Claude Code</span>
                     </div>
-                    <p class="prompt-card__desc">Požádejte agenta o&nbsp;plán a&nbsp;schvalte ho:</p>
-                    <p class="prompt-card__text">Chci přidat na stránku sekci „Projekty" se třemi kartami. Nejdřív mi navrhni plán, jak to uděláš, a&nbsp;počkej na moje schválení, než začneš.</p>
+                    <p class="prompt-card__text">Zkopíruj poslední složku z&nbsp;vystupy/ do vystupy/03-oprava/. Otevři stránku z&nbsp;vystupy/03-oprava/ v&nbsp;prohlížeči a&nbsp;zkontroluj, že všechno funguje. Pokud najdeš chybu, oprav ji přímo v&nbsp;této složce.</p>
                 </div>
 
-                <div class="expected"><strong>Co uvidíte:</strong> Agent popíše svůj plán (jaké sekce přidá, jak upraví layout, jaký styl použije) a&nbsp;počká na vaše „OK" nebo úpravy. Až schválíte, provede změny.</div>
+                <div class="expected"><strong>Co pozorujete:</strong> Agent chce spustit příkaz (otevřít prohlížeč)&nbsp;— <strong>zeptá se na povolení</strong>. Vy odpovíte <code style="background: rgba(5, 150, 105, 0.1); padding: 2px 6px; border-radius: 4px;">y</code> (povolit) nebo <code style="background: rgba(5, 150, 105, 0.1); padding: 2px 6px; border-radius: 4px;">n</code> (odmítnout). Pokud najde chybu&nbsp;— opraví ji sám a&nbsp;zkusí znovu.</div>
 
                 <div class="callout callout--success">
                     <i class="iconoir-check-circle"></i>
-                    <p><strong>Princip plánování:</strong> U&nbsp;větších úkolů vždycky nejdřív plán, pak realizace. Ušetříte čas, který byste jinak strávili opravováním výsledku. Můžete přímo napsat <code style="background: rgba(5, 150, 105, 0.1); padding: 2px 6px; border-radius: 4px;">/plan</code> nebo v&nbsp;terminálu přepínat režimy pomocí Shift+Tab.</p>
+                    <p><strong>Princip:</strong> Claude Code nemění nic na vašem počítači bez vašeho souhlasu. Konečné rozhodnutí je vždy na vás.</p>
                 </div>
             </div>
         </section>
 
-        <!-- How the agent works -->
+        <!-- Prompt 4: Plan mode -->
         <section class="content-section">
             <div class="content-section__container">
-                <span class="content-section__eyebrow">Pod kapotou</span>
-                <h2 class="content-section__title">Jak agent přemýšlí</h2>
+                <span class="content-section__eyebrow">Prompt 4</span>
+                <h2 class="content-section__title">Plan mode&nbsp;— nejdřív plán, pak kód</h2>
                 <p class="content-section__lead">
-                    Všimněte si, co se děje, když agent pracuje. Není to jen „otázka → odpověď" jako u&nbsp;chatbota. Agent prochází cyklem:
+                    Pro složitější úkoly má Claude&nbsp;Code speciální režim: nejdřív naplánuje, co udělá, a&nbsp;teprve pak to provede. Tenhle krok ukážeme ve dvou fázích.
+                </p>
+
+                <h3 class="sub-heading">Fáze A&nbsp;— návrh plánu</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Před tímhle promptem přepněte do <strong>plan mode</strong> stiskem <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">Shift+Tab</code> (v&nbsp;terminálu uvidíte indikátor plan mode).</p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Napište do Claude Code (plan mode)</span>
+                    </div>
+                    <p class="prompt-card__text">Zkopíruj vystupy/03-oprava/ do vystupy/04-iterace/. V&nbsp;téhle nové složce chci přidat sekci "Co dělám" se třemi kartami a&nbsp;přepnout celou stránku do tmavého režimu. Ještě nic neměň&nbsp;— navrhni plán: jaké soubory upravíš, jaké barvy použiješ pro dark mode, jak budou karty vypadat. Počkej na mé schválení.</p>
+                </div>
+
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-6);">Projděte si plán. Pokud chcete něco upravit (jiné barvy, jiný počet karet, jiná struktura), napište to v&nbsp;další zprávě&nbsp;— agent plán přepracuje.</p>
+
+                <h3 class="sub-heading">Fáze B&nbsp;— provedení</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Jakmile jste s&nbsp;plánem spokojení, stiskněte <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">Shift+Tab</code> pro odchod z&nbsp;plan mode a&nbsp;napište:</p>
+
+                <div class="prompt-card">
+                    <div class="prompt-card__header">
+                        <div class="prompt-card__icon"><i class="iconoir-sparks"></i></div>
+                        <span class="prompt-card__title">Napište do Claude Code</span>
+                    </div>
+                    <p class="prompt-card__text">Super, jdi na to podle plánu.</p>
+                </div>
+
+                <div class="expected"><strong>Co pozorujete:</strong> Plan mode zabrání agentovi dělat změny, dokud plán neschválíte. Můžete iterovat na plánu bez toho, aby vznikaly zbytečné soubory. Ve fázi B agent doplňuje existující projekt podle odsouhlaseného plánu.</div>
+
+                <div class="callout callout--success">
+                    <i class="iconoir-check-circle"></i>
+                    <p><strong>Princip:</strong> U&nbsp;složitějších změn je levnější opravit plán než opravovat kód. Plan mode je vaše pojistka proti tomu, že agent vyrazí špatným směrem.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agent anatomy -->
+        <section class="content-section">
+            <div class="content-section__container">
+                <span class="content-section__eyebrow">Shrnutí</span>
+                <h2 class="content-section__title">Anatomie agentovy práce</h2>
+                <p class="content-section__lead">
+                    Právě jste viděli všechny fáze v&nbsp;akci. Pojďme si je pojmenovat:
                 </p>
 
                 <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-3); margin: var(--space-8) 0; text-align: center;">
                     <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
                         <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(80, 0, 171, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-accent-primary); font-size: var(--text-xl);"><i class="iconoir-brain"></i></div>
-                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Přemýšlení</span>
-                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Analyzuje úkol</span>
+                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Thinking</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Přemýšlí, plánuje postup</span>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
                         <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(80, 0, 171, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-accent-primary); font-size: var(--text-xl);"><i class="iconoir-hammer"></i></div>
                         <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Tvorba</span>
-                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Píše kód, soubory</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Vytváří celé soubory</span>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
                         <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(80, 0, 171, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-accent-primary); font-size: var(--text-xl);"><i class="iconoir-refresh-double"></i></div>
-                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Oprava</span>
-                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Kontroluje sám sebe</span>
+                        <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Samooprava</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Najde chybu, opraví, zkusí znovu</span>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
                         <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(80, 0, 171, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-accent-primary); font-size: var(--text-xl);"><i class="iconoir-lock"></i></div>
                         <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Povolení</span>
-                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Ptá se vás</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Zeptá se vás, vy rozhodujete</span>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2);">
                         <div style="width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(5, 150, 105, 0.08); display: flex; align-items: center; justify-content: center; color: var(--color-success); font-size: var(--text-xl);"><i class="iconoir-check"></i></div>
                         <span style="font-size: var(--text-xs); font-weight: var(--font-semibold); color: var(--color-text-primary);">Výsledek</span>
-                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Hotovo</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">Hotový projekt ve&nbsp;složce</span>
                     </div>
                 </div>
 
@@ -343,14 +419,14 @@
                 <span class="content-section__eyebrow">Zkuste to sami</span>
                 <h2 class="content-section__title">Tři nápady na&nbsp;procvičení</h2>
                 <p class="content-section__lead">
-                    Vyberte si jeden a&nbsp;pusťte se do toho. Každý z&nbsp;nich využívá to, co jste se právě naučili&nbsp;— kontext, soubory, plánování.
+                    Vyberte si jeden a&nbsp;pusťte se do toho. Každý z&nbsp;nich využívá to, co jste právě viděli&nbsp;— kontext, soubory, plánování.
                 </p>
 
                 <div class="try-grid">
                     <article class="try-card">
                         <div class="try-card__letter">A</div>
                         <h3 class="try-card__title">Osobní stránka</h3>
-                        <p class="try-card__desc">Vytvořte si svou vlastní stránku od&nbsp;nuly. Připravte soubor s&nbsp;informacemi o&nbsp;sobě a&nbsp;obrázek jako inspiraci.</p>
+                        <p class="try-card__desc">Vytvořte si svou vlastní stránku od&nbsp;nuly. Upravte <code style="font-size: var(--text-xs);">muj-obsah.md</code>, přidejte vlastní obrázek jako inspiraci.</p>
                         <p class="try-card__prompt">„Vytvoř mi osobní stránku podle souboru muj-obsah.md a&nbsp;podle vizuálního stylu v&nbsp;obrázku inspirace.png. Stránka má být v&nbsp;češtině."</p>
                     </article>
 

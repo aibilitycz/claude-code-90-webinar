@@ -2224,6 +2224,30 @@ button {
     padding-left: var(--space-1);
 }
 
+.accordion__content code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: var(--text-sm);
+}
+
+.accordion__links {
+    font-size: var(--text-sm) !important;
+    color: var(--color-text-tertiary) !important;
+    margin-top: var(--space-3);
+}
+
+.accordion__links a {
+    color: var(--color-accent-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.accordion__links a:hover {
+    opacity: 0.7;
+}
+
 /* ==========================================================================
    Phone Mockup / Presentation
    ========================================================================== */
