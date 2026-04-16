@@ -255,69 +255,6 @@
             </div>
         </section>
 
-        <!-- Security and permissions -->
-        <section class="content-section">
-            <div class="content-section__container">
-                <span class="content-section__eyebrow">Bezpečnost</span>
-                <h2 class="content-section__title">Jak je to s&nbsp;přístupem a&nbsp;daty</h2>
-                <p class="content-section__lead">
-                    Častá otázka: může agent smazat moje soubory? Vidí moje hesla? Kam posílá moje data?
-                </p>
-
-                <div style="display: flex; flex-direction: column; gap: var(--space-4); margin: var(--space-6) 0;">
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
-                        <i class="iconoir-lock" style="color: var(--color-accent-primary); font-size: var(--text-xl); flex-shrink: 0; margin-top: 2px;"></i>
-                        <div>
-                            <strong style="color: var(--color-text-primary);">Přístup jen ke&nbsp;složce</strong>
-                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 4px 0 0;">Agent má přístup jen ke&nbsp;složce, ve&nbsp;které běží&nbsp;— ne k&nbsp;celému počítači. U&nbsp;nebezpečných akcí (mazání, instalace) se vás vždy zeptá na&nbsp;povolení.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
-                        <i class="iconoir-shield-check" style="color: var(--color-accent-primary); font-size: var(--text-xl); flex-shrink: 0; margin-top: 2px;"></i>
-                        <div>
-                            <strong style="color: var(--color-text-primary);">Kontrola nad&nbsp;daty</strong>
-                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 4px 0 0;">Vaše prompty a&nbsp;soubory se posílají na&nbsp;servery Anthropic ke&nbsp;zpracování. U&nbsp;firemních plánů (Team, Enterprise) se data nepoužívají k&nbsp;trénování a&nbsp;uchovávají se maximálně 30&nbsp;dní. U&nbsp;osobních plánů si nastavení soukromí upravíte v&nbsp;claude.ai/settings.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
-                        <i class="iconoir-settings" style="color: var(--color-accent-primary); font-size: var(--text-xl); flex-shrink: 0; margin-top: 2px;"></i>
-                        <div>
-                            <strong style="color: var(--color-text-primary);">Režimy oprávnění</strong>
-                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 4px 0 0;">Můžete si zvolit, jak moc volnosti agentovi dáte: od&nbsp;„ptej se na&nbsp;všechno" po&nbsp;„dělej sám". Pro začátek nechte výchozí nastavení&nbsp;— agent se bude ptát u&nbsp;důležitých kroků.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <p style="color: var(--color-text-tertiary); font-size: var(--text-sm);">Pro firmy Anthropic nabízí enterprise licencování s&nbsp;přísnějšími bezpečnostními zárukami.</p>
-            </div>
-        </section>
-
-        <!-- Token management -->
-        <section class="content-section">
-            <div class="content-section__container">
-                <span class="content-section__eyebrow">Tip</span>
-                <h2 class="content-section__title">Jak šetřit tokeny</h2>
-                <p class="content-section__lead">
-                    Tokeny jsou jednotky „myšlení", které agent spotřebovává. Čím víc musí hledat a&nbsp;přemýšlet, tím víc jich utratí. Tři způsoby, jak je šetřit:
-                </p>
-
-                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-6) 0;">
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
-                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">1.</span>
-                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Začínejte ve&nbsp;správné složce.</strong> Nespouštějte agenta v&nbsp;kořenové složce celého počítače. Vždy jděte do&nbsp;konkrétního projektu.</span>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
-                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">2.</span>
-                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Vytvořte si CLAUDE.md.</strong> Jedna věta o&nbsp;projektu ušetří stovky tokenů, protože agent nemusí hádat, s&nbsp;čím pracuje.</span>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
-                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">3.</span>
-                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Používejte <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/compact</code>.</strong> Když konverzace naroste, tenhle příkaz ji zkrátí a&nbsp;uvolní místo v&nbsp;kontextovém okně.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Read don't guess -->
         <section class="content-section">
             <div class="content-section__container">
