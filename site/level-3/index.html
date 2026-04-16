@@ -212,8 +212,13 @@
                 <span class="content-section__eyebrow">Krok 1</span>
                 <h2 class="content-section__title">Vytvořte CLAUDE.md s&nbsp;cestovními preferencemi</h2>
                 <p class="content-section__lead">
-                    CLAUDE.md je soubor, který agent přečte pokaždé, když ho spustíte. Napíšete tam jednou, co potřebuje vědět&nbsp;— a&nbsp;on to pak respektuje v&nbsp;každém promptu.
+                    CLAUDE.md je soubor, který agent přečte pokaždé, když ho spustíte. Je to <strong>mapa vašeho projektu</strong>&nbsp;— říká agentovi, kde co najde, jaká pravidla platí a&nbsp;jak se má chovat. Bez mapy agent bloudí a&nbsp;hádá. S&nbsp;mapou ví přesně, co od&nbsp;něj chcete.
                 </p>
+
+                <div class="callout">
+                    <i class="iconoir-info-circle"></i>
+                    <p><strong>Princip harness engineering:</strong> Agent = model + harness. Model je mozek, harness je všechno ostatní&nbsp;— pravidla, kontext, nástroje, testy. CLAUDE.md je srdce toho harnesse. Čím lepší mapu agentovi dáte, tím méně ho musíte hlídat. <a href="https://martinfowler.com/articles/harness-engineering.html" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Martin Fowler</a> tomu říká „feedforward control"&nbsp;— předáváte agentovi zkušenosti svého týmu, než začne pracovat.</p>
+                </div>
 
                 <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
                     Ve složce <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">demo-files/</code> je připravený CLAUDE.md s&nbsp;tímhle obsahem:
@@ -498,6 +503,29 @@
 - Nejdřív si přečti zadání projektu a předchozí reporty
 - Když se odkazuješ na data, ověř si je — neuvádíš čísla z paměti</code></pre>
                 </div>
+                <h3 class="sub-heading">Jak napsat dobrý CLAUDE.md</h3>
+                <p style="color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    Harness engineering učí, že dobrý CLAUDE.md má tři vlastnosti:
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-4) 0 var(--space-6);">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">1.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Je to mapa, ne encyklopedie.</strong> Pište jen to, co agent nemůže zjistit sám z&nbsp;kódu nebo souborů. Pravidla, preference, konvence&nbsp;— ne popisy toho, co je v&nbsp;souborech.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">2.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Krátký a&nbsp;konkrétní.</strong> Když je CLAUDE.md příliš dlouhý, agent polovinu ignoruje. Doporučení: pod 200 řádků. Důležité věci zvýrazněte slovem DŮLEŽITÉ nebo VŽDY.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
+                        <span style="color: var(--color-text-primary); font-size: var(--text-base); font-weight: var(--font-bold);">3.</span>
+                        <span style="color: var(--color-text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);"><strong>Vyvíjí se s&nbsp;vámi.</strong> Začněte příkazem <code style="background: var(--code-bg); padding: 2px 6px; border-radius: 4px;">/init</code>&nbsp;— agent vytvoří základ z&nbsp;obsahu vaší složky. Pak ho postupně vylepšujte: když agent udělá chybu, přidejte pravidlo, které jí příště zabrání.</span>
+                    </div>
+                </div>
+
+                <p style="font-size: var(--text-sm); color: var(--color-text-tertiary);">
+                    Více o&nbsp;harness engineering: <a href="https://martinfowler.com/articles/harness-engineering.html" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Martin Fowler</a> · <a href="https://www.latent.space/p/harness-eng" target="_blank" rel="noopener" style="color: var(--color-accent-primary);">Latent Space</a>
+                </p>
             </div>
         </section>
 
